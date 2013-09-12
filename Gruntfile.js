@@ -20,24 +20,18 @@ module.exports = function(grunt) {
     copy: {
       main: {
         files: [
-          { expand: true, cwd: 'bower_components/jquery', src: ['jquery.min.js'], dest: 'dist/js', filter: 'isFile' },
-          { expand: true, cwd: 'bower_components/zepto', src: ['zepto.min.js'], dest: 'dist/js', filter: 'isFile' }
+          { expand: true, cwd: 'src/', src: ['*.html'], dest: '/', filter: 'isFile' },
+        ]
+      },
+      javascript: {
+        files: [
+          { expand: true, cwd: 'bower_components/jquery', src: ['jquery.min.js'], dest: 'dist/javascripts', filter: 'isFile' },
+          { expand: true, cwd: 'bower_components/zepto', src: ['zepto.min.js'], dest: 'dist/javascripts', filter: 'isFile' }
         ]
       },
       assets: {
         files: [
           { expand: true, cwd: 'src/assets', src: ['**'], dest: 'dist/assets' }
-        ]
-      }
-    }
-
-    rename: {
-      fullcalendar: {
-        files: [
-          {
-            src: 'src/less/fullcalendar/fullcalendar.css',
-            dest: 'src/less/fullcalendar/fullcalendar.less'
-          }
         ]
       }
     },
@@ -50,7 +44,7 @@ module.exports = function(grunt) {
         files: [
           {
             src: ['src/javascripts/app.js'],
-            dest: 'assets/js/<%= pkg.name %>.min.js'
+            dest: 'dist/javascripts/<%= pkg.name %>.min.js'
           }
         ]
       }
@@ -89,22 +83,21 @@ module.exports = function(grunt) {
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-rename');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-recess');
 
   // JS distribution task.
-  grunt.registerTask('dist-js', ['<%= copy.main %>', 'concat', 'uglify']);
+  grunt.registerTask('dist-js', ['uglify']);
 
   // Copy assets
-  grunt.registerTask('dist-assets', ['<%= copy.assets %>']);
+  grunt.registerTask('dist-copy', ['copy']);
 
   // CSS distribution task.
   grunt.registerTask('dist-css', ['recess']);
 
   // Full distribution task.
-  grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js', 'dist-assets']);
+  grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js', 'dist-copy']);
 
   // Default task.
   grunt.registerTask('default', ['dist-css', 'dist-js']);
