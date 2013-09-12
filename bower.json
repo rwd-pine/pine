@@ -1,0 +1,8 @@
+{
+  "name": "responsive-navigation",
+  "version": "1.0.0",
+  "dependencies": {
+    "zepto": "git://github.com/components/zepto.git#1.0.0",
+    "jquery": "git://github.com/components/jquery.git"
+  }
+}
