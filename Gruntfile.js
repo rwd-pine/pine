@@ -17,16 +17,35 @@ module.exports = function(grunt) {
       dist: ['dist']
     },
 
+    // Sound of the future
+    // --------------------
+    // jshint: {
+    //   options: {
+    //     jshintrc: 'src/javascripts/.jshintrc'
+    //   },
+    //   gruntfile: {
+    //     src: 'Gruntfile.js'
+    //   },
+    //   src: {
+    //     src: ['src/javascripts/*.js']
+    //   },
+    //   test: {
+    //     src: ['src/javascripts/tests/unit/*.js']
+    //   }
+    // },
+
+
     copy: {
       main: {
         files: [
-          { expand: true, cwd: 'src/', src: ['*.html'], dest: '/', filter: 'isFile' },
+          { expand: true, cwd: 'src/', src: ['*.html'], dest: '', filter: 'isFile' },
         ]
       },
       javascript: {
         files: [
           { expand: true, cwd: 'bower_components/jquery', src: ['jquery.min.js'], dest: 'dist/javascripts', filter: 'isFile' },
-          { expand: true, cwd: 'bower_components/zepto', src: ['zepto.min.js'], dest: 'dist/javascripts', filter: 'isFile' }
+          { expand: true, cwd: 'bower_components/zepto', src: ['zepto.min.js'], dest: 'dist/javascripts', filter: 'isFile' },
+          { expand: true, cwd: 'src/javascripts/', src: ['app.js'], dest: 'dist/javascripts', filter: 'isFile' }
         ]
       },
       assets: {
