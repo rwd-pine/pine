@@ -52,6 +52,22 @@ module.exports = function(grunt) {
         files: [
           { expand: true, cwd: 'src/assets', src: ['**'], dest: 'dist/assets' }
         ]
+      },
+      styles: {
+        files: [
+          { expand: true, cwd: 'bower_components/normalize-css', src: ['normalize.css'], dest: 'src/stylesheets' }
+        ]
+      }
+    },
+
+    rename: {
+      normalize: {
+        files: [
+          {
+            src: 'src/stylesheets/normalize.css',
+            dest: 'src/stylesheets/normalize.less'
+          }
+        ]
       }
     },
 
@@ -104,19 +120,20 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-rename');
   grunt.loadNpmTasks('grunt-recess');
 
   // JS distribution task.
   grunt.registerTask('dist-js', ['uglify']);
 
   // Copy assets
-  grunt.registerTask('dist-copy', ['copy']);
+  grunt.registerTask('dist-copy', ['copy', 'rename']);
 
   // CSS distribution task.
   grunt.registerTask('dist-css', ['recess']);
 
   // Full distribution task.
-  grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js', 'dist-copy']);
+  grunt.registerTask('dist', ['clean', 'copy', 'rename', 'dist-css', 'dist-js']);
 
   // Default task.
   grunt.registerTask('default', ['dist-css', 'dist-js']);
