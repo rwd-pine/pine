@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">  
+	
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Responsive navigation — vertical test</title>
+
+  <!-- Common stylesheet for all devices -->
+  <link rel="stylesheet" href="./dist/stylesheets/app.css">
+
+  <!-- Test related styles -->  
+  <style>
+      .nav-container {
+        margin: 1em;
+        width: 15em;
+      }
+      
+      @media (max-width: 599px) {
+        .nav-container {
+          width: auto;
+        }
+      }
+  </style>
+  
+
+  
+</head>
+
+<body>
+  
+  
+  <div class="nav-container">
+    <div role="navigation" class="nav-vertical">
+        <ul>
+          <li>
+            <span class="nav-item">
+              <strong>
+                Home
+              </strong>
+            </span>
+          </li>
+          <li>
+            <span class="nav-item">
+              <a href="#">
+                About
+              </a>
+              <ul>
+                <li>
+                  <span class="nav-item">
+                    <a href="#">
+                      Our team
+                    </a>
+                    <ul>
+                      <li>
+                        <span class="nav-item">
+                          <a href="#">
+                            Who we are
+                          </a>
+                        </span>
+                      </li>
+                      <li>
+                        <span class="nav-item">
+                          <a href="#">
+                            Very very very very long nav item
+                          </a>
+                        </span>
+                      </li>
+                      <li>
+                        <span class="nav-item">
+                          <a href="#">
+                            Third level
+                          </a>
+                        </span>
+                      </li>
+                    </ul>
+                  </span>
+                </li>
+                <li>
+                  <span class="nav-item">
+                    <a href="#">
+                      Our families
+                    </a>
+                  </span>
+                </li>
+              </ul>
+            </span>
+          </li>
+          <li>
+            <span class="nav-item">
+              <a href="#">
+                Special item
+              </a>
+            </span>
+          </li>
+          <li>
+            <span class="nav-item">
+              <a href="#">
+                Products
+              </a>
+              <ul>
+                <li>
+                  <span class="nav-item">
+                    <a href="#">
+                      First product
+                    </a>
+                  </span>
+                </li>
+                <li>
+                  <span class="nav-item">
+                    <a href="#">
+                      Second product
+                    </a>
+                  </span>
+                </li>
+                <li>
+                  <span class="nav-item">
+                    <a href="#">
+                      Third product
+                    </a>
+                  </span>
+                </li>  
+                <li>
+                  <span class="nav-item">
+                    <a href="#">
+                      Fourth product
+                    </a>
+                  </span>
+                </li>                          
+              </ul>
+            </span>
+          </li>
+          <li>
+            <span class="nav-item">
+              <a href="#">
+                Contact
+              </a>
+            </span>
+          </li>
+          <li>
+            <span class="nav-item">
+              <a href="#">
+                Last navigation item is very very long
+              </a>
+            </span>
+          </li>
+        </ul>
+      </div><!-- [role=navigation] -->
+    </div>    
+  </div><!-- .nav-container -->
+  
+
+
+</body>
+</html>

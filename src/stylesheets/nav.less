@@ -1,0 +1,401 @@
+/**
+ * Responsive navigation
+ */
+
+// Default: Vertikalni (male screeny + vertikalni varianta pro velke) 
+// ------------------------------------------------------------------
+
+// Na malych screenech a bez js pozicovano zcela prirozene
+// podle aktualniho umisteni v HTML
+
+[role='navigation'] {
+	z-index: 50000; // Kvuli ovladacim prvkum v redakcnim systemu
+
+	@media print {
+		display: none;
+	}
+
+	// Schovavani (na malych displejich) pomoci JS
+	.container-fluid &.hidden {
+		display: none;
+	}
+
+	// Na malych screenech s JS pozicovano absolutne
+	// nad obsah, hned pod .wm-l-mobile-header
+	.js & {
+		position: absolute;
+		top: 50px;
+		left: 0;
+		width: 100%;
+	}
+}
+
+// Vnitrek navigace
+[role='navigation'] {
+	ul,
+	li {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+
+	li > .nav-item > a,
+	li > .nav-item > strong {
+		display: block;
+		padding: @rwnPaddingMedium;
+		color: @rwnColorNav;
+		font-weight: normal;
+		.text-overflow();
+		text-decoration: none;
+		border-bottom: 1px solid #fff;
+		background: @rwnColorSmallScreenNavBg;
+	}
+
+	// Aktivni polozka
+	li > .nav-item > a:hover,
+	li > .nav-item > a:focus,
+	li > .nav-item > a:active,
+	li > .nav-item > a.active,
+	li > .nav-item > strong {
+		background: @rwnColorSmallScreenNavActive;
+		color: @rwnColorNavHover;
+	}
+
+	// Druha uroven zanoreni
+	ul ul li > .nav-item > a,
+	ul ul li > .nav-item > strong {
+		text-indent: 1em;
+	}
+
+	// Treti uroven zanoreni
+	ul ul ul li > .nav-item > a,
+	ul ul ul li > .nav-item > strong {
+		text-indent: 2em;
+	}
+
+}
+
+// Variants: Horizontal and vertical
+
+[role='navigation'].nav-horizontal {
+	.nav-horizontal;
+}
+
+[role='navigation'].nav-vertical {
+	.nav-vertical;
+}
+
+
+// Mixiny
+// ------------------------------------------------------------------
+
+// ### Mixin: Vertikalni varianta  pro velke screeny
+
+// TODO pomoci .nav-container zesilujeme specificnost, abychom prebili mobilni nastaveni navigace
+
+.nav-vertical() {
+	// Rozklikavaci vertikalni verze pro velke displeje
+	@media (min-width: @rwnLargeDisplayStart) {
+		.nav-container & {
+			.nav-large-display();
+			.nav-large-display-vertical();
+		}
+	}
+
+	// Rozklikavaci vertikalni verze: IE8-
+	.old-ie .nav-container & {
+		.nav-large-display();
+		.nav-large-display-vertical();
+	}
+}
+
+// ### Mixin: Horizontalni varianta pro velke screeny
+
+// Opakovani mixinu .sw-main-navigation-horizontal je hack kvuli neschopnosti LESSu
+// spojit css selektor s vnorenou media querie do jednoho vnoreneho selektoru.
+// TODO pomoci .nav-container zesilujeme specificnost, abychom prebili mobilni nastaveni navigace
+
+.nav-horizontal() {
+	@media (min-width: @rwnLargeDisplayStart) {
+		.nav-container & {
+			.nav-large-display();
+			.nav-large-display-horizontal();
+		}
+	}
+
+	.old-ie .nav-container & {
+		.nav-large-display();
+		.nav-large-display-horizontal();
+	}
+}
+
+// ### Mixin: Navigace pro velke screeny
+
+.nav-large-display() {
+	position: static;
+	top: auto;
+	left: auto;
+	background: @rwnColorNavLevel1Bg;
+
+	// Polozka navigace
+	.nav-item {
+		display: block;
+	}
+
+	// Prvni uroven zanoreni
+	.nav-item > a,
+	.nav-item > strong {
+		text-indent: 0;
+		padding-top: 18px;
+		padding-bottom: 18px;
+		font-size: @rwnNavLevel1FontSize;
+		background: @rwnColorNavLevel1Bg;
+		border-bottom: 0;		
+	}
+
+	// Aktivni polozka
+	.nav-item > a:hover,
+	.nav-item > a:focus,
+	.nav-item > a:active,
+	.nav-item > a.active,
+	.nav-item > strong {
+		background: @rwnColorNavLevel2Bg;
+		color: @rwnColorNavHover;
+	}
+
+	// Druha uroven zanoreni
+	ul ul .nav-item > a,
+	ul ul .nav-item > strong {
+		background: @rwnColorNavLevel2Bg;
+		padding-top: 6px;
+		padding-bottom: 6px;
+		font-size: @rwnNavLevel2FontSize;
+		color: @rwnColorNavLevel2;
+	}
+
+	// Aktivni polozka druhe urovne
+	ul ul .nav-item > a:hover,
+	ul ul .nav-item > a:focus,
+	ul ul .nav-item > a:active,
+	ul ul .nav-item > a.active,
+	ul ul .nav-item > strong {
+		background: @rwnColorNavLevel3Bg;
+		color: @rwnColorNavLevel2Hover;
+	}
+
+	// Treti uroven zanoreni
+	ul ul ul .nav-item > a,
+	ul ul ul .nav-item > strong {
+		background: @rwnColorNavLevel3Bg;
+		padding-top: 6px;
+		padding-bottom: 6px;
+		font-size: @rwnNavLevel3FontSize;
+		color: @rwnColorNavLevel3;
+	}
+
+	// Aktivni polozka treti urovne
+	ul ul ul .nav-item > a:hover,
+	ul ul ul .nav-item > a:focus,
+	ul ul ul .nav-item > a:active,
+	ul ul ul .nav-item > a.active,
+	ul ul ul .nav-item > strong {
+		background: @rwnColorNavLevel3Bg;
+		text-decoration: underline;
+		color: @rwnColorNavLevel3Hover;
+	}
+}
+
+// ### Mixin: Vertikalni varianta navigace pro velke screeny
+
+.nav-large-display-vertical() {
+	padding-top: 8px;
+	padding-bottom: 8px;
+
+	// - Nerozbaleny stav -
+	ul li {
+		position: relative;
+	}
+
+	// Zabaleny stav druhe a treti urovne
+	ul ul {
+		position: absolute;
+		top: 0;
+		left: -999px;
+	}
+
+	// Prvni uroven zanoreni
+	.nav-item > a,
+	.nav-item > strong {
+		padding-top: 8px;
+		padding-bottom: 8px;
+	}
+
+	// - Rozbaleny stav: bez JS -
+
+	// Otevrena druha uroven
+	ul > li > .nav-item:hover,
+	ul > li > .nav-item:focus,
+	ul > li > .nav-item:active,
+	ul > li > .nav-item.active {
+		> ul {
+			.nav-large-display-horizontal-2nd-level;
+		}
+	}	
+
+	// Otevrena treti uroven
+	ul ul > li > .nav-item:hover,
+	ul ul > li > .nav-item:focus,
+	ul ul > li > .nav-item:active,
+	ul ul > li > .nav-item.active {
+		> ul {
+			.nav-large-display-horizontal-3rd-level;
+		}
+	}
+
+	// - Rozbaleny stav: s JS -
+
+	.js & {
+		// Zvyrazneni aktivni polozky 1. urovne
+		li.sw-navmenu-li-shown > .nav-item > a {
+			background: @rwnColorNavLevel2Bg;
+			color: @rwnColorNavHover;
+		}
+
+		// Zvyrazneni aktivni polozky 2. urovne
+		ul ul li.sw-navmenu-li-shown > .nav-item > a {
+			background: @rwnColorNavLevel3Bg;
+			color: @rwnColorNavLevel2Hover;
+		}
+
+		// Otevrena druha uroven
+		ul > li.sw-navmenu-li-shown > .nav-item > ul {
+			.nav-large-display-horizontal-2nd-level;
+		}
+
+		// Otevrena treti uroven
+		ul ul > li.sw-navmenu-li-shown > .nav-item > ul {
+			.nav-large-display-horizontal-3rd-level;
+		}
+	}
+
+	// Mixin: styl pro otevrenou druhou uroven zanoreni
+	.nav-large-display-horizontal-2nd-level() {
+		z-index: 50001;
+		left: 100%;
+		max-width: 313px; // Max. sirka polozky v plne sirce layoutu
+	}
+
+	// Mixin: styl pro otevrenou treti uroven zanoreni
+	.nav-large-display-horizontal-3rd-level() {
+		z-index: 50002;
+	}
+}
+
+// ### Mixin: Horizontalni varianta navigace pro velke screeny
+
+.nav-large-display-horizontal() {
+	background: @rwnColorNavLevel1Bg;
+	display: table; // Table protoze nevime kolik bude polozek na radku
+	table-layout: fixed;	// Trik pro stejnou sirku polozek http://stackoverflow.com/questions/10525744/css-table-cell-equal-width
+	width: 100%;
+
+	> ul {
+		display: table-row;
+	}
+
+	> ul > li {
+		display: inline-block; // Fallback kdyz nefici display: table
+		display: table-cell;
+	}
+
+	> ul > li > .nav-item > a,
+	> ul > li > .nav-item > strong {
+		text-align: center;
+		display: block;
+	}
+
+	// - Nerozbaleny stav -
+
+	ul .nav-item {
+		position: relative;
+	}
+
+	// Zabaleny stav druhe a treti urovne
+	ul ul {
+		position: absolute;
+		top: -999px;
+		left: 0;
+		padding-top: 8px;
+		padding-bottom: 8px;
+		background: @rwnColorNavLevel2Bg;
+	}
+
+	// Treti uroven zanoreni nema odsazeni zezhora a zezdola z druhe
+	ul ul ul {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	// - Rozbaleny stav: bez JS -
+
+	// Otevrena druha uroven
+	ul > li > .nav-item:hover,
+	ul > li > .nav-item:focus,
+	ul > li > .nav-item:active,
+	ul > li > .nav-item.active {
+		> ul {
+			.nav-large-display-horizontal-2nd-level;
+		}
+	}
+
+	// Otevrena treti uroven
+	ul ul > li > .nav-item:hover,
+	ul ul > li > .nav-item:focus,
+	ul ul > li > .nav-item:active,
+	ul ul > li > .nav-item.active {
+		> ul {
+			.nav-large-display-horizontal-3rd-level;
+		}
+	}
+
+	// - Rozbaleny stav: s JS -
+
+	.js & {
+		// Zvyrazneni aktivni polozky 1. urovne
+		li.sw-navmenu-li-shown > .nav-item > a {
+			background: @rwnColorNavLevel2Bg;
+			color: @rwnColorNavHover;
+		}
+
+		// Zvyrazneni aktivni polozky 2. urovne
+		ul ul li.sw-navmenu-li-shown > .nav-item > a {
+			background: @rwnColorNavLevel3Bg;
+			color: @rwnColorNavLevel2Hover;
+		}
+
+		// Otevrena druha uroven
+		ul > li.sw-navmenu-li-shown > .nav-item > ul {
+			.nav-large-display-horizontal-2nd-level;
+		}
+
+		// Otevrena treti uroven
+		ul ul > li.sw-navmenu-li-shown > .nav-item > ul {
+			.nav-large-display-horizontal-3rd-level;
+		}
+	}
+
+	// Mixin: styl pro otevrenou druhou uroven zanoreni
+	.nav-large-display-horizontal-2nd-level() {
+		z-index: 50001;
+		left: 0;
+		top: 100%;
+		max-width: 313px; // Max. sirka polozky v plne sirce layoutu
+	}
+
+	// Mixin: styl pro otevrenou treti uroven zanoreni
+	.nav-large-display-horizontal-3rd-level() {
+		z-index: 50002;
+		left: 100%;
+		top: 0;
+	}
+}
