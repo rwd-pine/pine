@@ -39,8 +39,8 @@
 		list-style-type: none;
 	}
 
-	li > .nav-item > a,
-	li > .nav-item > strong {
+	li > a,
+	li > strong {
 		display: block;
 		padding: @rwnPaddingMedium;
 		color: @rwnColorNav;
@@ -52,24 +52,23 @@
 	}
 
 	// Aktivni polozka
-	li > .nav-item > a:hover,
-	li > .nav-item > a:focus,
-	li > .nav-item > a:active,
-	li > .nav-item > a.active,
-	li > .nav-item > strong {
+	li a:hover,
+	li a:focus,
+	li a:active,
+	li strong {
 		background: @rwnColorSmallScreenNavActive;
 		color: @rwnColorNavHover;
 	}
 
 	// Druha uroven zanoreni
-	ul ul li > .nav-item > a,
-	ul ul li > .nav-item > strong {
+	ul ul li > a,
+	ul ul li > strong {
 		text-indent: 1em;
 	}
 
 	// Treti uroven zanoreni
-	ul ul ul li > .nav-item > a,
-	ul ul ul li > .nav-item > strong {
+	ul ul ul li > a,
+	ul ul ul li > strong {
 		text-indent: 2em;
 	}
 
@@ -91,19 +90,15 @@
 
 // ### Mixin: Vertikalni varianta  pro velke screeny
 
-// TODO pomoci .nav-container zesilujeme specificnost, abychom prebili mobilni nastaveni navigace
-
 .nav-vertical() {
 	// Rozklikavaci vertikalni verze pro velke displeje
 	@media (min-width: @rwnLargeDisplayStart) {
-		.nav-container & {
-			.nav-large-display();
-			.nav-large-display-vertical();
-		}
+		.nav-large-display();
+		.nav-large-display-vertical();
 	}
 
 	// Rozklikavaci vertikalni verze: IE8-
-	.old-ie .nav-container & {
+	.old-ie & {
 		.nav-large-display();
 		.nav-large-display-vertical();
 	}
@@ -113,17 +108,14 @@
 
 // Opakovani mixinu .sw-main-navigation-horizontal je hack kvuli neschopnosti LESSu
 // spojit css selektor s vnorenou media querie do jednoho vnoreneho selektoru.
-// TODO pomoci .nav-container zesilujeme specificnost, abychom prebili mobilni nastaveni navigace
 
 .nav-horizontal() {
 	@media (min-width: @rwnLargeDisplayStart) {
-		.nav-container & {
-			.nav-large-display();
-			.nav-large-display-horizontal();
-		}
+		.nav-large-display();
+		.nav-large-display-horizontal();
 	}
 
-	.old-ie .nav-container & {
+	.old-ie & {
 		.nav-large-display();
 		.nav-large-display-horizontal();
 	}
@@ -137,35 +129,28 @@
 	left: auto;
 	background: @rwnColorNavLevel1Bg;
 
-	// Polozka navigace
-	.nav-item {
-		display: block;
-	}
-
 	// Prvni uroven zanoreni
-	.nav-item > a,
-	.nav-item > strong {
+	a,
+	strong {
+		display: block;		
 		text-indent: 0;
 		padding-top: 18px;
 		padding-bottom: 18px;
 		font-size: @rwnNavLevel1FontSize;
-		background: @rwnColorNavLevel1Bg;
 		border-bottom: 0;		
 	}
 
 	// Aktivni polozka
-	.nav-item > a:hover,
-	.nav-item > a:focus,
-	.nav-item > a:active,
-	.nav-item > a.active,
-	.nav-item > strong {
+	li:hover,
+	li:focus,
+	li:active {
 		background: @rwnColorNavLevel2Bg;
 		color: @rwnColorNavHover;
 	}
 
 	// Druha uroven zanoreni
-	ul ul .nav-item > a,
-	ul ul .nav-item > strong {
+	ul ul a,
+	ul ul strong {
 		background: @rwnColorNavLevel2Bg;
 		padding-top: 6px;
 		padding-bottom: 6px;
@@ -174,18 +159,16 @@
 	}
 
 	// Aktivni polozka druhe urovne
-	ul ul .nav-item > a:hover,
-	ul ul .nav-item > a:focus,
-	ul ul .nav-item > a:active,
-	ul ul .nav-item > a.active,
-	ul ul .nav-item > strong {
+	ul ul li:hover,
+	ul ul li:focus,
+	ul ul li:active {
 		background: @rwnColorNavLevel3Bg;
 		color: @rwnColorNavLevel2Hover;
 	}
 
 	// Treti uroven zanoreni
-	ul ul ul .nav-item > a,
-	ul ul ul .nav-item > strong {
+	ul ul ul a,
+	ul ul ul strong {
 		background: @rwnColorNavLevel3Bg;
 		padding-top: 6px;
 		padding-bottom: 6px;
@@ -194,11 +177,9 @@
 	}
 
 	// Aktivni polozka treti urovne
-	ul ul ul .nav-item > a:hover,
-	ul ul ul .nav-item > a:focus,
-	ul ul ul .nav-item > a:active,
-	ul ul ul .nav-item > a.active,
-	ul ul ul .nav-item > strong {
+	ul ul ul li:hover,
+	ul ul ul li:focus,
+	ul ul ul li:active {
 		background: @rwnColorNavLevel3Bg;
 		text-decoration: underline;
 		color: @rwnColorNavLevel3Hover;
@@ -224,8 +205,8 @@
 	}
 
 	// Prvni uroven zanoreni
-	.nav-item > a,
-	.nav-item > strong {
+	a,
+	strong {
 		padding-top: 8px;
 		padding-bottom: 8px;
 	}
@@ -233,20 +214,18 @@
 	// - Rozbaleny stav: bez JS -
 
 	// Otevrena druha uroven
-	ul > li > .nav-item:hover,
-	ul > li > .nav-item:focus,
-	ul > li > .nav-item:active,
-	ul > li > .nav-item.active {
+	ul > li:hover,
+	ul > li:focus,
+	ul > li:active {
 		> ul {
 			.nav-large-display-horizontal-2nd-level;
 		}
 	}	
 
 	// Otevrena treti uroven
-	ul ul > li > .nav-item:hover,
-	ul ul > li > .nav-item:focus,
-	ul ul > li > .nav-item:active,
-	ul ul > li > .nav-item.active {
+	ul ul > li:hover,
+	ul ul > li:focus,
+	ul ul > li:active {
 		> ul {
 			.nav-large-display-horizontal-3rd-level;
 		}
@@ -256,24 +235,24 @@
 
 	.js & {
 		// Zvyrazneni aktivni polozky 1. urovne
-		li.sw-navmenu-li-shown > .nav-item > a {
+		li.sw-navmenu-li-shown > a {
 			background: @rwnColorNavLevel2Bg;
 			color: @rwnColorNavHover;
 		}
 
 		// Zvyrazneni aktivni polozky 2. urovne
-		ul ul li.sw-navmenu-li-shown > .nav-item > a {
+		ul ul li.sw-navmenu-li-shown > a {
 			background: @rwnColorNavLevel3Bg;
 			color: @rwnColorNavLevel2Hover;
 		}
 
 		// Otevrena druha uroven
-		ul > li.sw-navmenu-li-shown > .nav-item > ul {
+		ul > li.sw-navmenu-li-shown > ul {
 			.nav-large-display-horizontal-2nd-level;
 		}
 
 		// Otevrena treti uroven
-		ul ul > li.sw-navmenu-li-shown > .nav-item > ul {
+		ul ul > li.sw-navmenu-li-shown > ul {
 			.nav-large-display-horizontal-3rd-level;
 		}
 	}
@@ -306,17 +285,18 @@
 	> ul > li {
 		display: inline-block; // Fallback kdyz nefici display: table
 		display: table-cell;
+		position: relative; // Nelze ve FF
 	}
 
-	> ul > li > .nav-item > a,
-	> ul > li > .nav-item > strong {
+	> ul > li > a,
+	> ul > li > strong {
 		text-align: center;
 		display: block;
 	}
 
 	// - Nerozbaleny stav -
 
-	ul .nav-item {
+	ul a {
 		position: relative;
 	}
 
@@ -339,20 +319,18 @@
 	// - Rozbaleny stav: bez JS -
 
 	// Otevrena druha uroven
-	ul > li > .nav-item:hover,
-	ul > li > .nav-item:focus,
-	ul > li > .nav-item:active,
-	ul > li > .nav-item.active {
+	ul > li:hover,
+	ul > li:focus,
+	ul > li:active {
 		> ul {
 			.nav-large-display-horizontal-2nd-level;
 		}
 	}
 
 	// Otevrena treti uroven
-	ul ul > li > .nav-item:hover,
-	ul ul > li > .nav-item:focus,
-	ul ul > li > .nav-item:active,
-	ul ul > li > .nav-item.active {
+	ul ul > li:hover,
+	ul ul > li:focus,
+	ul ul > li:active {
 		> ul {
 			.nav-large-display-horizontal-3rd-level;
 		}
@@ -362,24 +340,24 @@
 
 	.js & {
 		// Zvyrazneni aktivni polozky 1. urovne
-		li.sw-navmenu-li-shown > .nav-item > a {
+		li.sw-navmenu-li-shown > a {
 			background: @rwnColorNavLevel2Bg;
 			color: @rwnColorNavHover;
 		}
 
 		// Zvyrazneni aktivni polozky 2. urovne
-		ul ul li.sw-navmenu-li-shown > .nav-item > a {
+		ul ul li.sw-navmenu-li-shown > a {
 			background: @rwnColorNavLevel3Bg;
 			color: @rwnColorNavLevel2Hover;
 		}
 
 		// Otevrena druha uroven
-		ul > li.sw-navmenu-li-shown > .nav-item > ul {
+		ul > li.sw-navmenu-li-shown > ul {
 			.nav-large-display-horizontal-2nd-level;
 		}
 
 		// Otevrena treti uroven
-		ul ul > li.sw-navmenu-li-shown > .nav-item > ul {
+		ul ul > li.sw-navmenu-li-shown > ul {
 			.nav-large-display-horizontal-3rd-level;
 		}
 	}
