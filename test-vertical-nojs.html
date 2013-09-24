@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 
-<html lang="en" class="js">
+<html lang="en" class="no-js">
 
 <head>
   <meta charset="UTF-8">  
 	
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Responsive navigation — horizontal test</title>
+  <title>Responsive navigation — vertical test</title>
 
   <!-- Common stylesheet for all devices -->
   <link rel="stylesheet" href="./dist/stylesheets/app.css">
@@ -16,7 +16,14 @@
   <style>
       .nav-container {
         margin: 1em;
-      }      
+        width: 15em;
+      }
+      
+      @media (max-width: 599px) {
+        .nav-container {
+          width: auto;
+        }
+      }
   </style>
   
 
@@ -28,19 +35,19 @@
   
   <div class="nav-container">
     
-    <div role="navigation" class="nav-horizontal">
+    <div role="navigation" class="nav-vertical">
         <ul>
           <li>
               <strong>
                 Home
               </strong>
           </li>
-          <li class="is-visible">
+          <li>
               <a href="#">
                 About
               </a>
               <ul>
-                <li class="is-visible">
+                <li>
                     <a href="#">
                       Our team
                     </a>

@@ -197,10 +197,14 @@
 		position: relative;
 	}
 
-	// Zabaleny stav druhe a treti urovne
+	// Vychozi stav druhe a treti urovne
 	ul ul {
+		top: 0;		
 		position: absolute;
-		top: 0;
+	}
+
+	// Zabaleny stav druhe a treti urovne (pri nacteni JS)
+	.js & ul ul {
 		left: -999px;
 	}
 
@@ -211,50 +215,40 @@
 		padding-bottom: 8px;
 	}
 
-	// - Rozbaleny stav: bez JS -
+	// - Rozbaleny stav: bez JS -	
 
 	// Otevrena druha uroven
-	ul > li:hover,
-	ul > li:focus,
-	ul > li:active {
-		> ul {
-			.nav-large-display-horizontal-2nd-level;
-		}
+	ul > li > ul {
+		.nav-large-display-horizontal-2nd-level;
 	}	
 
 	// Otevrena treti uroven
-	ul ul > li:hover,
-	ul ul > li:focus,
-	ul ul > li:active {
-		> ul {
-			.nav-large-display-horizontal-3rd-level;
-		}
+	ul ul > li > ul {
+		.nav-large-display-horizontal-3rd-level;
 	}
 
 	// - Rozbaleny stav: s JS -
 
-	.js & {
-		// Zvyrazneni aktivni polozky 1. urovne
-		li.sw-navmenu-li-shown > a {
-			background: @rwnColorNavLevel2Bg;
-			color: @rwnColorNavHover;
-		}
+	// Zvyrazneni aktivni polozky 1. urovne
+	li.is-visible > a {
+		background: @rwnColorNavLevel2Bg;
+		color: @rwnColorNavHover;
+	}
 
-		// Zvyrazneni aktivni polozky 2. urovne
-		ul ul li.sw-navmenu-li-shown > a {
-			background: @rwnColorNavLevel3Bg;
-			color: @rwnColorNavLevel2Hover;
-		}
+	// Zvyrazneni aktivni polozky 2. urovne
+	ul ul li.is-visible > a {
+		background: @rwnColorNavLevel3Bg;
+		color: @rwnColorNavLevel2Hover;
+	}
 
-		// Otevrena druha uroven
-		ul > li.sw-navmenu-li-shown > ul {
-			.nav-large-display-horizontal-2nd-level;
-		}
+	// Otevrena druha uroven
+	ul > li.is-visible > ul {
+		.nav-large-display-horizontal-2nd-level;
+	}
 
-		// Otevrena treti uroven
-		ul ul > li.sw-navmenu-li-shown > ul {
-			.nav-large-display-horizontal-3rd-level;
-		}
+	// Otevrena treti uroven
+	ul ul > li.is-visible > ul {
+		.nav-large-display-horizontal-3rd-level;
 	}
 
 	// Mixin: styl pro otevrenou druhou uroven zanoreni
@@ -303,11 +297,15 @@
 	// Zabaleny stav druhe a treti urovne
 	ul ul {
 		position: absolute;
-		top: -999px;
-		left: 0;
 		padding-top: 8px;
 		padding-bottom: 8px;
 		background: @rwnColorNavLevel2Bg;
+	}
+	
+	// Pri nacteni JS: submenu schovame
+	.js & ul ul {
+		top: -999px;
+		left: 0;		
 	}
 
 	// Treti uroven zanoreni nema odsazeni zezhora a zezdola z druhe
@@ -317,49 +315,40 @@
 	}
 
 	// - Rozbaleny stav: bez JS -
+	// Vsechno je otevrene
 
 	// Otevrena druha uroven
-	ul > li:hover,
-	ul > li:focus,
-	ul > li:active {
-		> ul {
-			.nav-large-display-horizontal-2nd-level;
-		}
+	ul > li > ul {
+		.nav-large-display-horizontal-2nd-level;
 	}
 
 	// Otevrena treti uroven
-	ul ul > li:hover,
-	ul ul > li:focus,
-	ul ul > li:active {
-		> ul {
-			.nav-large-display-horizontal-3rd-level;
-		}
+	ul ul > li > ul {
+		.nav-large-display-horizontal-3rd-level;
 	}
 
 	// - Rozbaleny stav: s JS -
 
-	.js & {
-		// Zvyrazneni aktivni polozky 1. urovne
-		li.sw-navmenu-li-shown > a {
-			background: @rwnColorNavLevel2Bg;
-			color: @rwnColorNavHover;
-		}
+	// Zvyrazneni aktivni polozky 1. urovne
+	li.is-visible > a {
+		background: @rwnColorNavLevel2Bg;
+		color: @rwnColorNavHover;
+	}
 
-		// Zvyrazneni aktivni polozky 2. urovne
-		ul ul li.sw-navmenu-li-shown > a {
-			background: @rwnColorNavLevel3Bg;
-			color: @rwnColorNavLevel2Hover;
-		}
+	// Zvyrazneni aktivni polozky 2. urovne
+	ul ul li.is-visible > a {
+		background: @rwnColorNavLevel3Bg;
+		color: @rwnColorNavLevel2Hover;
+	}
 
-		// Otevrena druha uroven
-		ul > li.sw-navmenu-li-shown > ul {
-			.nav-large-display-horizontal-2nd-level;
-		}
+	// Otevrena druha uroven
+	ul > li.is-visible > ul {
+		.nav-large-display-horizontal-2nd-level;
+	}
 
-		// Otevrena treti uroven
-		ul ul > li.sw-navmenu-li-shown > ul {
-			.nav-large-display-horizontal-3rd-level;
-		}
+	// Otevrena treti uroven
+	ul ul > li.is-visible > ul {
+		.nav-large-display-horizontal-3rd-level;
 	}
 
 	// Mixin: styl pro otevrenou druhou uroven zanoreni
