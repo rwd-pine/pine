@@ -42,13 +42,12 @@
 	li > a,
 	li > strong {
 		display: block;
-		padding: @rwnPaddingMedium;
-		color: @rwnColorNav;
+		padding: @rwnSmallScreenPadding;
+		color: @rwnSmallScreenColor;
 		font-weight: normal;
 		.text-overflow();
 		text-decoration: none;
-		border-bottom: 1px solid #fff;
-		background: @rwnColorSmallScreenNavBg;
+		background: @rwnSmallScreenBg;
 	}
 
 	// Aktivni polozka
@@ -56,8 +55,8 @@
 	li a:focus,
 	li a:active,
 	li strong {
-		background: @rwnColorSmallScreenNavActive;
-		color: @rwnColorNavHover;
+		background: @rwnSmallScreenActiveBg;
+		color: @rwnSmallScreenActiveColor;
 	}
 
 	// Druha uroven zanoreni
@@ -127,16 +126,15 @@
 	position: static;
 	top: auto;
 	left: auto;
-	background: @rwnColorNavLevel1Bg;
+	background: @rwnLevel1Bg;
 
 	// Prvni uroven zanoreni
 	a,
 	strong {
 		display: block;		
 		text-indent: 0;
-		padding-top: 18px;
-		padding-bottom: 18px;
-		font-size: @rwnNavLevel1FontSize;
+		padding: @rwnLevel1Padding;
+		font-size: @rwnLevel1FontSize;
 		border-bottom: 0;		
 	}
 
@@ -144,53 +142,49 @@
 	li:hover,
 	li:focus,
 	li:active {
-		background: @rwnColorNavLevel2Bg;
-		color: @rwnColorNavHover;
+		background: @rwnLevel2Bg;
+		color: @rwnLevel1ColorHover;
 	}
 
 	// Druha uroven zanoreni
-	ul ul a,
-	ul ul strong {
-		background: @rwnColorNavLevel2Bg;
-		padding-top: 6px;
-		padding-bottom: 6px;
-		font-size: @rwnNavLevel2FontSize;
-		color: @rwnColorNavLevel2;
+	ul ul > li > a,
+	ul ul > li > strong {
+		background: @rwnLevel2Bg;
+		padding: @rwnLevel2Padding;
+		font-size: @rwnLevel2FontSize;
+		color: @rwnLevel2Color;
 	}
 
 	// Aktivni polozka druhe urovne
 	ul ul li:hover,
 	ul ul li:focus,
 	ul ul li:active {
-		background: @rwnColorNavLevel3Bg;
-		color: @rwnColorNavLevel2Hover;
+		background: @rwnLevel3Bg;
+		color: @rwnLevel2ColorHover;
 	}
 
 	// Treti uroven zanoreni
-	ul ul ul a,
-	ul ul ul strong {
-		background: @rwnColorNavLevel3Bg;
-		padding-top: 6px;
-		padding-bottom: 6px;
-		font-size: @rwnNavLevel3FontSize;
-		color: @rwnColorNavLevel3;
+	ul ul ul > li > a,
+	ul ul ul > li > strong {
+		background: @rwnLevel3Bg;
+		padding: @rwnLevel3Padding;
+		font-size: @rwnLevel3FontSize;
+		color: @rwnLevel3Color;
 	}
 
 	// Aktivni polozka treti urovne
 	ul ul ul li:hover,
 	ul ul ul li:focus,
 	ul ul ul li:active {
-		background: @rwnColorNavLevel3Bg;
+		background: @rwnLevel3Bg;	
 		text-decoration: underline;
-		color: @rwnColorNavLevel3Hover;
+		color: @rwnLevel3ColorHover;
 	}
 }
 
 // ### Mixin: Vertikalni varianta navigace pro velke screeny
 
 .nav-large-display-vertical() {
-	padding-top: 8px;
-	padding-bottom: 8px;
 
 	// - Nerozbaleny stav -
 	ul li {
@@ -231,14 +225,14 @@
 
 	// Zvyrazneni aktivni polozky 1. urovne
 	li.is-visible > a {
-		background: @rwnColorNavLevel2Bg;
-		color: @rwnColorNavHover;
+		background: @rwnLevel2Bg;
+		color: @rwnLevel1ColorHover;
 	}
 
 	// Zvyrazneni aktivni polozky 2. urovne
 	ul ul li.is-visible > a {
-		background: @rwnColorNavLevel3Bg;
-		color: @rwnColorNavLevel2Hover;
+		background: @rwnLevel3Bg;
+		color: @rwnLevel2ColorHover;
 	}
 
 	// Otevrena druha uroven
@@ -267,7 +261,7 @@
 // ### Mixin: Horizontalni varianta navigace pro velke screeny
 
 .nav-large-display-horizontal() {
-	background: @rwnColorNavLevel1Bg;
+	background: @rwnLevel1Bg;
 	display: table; // Table protoze nevime kolik bude polozek na radku
 	table-layout: fixed;	// Trik pro stejnou sirku polozek http://stackoverflow.com/questions/10525744/css-table-cell-equal-width
 	width: 100%;
@@ -299,7 +293,7 @@
 		position: absolute;
 		padding-top: 8px;
 		padding-bottom: 8px;
-		background: @rwnColorNavLevel2Bg;
+		background: @rwnLevel2Bg;
 	}
 	
 	// Pri nacteni JS: submenu schovame
@@ -331,14 +325,14 @@
 
 	// Zvyrazneni aktivni polozky 1. urovne
 	li.is-visible > a {
-		background: @rwnColorNavLevel2Bg;
-		color: @rwnColorNavHover;
+		background: @rwnLevel2Bg;
+		color: @rwnLevel1ColorHover;
 	}
 
 	// Zvyrazneni aktivni polozky 2. urovne
 	ul ul li.is-visible > a {
-		background: @rwnColorNavLevel3Bg;
-		color: @rwnColorNavLevel2Hover;
+		background: @rwnLevel3Bg;
+		color: @rwnLevel2ColorHover;
 	}
 
 	// Otevrena druha uroven

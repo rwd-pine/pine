@@ -1,35 +1,43 @@
 // Navigation variables
 
-// Global padding
-@rwnPaddingMedium:          		8px 10px;
+// --- Typography ---
+
+@rwnBaseFontSize:	16px;
+@rwnBaseLineHeight:	1;
 
 // --- Small screens ---
 
-@rwnColorSmallScreenNavBg: 			#555;
-@rwnColorSmallScreenNavActive:	#999;
+@rwnSmallScreenColor: 			#fff;
+@rwnSmallScreenBg: 				#555;
+@rwnSmallScreenActiveColor:		@rwnSmallScreenColor;
+@rwnSmallScreenActiveBg:		#999;
+@rwnSmallScreenFontSize: 		@rwnBaseFontSize;
+@rwnSmallScreenPadding: 		@rwnSmallScreenFontSize*.75 @rwnSmallScreenFontSize;
 
 // --- Medium and large screens ---
 
 // Level 1
-@rwnColorNav:               #fff;
-@rwnColorNavHover:          #fff;
-@rwnColorNavLevel1Bg:       #666;
-@rwnNavLevel1FontSize: 			16px;
+@rwnLevel1Color:            #fff;
+@rwnLevel1ColorHover:       #fff;
+@rwnLevel1Bg:      			#666;
+@rwnLevel1FontSize: 		@rwnBaseFontSize;
+@rwnLevel1Padding: 			@rwnLevel1FontSize*.75 @rwnLevel1FontSize;
 
 // Level 2
-@rwnColorNavLevel2:         #fff;
-@rwnColorNavLevel2Hover:    #fff;
-@rwnColorNavLevel2Bg:       #999;
-@rwnNavLevel2FontSize: 			13px;
+@rwnLevel2Color:         	#fff;
+@rwnLevel2ColorHover:    	#fff;
+@rwnLevel2Bg:       		#999;
+@rwnLevel2FontSize: 		@rwnBaseFontSize*.8;
+@rwnLevel2Padding: 			@rwnLevel2FontSize*.75 @rwnLevel2FontSize;
 
 // Level 3
-@rwnColorNavLevel3:         #fff;
-@rwnColorNavLevel3Hover:    #fff;
-@rwnColorNavLevel3Bg: 			#ccc;
-@rwnNavLevel3FontSize: 			13px;
+@rwnLevel3Color:         	#fff;
+@rwnLevel3ColorHover:    	#fff;
+@rwnLevel3Bg: 				#ccc;
+@rwnLevel3FontSize: 		@rwnBaseFontSize*.7;
+@rwnLevel3Padding: 			@rwnLevel3FontSize*.75 @rwnLevel3FontSize;
 
 // --- RWD breakpoints ---
 
 @rwnLargeDisplayStart: 		600px;
-@rwnSmallDisplayEnd: 			599px;
-@rwnMobileDisplayEnd: 		480px;
+@rwnSmallDisplayEnd: 		@rwnLargeDisplayStart - 1px;
