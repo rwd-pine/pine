@@ -13,7 +13,15 @@
 // podle aktualniho umisteni v HTML
 
 [role='navigation'] {
-	z-index: 50000; // Kvuli ovladacim prvkum v redakcnim systemu
+	z-index: @rwnZIndex; 
+	margin-bottom: @rwnMarginBottom;
+	min-height: @rwnHeight;
+	background: @rwnBg;
+	.clearfix();
+
+	@media	(min-width: @rwnLargeDisplayStart) {
+		border-radius: @rwnBorderRadius;
+	}	
 
 	@media print {
 		display: none;
@@ -131,27 +139,29 @@
 
 // ### Mixin: Navigace pro velke screeny
 
-.nav-large-display() {
+.nav-large-display() {	
 	position: static;
 	top: auto;
 	left: auto;
-	background: @rwnLevel1Bg;
+	background: @rwnBg;
 
 	// Prvni uroven zanoreni
 	a,
 	strong {
 		display: block;		
-		text-indent: 0;
+		background: @rwnLevel1Bg;
+		color: @rwnLevel1Color;		
 		padding: @rwnLevel1Padding;
 		font-size: @rwnLevel1FontSize;
-		border-bottom: 0;		
+		border-bottom: 0;	
+		text-indent: 0;	
 	}
 
 	// Aktivni polozka
 	li:hover,
 	li:focus,
 	li:active {
-		background: @rwnLevel2Bg;
+		background: @rwnLevel1Bg;
 		color: @rwnLevel1ColorHover;
 	}
 
