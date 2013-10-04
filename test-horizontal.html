@@ -3,31 +3,31 @@
 <html lang="en" class="js">
 
 <head>
-  <meta charset="UTF-8">  
-	
+  <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <title>Responsive navigation — horizontal test</title>
 
   <!-- Common stylesheet for all devices -->
   <link rel="stylesheet" href="./dist/stylesheets/app.css">
 
-  <!-- Test related styles -->  
+  <!-- Test related styles -->
   <style>
       .nav-container {
         margin: 1em;
-      }      
+      }
   </style>
-  
 
-  
+
+
 </head>
 
 <body>
-  
-  
+
+
   <div class="nav-container">
-    
+
     <div role="navigation" class="nav-horizontal">
         <ul>
           <li>
@@ -93,12 +93,12 @@
                     <a href="#">
                       Third product
                     </a>
-                </li>  
+                </li>
                 <li>
                     <a href="#">
                       Fourth product
                     </a>
-                </li>                          
+                </li>
               </ul>
           </li>
           <li>
@@ -115,8 +115,13 @@
       </div><!-- [role=navigation] -->
 
   </div><!-- .nav-container -->
-  
 
+  <!-- Javascripts
+  ========================== -->
+
+  <!-- TODO: load conditionally -->
+  <script src="dist/javascripts/jquery.min.js"></script>
+  <script src="dist/javascripts/app.js"></script>
 
 </body>
 </html>
