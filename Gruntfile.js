@@ -36,16 +36,11 @@ module.exports = function(grunt) {
 
 
     copy: {
-      main: {
-        files: [
-          { expand: true, cwd: 'src/', src: ['*.html'], dest: '', filter: 'isFile' },
-        ]
-      },
       javascript: {
         files: [
           { expand: true, cwd: 'bower_components/jquery', src: ['jquery.min.js'], dest: 'dist/javascripts', filter: 'isFile' },
           { expand: true, cwd: 'bower_components/zepto', src: ['zepto.min.js'], dest: 'dist/javascripts', filter: 'isFile' },
-          { expand: true, cwd: 'src/javascripts/', src: ['app.js'], dest: 'dist/javascripts', filter: 'isFile' }
+          { expand: true, cwd: 'bower_components/bootstrap/js', src: ['*.js'], dest: 'src/javascripts/bootstrap', filter: 'isFile' },
         ]
       },
       assets: {
@@ -56,6 +51,7 @@ module.exports = function(grunt) {
       styles: {
         files: [
           { expand: true, cwd: 'bower_components/normalize-css', src: ['normalize.css'], dest: 'src/stylesheets' }
+          { expand: true, cwd: 'bower_components/bootstrap/less', src: ['*.less'], dest: 'src/stylesheets/bootstrap' }
         ]
       }
     },
