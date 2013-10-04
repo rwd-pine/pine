@@ -1,0 +1,62 @@
+// --- RWD Nav: Has submenu triangle indicator ---
+
+// TODO
+// - positionTop more precise numbers
+// - on small screens there should be its own SubIndColor and @positionTop variable
+// - on small screen all indicators should point to bottom
+// - classes instead of 'ul ul ul' 
+
+// Default: vertical
+[role='navigation'] > ul > li.has-submenu > a:before {
+	.has-submenu-triangle-indicator(right, @rwnLevel1SubIndColor, @rwnLevel1FontSize, @rwnLevel1FontSize*1.2);
+}
+
+// Horizontal variant
+[role='navigation'].nav-horizontal > ul > li.has-submenu > a:before {
+	.has-submenu-triangle-indicator(bottom, @rwnLevel1SubIndColor, @rwnLevel1FontSize, @rwnLevel1FontSize*1.2);
+}
+
+// 2nd level
+[role='navigation'] ul ul > li.has-submenu > a:before {
+	.has-submenu-triangle-indicator(right, @rwnLevel2SubIndColor, @rwnLevel2FontSize, @rwnLevel3FontSize*1.2);
+}
+
+// 3rd level
+[role='navigation'] ul ul ul > li.has-submenu > a:before {
+	.has-submenu-triangle-indicator(right, @rwnLevel3SubIndColor, @rwnLevel3FontSize, @rwnLevel3FontSize*1.2);
+}
+
+// Triangle indicator mixin
+.has-submenu-triangle-indicator(@direction, @color, @positionRight, @positionTop) {	
+	z-index: 100;
+	content: "";
+	position: absolute;
+	right: @positionRight;
+	top: @positionTop;
+	display: inline-block;			
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	// Small screen version has only first level look
+	@media (max-width: @rwnLargeDisplayStart) {
+		right: @rwnLevel1FontSize; 
+	}
+}
+
+.has-submenu-triangle-indicator(@direction, @color, @positionRight, @positionTop) when (@direction = bottom) {
+	border-width: 7px 5px 0 5px;
+	border-color: @color transparent transparent transparent;	
+	// Small screen version has only first level look 
+	@media (max-width: @rwnLargeDisplayStart) {
+		border-color: @rwnLevel1SubIndColor  transparent transparent transparent; 
+	}
+}
+
+.has-submenu-triangle-indicator(@direction, @color, @positionRight, @positionTop) when (@direction = right) {
+	border-width: 5px 0 5px 7px;
+	border-color: transparent transparent transparent @color;	
+	// Small screen version has only first level look 
+	@media (max-width: @rwnLargeDisplayStart) {
+		border-color: transparent transparent transparent  @rwnLevel1SubIndColor; 
+	}	
+}

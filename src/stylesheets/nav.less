@@ -2,7 +2,10 @@
  * Responsive navigation
  */
 
-// Default: Vertikalni (male screeny + vertikalni varianta pro velke) 
+// Has submenu triangle indicator
+@import 'nav-submenu-indicator';
+
+// Default: Vertikalni (male screeny + vertikalni varianta pro velke)
 // ------------------------------------------------------------------
 
 // Na malych screenech a bez js pozicovano zcela prirozene
@@ -39,6 +42,10 @@
 		list-style-type: none;
 	}
 
+	li {
+		position: relative;
+	}
+
 	li > a,
 	li > strong {
 		display: block;
@@ -73,7 +80,8 @@
 
 }
 
-// Variants: Horizontal and vertical
+
+// --- Variants: Horizontal and vertical ---
 
 [role='navigation'].nav-horizontal {
 	.nav-horizontal;
@@ -186,11 +194,6 @@
 
 .nav-large-display-vertical() {
 
-	// - Nerozbaleny stav -
-	ul li {
-		position: relative;
-	}
-
 	// Vychozi stav druhe a treti urovne
 	ul ul {
 		top: 0;		
@@ -285,7 +288,7 @@
 	// - Nerozbaleny stav -
 
 	ul a {
-		position: relative;
+		position: relative; // TODO why?
 	}
 
 	// Zabaleny stav druhe a treti urovne
