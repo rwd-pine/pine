@@ -100,8 +100,16 @@ module.exports = function(grunt) {
         compile: true
       },
       main: {
-        src: ['src/stylesheets/app.less'],
-        dest: 'dist/stylesheets/app.css'
+        files: [
+          {
+            src: ['src/stylesheets/app.less'],
+            dest: 'dist/stylesheets/app.css'
+          },
+          {
+            src: ['src/stylesheets/test-bootstrap.less'],
+            dest: 'dist/stylesheets/test-bootstrap.css'
+          }          
+        ]                        
       },
       min: {
         options: {

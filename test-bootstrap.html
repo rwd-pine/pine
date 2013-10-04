@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html lang="en" class="js">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Responsive navigation — horizontal test</title>
+
+  <!-- Common stylesheet for all devices -->
+  <link rel="stylesheet" href="./dist/stylesheets/test-bootstrap.css">
+
+  <!-- Test related styles -->
+  <style>
+      .nav-container {
+        margin: 1em;
+      }
+  </style>
+
+
+
+</head>
+
+<body>
+
+
+  <div class="nav-container">
+
+    <div role="navigation" class="nav-horizontal">
+        <ul>
+          <li>
+              <strong>
+                Home
+              </strong>
+          </li>
+          <li class="is-open has-submenu">
+              <a href="#">
+                About
+              </a>
+              <ul>
+                <li class="is-open has-submenu">
+                    <a href="#">
+                      Our team
+                    </a>
+                    <ul>
+                      <li>
+                          <a href="#">
+                            Who we are
+                          </a>
+                      </li>
+                      <li>
+                          <a href="#">
+                            Very very very very long nav item
+                          </a>
+                      </li>
+                      <li>
+                          <a href="#">
+                            Third level
+                          </a>
+                      </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                      Our families
+                    </a>
+                </li>
+              </ul>
+          </li>
+          <li>
+              <a href="#">
+                Special item
+              </a>
+          </li>
+          <li class="has-submenu">
+              <a href="#">
+                Products
+              </a>
+              <ul>
+                <li>
+                    <a href="#">
+                      First product
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                      Second product
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                      Third product
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                      Fourth product
+                    </a>
+                </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#">
+              Contact
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Last navigation item is very very long
+            </a>
+          </li>
+        </ul>
+      </div><!-- [role=navigation] -->
+
+  </div><!-- .nav-container -->
+
+  <!-- Javascripts
+  ========================== -->
+
+  <!-- TODO: load conditionally -->
+  <script src="dist/javascripts/jquery.min.js"></script>
+  <script src="dist/javascripts/app.js"></script>
+
+</body>
+</html>
