@@ -74,8 +74,8 @@ module.exports = function(grunt) {
       },
       main: {
         src: [
-          'src/js/submenu.js',
-          'src/js/app.js'
+          'src/javascripts/submenu.js',
+          'src/javascripts/app.js'
         ],
         dest: 'dist/javascripts/<%= pkg.name %>.js'
       }

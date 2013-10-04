@@ -8,38 +8,39 @@
   // SUBMENU CLASS DEFINITION
   // ------------------------
 
-  // var backdrop = '.dropdown-backdrop'
-  // var toggle   = '[data-toggle=dropdown]'
+  // var backdrop = '.submenu-backdrop'
+  var submenuClass = 'has-submenu'
+  var toggle       = '.has-submenu > a'
 
   var Submenu = function (element) {
-    // var $el = $(element).on('click.bs.dropdown', this.toggle)
+    $(element).on('click.submenu', this.toggle)
   }
 
   // SUBMENU METHODS
   // ------------------------
-  Dropdown.prototype.toggle = function (e) {
+  Submenu.prototype.toggle = function (e) {
     var $this = $(this)
 
-    if ($this.is('.disabled, :disabled')) return
+    // if ($this.is('.disabled, :disabled')) return
 
     var $parent  = getParent($this)
-    var isActive = $parent.hasClass('open')
+    var isActive = $parent.hasClass('is-open')
 
     clearMenus()
 
     if (!isActive) {
-      if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
-        // if mobile we we use a backdrop because click events don't delegate
-        $('<div class="dropdown-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
-      }
+      // if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
+      //   // if mobile we we use a backdrop because click events don't delegate
+      //   $('<div class="submenu-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
+      // }
 
-      $parent.trigger(e = $.Event('show.bs.dropdown'))
+      $parent.trigger(e = $.Event('show.submenu'))
 
       if (e.isDefaultPrevented()) return
 
       $parent
-        .toggleClass('open')
-        .trigger('shown.bs.dropdown')
+        .toggleClass('is-open')
+        .trigger('shown.submenu')
 
       $this.focus()
     }
@@ -47,7 +48,7 @@
     return false
   }
 
-  Dropdown.prototype.keydown = function (e) {
+  Submenu.prototype.keydown = function (e) {
     if (!/(38|40|27)/.test(e.keyCode)) return
 
     var $this = $(this)
@@ -58,7 +59,7 @@
     if ($this.is('.disabled, :disabled')) return
 
     var $parent  = getParent($this)
-    var isActive = $parent.hasClass('open')
+    var isActive = $parent.hasClass('is-open')
 
     if (!isActive || (isActive && e.keyCode == 27)) {
       if (e.which == 27) $parent.find(toggle).focus()
@@ -79,13 +80,14 @@
   }
 
   function clearMenus() {
-    $(backdrop).remove()
+    // $(backdrop).remove()
     $(toggle).each(function (e) {
       var $parent = getParent($(this))
-      if (!$parent.hasClass('open')) return
-      $parent.trigger(e = $.Event('hide.bs.dropdown'))
+      if (!$parent.hasClass('is-open')) return
+
+      $parent.trigger(e = $.Event('hide.submenu')) // prepare to hide the menu
       if (e.isDefaultPrevented()) return
-      $parent.removeClass('open').trigger('hidden.bs.dropdown')
+      $parent.removeClass('is-open').trigger('hidden.submenu') // menu is now hidden
     })
   }
 
@@ -132,17 +134,15 @@
 
   // INITIALIZE MENU ITEM
   // ----------------------
-  $('.nav-horizontal li').each(function(){
-    if ($(this).has('ul')) $(this).addClass('has-submenu')
-  })
+  $('.nav-horizontal li').has('ul').addClass(submenuClass)
 
-  // APPLY TO STANDARD DROPDOWN ELEMENTS
+  // APPLY TO STANDARD SUBMENU ELEMENTS
   // ------------------------------------
 
-  // $(document)
-    // .on('click.submenu', clearMenus) // clear menus before doing anything
-    // .on('click.submenu', toggle, Dropdown.prototype.toggle) // toggle the menu
-  //   .on('keydown.bs.dropdown.data-api', toggle + ', [role=menu]' , Dropdown.prototype.keydown) // handle keyboard input
+  $(document)
+    .on('click.submenu', clearMenus) // clear menus before doing anything
+    .on('click.submenu', toggle, Submenu.prototype.toggle) // toggle the menu
+  //   .on('keydown.submenu', toggle + ', [role=menu]' , Submenu.prototype.keydown) // handle keyboard input
 
 
 }(window.jQuery);
