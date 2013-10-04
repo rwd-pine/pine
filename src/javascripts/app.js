@@ -2,4 +2,4 @@
 
   // TODO: Our magnificent code
 
-})(Zepto);
+})(jQuery);

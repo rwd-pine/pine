@@ -50,7 +50,7 @@ module.exports = function(grunt) {
       },
       styles: {
         files: [
-          { expand: true, cwd: 'bower_components/normalize-css', src: ['normalize.css'], dest: 'src/stylesheets' }
+          { expand: true, cwd: 'bower_components/normalize-css', src: ['normalize.css'], dest: 'src/stylesheets' },
           { expand: true, cwd: 'bower_components/bootstrap/less', src: ['*.less'], dest: 'src/stylesheets/bootstrap' }
         ]
       }
@@ -67,6 +67,20 @@ module.exports = function(grunt) {
       }
     },
 
+    concat: {
+      options: {
+        banner: '<%= banner %>',
+        stripBanners: false
+      },
+      main: {
+        src: [
+          'src/js/submenu.js',
+          'src/js/app.js'
+        ],
+        dest: 'dist/javascripts/<%= pkg.name %>.js'
+      }
+    },
+
     uglify: {
       main: {
         options: {
@@ -74,7 +88,7 @@ module.exports = function(grunt) {
         },
         files: [
           {
-            src: ['src/javascripts/app.js'],
+            src: ['<%= concat.main.dest %>'],
             dest: 'dist/javascripts/<%= pkg.name %>.min.js'
           }
         ]
@@ -114,13 +128,14 @@ module.exports = function(grunt) {
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-rename');
   grunt.loadNpmTasks('grunt-recess');
 
   // JS distribution task.
-  grunt.registerTask('dist-js', ['uglify']);
+  grunt.registerTask('dist-js', ['concat', 'uglify']);
 
   // Copy assets
   grunt.registerTask('dist-copy', ['copy', 'rename']);

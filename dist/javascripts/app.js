@@ -1,5 +1,3 @@
-(function($){
-
-  // TODO: Our magnificent code
-
-})(Zepto);
+/**
+* app.js v0.0.1
+*/
