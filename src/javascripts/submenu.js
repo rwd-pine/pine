@@ -9,24 +9,27 @@
   // ------------------------
 
   // var backdrop = '.submenu-backdrop'
-  var submenuClass = 'has-submenu'
+  var submenu      = '.has-submenu'
   var toggle       = '.has-submenu > a'
 
   var Submenu = function (element) {
-    $(element).on('click.submenu', this.toggle)
+    // $(element).on('click.submenu', this.toggle)
   }
 
   // SUBMENU METHODS
   // ------------------------
+
+  Submenu.prototype.toggleMenu = function (e) {
+    $(this).find('> ul').toggleClass('is-hovered')
+
+    if (!$(this).find('> ul').hasClass('is-hovered')) $(this).removeClass('is-open')
+  }
+
   Submenu.prototype.toggle = function (e) {
     var $this = $(this)
 
-    // if ($this.is('.disabled, :disabled')) return
-
-    var $parent  = getParent($this)
+    var $parent  = $this.parent()
     var isActive = $parent.hasClass('is-open')
-
-    clearMenus()
 
     if (!isActive) {
       // if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
@@ -35,74 +38,59 @@
       // }
 
       $parent.trigger(e = $.Event('show.submenu'))
-
       if (e.isDefaultPrevented()) return
 
+      // add hover to child submenu
+      $parent.find('> ul').addClass('is-hovered')
+
       $parent
-        .toggleClass('is-open')
+        .addClass('is-open')
         .trigger('shown.submenu')
 
       $this.focus()
+    }
+    else {
+      // If submenu is hovered then return
+      if ($parent.find('> ul').hasClass('is-hovered')) return
+
+      $parent.trigger(e = $.Event('hide.submenu'))
+      if (e.isDefaultPrevented()) return
+      $parent.removeClass('is-open').trigger('hidden.submenu')
     }
 
     return false
   }
 
-  Submenu.prototype.keydown = function (e) {
-    if (!/(38|40|27)/.test(e.keyCode)) return
+  // Submenu.prototype.keydown = function (e) {
+  //   if (!/(38|40|27)/.test(e.keyCode)) return
 
-    var $this = $(this)
+  //   var $this = $(this)
 
-    e.preventDefault()
-    e.stopPropagation()
+  //   e.preventDefault()
+  //   e.stopPropagation()
 
-    if ($this.is('.disabled, :disabled')) return
+  //   if ($this.is('.disabled, :disabled')) return
 
-    var $parent  = getParent($this)
-    var isActive = $parent.hasClass('is-open')
+  //   var $parent  = getParent($this)
+  //   var isActive = $parent.hasClass('is-open')
 
-    if (!isActive || (isActive && e.keyCode == 27)) {
-      if (e.which == 27) $parent.find(toggle).focus()
-      return $this.click()
-    }
+  //   if (!isActive || (isActive && e.keyCode == 27)) {
+  //     if (e.which == 27) $parent.find(toggle).focus()
+  //     return $this.click()
+  //   }
 
-    var $items = $('[role=menu] li:not(.divider):visible a', $parent)
+  //   var $items = $('[role=menu] li:not(.divider):visible a', $parent)
 
-    if (!$items.length) return
+  //   if (!$items.length) return
 
-    var index = $items.index($items.filter(':focus'))
+  //   var index = $items.index($items.filter(':focus'))
 
-    if (e.keyCode == 38 && index > 0)                 index--                        // up
-    if (e.keyCode == 40 && index < $items.length - 1) index++                        // down
-    if (!~index)                                      index=0
+  //   if (e.keyCode == 38 && index > 0)                 index--                        // up
+  //   if (e.keyCode == 40 && index < $items.length - 1) index++                        // down
+  //   if (!~index)                                      index=0
 
-    $items.eq(index).focus()
-  }
-
-  function clearMenus() {
-    // $(backdrop).remove()
-    $(toggle).each(function (e) {
-      var $parent = getParent($(this))
-      if (!$parent.hasClass('is-open')) return
-
-      $parent.trigger(e = $.Event('hide.submenu')) // prepare to hide the menu
-      if (e.isDefaultPrevented()) return
-      $parent.removeClass('is-open').trigger('hidden.submenu') // menu is now hidden
-    })
-  }
-
-  function getParent($this) {
-    var selector = $this.attr('data-target')
-
-    if (!selector) {
-      selector = $this.attr('href')
-      selector = selector && /#/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
-    }
-
-    var $parent = selector && $(selector)
-
-    return $parent && $parent.length ? $parent : $this.parent()
-  }
+  //   $items.eq(index).focus()
+  // }
 
 
   // SUBMENU PLUGIN DEFINITION
@@ -134,15 +122,39 @@
 
   // INITIALIZE MENU ITEM
   // ----------------------
-  $('.nav-horizontal li').has('ul').addClass(submenuClass)
+  $('.nav-horizontal li').has('ul').addClass('has-submenu')
 
   // APPLY TO STANDARD SUBMENU ELEMENTS
   // ------------------------------------
 
-  $(document)
-    .on('click.submenu', clearMenus) // clear menus before doing anything
-    .on('click.submenu', toggle, Submenu.prototype.toggle) // toggle the menu
+  $(submenu)
+    .on('mouseenter.submenu, mouseleave.submenu', Submenu.prototype.toggleMenu) // clear menus before doing anything
+
+  $(toggle)
+    .on('mouseenter.submenu, mouseleave.submenu', Submenu.prototype.toggle) // toggle the menu
+
+    // .on('click.submenu', toggle, Submenu.prototype.toggle) // toggle the menu
   //   .on('keydown.submenu', toggle + ', [role=menu]' , Submenu.prototype.keydown) // handle keyboard input
+
+   // NAVBAR: Menu handler
+  // Adds hover funcionality for desktops and removes it for touch devices
+  // -------------------------------
+  // var hoverable = function() {
+  //   var elements = $(toggle); // all toggle elements
+
+  //   if(!Modernizr.touch && Modernizr.mq('(min-width: 600px)')) {
+  //     elements.off('click.submenu.enable').on('click.submenu.disable', function(e){ return false; })
+  //     elements.trigger('click.submenu.disable');
+  //   }
+  //   else {
+  //     elements.off('click.submenu.disable').on('click.submenu.enable', function(e){ return true; })
+  //     elements.trigger('click.submenu.enable');
+  //   }
+  // };
+
+  // // Init
+  // $(window).resize(hoverable);
+  // hoverable();
 
 
 }(window.jQuery);
