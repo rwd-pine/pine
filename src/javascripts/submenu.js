@@ -9,28 +9,31 @@
   // ------------------------
 
   // var backdrop = '.submenu-backdrop'
-  var submenu      = '.has-submenu'
-  var toggle       = '.has-submenu > a'
+  var toggle = '.has-submenu > a'
 
   var Submenu = function (element) {
-    // $(element).on('click.submenu', this.toggle)
+    // Add event listeners
+    $(element).on('mouseenter.submenu, mouseleave.submenu', this.hover)
+    $(element).find('> a')
+      .on('mouseenter.submenu, mouseleave.submenu', this.toggle)
   }
 
   // SUBMENU METHODS
   // ------------------------
+  Submenu.prototype.hover = function (e) {
+    var $submenu = $(this).find('> ul')
 
-  Submenu.prototype.toggleMenu = function (e) {
-    $(this).find('> ul').toggleClass('is-hovered')
-
-    if (!$(this).find('> ul').hasClass('is-hovered')) $(this).removeClass('is-open')
+    $submenu.toggleClass('is-hovered')
+    if (!$submenu.hasClass('is-hovered')) $(this).removeClass('is-open')
   }
 
   Submenu.prototype.toggle = function (e) {
     var $this = $(this)
-
     var $parent  = $this.parent()
-    var isActive = $parent.hasClass('is-open')
+    var isActive  = $parent.hasClass('is-open')
+    var originalEvent = e
 
+    // Handle if the event was fired by link
     if (!isActive) {
       // if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
       //   // if mobile we we use a backdrop because click events don't delegate
@@ -46,10 +49,9 @@
       $parent
         .addClass('is-open')
         .trigger('shown.submenu')
-
-      $this.focus()
     }
     else {
+
       // If submenu is hovered then return
       if ($parent.find('> ul').hasClass('is-hovered')) return
 
@@ -62,35 +64,53 @@
   }
 
   // Submenu.prototype.keydown = function (e) {
-  //   if (!/(38|40|27)/.test(e.keyCode)) return
+  //   // Handle only arrow keys, esc and tab
+  //   if (!/(38|40|27|9)/.test(e.keyCode)) return
 
   //   var $this = $(this)
-
-  //   e.preventDefault()
+  //   // e.preventDefault()
   //   e.stopPropagation()
 
-  //   if ($this.is('.disabled, :disabled')) return
+  //   // if ($this.is('.disabled, :disabled')) return
 
-  //   var $parent  = getParent($this)
+  //   var $parent  = $this.parent()
   //   var isActive = $parent.hasClass('is-open')
 
-  //   if (!isActive || (isActive && e.keyCode == 27)) {
-  //     if (e.which == 27) $parent.find(toggle).focus()
-  //     return $this.click()
-  //   }
+  //   // if (!isActive || (isActive && e.keyCode == 27)) {
+  //   //   if (e.which == 27) $parent.find(toggle).focus()
+  //   //   return $this.click()
+  //   // }
 
-  //   var $items = $('[role=menu] li:not(.divider):visible a', $parent)
+  //   var $items = $('[role=navigation] li:visible a', $parent)
 
   //   if (!$items.length) return
 
   //   var index = $items.index($items.filter(':focus'))
 
   //   if (e.keyCode == 38 && index > 0)                 index--                        // up
-  //   if (e.keyCode == 40 && index < $items.length - 1) index++                        // down
+  //   if ((e.keyCode == 40 || e.keyCode == 9) && index < $items.length - 1) index++                        // down
   //   if (!~index)                                      index=0
 
   //   $items.eq(index).focus()
   // }
+
+  Submenu.prototype.focus = function (e) {
+    // Check if the focused element is part of some Submenu
+    var $this = $(this)
+    var $parent  = $this.parent()
+
+    if ($parent.hasClass('has-submenu') && !$parent.hasClass('is-open')) {
+      $this.trigger($.Event('mouseenter'))
+    }
+
+    var openedMenus = $('.is-open')
+
+    if(openedMenus.length == 0) return
+
+    openedMenus.filter(function(i){
+      return $(this).find($this).length === 0
+    }).removeClass('is-open')
+  }
 
 
   // SUBMENU PLUGIN DEFINITION
@@ -126,15 +146,11 @@
 
   // APPLY TO STANDARD SUBMENU ELEMENTS
   // ------------------------------------
+  $('.has-submenu').submenu()
 
-  $(submenu)
-    .on('mouseenter.submenu, mouseleave.submenu', Submenu.prototype.toggleMenu) // clear menus before doing anything
-
-  $(toggle)
-    .on('mouseenter.submenu, mouseleave.submenu', Submenu.prototype.toggle) // toggle the menu
-
-    // .on('click.submenu', toggle, Submenu.prototype.toggle) // toggle the menu
-  //   .on('keydown.submenu', toggle + ', [role=menu]' , Submenu.prototype.keydown) // handle keyboard input
+  $(document)
+    // .on('keydown.submenu', toggle, Submenu.prototype.keydown)
+    .on('focus.submenu', '.nav-horizontal a', Submenu.prototype.focus)
 
    // NAVBAR: Menu handler
   // Adds hover funcionality for desktops and removes it for touch devices
