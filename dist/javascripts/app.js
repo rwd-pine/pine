@@ -6,19 +6,16 @@
 // --------------------------------
 
 
-+function ($) { "use strict";
++function ($, Modernizr) { "use strict";
 
   // SUBMENU CLASS DEFINITION
   // ------------------------
-
-  // var backdrop = '.submenu-backdrop'
   var toggle = '.has-submenu > a'
+  var submenu = '.has-submenu'
+  var mqCondition = '(min-width: 600px)'
 
   var Submenu = function (element) {
-    // Add event listeners
-    $(element).on('mouseenter.submenu, mouseleave.submenu', this.hover)
-    $(element).find('> a')
-      .on('mouseenter.submenu, mouseleave.submenu', this.toggle)
+
   }
 
   // SUBMENU METHODS
@@ -26,11 +23,19 @@
   Submenu.prototype.hover = function (e) {
     var $submenu = $(this).find('> ul')
 
-    $submenu.toggleClass('is-hovered')
-    if (!$submenu.hasClass('is-hovered')) $(this).removeClass('is-open')
+    if (e.type == 'mouseenter') {
+      $submenu.addClass('is-hover')
+    }
+    else {
+      $submenu.removeClass('is-hover')
+      $(this).removeClass('is-open')
+    }
+
+    // $('> a', this).trigger($.Event('toggle.submenu'))
   }
 
   Submenu.prototype.toggle = function (e) {
+    // console.log("Toggle submenu: " + e.type)
     var $this = $(this)
     var $parent  = $this.parent()
     var isActive  = $parent.hasClass('is-open')
@@ -47,7 +52,9 @@
       if (e.isDefaultPrevented()) return
 
       // add hover to child submenu
-      $parent.find('> ul').addClass('is-hovered')
+      // console.log(originalEvent)
+      if (originalEvent.type == 'mouseenter')
+        $parent.find('> ul').addClass('is-hover')
 
       $parent
         .addClass('is-open')
@@ -56,7 +63,7 @@
     else {
 
       // If submenu is hovered then return
-      if ($parent.find('> ul').hasClass('is-hovered')) return
+      if ($parent.find('> ul').hasClass('is-hover')) return
 
       $parent.trigger(e = $.Event('hide.submenu'))
       if (e.isDefaultPrevented()) return
@@ -66,7 +73,25 @@
     return false
   }
 
-  // Submenu.prototype.keydown = function (e) {
+  Submenu.prototype.focus = function (e) {
+    // Check if the focused element is part of some Submenu
+    var $this = $(this)
+    var $parent  = $this.parent()
+
+    if ($parent.hasClass('has-submenu') && !$parent.hasClass('is-open')) {
+      $this.trigger($.Event('mouseenter'))
+    }
+
+    var openedMenus = $('.is-open')
+
+    if(openedMenus.length == 0) return
+
+    openedMenus.filter(function(i){
+      return $(this).find($this).length === 0
+    }).removeClass('is-open')
+  }
+
+    // Submenu.prototype.keydown = function (e) {
   //   // Handle only arrow keys, esc and tab
   //   if (!/(38|40|27|9)/.test(e.keyCode)) return
 
@@ -97,24 +122,6 @@
   //   $items.eq(index).focus()
   // }
 
-  Submenu.prototype.focus = function (e) {
-    // Check if the focused element is part of some Submenu
-    var $this = $(this)
-    var $parent  = $this.parent()
-
-    if ($parent.hasClass('has-submenu') && !$parent.hasClass('is-open')) {
-      $this.trigger($.Event('mouseenter'))
-    }
-
-    var openedMenus = $('.is-open')
-
-    if(openedMenus.length == 0) return
-
-    openedMenus.filter(function(i){
-      return $(this).find($this).length === 0
-    }).removeClass('is-open')
-  }
-
 
   // SUBMENU PLUGIN DEFINITION
   // --------------------------
@@ -142,41 +149,48 @@
     return this
   }
 
-
   // INITIALIZE MENU ITEM
   // ----------------------
   $('.nav-horizontal li').has('ul').addClass('has-submenu')
 
-  // APPLY TO STANDARD SUBMENU ELEMENTS
-  // ------------------------------------
-  $('.has-submenu').submenu()
-
+  // SUBMENU DOCUMENT API
+  // ---------------------
   $(document)
-    // .on('keydown.submenu', toggle, Submenu.prototype.keydown)
     .on('focus.submenu', '.nav-horizontal a', Submenu.prototype.focus)
-
-   // NAVBAR: Menu handler
-  // Adds hover funcionality for desktops and removes it for touch devices
-  // -------------------------------
-  // var hoverable = function() {
-  //   var elements = $(toggle); // all toggle elements
-
-  //   if(!Modernizr.touch && Modernizr.mq('(min-width: 600px)')) {
-  //     elements.off('click.submenu.enable').on('click.submenu.disable', function(e){ return false; })
-  //     elements.trigger('click.submenu.disable');
-  //   }
-  //   else {
-  //     elements.off('click.submenu.disable').on('click.submenu.enable', function(e){ return true; })
-  //     elements.trigger('click.submenu.enable');
-  //   }
-  // };
-
-  // // Init
-  // $(window).resize(hoverable);
-  // hoverable();
+    // .on('keydown.submenu', toggle, Submenu.prototype.keydown)
 
 
-}(window.jQuery);
+  // RESPONSIVE SUBMENU API
+  // -----------------------
+  var isDesktop = !Modernizr.touch && Modernizr.mq(mqCondition)
+
+  $(window).on('load resize', function(e) {
+    var mobileCond = !Modernizr.touch && Modernizr.mq(mqCondition)
+    var isLoad = e.type && (e.type == 'load')
+
+    // Load or Using XOR to handle the switch, it fires only when it is needed
+    if (isLoad || (( isDesktop || mobileCond ) && !( isDesktop && mobileCond ))) {
+      isDesktop = mobileCond // current view
+
+      if(!Modernizr.touch && Modernizr.mq(mqCondition)) {
+        // console.log("Add 'mouse' listeners and disable 'click.submenu'")
+        $(document)
+          .on('mouseenter.submenu, mouseleave.submenu', submenu, Submenu.prototype.hover)
+          .on('mouseenter.submenu, mouseleave.submenu', toggle, Submenu.prototype.toggle)
+          .off('click.submenu')
+      }
+      else {
+        // console.log("Add 'click.submenu' listeners and disable 'mouse'")
+        $(document)
+          .off('mouseenter.submenu, mouseleave.submenu')
+          .on('click.submenu', toggle, Submenu.prototype.toggle)
+      }
+    }
+
+  })
+
+
+}(window.jQuery, window.Modernizr);
 
 (function($){
 

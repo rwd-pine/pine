@@ -5,6 +5,7 @@
     "zepto": "git://github.com/components/zepto.git#1.0.0",
     "jquery": "git://github.com/components/jquery.git",
     "normalize-css": "~2.1.3",
-    "bootstrap": "~3.0.0"
+    "bootstrap": "~3.0.0",
+    "modernizr": ">=2.6.2"
   }
 }
