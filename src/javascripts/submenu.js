@@ -106,6 +106,7 @@
 
     // init submenus
     $(element).find('li').has('ul').addClass('has-submenu')
+    $(element).find('a').on('focus.navbar', this.focus)
 
     // setup API
     $(window).on('load resize', $.proxy(this.api, this))
@@ -142,7 +143,7 @@
     }
   }
 
-  Navbar.prototype.keydown = function (e) {
+  Navbar.prototype.focus = function (e) {
     // Check if the focused element is part of some Submenu
     var $this = $(this)
     var $parent  = $this.parent()
@@ -193,9 +194,7 @@
 
   // TODO: handle keyboard better
   // ---------------------
-  $(document)
-    .on('focus.submenu', '.nav-horizontal a', Navbar.prototype.keydown)
-    // .on('keydown.submenu', toggle, Submenu.prototype.keydown)
+  // .on('keydown.submenu', toggle, Submenu.prototype.keydown)
 
 
 
