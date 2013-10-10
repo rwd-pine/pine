@@ -7,13 +7,7 @@
 
   // SUBMENU CLASS DEFINITION
   // ------------------------
-  var toggle = '.has-submenu > a'
-  var submenu = '.has-submenu'
-  var mqCondition = '(min-width: 600px)'
-
-  var Submenu = function (element) {
-
-  }
+  var Submenu = function () {}
 
   // SUBMENU METHODS
   // ------------------------
@@ -70,24 +64,6 @@
     return false
   }
 
-  Submenu.prototype.focus = function (e) {
-    // Check if the focused element is part of some Submenu
-    var $this = $(this)
-    var $parent  = $this.parent()
-
-    if ($parent.hasClass('has-submenu') && !$parent.hasClass('is-open')) {
-      $this.trigger($.Event('mouseenter'))
-    }
-
-    var openedMenus = $('.is-open')
-
-    if(openedMenus.length == 0) return
-
-    openedMenus.filter(function(i){
-      return $(this).find($this).length === 0
-    }).removeClass('is-open')
-  }
-
     // Submenu.prototype.keydown = function (e) {
   //   // Handle only arrow keys, esc and tab
   //   if (!/(38|40|27|9)/.test(e.keyCode)) return
@@ -120,71 +96,107 @@
   // }
 
 
-  // SUBMENU PLUGIN DEFINITION
-  // --------------------------
 
-  var old = $.fn.submenu
+  // NAVBAR CLASS DEFINITION
+  // ------------------------
+  var Navbar = function (element, options) {
+    this.options = $.extend({}, Navbar.DEFAULTS, options)
+    this.$element = $(element)
+    this.isDesktop = !Modernizr.touch && Modernizr.mq(this.options.mqCondition)
 
-  $.fn.submenu = function (option) {
-    return this.each(function () {
-      var $this = $(this)
-      var data  = $this.data('submenu')
+    // init submenus
+    $(element).find('li').has('ul').addClass('has-submenu')
 
-      if (!data) $this.data('submenu', (data = new Submenu(this)))
-      if (typeof option == 'string') data[option].call($this)
-    })
+    // setup API
+    $(window).on('load resize', $.proxy(this.api, this))
   }
 
-  $.fn.submenu.Constructor = Submenu
-
-
-  // SUMBENU NO CONFLICT
-  // --------------------
-
-  $.fn.submenu.noConflict = function () {
-    $.fn.submenu = old
-    return this
+  Navbar.DEFAULTS = {
+    mqCondition:  '(min-width: 600px)',
+    toggle:       '.has-submenu > a',
+    submenu:      '.has-submenu'
   }
 
-  // INITIALIZE MENU ITEM
-  // ----------------------
-  $('.nav-horizontal li').has('ul').addClass('has-submenu')
 
-  // SUBMENU DOCUMENT API
-  // ---------------------
-  $(document)
-    .on('focus.submenu', '.nav-horizontal a', Submenu.prototype.focus)
-    // .on('keydown.submenu', toggle, Submenu.prototype.keydown)
-
-
-  // RESPONSIVE SUBMENU API
-  // -----------------------
-  var isDesktop = !Modernizr.touch && Modernizr.mq(mqCondition)
-
-  $(window).on('load resize', function(e) {
-    var mobileCond = !Modernizr.touch && Modernizr.mq(mqCondition)
+  Navbar.prototype.api = function (e) {
+    var mobileCond = !Modernizr.touch && Modernizr.mq(this.options.mqCondition)
     var isLoad = e.type && (e.type == 'load')
 
     // Load or Using XOR to handle the switch, it fires only when it is needed
-    if (isLoad || (( isDesktop || mobileCond ) && !( isDesktop && mobileCond ))) {
-      isDesktop = mobileCond // current view
+    if (isLoad || (( this.options.isDesktop || mobileCond ) && !( this.options.isDesktop && mobileCond ))) {
+      this.options.isDesktop = mobileCond // current view
 
-      if(!Modernizr.touch && Modernizr.mq(mqCondition)) {
+      if(!Modernizr.touch && Modernizr.mq(this.options.mqCondition)) {
         // console.log("Add 'mouse' listeners and disable 'click.submenu'")
         $(document)
-          .on('mouseenter.submenu, mouseleave.submenu', submenu, Submenu.prototype.hover)
-          .on('mouseenter.submenu, mouseleave.submenu', toggle, Submenu.prototype.toggle)
+          .on('mouseenter.submenu, mouseleave.submenu', this.options.submenu, Submenu.prototype.hover)
+          .on('mouseenter.submenu, mouseleave.submenu', this.options.toggle, Submenu.prototype.toggle)
           .off('click.submenu')
       }
       else {
         // console.log("Add 'click.submenu' listeners and disable 'mouse'")
         $(document)
           .off('mouseenter.submenu, mouseleave.submenu')
-          .on('click.submenu', toggle, Submenu.prototype.toggle)
+          .on('click.submenu', this.options.toggle, Submenu.prototype.toggle)
       }
     }
+  }
 
-  })
+  Navbar.prototype.keydown = function (e) {
+    // Check if the focused element is part of some Submenu
+    var $this = $(this)
+    var $parent  = $this.parent()
+
+    if ($parent.hasClass('has-submenu') && !$parent.hasClass('is-open')) {
+      $this.trigger($.Event('mouseenter'))
+    }
+
+    var openedMenus = $('.is-open')
+
+    if(openedMenus.length == 0) return
+
+    openedMenus.filter(function(i){
+      return $(this).find($this).length === 0
+    }).removeClass('is-open')
+  }
+
+  // NAVBAR PLUGIN DEFINITION
+  // --------------------------
+
+  var old = $.fn.navbar
+
+  $.fn.navbar = function (option) {
+    return this.each(function () {
+      var $this   = $(this)
+      var data    = $this.data('navbar')
+      var options = typeof option == 'object' && option
+
+      if (!data) $this.data('navbar', (data = new Navbar(this, options)))
+      if (typeof option == 'string') data[option]()
+    })
+  }
+
+  $.fn.navbar.Constructor = Navbar
+
+  // NAVBAR NO CONFLICT
+  // --------------------
+
+  $.fn.navbar.noConflict = function () {
+    $.fn.navbar = old
+    return this
+  }
+
+  // INITIALIZE NAVBAR
+  // ----------------------
+  $('[role=navigation]').navbar()
+
+
+  // TODO: handle keyboard better
+  // ---------------------
+  $(document)
+    .on('focus.submenu', '.nav-horizontal a', Navbar.prototype.keydown)
+    // .on('keydown.submenu', toggle, Submenu.prototype.keydown)
+
 
 
 }(window.jQuery, window.Modernizr);

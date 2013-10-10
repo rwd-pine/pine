@@ -3,38 +3,40 @@
 <html lang="en" class="js">
 
 <head>
-  <meta charset="UTF-8">  
-	
+  <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <title>Responsive navigation — vertical test</title>
 
   <!-- Common stylesheet for all devices -->
   <link rel="stylesheet" href="./dist/stylesheets/app.css">
 
-  <!-- Test related styles -->  
+  <script src="dist/javascripts/modernizr.min.js"></script>
+
+  <!-- Test related styles -->
   <style>
       .nav-container {
         margin: 1em;
         width: 15em;
       }
-      
+
       @media (max-width: 599px) {
         .nav-container {
           width: auto;
         }
       }
   </style>
-  
 
-  
+
+
 </head>
 
 <body>
-  
-  
+
+
   <div class="nav-container">
-    
+
     <div role="navigation" class="nav-vertical">
         <ul>
           <li>
@@ -42,12 +44,12 @@
                 Home
               </strong>
           </li>
-          <li class="is-open has-submenu">
+          <li class="has-submenu">
               <a href="#">
                 About
               </a>
               <ul>
-                <li class="is-open has-submenu">
+                <li class="has-submenu">
                     <a href="#">
                       Our team
                     </a>
@@ -100,12 +102,12 @@
                     <a href="#">
                       Third product
                     </a>
-                </li>  
+                </li>
                 <li>
                     <a href="#">
                       Fourth product
                     </a>
-                </li>                          
+                </li>
               </ul>
           </li>
           <li>
@@ -122,8 +124,13 @@
       </div><!-- [role=navigation] -->
 
   </div><!-- .nav-container -->
-  
 
+  <!-- Javascripts
+  ========================== -->
+
+  <!-- TODO: load conditionally -->
+  <script src="dist/javascripts/jquery.min.js"></script>
+  <script src="dist/javascripts/app.js"></script>
 
 </body>
 </html>
