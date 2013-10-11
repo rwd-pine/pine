@@ -6,6 +6,12 @@
 // - on small screen all indicators should point to bottom
 // - classes instead of 'ul ul ul'?
 
+// Context where we are positioning the indicator
+[role='navigation'] li.has-submenu > a,
+[role='navigation'] li.has-submenu > strong {
+	position: relative;
+}
+
 // Default: vertical
 [role='navigation'] > ul > li.has-submenu > a:before {
 	.has-submenu-triangle-indicator(right, @rwnLevel1SubIndColor, @rwnLevel1FontSize, @rwnLevel1FontSize*1.2);
