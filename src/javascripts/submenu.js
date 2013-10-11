@@ -2,8 +2,7 @@
 // Submenu: Navigation behavior
 // --------------------------------
 
-
-+function ($, Modernizr) { "use strict";
++function ($) { "use strict";
 
   // SUBMENU CLASS DEFINITION
   // ------------------------
@@ -120,7 +119,8 @@
 
 
   Navbar.prototype.api = function (e) {
-    var mobileCond = !Modernizr.touch && Modernizr.mq(this.options.mqCondition)
+    // var mobileCond = !Modernizr.touch && Modernizr.mq(this.options.mqCondition)
+    var mobileCond = window.matchMedia(this.options.mqCondition).matches
     var isLoad = e.type && (e.type == 'load')
 
     // Load or Using XOR to handle the switch, it fires only when it is needed
@@ -198,4 +198,4 @@
 
 
 
-}(window.jQuery, window.Modernizr);
+}(jQuery);
