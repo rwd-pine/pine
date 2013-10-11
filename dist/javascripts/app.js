@@ -70,6 +70,7 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
     var $parent  = $this.parent()
     var isActive  = $parent.hasClass('is-open')
     var originalEvent = e
+    var fx = e.data.fx != 'undefined' && e.data.fx
 
     // Handle if the event was fired by link
     if (!isActive) {
@@ -77,6 +78,11 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
       //   // if mobile we we use a backdrop because click events don't delegate
       //   $('<div class="submenu-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
       // }
+
+      if(fx == 'nav-behave-right-to-left') {
+        var $parentLists = $this.parents('ul')
+        $parentLists.last().css('left', (-100 * $parentLists.length) + '%')
+      }
 
       $parent.trigger(e = $.Event('show.submenu'))
       if (e.isDefaultPrevented()) return
@@ -94,6 +100,11 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
 
       // If submenu is hovered then return
       if ($parent.find('> ul').hasClass('is-hover')) return
+
+      if(fx == 'nav-behave-right-to-left') {
+        var $parentLists = $this.parents('ul')
+        $parentLists.last().css('left', ($parentLists.length * 100) + '%')
+      }
 
       $parent.trigger(e = $.Event('hide.submenu'))
       if (e.isDefaultPrevented()) return
@@ -149,7 +160,8 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
   Navbar.DEFAULTS = {
     jsBreakpoint:   '600px',
     toggle:       '.has-submenu > a',
-    submenu:      '.has-submenu'
+    submenu:      '.has-submenu',
+    fx:           'nav-behave-right-to-left'
   }
 
   // TODO: refactor quick and dirty initialization
