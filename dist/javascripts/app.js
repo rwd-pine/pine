@@ -1,12 +1,48 @@
 /**
 * app.js v0.0.1
 */
+/*! matchMedia() polyfill - Test a CSS media type/query in JS. Authors & copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas. Dual MIT/BSD license */
+
+window.matchMedia = window.matchMedia || (function( doc, undefined ) {
+
+  "use strict";
+
+  var bool,
+      docElem = doc.documentElement,
+      refNode = docElem.firstElementChild || docElem.firstChild,
+      // fakeBody required for <FF4 when executed in <head>
+      fakeBody = doc.createElement( "body" ),
+      div = doc.createElement( "div" );
+
+  div.id = "mq-test-1";
+  div.style.cssText = "position:absolute;top:-100em";
+  fakeBody.style.background = "none";
+  fakeBody.appendChild(div);
+
+  return function(q){
+
+    div.innerHTML = "&shy;<style media=\"" + q + "\"> #mq-test-1 { width: 42px; }</style>";
+
+    docElem.insertBefore( fakeBody, refNode );
+    bool = div.offsetWidth === 42;
+    docElem.removeChild( fakeBody );
+
+    return {
+      matches: bool,
+      media: q
+    };
+
+  };
+
+}( document ));
+
+
+
 //
 // Submenu: Navigation behavior
 // --------------------------------
 
-
-+function ($, Modernizr) { "use strict";
++function ($) { "use strict";
 
   // SUBMENU CLASS DEFINITION
   // ------------------------
@@ -123,7 +159,8 @@
 
 
   Navbar.prototype.api = function (e) {
-    var mobileCond = !Modernizr.touch && Modernizr.mq(this.options.mqCondition)
+    // var mobileCond = !Modernizr.touch && Modernizr.mq(this.options.mqCondition)
+    var mobileCond = window.matchMedia(this.options.mqCondition).matches
     var isLoad = e.type && (e.type == 'load')
 
     // Load or Using XOR to handle the switch, it fires only when it is needed
@@ -201,7 +238,7 @@
 
 
 
-}(window.jQuery, window.Modernizr);
+}(jQuery);
 
 (function($){
 

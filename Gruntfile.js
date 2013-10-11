@@ -40,8 +40,7 @@ module.exports = function(grunt) {
         files: [
           { expand: true, cwd: 'bower_components/jquery', src: ['jquery.min.js'], dest: 'dist/javascripts', filter: 'isFile' },
           { expand: true, cwd: 'bower_components/zepto', src: ['zepto.min.js'], dest: 'dist/javascripts', filter: 'isFile' },
-          // { expand: true, cwd: 'bower_components/bootstrap/js', src: ['*.js'], dest: 'src/javascripts/bootstrap', filter: 'isFile' },
-          { expand: true, cwd: 'bower_components/modernizr/', src: ['modernizr.js'], dest: 'src/javascripts/', filter: 'isFile' },
+          { expand: true, cwd: 'bower_components/matchmedia/', src: ['matchmedia.js'], dest: 'src/javascripts/', filter: 'isFile' },
         ]
       },
       assets: {
@@ -75,6 +74,7 @@ module.exports = function(grunt) {
       },
       main: {
         src: [
+          'src/javascripts/matchmedia.js',
           'src/javascripts/submenu.js',
           'src/javascripts/app.js'
         ],
