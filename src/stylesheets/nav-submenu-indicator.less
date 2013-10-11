@@ -1,10 +1,10 @@
 // --- RWD Nav: Has submenu triangle indicator ---
 
 // TODO
-// - positionTop more precise numbers
+// - positionTop/positionRight more precise numbers
 // - on small screens there should be its own SubIndColor and @positionTop variable
 // - on small screen all indicators should point to bottom
-// - classes instead of 'ul ul ul' 
+// - classes instead of 'ul ul ul'?
 
 // Default: vertical
 [role='navigation'] > ul > li.has-submenu > a:before {
@@ -13,7 +13,7 @@
 
 // Horizontal variant
 [role='navigation'].nav-horizontal > ul > li.has-submenu > a:before {
-	.has-submenu-triangle-indicator(bottom, @rwnLevel1SubIndColor, @rwnLevel1FontSize, @rwnLevel1FontSize*1.2);
+	.has-submenu-triangle-indicator(bottom, @rwnLevel1SubIndColor, 0, @rwnLevel1FontSize*1.2);
 }
 
 // 2nd level

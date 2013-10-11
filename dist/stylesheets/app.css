@@ -516,7 +516,7 @@ table {
 [role='navigation'].nav-horizontal > ul > li.has-submenu > a:before {
   position: absolute;
   top: 19.2px;
-  right: 16px;
+  right: 0;
   z-index: 100;
   display: inline-block;
   width: 0;
@@ -614,11 +614,8 @@ table {
     position: static;
     top: auto;
     left: auto;
-    display: table;
-    width: 100%;
     background: transparent;
     background: #666666;
-    table-layout: fixed;
   }
   [role='navigation'].nav-horizontal li {
     position: relative;
@@ -666,13 +663,9 @@ table {
     text-decoration: underline;
     background: #cccccc;
   }
-  [role='navigation'].nav-horizontal > ul {
-    display: table-row;
-  }
   [role='navigation'].nav-horizontal > ul > li {
     position: relative;
     display: inline-block;
-    display: table-cell;
   }
   [role='navigation'].nav-horizontal > ul > li > a,
   [role='navigation'].nav-horizontal > ul > li > strong {
@@ -732,11 +725,8 @@ table {
   position: static;
   top: auto;
   left: auto;
-  display: table;
-  width: 100%;
   background: transparent;
   background: #666666;
-  table-layout: fixed;
 }
 
 .old-ie [role='navigation'].nav-horizontal li {
@@ -792,14 +782,9 @@ table {
   background: #cccccc;
 }
 
-.old-ie [role='navigation'].nav-horizontal > ul {
-  display: table-row;
-}
-
 .old-ie [role='navigation'].nav-horizontal > ul > li {
   position: relative;
   display: inline-block;
-  display: table-cell;
 }
 
 .old-ie [role='navigation'].nav-horizontal > ul > li > a,

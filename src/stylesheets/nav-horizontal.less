@@ -1,18 +1,11 @@
-// Nav horizontal
+// RWD Nav: horizontal variant
 
 background: @rwnLevel1Bg;
-display: table; // Table protoze nevime kolik bude polozek na radku
-table-layout: fixed;	// Trik pro stejnou sirku polozek http://stackoverflow.com/questions/10525744/css-table-cell-equal-width
-width: 100%;
 
-> ul {
-	display: table-row;
-}
 
 > ul > li {
-	display: inline-block; // Fallback kdyz nefici display: table
-	display: table-cell;
-	position: relative; // Nelze ve FF
+	display: inline-block;
+	position: relative;
 }
 
 > ul > li > a,

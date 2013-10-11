@@ -7227,7 +7227,7 @@ td.visible-print {
 [role='navigation'].nav-horizontal > ul > li.has-submenu > a:before {
   position: absolute;
   top: 16.8px;
-  right: 14px;
+  right: 0;
   z-index: 100;
   display: inline-block;
   width: 0;
@@ -7325,11 +7325,8 @@ td.visible-print {
     position: static;
     top: auto;
     left: auto;
-    display: table;
-    width: 100%;
     background: #f8f8f8;
     background: transparent;
-    table-layout: fixed;
   }
   [role='navigation'].nav-horizontal li {
     position: relative;
@@ -7377,13 +7374,9 @@ td.visible-print {
     text-decoration: underline;
     background: transparent;
   }
-  [role='navigation'].nav-horizontal > ul {
-    display: table-row;
-  }
   [role='navigation'].nav-horizontal > ul > li {
     position: relative;
     display: inline-block;
-    display: table-cell;
   }
   [role='navigation'].nav-horizontal > ul > li > a,
   [role='navigation'].nav-horizontal > ul > li > strong {
@@ -7443,11 +7436,8 @@ td.visible-print {
   position: static;
   top: auto;
   left: auto;
-  display: table;
-  width: 100%;
   background: #f8f8f8;
   background: transparent;
-  table-layout: fixed;
 }
 
 .old-ie [role='navigation'].nav-horizontal li {
@@ -7503,14 +7493,9 @@ td.visible-print {
   background: transparent;
 }
 
-.old-ie [role='navigation'].nav-horizontal > ul {
-  display: table-row;
-}
-
 .old-ie [role='navigation'].nav-horizontal > ul > li {
   position: relative;
   display: inline-block;
-  display: table-cell;
 }
 
 .old-ie [role='navigation'].nav-horizontal > ul > li > a,
