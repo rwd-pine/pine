@@ -1,0 +1,64 @@
+position: static;
+top: auto;
+left: auto;
+background: @rwnBg;
+
+// Relative because of submenu positions od large screens
+li {
+	position: relative;
+}
+
+// Prvni uroven zanoreni
+a,
+strong {
+	display: block;		
+	background: @rwnLevel1Bg;
+	color: @rwnLevel1Color;
+	padding: @rwnLevel1Padding;
+	font-size: @rwnLevel1FontSize;
+	border-bottom: 0;	
+	text-indent: 0;	
+}
+
+// Aktivni polozka
+li:hover,
+li:focus,
+li:active {
+	background: @rwnLevel1Bg;
+	color: @rwnLevel1ColorHover;
+}
+
+// Druha uroven zanoreni
+ul ul > li > a,
+ul ul > li > strong {
+	background: @rwnLevel2Bg;
+	padding: @rwnLevel2Padding;
+	font-size: @rwnLevel2FontSize;
+	color: @rwnLevel2Color;
+}
+
+// Aktivni polozka druhe urovne
+ul ul li:hover,
+ul ul li:focus,
+ul ul li:active {
+	background: @rwnLevel3Bg;
+	color: @rwnLevel2ColorHover;
+}
+
+// Treti uroven zanoreni
+ul ul ul > li > a,
+ul ul ul > li > strong {
+	background: @rwnLevel3Bg;
+	padding: @rwnLevel3Padding;
+	font-size: @rwnLevel3FontSize;
+	color: @rwnLevel3Color;
+}
+
+// Aktivni polozka treti urovne
+ul ul ul li:hover,
+ul ul ul li:focus,
+ul ul ul li:active {
+	background: @rwnLevel3Bg;	
+	text-decoration: underline;
+	color: @rwnLevel3ColorHover;
+}

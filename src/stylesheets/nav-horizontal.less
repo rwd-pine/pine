@@ -1,0 +1,100 @@
+// Nav horizontal
+
+background: @rwnLevel1Bg;
+display: table; // Table protoze nevime kolik bude polozek na radku
+table-layout: fixed;	// Trik pro stejnou sirku polozek http://stackoverflow.com/questions/10525744/css-table-cell-equal-width
+width: 100%;
+
+> ul {
+	display: table-row;
+}
+
+> ul > li {
+	display: inline-block; // Fallback kdyz nefici display: table
+	display: table-cell;
+	position: relative; // Nelze ve FF
+}
+
+> ul > li > a,
+> ul > li > strong {
+	text-align: center;
+	display: block;
+}
+
+// - Nerozbaleny stav -
+
+ul a {
+	position: relative; // TODO why?
+}
+
+// Zabaleny stav druhe a treti urovne
+ul ul {
+	position: absolute;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	background: @rwnLevel2Bg;
+}
+
+// Pri nacteni JS: submenu schovame
+.js & ul ul {
+	top: -999px;
+	left: 0;		
+}
+
+// Treti uroven zanoreni nema odsazeni zezhora a zezdola z druhe
+ul ul ul {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+// - Rozbaleny stav: bez JS -
+// Vsechno je otevrene
+
+// Otevrena druha uroven
+ul > li > ul {
+	.nav-large-display-horizontal-2nd-level;
+}
+
+// Otevrena treti uroven
+ul ul > li > ul {
+	.nav-large-display-horizontal-3rd-level;
+}
+
+// - Rozbaleny stav: s JS -
+
+// Zvyrazneni aktivni polozky 1. urovne
+li.is-open > a {
+	background: @rwnLevel2Bg;
+	color: @rwnLevel1ColorHover;
+}
+
+// Zvyrazneni aktivni polozky 2. urovne
+ul ul li.is-open > a {
+	background: @rwnLevel3Bg;
+	color: @rwnLevel2ColorHover;
+}
+
+// Otevrena druha uroven
+ul > li.is-open > ul {
+	.nav-large-display-horizontal-2nd-level;
+}
+
+// Otevrena treti uroven
+ul ul > li.is-open > ul {
+	.nav-large-display-horizontal-3rd-level;
+}
+
+// Mixin: styl pro otevrenou druhou uroven zanoreni
+.nav-large-display-horizontal-2nd-level() {
+	z-index: 50001;
+	left: 0;
+	top: 100%;
+	max-width: 313px; // Max. sirka polozky v plne sirce layoutu
+}
+
+// Mixin: styl pro otevrenou treti uroven zanoreni
+.nav-large-display-horizontal-3rd-level() {
+	z-index: 50002;
+	left: 100%;
+	top: 0;
+}

@@ -1,0 +1,65 @@
+// Vychozi stav druhe a treti urovne
+ul ul {
+	top: 0;		
+	position: absolute;
+}
+
+// Zabaleny stav druhe a treti urovne (pri nacteni JS)
+.js & ul ul {
+	left: -999px;
+}
+
+// Prvni uroven zanoreni
+a,
+strong {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+// - Rozbaleny stav: bez JS -	
+
+// Otevrena druha uroven
+ul > li > ul {
+	.nav-large-display-horizontal-2nd-level;
+}	
+
+// Otevrena treti uroven
+ul ul > li > ul {
+	.nav-large-display-horizontal-3rd-level;
+}
+
+// - Rozbaleny stav: s JS -
+
+// Zvyrazneni aktivni polozky 1. urovne
+li.is-open > a {
+	background: @rwnLevel2Bg;
+	color: @rwnLevel1ColorHover;
+}
+
+// Zvyrazneni aktivni polozky 2. urovne
+ul ul li.is-open > a {
+	background: @rwnLevel3Bg;
+	color: @rwnLevel2ColorHover;
+}
+
+// Otevrena druha uroven
+ul > li.is-open > ul {
+	.nav-large-display-horizontal-2nd-level;
+}
+
+// Otevrena treti uroven
+ul ul > li.is-open > ul {
+	.nav-large-display-horizontal-3rd-level;
+}
+
+// Mixin: styl pro otevrenou druhou uroven zanoreni
+.nav-large-display-horizontal-2nd-level() {
+	z-index: 50001;
+	left: 100%;
+	max-width: 313px; // Max. sirka polozky v plne sirce layoutu
+}
+
+// Mixin: styl pro otevrenou treti uroven zanoreni
+.nav-large-display-horizontal-3rd-level() {
+	z-index: 50002;
+}

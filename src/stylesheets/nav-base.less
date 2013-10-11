@@ -1,0 +1,78 @@
+// Default: Vertikalni (male screeny + vertikalni varianta pro velke)
+// ------------------------------------------------------------------
+
+// Na malych screenech a bez js pozicovano zcela prirozene
+// podle aktualniho umisteni v HTML
+
+[role='navigation'] {
+	z-index: @rwnZIndex; 
+	margin-bottom: @rwnMarginBottom;
+	min-height: @rwnHeight;
+	background: @rwnBg;
+	.clearfix();
+
+	@media	(min-width: @rwnLargeDisplayStart) {
+		border-radius: @rwnBorderRadius;
+	}	
+
+	@media print {
+		display: none;
+	}
+
+	// Schovavani (na malych displejich) pomoci JS
+	.container-fluid &.hidden {
+		display: none;
+	}
+
+	// Na malych screenech s JS pozicovano absolutne
+	// nad obsah, hned pod .wm-l-mobile-header
+	.js & {
+		position: absolute;
+		top: 50px;
+		left: 0;
+		width: 100%;
+	}
+}
+
+// Vnitrek navigace
+[role='navigation'] {
+	ul,
+	li {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+
+	li > a,
+	li > strong {
+		display: block;
+		padding: @rwnSmallScreenPadding;
+		color: @rwnSmallScreenColor;
+		font-weight: normal;
+		.text-overflow();
+		text-decoration: none;
+		background: @rwnSmallScreenBg;
+	}
+
+	// Aktivni polozka
+	li a:hover,
+	li a:focus,
+	li a:active,
+	li strong {
+		background: @rwnSmallScreenActiveBg;
+		color: @rwnSmallScreenActiveColor;
+	}
+
+	// Druha uroven zanoreni
+	ul ul li > a,
+	ul ul li > strong {
+		text-indent: 1em;
+	}
+
+	// Treti uroven zanoreni
+	ul ul ul li > a,
+	ul ul ul li > strong {
+		text-indent: 2em;
+	}
+
+}
