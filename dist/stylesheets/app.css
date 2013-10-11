@@ -487,6 +487,11 @@ table {
   text-indent: 2em;
 }
 
+[role='navigation'] li.has-submenu > a,
+[role='navigation'] li.has-submenu > strong {
+  position: relative;
+}
+
 [role='navigation'] > ul > li.has-submenu > a:before {
   position: absolute;
   top: 19.2px;
