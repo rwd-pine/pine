@@ -599,9 +599,18 @@ table {
 .nav-behave-right-to-left ul ul {
   position: absolute;
   top: 0;
+  left: 100%;
 }
 
-.nav-behave-right-to-left .js ul ul {
+.nav-behave-right-to-left > ul > ul > ul {
+  left: 200%;
+}
+
+.nav-behave-right-to-left > ul > ul > ul > ul {
+  left: 300%;
+}
+
+.js .nav-behave-right-to-left ul ul {
   display: none;
 }
 
