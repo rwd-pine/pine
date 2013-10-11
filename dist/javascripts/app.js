@@ -141,46 +141,82 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
   var Navbar = function (element, options) {
     this.options = $.extend({}, Navbar.DEFAULTS, options)
     this.$element = $(element)
-    this.isDesktop = !Modernizr.touch && Modernizr.mq(this.options.mqCondition)
+    this.isDesktop = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
 
+    this.init()
+  }
+
+  Navbar.DEFAULTS = {
+    jsBreakpoint:   '600px',
+    toggle:       '.has-submenu > a',
+    submenu:      '.has-submenu'
+  }
+
+  // TODO: refactor quick and dirty initialization
+  Navbar.prototype.init = function () {
     // init submenus
-    $(element).find('li').has('ul').addClass('has-submenu')
-    $(element).find('a').on('focus.navbar', this.focus)
+    this.$element.find('li').has('ul').addClass('has-submenu')
+    this.$element.find('a').on('focus.navbar', this.focus)
 
     // setup API
     $(window).on('load resize', $.proxy(this.api, this))
   }
 
-  Navbar.DEFAULTS = {
-    mqCondition:  '(min-width: 600px)',
-    toggle:       '.has-submenu > a',
-    submenu:      '.has-submenu'
+  Navbar.prototype.switchDOM = function () {
+    // init submenus
+    var $submenu = this.$element.find('li').has('ul')
+
+    if(this.isDesktop) {
+      $submenu.find('ul').removeAttr('style')
+      $submenu.find('li.back').remove()
+    }
+    else {
+      $submenu.each(function(){
+        $(this).find('> ul')
+          .css('width', $(window).width())
+          .prepend($('<li class="back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
+      })
+    }
   }
 
+  // Navbar.prototype.checkMedia = function (e) {
+  //   var mobileCond = window.matchMedia('(min-width: ' + this.options.breakpoint + ')').matches
+  //   var isLoad = e.type && (e.type == 'load')
+
+  //   // Load or Using XOR to handle the switch, it fires only when it is needed
+  //   if (isLoad || (( this.isDesktop || mobileCond ) && !( this.isDesktop && mobileCond ))) {
+  //     this.isDesktop = mobileCond // current view
+  //     return true
+  //   }
+
+  //   return false
+  // }
 
   Navbar.prototype.api = function (e) {
-    // var mobileCond = !Modernizr.touch && Modernizr.mq(this.options.mqCondition)
-    var mobileCond = window.matchMedia(this.options.mqCondition).matches
+    // if(!this.checkMedia(e)) return false
+    var mobileCond = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
     var isLoad = e.type && (e.type == 'load')
 
     // Load or Using XOR to handle the switch, it fires only when it is needed
-    if (isLoad || (( this.options.isDesktop || mobileCond ) && !( this.options.isDesktop && mobileCond ))) {
-      this.options.isDesktop = mobileCond // current view
+    if (isLoad || (( this.isDesktop || mobileCond ) && !( this.isDesktop && mobileCond ))) {
+      this.isDesktop = mobileCond // current view
 
-      if(!Modernizr.touch && Modernizr.mq(this.options.mqCondition)) {
+      if(mobileCond) {
         // console.log("Add 'mouse' listeners and disable 'click.submenu'")
         $(document)
-          .on('mouseenter.submenu, mouseleave.submenu', this.options.submenu, Submenu.prototype.hover)
-          .on('mouseenter.submenu, mouseleave.submenu', this.options.toggle, Submenu.prototype.toggle)
+          .on('mouseenter.submenu, mouseleave.submenu', this.options.submenu, this.options, Submenu.prototype.hover)
+          .on('mouseenter.submenu, mouseleave.submenu', this.options.toggle, this.options, Submenu.prototype.toggle)
           .off('click.submenu')
       }
       else {
         // console.log("Add 'click.submenu' listeners and disable 'mouse'")
         $(document)
           .off('mouseenter.submenu, mouseleave.submenu')
-          .on('click.submenu', this.options.toggle, Submenu.prototype.toggle)
+          .on('click.submenu', this.options.toggle, this.options, Submenu.prototype.toggle)
       }
+      this.switchDOM()
     }
+
   }
 
   Navbar.prototype.focus = function (e) {
@@ -210,10 +246,10 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
     return this.each(function () {
       var $this   = $(this)
       var data    = $this.data('navbar')
-      var options = typeof option == 'object' && option
+      var options = $.extend({}, $this.data(), typeof option == 'object' && option)
 
       if (!data) $this.data('navbar', (data = new Navbar(this, options)))
-      if (typeof option == 'string') data[option]()
+      // if (typeof option == 'string') data[option]()
     })
   }
 
