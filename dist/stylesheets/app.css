@@ -500,7 +500,7 @@ table {
   display: inline-block;
   width: 0;
   height: 0;
-  border-color: transparent transparent transparent #ffffff;
+  border-color: transparent transparent transparent #1a1a1a;
   border-style: solid;
   border-width: 5px 0 5px 7px;
   content: "";
@@ -514,7 +514,7 @@ table {
 
 @media (max-width: 600px) {
   [role='navigation'] > ul > li.has-submenu > a:before {
-    border-color: transparent transparent transparent #ffffff;
+    border-color: transparent transparent transparent #1a1a1a;
   }
 }
 
@@ -526,7 +526,7 @@ table {
   display: inline-block;
   width: 0;
   height: 0;
-  border-color: #ffffff transparent transparent transparent;
+  border-color: #1a1a1a transparent transparent transparent;
   border-style: solid;
   border-width: 7px 5px 0 5px;
   content: "";
@@ -540,19 +540,19 @@ table {
 
 @media (max-width: 600px) {
   [role='navigation'].nav-horizontal > ul > li.has-submenu > a:before {
-    border-color: #ffffff transparent transparent transparent;
+    border-color: #1a1a1a transparent transparent transparent;
   }
 }
 
 [role='navigation'] ul ul > li.has-submenu > a:before {
   position: absolute;
-  top: 13.44px;
-  right: 12.8px;
+  top: 19.2px;
+  right: 16px;
   z-index: 100;
   display: inline-block;
   width: 0;
   height: 0;
-  border-color: transparent transparent transparent #dddddd;
+  border-color: transparent transparent transparent #1a1a1a;
   border-style: solid;
   border-width: 5px 0 5px 7px;
   content: "";
@@ -566,19 +566,19 @@ table {
 
 @media (max-width: 600px) {
   [role='navigation'] ul ul > li.has-submenu > a:before {
-    border-color: transparent transparent transparent #ffffff;
+    border-color: transparent transparent transparent #1a1a1a;
   }
 }
 
 [role='navigation'] ul ul ul > li.has-submenu > a:before {
   position: absolute;
-  top: 13.44px;
-  right: 11.2px;
+  top: 19.2px;
+  right: 16px;
   z-index: 100;
   display: inline-block;
   width: 0;
   height: 0;
-  border-color: transparent transparent transparent #dddddd;
+  border-color: transparent transparent transparent #1a1a1a;
   border-style: solid;
   border-width: 5px 0 5px 7px;
   content: "";
@@ -592,7 +592,7 @@ table {
 
 @media (max-width: 600px) {
   [role='navigation'] ul ul ul > li.has-submenu > a:before {
-    border-color: transparent transparent transparent #ffffff;
+    border-color: transparent transparent transparent #1a1a1a;
   }
 }
 
@@ -629,7 +629,6 @@ table {
     top: auto;
     left: auto;
     background: transparent;
-    background: #666666;
   }
   [role='navigation'].nav-horizontal li {
     position: relative;
@@ -639,43 +638,43 @@ table {
     display: block;
     padding: 12px 16px;
     font-size: 16px;
-    color: #ffffff;
+    color: #000000;
     text-indent: 0;
-    background: #666666;
+    background: transparent;
     border-bottom: 0;
   }
   [role='navigation'].nav-horizontal li:hover,
   [role='navigation'].nav-horizontal li:focus,
   [role='navigation'].nav-horizontal li:active {
-    color: #ffffff;
-    background: #666666;
+    color: #1a1a1a;
+    background: transparent;
   }
   [role='navigation'].nav-horizontal ul ul > li > a,
   [role='navigation'].nav-horizontal ul ul > li > strong {
-    padding: 9.600000000000001px 12.8px;
-    font-size: 12.8px;
-    color: #ffffff;
-    background: #999999;
+    padding: 12px 16px;
+    font-size: 16px;
+    color: #000000;
+    background: transparent;
   }
   [role='navigation'].nav-horizontal ul ul li:hover,
   [role='navigation'].nav-horizontal ul ul li:focus,
   [role='navigation'].nav-horizontal ul ul li:active {
-    color: #ffffff;
-    background: #cccccc;
+    color: #1a1a1a;
+    background: transparent;
   }
   [role='navigation'].nav-horizontal ul ul ul > li > a,
   [role='navigation'].nav-horizontal ul ul ul > li > strong {
-    padding: 8.399999999999999px 11.2px;
-    font-size: 11.2px;
-    color: #ffffff;
-    background: #cccccc;
+    padding: 12px 16px;
+    font-size: 16px;
+    color: #000000;
+    background: transparent;
   }
   [role='navigation'].nav-horizontal ul ul ul li:hover,
   [role='navigation'].nav-horizontal ul ul ul li:focus,
   [role='navigation'].nav-horizontal ul ul ul li:active {
-    color: #ffffff;
+    color: #1a1a1a;
     text-decoration: underline;
-    background: #cccccc;
+    background: transparent;
   }
   [role='navigation'].nav-horizontal > ul > li {
     position: relative;
@@ -693,7 +692,7 @@ table {
     position: absolute;
     padding-top: 8px;
     padding-bottom: 8px;
-    background: #999999;
+    background: transparent;
   }
   .js [role='navigation'].nav-horizontal ul ul {
     top: -999px;
@@ -715,12 +714,12 @@ table {
     z-index: 50002;
   }
   [role='navigation'].nav-horizontal li.is-open > a {
-    color: #ffffff;
-    background: #999999;
+    color: #1a1a1a;
+    background: transparent;
   }
   [role='navigation'].nav-horizontal ul ul li.is-open > a {
-    color: #ffffff;
-    background: #cccccc;
+    color: #1a1a1a;
+    background: transparent;
   }
   [role='navigation'].nav-horizontal ul > li.is-open > ul {
     top: 100%;
@@ -740,7 +739,6 @@ table {
   top: auto;
   left: auto;
   background: transparent;
-  background: #666666;
 }
 
 .old-ie [role='navigation'].nav-horizontal li {
@@ -752,48 +750,48 @@ table {
   display: block;
   padding: 12px 16px;
   font-size: 16px;
-  color: #ffffff;
+  color: #000000;
   text-indent: 0;
-  background: #666666;
+  background: transparent;
   border-bottom: 0;
 }
 
 .old-ie [role='navigation'].nav-horizontal li:hover,
 .old-ie [role='navigation'].nav-horizontal li:focus,
 .old-ie [role='navigation'].nav-horizontal li:active {
-  color: #ffffff;
-  background: #666666;
+  color: #1a1a1a;
+  background: transparent;
 }
 
 .old-ie [role='navigation'].nav-horizontal ul ul > li > a,
 .old-ie [role='navigation'].nav-horizontal ul ul > li > strong {
-  padding: 9.600000000000001px 12.8px;
-  font-size: 12.8px;
-  color: #ffffff;
-  background: #999999;
+  padding: 12px 16px;
+  font-size: 16px;
+  color: #000000;
+  background: transparent;
 }
 
 .old-ie [role='navigation'].nav-horizontal ul ul li:hover,
 .old-ie [role='navigation'].nav-horizontal ul ul li:focus,
 .old-ie [role='navigation'].nav-horizontal ul ul li:active {
-  color: #ffffff;
-  background: #cccccc;
+  color: #1a1a1a;
+  background: transparent;
 }
 
 .old-ie [role='navigation'].nav-horizontal ul ul ul > li > a,
 .old-ie [role='navigation'].nav-horizontal ul ul ul > li > strong {
-  padding: 8.399999999999999px 11.2px;
-  font-size: 11.2px;
-  color: #ffffff;
-  background: #cccccc;
+  padding: 12px 16px;
+  font-size: 16px;
+  color: #000000;
+  background: transparent;
 }
 
 .old-ie [role='navigation'].nav-horizontal ul ul ul li:hover,
 .old-ie [role='navigation'].nav-horizontal ul ul ul li:focus,
 .old-ie [role='navigation'].nav-horizontal ul ul ul li:active {
-  color: #ffffff;
+  color: #1a1a1a;
   text-decoration: underline;
-  background: #cccccc;
+  background: transparent;
 }
 
 .old-ie [role='navigation'].nav-horizontal > ul > li {
@@ -815,7 +813,7 @@ table {
   position: absolute;
   padding-top: 8px;
   padding-bottom: 8px;
-  background: #999999;
+  background: transparent;
 }
 
 .js .old-ie [role='navigation'].nav-horizontal ul ul {
@@ -842,13 +840,13 @@ table {
 }
 
 .old-ie [role='navigation'].nav-horizontal li.is-open > a {
-  color: #ffffff;
-  background: #999999;
+  color: #1a1a1a;
+  background: transparent;
 }
 
 .old-ie [role='navigation'].nav-horizontal ul ul li.is-open > a {
-  color: #ffffff;
-  background: #cccccc;
+  color: #1a1a1a;
+  background: transparent;
 }
 
 .old-ie [role='navigation'].nav-horizontal ul > li.is-open > ul {
@@ -879,43 +877,43 @@ table {
     display: block;
     padding: 12px 16px;
     font-size: 16px;
-    color: #ffffff;
+    color: #000000;
     text-indent: 0;
-    background: #666666;
+    background: transparent;
     border-bottom: 0;
   }
   [role='navigation'].nav-vertical li:hover,
   [role='navigation'].nav-vertical li:focus,
   [role='navigation'].nav-vertical li:active {
-    color: #ffffff;
-    background: #666666;
+    color: #1a1a1a;
+    background: transparent;
   }
   [role='navigation'].nav-vertical ul ul > li > a,
   [role='navigation'].nav-vertical ul ul > li > strong {
-    padding: 9.600000000000001px 12.8px;
-    font-size: 12.8px;
-    color: #ffffff;
-    background: #999999;
+    padding: 12px 16px;
+    font-size: 16px;
+    color: #000000;
+    background: transparent;
   }
   [role='navigation'].nav-vertical ul ul li:hover,
   [role='navigation'].nav-vertical ul ul li:focus,
   [role='navigation'].nav-vertical ul ul li:active {
-    color: #ffffff;
-    background: #cccccc;
+    color: #1a1a1a;
+    background: transparent;
   }
   [role='navigation'].nav-vertical ul ul ul > li > a,
   [role='navigation'].nav-vertical ul ul ul > li > strong {
-    padding: 8.399999999999999px 11.2px;
-    font-size: 11.2px;
-    color: #ffffff;
-    background: #cccccc;
+    padding: 12px 16px;
+    font-size: 16px;
+    color: #000000;
+    background: transparent;
   }
   [role='navigation'].nav-vertical ul ul ul li:hover,
   [role='navigation'].nav-vertical ul ul ul li:focus,
   [role='navigation'].nav-vertical ul ul ul li:active {
-    color: #ffffff;
+    color: #1a1a1a;
     text-decoration: underline;
-    background: #cccccc;
+    background: transparent;
   }
   [role='navigation'].nav-vertical ul ul {
     position: absolute;
@@ -938,12 +936,12 @@ table {
     z-index: 50002;
   }
   [role='navigation'].nav-vertical li.is-open > a {
-    color: #ffffff;
-    background: #999999;
+    color: #1a1a1a;
+    background: transparent;
   }
   [role='navigation'].nav-vertical ul ul li.is-open > a {
-    color: #ffffff;
-    background: #cccccc;
+    color: #1a1a1a;
+    background: transparent;
   }
   [role='navigation'].nav-vertical ul > li.is-open > ul {
     left: 100%;
@@ -971,48 +969,48 @@ table {
   display: block;
   padding: 12px 16px;
   font-size: 16px;
-  color: #ffffff;
+  color: #000000;
   text-indent: 0;
-  background: #666666;
+  background: transparent;
   border-bottom: 0;
 }
 
 .old-ie [role='navigation'].nav-vertical li:hover,
 .old-ie [role='navigation'].nav-vertical li:focus,
 .old-ie [role='navigation'].nav-vertical li:active {
-  color: #ffffff;
-  background: #666666;
+  color: #1a1a1a;
+  background: transparent;
 }
 
 .old-ie [role='navigation'].nav-vertical ul ul > li > a,
 .old-ie [role='navigation'].nav-vertical ul ul > li > strong {
-  padding: 9.600000000000001px 12.8px;
-  font-size: 12.8px;
-  color: #ffffff;
-  background: #999999;
+  padding: 12px 16px;
+  font-size: 16px;
+  color: #000000;
+  background: transparent;
 }
 
 .old-ie [role='navigation'].nav-vertical ul ul li:hover,
 .old-ie [role='navigation'].nav-vertical ul ul li:focus,
 .old-ie [role='navigation'].nav-vertical ul ul li:active {
-  color: #ffffff;
-  background: #cccccc;
+  color: #1a1a1a;
+  background: transparent;
 }
 
 .old-ie [role='navigation'].nav-vertical ul ul ul > li > a,
 .old-ie [role='navigation'].nav-vertical ul ul ul > li > strong {
-  padding: 8.399999999999999px 11.2px;
-  font-size: 11.2px;
-  color: #ffffff;
-  background: #cccccc;
+  padding: 12px 16px;
+  font-size: 16px;
+  color: #000000;
+  background: transparent;
 }
 
 .old-ie [role='navigation'].nav-vertical ul ul ul li:hover,
 .old-ie [role='navigation'].nav-vertical ul ul ul li:focus,
 .old-ie [role='navigation'].nav-vertical ul ul ul li:active {
-  color: #ffffff;
+  color: #1a1a1a;
   text-decoration: underline;
-  background: #cccccc;
+  background: transparent;
 }
 
 .old-ie [role='navigation'].nav-vertical ul ul {
@@ -1041,13 +1039,13 @@ table {
 }
 
 .old-ie [role='navigation'].nav-vertical li.is-open > a {
-  color: #ffffff;
-  background: #999999;
+  color: #1a1a1a;
+  background: transparent;
 }
 
 .old-ie [role='navigation'].nav-vertical ul ul li.is-open > a {
-  color: #ffffff;
-  background: #cccccc;
+  color: #1a1a1a;
+  background: transparent;
 }
 
 .old-ie [role='navigation'].nav-vertical ul > li.is-open > ul {

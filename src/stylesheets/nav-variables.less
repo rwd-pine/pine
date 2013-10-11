@@ -1,6 +1,8 @@
+// RWD navigation default skin
+
 // Navigation variables
 
-// --- Typography ---
+// --- Look, feel and typography ---
 
 @rwnBaseFontSize:	16px;
 @rwnBaseLineHeight:	1;
@@ -8,12 +10,15 @@
 @rwnZIndex:			100;
 @rwnHeight:			@rwnBaseFontSize*2.5;
 @rwnBorderRadius:	0;
+@rwnColor:			black;
 @rwnBg:				transparent;
 
 // --- Small screens ---
 
 @rwnSmallScreenColor: 			#fff;
 @rwnSmallScreenBg: 				#555;
+@rwnSmallScreenHoverColor:		@rwnSmallScreenColor;
+@rwnSmallScreenHoverBg:			#666;
 @rwnSmallScreenActiveColor:		@rwnSmallScreenColor;
 @rwnSmallScreenActiveBg:		#999;
 @rwnSmallScreenFontSize: 		@rwnBaseFontSize;
@@ -22,28 +27,37 @@
 // --- Medium and large screens ---
 
 // Level 1
-@rwnLevel1Color:            #fff;
-@rwnLevel1ColorHover:       #fff;
-@rwnLevel1Bg:      			#666;
-@rwnLevel1SubIndColor:		#fff;
+@rwnLevel1Color:            @rwnColor;
+@rwnLevel1Bg:      			transparent;
+@rwnLevel1HoverColor:       lighten(@rwnColor, 10%);
+@rwnLevel1HoverBg:       	@rwnBg;
+@rwnLevel1ActiveColor:      lighten(@rwnColor, 10%);
+@rwnLevel1ActiveBg:       	#ccc;
+@rwnLevel1SubIndColor:		lighten(@rwnColor, 10%);
 @rwnLevel1FontSize: 		@rwnBaseFontSize;
 @rwnLevel1Padding: 			@rwnLevel1FontSize*.75 @rwnLevel1FontSize;		
 
 // Level 2
-@rwnLevel2Color:         	#fff;
-@rwnLevel2ColorHover:    	#fff;
-@rwnLevel2Bg:       		#999;
-@rwnLevel2SubIndColor:		#ddd;
-@rwnLevel2FontSize: 		@rwnBaseFontSize*.8;
-@rwnLevel2Padding: 			@rwnLevel2FontSize*.75 @rwnLevel2FontSize;
+@rwnLevel2Color:            @rwnLevel1Color;
+@rwnLevel2Bg:      			@rwnLevel1Bg;
+@rwnLevel2HoverColor:       @rwnLevel1HoverColor;
+@rwnLevel2HoverBg:       	@rwnLevel1HoverBg;
+@rwnLevel2ActiveColor:      @rwnLevel1ActiveColor;
+@rwnLevel2ActiveBg:       	@rwnLevel1ActiveBg;
+@rwnLevel2SubIndColor:		@rwnLevel1SubIndColor;
+@rwnLevel2FontSize: 		@rwnLevel1FontSize;
+@rwnLevel2Padding: 			@rwnLevel1Padding;
 
 // Level 3
-@rwnLevel3Color:         	#fff;
-@rwnLevel3ColorHover:    	#fff;
-@rwnLevel3Bg: 				#ccc;
-@rwnLevel3SubIndColor:		#ddd;
-@rwnLevel3FontSize: 		@rwnBaseFontSize*.7;
-@rwnLevel3Padding: 			@rwnLevel3FontSize*.75 @rwnLevel3FontSize;
+@rwnLevel3Color:            @rwnLevel1Color;
+@rwnLevel3Bg:      			@rwnLevel1Bg;
+@rwnLevel3HoverColor:       @rwnLevel1HoverColor;
+@rwnLevel3HoverBg:       	@rwnLevel1HoverBg;
+@rwnLevel3ActiveColor:      @rwnLevel1ActiveColor;
+@rwnLevel3ActiveBg:       	@rwnLevel1ActiveBg;
+@rwnLevel3SubIndColor:		@rwnLevel1SubIndColor;
+@rwnLevel3FontSize: 		@rwnLevel1FontSize;
+@rwnLevel3Padding: 			@rwnLevel1Padding;
 
 // --- RWD breakpoints ---
 

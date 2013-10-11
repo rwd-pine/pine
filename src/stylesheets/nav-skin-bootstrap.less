@@ -1,6 +1,8 @@
+// RWD navigation Bootstrap 3 skin
+
 // Navigation variables
 
-// --- Typography ---
+// --- Look, feel and typography ---
 
 @rwnBaseFontSize:	@font-size-base;
 @rwnBaseLineHeight:	@line-height-base;
@@ -8,12 +10,15 @@
 @rwnZIndex:			@zindex-navbar;
 @rwnHeight:			@navbar-height;
 @rwnBorderRadius:	@navbar-border-radius;
+@rwnColor:			@navbar-default-color;
 @rwnBg:				@navbar-default-bg;
 
 // --- Small screens ---
 
 @rwnSmallScreenColor: 			#fff;
 @rwnSmallScreenBg: 				#555;
+@rwnSmallScreenHoverColor:		@rwnSmallScreenColor;
+@rwnSmallScreenHoverBg:			#666;
 @rwnSmallScreenActiveColor:		@rwnSmallScreenColor;
 @rwnSmallScreenActiveBg:		#999;
 @rwnSmallScreenFontSize: 		@rwnBaseFontSize;
@@ -23,24 +28,33 @@
 
 // Level 1
 @rwnLevel1Color:            inherit;
-@rwnLevel1ColorHover:       @navbar-default-link-hover-color;
 @rwnLevel1Bg:      			transparent;
+@rwnLevel1HoverColor:       @navbar-default-link-hover-color;
+@rwnLevel1HoverBg:       	@navbar-default-link-hover-bg;
+@rwnLevel1ActiveColor:      @navbar-default-link-active-color;
+@rwnLevel1ActiveBg:       	@navbar-default-link-active-bg;
 @rwnLevel1SubIndColor:		@navbar-default-link-color;
 @rwnLevel1FontSize: 		@rwnBaseFontSize;
 @rwnLevel1Padding: 			@navbar-padding-vertical @navbar-padding-horizontal;
 
 // Level 2
-@rwnLevel2Color:         	@rwnLevel1Color;
-@rwnLevel2ColorHover:    	@rwnLevel1ColorHover;
-@rwnLevel2Bg:       		@rwnLevel1Bg;
+@rwnLevel2Color:            @rwnLevel1Color;
+@rwnLevel2Bg:      			@rwnLevel1Bg;
+@rwnLevel2HoverColor:       @rwnLevel1HoverColor;
+@rwnLevel2HoverBg:       	@rwnLevel1HoverBg;
+@rwnLevel2ActiveColor:      @rwnLevel1ActiveColor;
+@rwnLevel2ActiveBg:       	@rwnLevel1ActiveBg;
 @rwnLevel2SubIndColor:		@rwnLevel1SubIndColor;
 @rwnLevel2FontSize: 		@rwnLevel1FontSize;
 @rwnLevel2Padding: 			@rwnLevel1Padding;
 
 // Level 3
-@rwnLevel3Color:         	@rwnLevel1Color;
-@rwnLevel3ColorHover:    	@rwnLevel1ColorHover;
-@rwnLevel3Bg: 				@rwnLevel1Bg;
+@rwnLevel3Color:            @rwnLevel1Color;
+@rwnLevel3Bg:      			@rwnLevel1Bg;
+@rwnLevel3HoverColor:       @rwnLevel1HoverColor;
+@rwnLevel3HoverBg:       	@rwnLevel1HoverBg;
+@rwnLevel3ActiveColor:      @rwnLevel1ActiveColor;
+@rwnLevel3ActiveBg:       	@rwnLevel1ActiveBg;
 @rwnLevel3SubIndColor:		@rwnLevel1SubIndColor;
 @rwnLevel3FontSize: 		@rwnLevel1FontSize;
 @rwnLevel3Padding: 			@rwnLevel1Padding;
@@ -49,5 +63,3 @@
 
 @rwnLargeDisplayStart: 		600px;
 @rwnSmallDisplayEnd: 		@rwnLargeDisplayStart - 1px;
-
-
