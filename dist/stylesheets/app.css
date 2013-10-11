@@ -500,7 +500,7 @@ table {
   display: inline-block;
   width: 0;
   height: 0;
-  border-color: transparent transparent transparent #1a1a1a;
+  border-color: transparent transparent transparent #000000;
   border-style: solid;
   border-width: 5px 0 5px 7px;
   content: "";
@@ -514,7 +514,7 @@ table {
 
 @media (max-width: 600px) {
   [role='navigation'] > ul > li.has-submenu > a:before {
-    border-color: transparent transparent transparent #1a1a1a;
+    border-color: transparent transparent transparent #000000;
   }
 }
 
@@ -526,7 +526,7 @@ table {
   display: inline-block;
   width: 0;
   height: 0;
-  border-color: #1a1a1a transparent transparent transparent;
+  border-color: #000000 transparent transparent transparent;
   border-style: solid;
   border-width: 7px 5px 0 5px;
   content: "";
@@ -540,7 +540,7 @@ table {
 
 @media (max-width: 600px) {
   [role='navigation'].nav-horizontal > ul > li.has-submenu > a:before {
-    border-color: #1a1a1a transparent transparent transparent;
+    border-color: #000000 transparent transparent transparent;
   }
 }
 
@@ -552,7 +552,7 @@ table {
   display: inline-block;
   width: 0;
   height: 0;
-  border-color: transparent transparent transparent #1a1a1a;
+  border-color: transparent transparent transparent #000000;
   border-style: solid;
   border-width: 5px 0 5px 7px;
   content: "";
@@ -566,7 +566,7 @@ table {
 
 @media (max-width: 600px) {
   [role='navigation'] ul ul > li.has-submenu > a:before {
-    border-color: transparent transparent transparent #1a1a1a;
+    border-color: transparent transparent transparent #000000;
   }
 }
 
@@ -578,7 +578,7 @@ table {
   display: inline-block;
   width: 0;
   height: 0;
-  border-color: transparent transparent transparent #1a1a1a;
+  border-color: transparent transparent transparent #000000;
   border-style: solid;
   border-width: 5px 0 5px 7px;
   content: "";
@@ -592,7 +592,7 @@ table {
 
 @media (max-width: 600px) {
   [role='navigation'] ul ul ul > li.has-submenu > a:before {
-    border-color: transparent transparent transparent #1a1a1a;
+    border-color: transparent transparent transparent #000000;
   }
 }
 
@@ -625,6 +625,8 @@ table {
 
 @media (min-width: 600px) {
   [role='navigation'].nav-horizontal {
+    /* RWD nav: Large displays */
+  
     position: static;
     top: auto;
     left: auto;
@@ -636,45 +638,59 @@ table {
   [role='navigation'].nav-horizontal a,
   [role='navigation'].nav-horizontal strong {
     display: block;
-    padding: 12px 16px;
-    font-size: 16px;
-    color: #000000;
     text-indent: 0;
-    background: transparent;
     border-bottom: 0;
   }
-  [role='navigation'].nav-horizontal li:hover,
-  [role='navigation'].nav-horizontal li:focus,
-  [role='navigation'].nav-horizontal li:active {
-    color: #1a1a1a;
-    background: transparent;
-  }
-  [role='navigation'].nav-horizontal ul ul > li > a,
-  [role='navigation'].nav-horizontal ul ul > li > strong {
+  [role='navigation'].nav-horizontal > ul > li > a,
+  [role='navigation'].nav-horizontal > ul > li > strong {
     padding: 12px 16px;
     font-size: 16px;
     color: #000000;
     background: transparent;
   }
-  [role='navigation'].nav-horizontal ul ul li:hover,
-  [role='navigation'].nav-horizontal ul ul li:focus,
-  [role='navigation'].nav-horizontal ul ul li:active {
-    color: #1a1a1a;
+  [role='navigation'].nav-horizontal > ul > li > a:hover,
+  [role='navigation'].nav-horizontal > ul > li > a:focus,
+  [role='navigation'].nav-horizontal > ul > li > a:active {
+    color: #0000ff;
     background: transparent;
   }
-  [role='navigation'].nav-horizontal ul ul ul > li > a,
-  [role='navigation'].nav-horizontal ul ul ul > li > strong {
+  [role='navigation'].nav-horizontal > ul > li.is-open > a {
+    color: #000000;
+    background: #cccccc;
+  }
+  [role='navigation'].nav-horizontal > ul ul > li > a,
+  [role='navigation'].nav-horizontal > ul ul > li > strong {
     padding: 12px 16px;
     font-size: 16px;
     color: #000000;
     background: transparent;
   }
-  [role='navigation'].nav-horizontal ul ul ul li:hover,
-  [role='navigation'].nav-horizontal ul ul ul li:focus,
-  [role='navigation'].nav-horizontal ul ul ul li:active {
-    color: #1a1a1a;
-    text-decoration: underline;
+  [role='navigation'].nav-horizontal > ul ul > li > a:hover,
+  [role='navigation'].nav-horizontal > ul ul > li > a:focus,
+  [role='navigation'].nav-horizontal > ul ul > li > a:active {
+    color: #0000ff;
     background: transparent;
+  }
+  [role='navigation'].nav-horizontal > ul ul > li.is-open > a {
+    color: #000000;
+    background: #cccccc;
+  }
+  [role='navigation'].nav-horizontal > ul ul ul > li > a,
+  [role='navigation'].nav-horizontal > ul ul ul > li > strong {
+    padding: 12px 16px;
+    font-size: 16px;
+    color: #000000;
+    background: transparent;
+  }
+  [role='navigation'].nav-horizontal > ul ul ul > li > a:hover,
+  [role='navigation'].nav-horizontal > ul ul ul > li > a:focus,
+  [role='navigation'].nav-horizontal > ul ul ul > li > a:active {
+    color: #0000ff;
+    background: transparent;
+  }
+  [role='navigation'].nav-horizontal > ul ul ul > li.is-open > a {
+    color: #000000;
+    background: #cccccc;
   }
   [role='navigation'].nav-horizontal > ul > li {
     position: relative;
@@ -692,7 +708,6 @@ table {
     position: absolute;
     padding-top: 8px;
     padding-bottom: 8px;
-    background: transparent;
   }
   .js [role='navigation'].nav-horizontal ul ul {
     top: -999px;
@@ -713,14 +728,6 @@ table {
     left: 100%;
     z-index: 50002;
   }
-  [role='navigation'].nav-horizontal li.is-open > a {
-    color: #1a1a1a;
-    background: transparent;
-  }
-  [role='navigation'].nav-horizontal ul ul li.is-open > a {
-    color: #1a1a1a;
-    background: transparent;
-  }
   [role='navigation'].nav-horizontal ul > li.is-open > ul {
     top: 100%;
     left: 0;
@@ -735,6 +742,8 @@ table {
 }
 
 .old-ie [role='navigation'].nav-horizontal {
+  /* RWD nav: Large displays */
+
   position: static;
   top: auto;
   left: auto;
@@ -748,50 +757,68 @@ table {
 .old-ie [role='navigation'].nav-horizontal a,
 .old-ie [role='navigation'].nav-horizontal strong {
   display: block;
-  padding: 12px 16px;
-  font-size: 16px;
-  color: #000000;
   text-indent: 0;
-  background: transparent;
   border-bottom: 0;
 }
 
-.old-ie [role='navigation'].nav-horizontal li:hover,
-.old-ie [role='navigation'].nav-horizontal li:focus,
-.old-ie [role='navigation'].nav-horizontal li:active {
-  color: #1a1a1a;
-  background: transparent;
-}
-
-.old-ie [role='navigation'].nav-horizontal ul ul > li > a,
-.old-ie [role='navigation'].nav-horizontal ul ul > li > strong {
+.old-ie [role='navigation'].nav-horizontal > ul > li > a,
+.old-ie [role='navigation'].nav-horizontal > ul > li > strong {
   padding: 12px 16px;
   font-size: 16px;
   color: #000000;
   background: transparent;
 }
 
-.old-ie [role='navigation'].nav-horizontal ul ul li:hover,
-.old-ie [role='navigation'].nav-horizontal ul ul li:focus,
-.old-ie [role='navigation'].nav-horizontal ul ul li:active {
-  color: #1a1a1a;
+.old-ie [role='navigation'].nav-horizontal > ul > li > a:hover,
+.old-ie [role='navigation'].nav-horizontal > ul > li > a:focus,
+.old-ie [role='navigation'].nav-horizontal > ul > li > a:active {
+  color: #0000ff;
   background: transparent;
 }
 
-.old-ie [role='navigation'].nav-horizontal ul ul ul > li > a,
-.old-ie [role='navigation'].nav-horizontal ul ul ul > li > strong {
+.old-ie [role='navigation'].nav-horizontal > ul > li.is-open > a {
+  color: #000000;
+  background: #cccccc;
+}
+
+.old-ie [role='navigation'].nav-horizontal > ul ul > li > a,
+.old-ie [role='navigation'].nav-horizontal > ul ul > li > strong {
   padding: 12px 16px;
   font-size: 16px;
   color: #000000;
   background: transparent;
 }
 
-.old-ie [role='navigation'].nav-horizontal ul ul ul li:hover,
-.old-ie [role='navigation'].nav-horizontal ul ul ul li:focus,
-.old-ie [role='navigation'].nav-horizontal ul ul ul li:active {
-  color: #1a1a1a;
-  text-decoration: underline;
+.old-ie [role='navigation'].nav-horizontal > ul ul > li > a:hover,
+.old-ie [role='navigation'].nav-horizontal > ul ul > li > a:focus,
+.old-ie [role='navigation'].nav-horizontal > ul ul > li > a:active {
+  color: #0000ff;
   background: transparent;
+}
+
+.old-ie [role='navigation'].nav-horizontal > ul ul > li.is-open > a {
+  color: #000000;
+  background: #cccccc;
+}
+
+.old-ie [role='navigation'].nav-horizontal > ul ul ul > li > a,
+.old-ie [role='navigation'].nav-horizontal > ul ul ul > li > strong {
+  padding: 12px 16px;
+  font-size: 16px;
+  color: #000000;
+  background: transparent;
+}
+
+.old-ie [role='navigation'].nav-horizontal > ul ul ul > li > a:hover,
+.old-ie [role='navigation'].nav-horizontal > ul ul ul > li > a:focus,
+.old-ie [role='navigation'].nav-horizontal > ul ul ul > li > a:active {
+  color: #0000ff;
+  background: transparent;
+}
+
+.old-ie [role='navigation'].nav-horizontal > ul ul ul > li.is-open > a {
+  color: #000000;
+  background: #cccccc;
 }
 
 .old-ie [role='navigation'].nav-horizontal > ul > li {
@@ -813,7 +840,6 @@ table {
   position: absolute;
   padding-top: 8px;
   padding-bottom: 8px;
-  background: transparent;
 }
 
 .js .old-ie [role='navigation'].nav-horizontal ul ul {
@@ -839,16 +865,6 @@ table {
   z-index: 50002;
 }
 
-.old-ie [role='navigation'].nav-horizontal li.is-open > a {
-  color: #1a1a1a;
-  background: transparent;
-}
-
-.old-ie [role='navigation'].nav-horizontal ul ul li.is-open > a {
-  color: #1a1a1a;
-  background: transparent;
-}
-
 .old-ie [role='navigation'].nav-horizontal ul > li.is-open > ul {
   top: 100%;
   left: 0;
@@ -864,6 +880,8 @@ table {
 
 @media (min-width: 600px) {
   [role='navigation'].nav-vertical {
+    /* RWD nav: Large displays */
+  
     position: static;
     top: auto;
     left: auto;
@@ -875,45 +893,59 @@ table {
   [role='navigation'].nav-vertical a,
   [role='navigation'].nav-vertical strong {
     display: block;
-    padding: 12px 16px;
-    font-size: 16px;
-    color: #000000;
     text-indent: 0;
-    background: transparent;
     border-bottom: 0;
   }
-  [role='navigation'].nav-vertical li:hover,
-  [role='navigation'].nav-vertical li:focus,
-  [role='navigation'].nav-vertical li:active {
-    color: #1a1a1a;
-    background: transparent;
-  }
-  [role='navigation'].nav-vertical ul ul > li > a,
-  [role='navigation'].nav-vertical ul ul > li > strong {
+  [role='navigation'].nav-vertical > ul > li > a,
+  [role='navigation'].nav-vertical > ul > li > strong {
     padding: 12px 16px;
     font-size: 16px;
     color: #000000;
     background: transparent;
   }
-  [role='navigation'].nav-vertical ul ul li:hover,
-  [role='navigation'].nav-vertical ul ul li:focus,
-  [role='navigation'].nav-vertical ul ul li:active {
-    color: #1a1a1a;
+  [role='navigation'].nav-vertical > ul > li > a:hover,
+  [role='navigation'].nav-vertical > ul > li > a:focus,
+  [role='navigation'].nav-vertical > ul > li > a:active {
+    color: #0000ff;
     background: transparent;
   }
-  [role='navigation'].nav-vertical ul ul ul > li > a,
-  [role='navigation'].nav-vertical ul ul ul > li > strong {
+  [role='navigation'].nav-vertical > ul > li.is-open > a {
+    color: #000000;
+    background: #cccccc;
+  }
+  [role='navigation'].nav-vertical > ul ul > li > a,
+  [role='navigation'].nav-vertical > ul ul > li > strong {
     padding: 12px 16px;
     font-size: 16px;
     color: #000000;
     background: transparent;
   }
-  [role='navigation'].nav-vertical ul ul ul li:hover,
-  [role='navigation'].nav-vertical ul ul ul li:focus,
-  [role='navigation'].nav-vertical ul ul ul li:active {
-    color: #1a1a1a;
-    text-decoration: underline;
+  [role='navigation'].nav-vertical > ul ul > li > a:hover,
+  [role='navigation'].nav-vertical > ul ul > li > a:focus,
+  [role='navigation'].nav-vertical > ul ul > li > a:active {
+    color: #0000ff;
     background: transparent;
+  }
+  [role='navigation'].nav-vertical > ul ul > li.is-open > a {
+    color: #000000;
+    background: #cccccc;
+  }
+  [role='navigation'].nav-vertical > ul ul ul > li > a,
+  [role='navigation'].nav-vertical > ul ul ul > li > strong {
+    padding: 12px 16px;
+    font-size: 16px;
+    color: #000000;
+    background: transparent;
+  }
+  [role='navigation'].nav-vertical > ul ul ul > li > a:hover,
+  [role='navigation'].nav-vertical > ul ul ul > li > a:focus,
+  [role='navigation'].nav-vertical > ul ul ul > li > a:active {
+    color: #0000ff;
+    background: transparent;
+  }
+  [role='navigation'].nav-vertical > ul ul ul > li.is-open > a {
+    color: #000000;
+    background: #cccccc;
   }
   [role='navigation'].nav-vertical ul ul {
     position: absolute;
@@ -935,14 +967,6 @@ table {
   [role='navigation'].nav-vertical ul ul > li > ul {
     z-index: 50002;
   }
-  [role='navigation'].nav-vertical li.is-open > a {
-    color: #1a1a1a;
-    background: transparent;
-  }
-  [role='navigation'].nav-vertical ul ul li.is-open > a {
-    color: #1a1a1a;
-    background: transparent;
-  }
   [role='navigation'].nav-vertical ul > li.is-open > ul {
     left: 100%;
     z-index: 50001;
@@ -954,6 +978,8 @@ table {
 }
 
 .old-ie [role='navigation'].nav-vertical {
+  /* RWD nav: Large displays */
+
   position: static;
   top: auto;
   left: auto;
@@ -967,50 +993,68 @@ table {
 .old-ie [role='navigation'].nav-vertical a,
 .old-ie [role='navigation'].nav-vertical strong {
   display: block;
-  padding: 12px 16px;
-  font-size: 16px;
-  color: #000000;
   text-indent: 0;
-  background: transparent;
   border-bottom: 0;
 }
 
-.old-ie [role='navigation'].nav-vertical li:hover,
-.old-ie [role='navigation'].nav-vertical li:focus,
-.old-ie [role='navigation'].nav-vertical li:active {
-  color: #1a1a1a;
-  background: transparent;
-}
-
-.old-ie [role='navigation'].nav-vertical ul ul > li > a,
-.old-ie [role='navigation'].nav-vertical ul ul > li > strong {
+.old-ie [role='navigation'].nav-vertical > ul > li > a,
+.old-ie [role='navigation'].nav-vertical > ul > li > strong {
   padding: 12px 16px;
   font-size: 16px;
   color: #000000;
   background: transparent;
 }
 
-.old-ie [role='navigation'].nav-vertical ul ul li:hover,
-.old-ie [role='navigation'].nav-vertical ul ul li:focus,
-.old-ie [role='navigation'].nav-vertical ul ul li:active {
-  color: #1a1a1a;
+.old-ie [role='navigation'].nav-vertical > ul > li > a:hover,
+.old-ie [role='navigation'].nav-vertical > ul > li > a:focus,
+.old-ie [role='navigation'].nav-vertical > ul > li > a:active {
+  color: #0000ff;
   background: transparent;
 }
 
-.old-ie [role='navigation'].nav-vertical ul ul ul > li > a,
-.old-ie [role='navigation'].nav-vertical ul ul ul > li > strong {
+.old-ie [role='navigation'].nav-vertical > ul > li.is-open > a {
+  color: #000000;
+  background: #cccccc;
+}
+
+.old-ie [role='navigation'].nav-vertical > ul ul > li > a,
+.old-ie [role='navigation'].nav-vertical > ul ul > li > strong {
   padding: 12px 16px;
   font-size: 16px;
   color: #000000;
   background: transparent;
 }
 
-.old-ie [role='navigation'].nav-vertical ul ul ul li:hover,
-.old-ie [role='navigation'].nav-vertical ul ul ul li:focus,
-.old-ie [role='navigation'].nav-vertical ul ul ul li:active {
-  color: #1a1a1a;
-  text-decoration: underline;
+.old-ie [role='navigation'].nav-vertical > ul ul > li > a:hover,
+.old-ie [role='navigation'].nav-vertical > ul ul > li > a:focus,
+.old-ie [role='navigation'].nav-vertical > ul ul > li > a:active {
+  color: #0000ff;
   background: transparent;
+}
+
+.old-ie [role='navigation'].nav-vertical > ul ul > li.is-open > a {
+  color: #000000;
+  background: #cccccc;
+}
+
+.old-ie [role='navigation'].nav-vertical > ul ul ul > li > a,
+.old-ie [role='navigation'].nav-vertical > ul ul ul > li > strong {
+  padding: 12px 16px;
+  font-size: 16px;
+  color: #000000;
+  background: transparent;
+}
+
+.old-ie [role='navigation'].nav-vertical > ul ul ul > li > a:hover,
+.old-ie [role='navigation'].nav-vertical > ul ul ul > li > a:focus,
+.old-ie [role='navigation'].nav-vertical > ul ul ul > li > a:active {
+  color: #0000ff;
+  background: transparent;
+}
+
+.old-ie [role='navigation'].nav-vertical > ul ul ul > li.is-open > a {
+  color: #000000;
+  background: #cccccc;
 }
 
 .old-ie [role='navigation'].nav-vertical ul ul {
@@ -1036,16 +1080,6 @@ table {
 
 .old-ie [role='navigation'].nav-vertical ul ul > li > ul {
   z-index: 50002;
-}
-
-.old-ie [role='navigation'].nav-vertical li.is-open > a {
-  color: #1a1a1a;
-  background: transparent;
-}
-
-.old-ie [role='navigation'].nav-vertical ul ul li.is-open > a {
-  color: #1a1a1a;
-  background: transparent;
 }
 
 .old-ie [role='navigation'].nav-vertical ul > li.is-open > ul {

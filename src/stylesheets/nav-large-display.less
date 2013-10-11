@@ -1,3 +1,9 @@
+/* RWD nav: Large displays */
+
+// TODO
+// - really without selector?
+// - colours are sometimes on <a>/<strong>, sometimes on <li>
+
 position: static;
 top: auto;
 left: auto;
@@ -8,57 +14,79 @@ li {
 	position: relative;
 }
 
-// Prvni uroven zanoreni
+// Navigation item
 a,
 strong {
 	display: block;		
+	border-bottom: 0; // TODO
+	text-indent: 0;	// TODO
+}
+
+// First level item
+> ul > li > a,
+> ul > li > strong {
 	background: @rwnLevel1Bg;
 	color: @rwnLevel1Color;
 	padding: @rwnLevel1Padding;
 	font-size: @rwnLevel1FontSize;
-	border-bottom: 0;	
-	text-indent: 0;	
 }
 
-// Aktivni polozka
-li:hover,
-li:focus,
-li:active {
-	background: @rwnLevel1Bg;
+// First level item hover colors
+> ul > li > a:hover,
+> ul > li > a:focus,
+> ul > li > a:active {
+	background: @rwnLevel1HoverBg;
 	color: @rwnLevel1HoverColor;
 }
 
-// Druha uroven zanoreni
-ul ul > li > a,
-ul ul > li > strong {
+// First level item active colors
+> ul > li.is-open > a {
+	background: @rwnLevel1ActiveBg;	
+	color: @rwnLevel1ActiveColor;
+}
+
+// Second level item
+> ul ul > li > a,
+> ul ul > li > strong {
 	background: @rwnLevel2Bg;
 	padding: @rwnLevel2Padding;
 	font-size: @rwnLevel2FontSize;
 	color: @rwnLevel2Color;
 }
 
-// Aktivni polozka druhe urovne
-ul ul li:hover,
-ul ul li:focus,
-ul ul li:active {
-	background: @rwnLevel3Bg;
+// Second level item hover colors
+> ul ul > li > a:hover,
+> ul ul > li > a:focus,
+> ul ul > li > a:active {
+	background: @rwnLevel3HoverBg;
 	color: @rwnLevel2HoverColor;
 }
 
-// Treti uroven zanoreni
-ul ul ul > li > a,
-ul ul ul > li > strong {
+// Second level item active colors
+> ul ul > li.is-open > a {
+	background: @rwnLevel2ActiveBg;	
+	color: @rwnLevel2ActiveColor;
+}
+
+// Third level item
+> ul ul ul > li > a,
+> ul ul ul > li > strong {
 	background: @rwnLevel3Bg;
 	padding: @rwnLevel3Padding;
 	font-size: @rwnLevel3FontSize;
 	color: @rwnLevel3Color;
 }
 
-// Aktivni polozka treti urovne
-ul ul ul li:hover,
-ul ul ul li:focus,
-ul ul ul li:active {
-	background: @rwnLevel3Bg;	
-	text-decoration: underline;
+// Third level item hover colors
+> ul ul ul > li > a:hover,
+> ul ul ul > li > a:focus,
+> ul ul ul > li > a:active {
+	background: @rwnLevel3HoverBg;	
 	color: @rwnLevel3HoverColor;
+}
+
+// Third level item active colors
+> ul ul ul > li.is-open > a {
+	background: @rwnLevel3ActiveBg;	
+	color: @rwnLevel3ActiveColor;
 }
