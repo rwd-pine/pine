@@ -172,6 +172,7 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
     }
     else {
       $submenu.each(function(){
+        $(this).css('width', $(window).width())
         $(this).find('> ul')
           .css('width', $(window).width())
           .prepend($('<li class="back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
