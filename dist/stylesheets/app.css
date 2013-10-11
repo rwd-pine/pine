@@ -598,7 +598,11 @@ table {
 
 .nav-behave-right-to-left > ul {
   position: absolute;
-  transition: left 200ms;
+  -webkit-transition: left 200ms;
+     -moz-transition: left 200ms;
+      -ms-transition: left 200ms;
+       -o-transition: left 200ms;
+          transition: left 200ms;
 }
 
 .nav-behave-right-to-left ul ul {

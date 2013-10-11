@@ -1,14 +1,11 @@
 // Navigation left to right behaviour on small screens
 
-// TODO
-// - .transition
-
 
 .nav-behave-right-to-left {
 	// First level is container for animation
 	> ul {
 		position: absolute;
-		transition: left 200ms;
+		.transition(left 200ms);
 	}
 
 	// Second and succeeding levels
