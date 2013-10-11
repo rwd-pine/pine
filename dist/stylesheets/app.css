@@ -517,6 +517,24 @@ table {
   }
 }
 
+.nav-behave-right-to-left > ul {
+  position: absolute;
+  transition: left 200ms;
+}
+
+.nav-behave-right-to-left ul ul {
+  position: absolute;
+  top: 0;
+}
+
+.nav-behave-right-to-left .js ul ul {
+  display: none;
+}
+
+.nav-behave-right-to-left ul .is-open ul {
+  display: block;
+}
+
 [role='navigation'] {
   z-index: 100;
   min-height: 40px;
@@ -564,10 +582,6 @@ table {
   list-style-type: none;
 }
 
-[role='navigation'] li {
-  position: relative;
-}
-
 [role='navigation'] li > a,
 [role='navigation'] li > strong {
   display: block;
@@ -609,6 +623,9 @@ table {
     background: transparent;
     background: #666666;
     table-layout: fixed;
+  }
+  [role='navigation'].nav-horizontal li {
+    position: relative;
   }
   [role='navigation'].nav-horizontal a,
   [role='navigation'].nav-horizontal strong {
@@ -724,6 +741,10 @@ table {
   background: transparent;
   background: #666666;
   table-layout: fixed;
+}
+
+.old-ie [role='navigation'].nav-horizontal li {
+  position: relative;
 }
 
 .old-ie [role='navigation'].nav-horizontal a,
@@ -855,6 +876,9 @@ table {
     left: auto;
     background: transparent;
   }
+  [role='navigation'].nav-vertical li {
+    position: relative;
+  }
   [role='navigation'].nav-vertical a,
   [role='navigation'].nav-vertical strong {
     display: block;
@@ -941,6 +965,10 @@ table {
   top: auto;
   left: auto;
   background: transparent;
+}
+
+.old-ie [role='navigation'].nav-vertical li {
+  position: relative;
 }
 
 .old-ie [role='navigation'].nav-vertical a,

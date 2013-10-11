@@ -5,6 +5,7 @@
 @import 'nav-variables';
 @import 'nav-mixins';
 @import 'nav-submenu-indicator';
+@import 'nav-behave-right-to-left.less';
 
 // Default: Vertikalni (male screeny + vertikalni varianta pro velke)
 // ------------------------------------------------------------------
@@ -49,10 +50,6 @@
 		margin: 0;
 		padding: 0;
 		list-style-type: none;
-	}
-
-	li {
-		position: relative;
 	}
 
 	li > a,
@@ -145,12 +142,17 @@
 	left: auto;
 	background: @rwnBg;
 
+	// Relative because of submenu positions od large screens
+	li {
+		position: relative;
+	}
+
 	// Prvni uroven zanoreni
 	a,
 	strong {
 		display: block;		
 		background: @rwnLevel1Bg;
-		color: @rwnLevel1Color;		
+		color: @rwnLevel1Color;
 		padding: @rwnLevel1Padding;
 		font-size: @rwnLevel1FontSize;
 		border-bottom: 0;	
