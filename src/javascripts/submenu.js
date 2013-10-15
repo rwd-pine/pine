@@ -24,13 +24,14 @@
     // $('> a', this).trigger($.Event('toggle.submenu'))
   }
 
+
   Submenu.prototype.toggle = function (e) {
     // console.log("Toggle submenu: " + e.type)
     var $this = $(this)
     var $parent  = $this.parent()
     var isActive  = $parent.hasClass('is-open')
     var originalEvent = e
-    var fx = e.data.fx != 'undefined' && e.data.fx
+    var currentEffect = e.data.currentEffect.onToggle
 
     // Handle if the event was fired by link
     if (!isActive) {
@@ -39,10 +40,8 @@
       //   $('<div class="submenu-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
       // }
 
-      if(fx == 'nav-behave-right-to-left') {
-        var $parentLists = $this.parents('ul')
-        $parentLists.last().css('left', (-100 * $parentLists.length) + '%')
-      }
+      // Execute special pre-show hook
+      if (typeof currentEffect === 'function') currentEffect.call(this, { show: isActive } );
 
       $parent.trigger(e = $.Event('show.submenu'))
       if (e.isDefaultPrevented()) return
@@ -61,10 +60,7 @@
       // If submenu is hovered then return
       if ($parent.find('> ul').hasClass('is-hover')) return
 
-      if(fx == 'nav-behave-right-to-left') {
-        var $parentLists = $this.parents('ul')
-        $parentLists.last().css('left', ($parentLists.length * 100) + '%')
-      }
+      if (currentEffect) currentEffect.call(this, { show: isActive } );
 
       $parent.trigger(e = $.Event('hide.submenu'))
       if (e.isDefaultPrevented()) return
@@ -106,145 +102,11 @@
   // }
 
 
-
-  // NAVBAR CLASS DEFINITION
-  // ------------------------
-  var Navbar = function (element, options) {
-    this.options = $.extend({}, Navbar.DEFAULTS, options)
-    this.$element = $(element)
-    this.isDesktop = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
-
-    this.init()
-  }
-
-  Navbar.DEFAULTS = {
-    jsBreakpoint:   '600px',
-    toggle:       '.has-submenu > a',
-    submenu:      '.has-submenu',
-    fx:           'nav-behave-right-to-left'
-  }
-
-  // TODO: refactor quick and dirty initialization
-  Navbar.prototype.init = function () {
-    // init submenus
-    this.$element.find('li').has('ul').addClass('has-submenu')
-    this.$element.find('a').on('focus.navbar', this.focus)
-
-    // setup API
-    $(window).on('load resize', $.proxy(this.api, this))
-  }
-
-  Navbar.prototype.switchDOM = function () {
-    // init submenus
-    var $submenu = this.$element.find('li').has('ul')
-
-    if(this.isDesktop) {
-      $submenu.find('ul').removeAttr('style')
-      $submenu.find('li.back').remove()
-    }
-    else {
-      $submenu.each(function(){
-        $(this).css('width', $(window).width())
-        $(this).find('> ul')
-          .css('width', $(window).width())
-          .prepend($('<li class="back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
-      })
-    }
-  }
-
-  // Navbar.prototype.checkMedia = function (e) {
-  //   var mobileCond = window.matchMedia('(min-width: ' + this.options.breakpoint + ')').matches
-  //   var isLoad = e.type && (e.type == 'load')
-
-  //   // Load or Using XOR to handle the switch, it fires only when it is needed
-  //   if (isLoad || (( this.isDesktop || mobileCond ) && !( this.isDesktop && mobileCond ))) {
-  //     this.isDesktop = mobileCond // current view
-  //     return true
-  //   }
-
-  //   return false
-  // }
-
-  Navbar.prototype.api = function (e) {
-    // if(!this.checkMedia(e)) return false
-    var mobileCond = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
-    var isLoad = e.type && (e.type == 'load')
-
-    // Load or Using XOR to handle the switch, it fires only when it is needed
-    if (isLoad || (( this.isDesktop || mobileCond ) && !( this.isDesktop && mobileCond ))) {
-      this.isDesktop = mobileCond // current view
-
-      if(mobileCond) {
-        // console.log("Add 'mouse' listeners and disable 'click.submenu'")
-        $(document)
-          .on('mouseenter.submenu, mouseleave.submenu', this.options.submenu, this.options, Submenu.prototype.hover)
-          .on('mouseenter.submenu, mouseleave.submenu', this.options.toggle, this.options, Submenu.prototype.toggle)
-          .off('click.submenu')
-      }
-      else {
-        // console.log("Add 'click.submenu' listeners and disable 'mouse'")
-        $(document)
-          .off('mouseenter.submenu, mouseleave.submenu')
-          .on('click.submenu', this.options.toggle, this.options, Submenu.prototype.toggle)
-      }
-      this.switchDOM()
-    }
-
-  }
-
-  Navbar.prototype.focus = function (e) {
-    // Check if the focused element is part of some Submenu
-    var $this = $(this)
-    var $parent  = $this.parent()
-
-    if ($parent.hasClass('has-submenu') && !$parent.hasClass('is-open')) {
-      $this.trigger($.Event('mouseenter'))
-    }
-
-    var openedMenus = $('.is-open')
-
-    if(openedMenus.length == 0) return
-
-    openedMenus.filter(function(i){
-      return $(this).find($this).length === 0
-    }).removeClass('is-open')
-  }
-
-  // NAVBAR PLUGIN DEFINITION
-  // --------------------------
-
-  var old = $.fn.navbar
-
-  $.fn.navbar = function (option) {
-    return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('navbar')
-      var options = $.extend({}, $this.data(), typeof option == 'object' && option)
-
-      if (!data) $this.data('navbar', (data = new Navbar(this, options)))
-      // if (typeof option == 'string') data[option]()
-    })
-  }
-
-  $.fn.navbar.Constructor = Navbar
-
-  // NAVBAR NO CONFLICT
-  // --------------------
-
-  $.fn.navbar.noConflict = function () {
-    $.fn.navbar = old
-    return this
-  }
-
-  // INITIALIZE NAVBAR
-  // ----------------------
-  $('[role=navigation]').navbar()
-
-
   // TODO: handle keyboard better
   // ---------------------
   // .on('keydown.submenu', toggle, Submenu.prototype.keydown)
 
 
+  $.fn.submenu = Submenu
 
 }(jQuery);

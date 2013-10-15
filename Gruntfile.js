@@ -76,6 +76,7 @@ module.exports = function(grunt) {
         src: [
           'src/javascripts/matchmedia.js',
           'src/javascripts/submenu.js',
+          'src/javascripts/navbar.js',
           'src/javascripts/app.js'
         ],
         dest: 'dist/javascripts/<%= pkg.name %>.js'
