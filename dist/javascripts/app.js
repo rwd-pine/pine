@@ -68,11 +68,11 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
   Submenu.prototype.toggle = function (e) {
     // console.log("Toggle submenu: " + e.type)
     var $this = $(this)
-    var $parent  = $this.parent()
+    var $parent  = $this.parent().closest('li')
     var isActive  = $parent.hasClass('is-open')
     var originalEvent = e
     var currentEffect = e.data.currentEffect.onToggle
-
+// debugger
     // Handle if the event was fired by link
     if (!isActive) {
       // if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
@@ -295,6 +295,8 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
             .prepend($('<li class="back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
         })
 
+        $(document).on('click.submenu', '.back', this.options, this.submenu.prototype.toggle)
+
         $element.find('ul').css('width', $(window).width())
         $(window).on('resize', resizeSubmenu)
       }
@@ -310,9 +312,11 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
     onToggle: function(params){
       var $this = $(this)
 
+      // TODO: simplify
       if(params.show) {
+
         var $parentLists = $this.parents('ul')
-        $parentLists.last().css('left', ($parentLists.length * 100) + '%')
+        $parentLists.last().css('left', (-100 * ($parentLists.length - 2)) + '%')
       }
       else {
         var $parentLists = $this.parents('ul')

@@ -28,11 +28,11 @@
   Submenu.prototype.toggle = function (e) {
     // console.log("Toggle submenu: " + e.type)
     var $this = $(this)
-    var $parent  = $this.parent()
+    var $parent  = $this.parent().closest('li')
     var isActive  = $parent.hasClass('is-open')
     var originalEvent = e
     var currentEffect = e.data.currentEffect.onToggle
-
+// debugger
     // Handle if the event was fired by link
     if (!isActive) {
       // if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {

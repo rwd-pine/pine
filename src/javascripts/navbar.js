@@ -142,6 +142,8 @@
             .prepend($('<li class="back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
         })
 
+        $(document).on('click.submenu', '.back', this.options, this.submenu.prototype.toggle)
+
         $element.find('ul').css('width', $(window).width())
         $(window).on('resize', resizeSubmenu)
       }
@@ -157,9 +159,11 @@
     onToggle: function(params){
       var $this = $(this)
 
+      // TODO: simplify
       if(params.show) {
+
         var $parentLists = $this.parents('ul')
-        $parentLists.last().css('left', ($parentLists.length * 100) + '%')
+        $parentLists.last().css('left', (-100 * ($parentLists.length - 2)) + '%')
       }
       else {
         var $parentLists = $this.parents('ul')
