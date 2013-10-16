@@ -3,7 +3,7 @@
   var Nav = $.fn.nav.Module || {};
 
   // ADD-ON definition
-  Nav.registerEffect('nav-behave-right-to-left', {
+  Nav.registerTransition('nav-behave-right-to-left', {
 
     onSwitch: function(condition){
       var $element = this.element
@@ -20,7 +20,7 @@
             .prepend($('<li class="back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
         })
 
-        $(document).on('click.submenu', '.back', this.options, Nav.Submenu.toggle)
+        $(document).on('click.submenu', '.back', this, this.Submenu.toggle)
 
         $element.find('ul').css('width', $(window).width())
         $(window).on('resize', resizeSubmenu)
@@ -53,7 +53,7 @@
   })
 
   // ADD-ON definition
-  Nav.registerEffect('hover', {
+  Nav.registerTransition('hover', {
     onSwitch: function(condition){
       if(condition) {
         // console.log("enter desktop")

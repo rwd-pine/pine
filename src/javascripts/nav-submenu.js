@@ -37,16 +37,16 @@
     /**
       Event handler for toggle.
 
-      @event Submenu.hover
+      @event Submenu.toggle
     **/
     Submenu.toggle = function (e) {
       // console.log("Toggle submenu: " + e.type)
 
-      var $this = $(this)
-      var $parent  = $this.parent().closest('li')
-      var isActive  = $parent.hasClass('is-open')
-      var originalEvent = e
-      var currentEffect = e.data.currentEffect.onToggle
+      var $this = $(this),
+          $parent  = $this.parent().closest('li'),
+          isActive  = $parent.hasClass('is-open'),
+          event = e,
+          transition = e.data.transition && e.data.transition.onToggle;
 
       // Handle if the event was fired by link
       if (!isActive) {
@@ -56,29 +56,26 @@
         // }
 
         // Execute special pre-show hook
-        if (typeof currentEffect === 'function') currentEffect.call(this, { show: isActive } );
+        if (transition && typeof transition === 'function') transition.call(this, { show: isActive } );
 
         $parent.trigger(e = $.Event('show.submenu'))
-        if (e.isDefaultPrevented()) return
 
         // add hover to child submenu
-        // console.log(originalEvent)
-        if (originalEvent.type == 'mouseenter')
-          $parent.find('> ul').addClass('is-hover')
+        // console.log(event)
+        if (event.type == 'mouseenter') $parent.find('> ul').addClass('is-hover')
 
         $parent
           .addClass('is-open')
           .trigger('shown.submenu')
       }
       else {
-
         // If submenu is hovered then return
         if ($parent.find('> ul').hasClass('is-hover')) return
 
-        if (currentEffect) currentEffect.call(this, { show: isActive } );
+        // Execute special pre-hide hook
+        if (transition && typeof transition === 'function') transition.call(this, { show: isActive } );
 
         $parent.trigger(e = $.Event('hide.submenu'))
-        if (e.isDefaultPrevented()) return
         $parent.removeClass('is-open').trigger('hidden.submenu')
       }
 

@@ -2,6 +2,8 @@
 
   // NAV DEFAULT INITIALIZATION
   // --------------------
-  $('[role=navigation]').nav()
+  $('[role=navigation]').nav({
+    transitionMobile: 'nav-behave-right-to-left'
+  })
 
 })(jQuery);

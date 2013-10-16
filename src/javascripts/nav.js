@@ -42,8 +42,8 @@
       toggle:           '.has-submenu > a',
       submenu:          '.has-submenu',
       behaviorNoTouch:  'hover',
-      effectDesktop:    'hover',
-      effectTouch:      'nav-behave-right-to-left'
+      transitionDesktop:    null,
+      transitionMobile:      null
     };
 
     /**
@@ -56,21 +56,20 @@
     Nav.options = null;
 
     /**
-      Applied effect, which depends on current view (dektop or mobile)
+      List of all available transitions. Transitions are loaded as plugins.
 
-      @attribute Nav.currentEffect
+      @attribute Nav.transitions
       @type Object
-      @default null
     **/
-    Nav.currentEffect = null;
+    Nav.transitions = {};
 
     /**
-      List of all available effects. Effects are loaded as plugins.
+      Applied effect, which depends on current view (dektop or mobile)
 
-      @attribute Nav.effects
+      @attribute Nav.transition
       @type Object
     **/
-    Nav.effects = {};
+    Nav.transition = {};
 
     /**
       Initialize all properties of Nav Module and setup listeners
@@ -82,7 +81,8 @@
       this.element = $(element);
       isDesktop = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches;
 
-      this.options.currentEffect = isDesktop ? this.effects[this.options.effectDesktop] : this.effects[this.options.effectTouch]
+
+      this.transition = isDesktop ? this.setTransition[this.options.transitionDesktop] : this.setTransition[this.options.transitionMobile]
 
       // init submenus
       this.element.find('li').has('ul').addClass('has-submenu')
@@ -93,63 +93,76 @@
     };
 
     /**
-      Checks current view if it satisfies switch condition. If no switch occured, it returns null.
-
-      @method Nav.checkMedia
-      @return Boolean or null
-    **/
-    Nav.checkMedia = function (e) {
-      var mobileCond = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
-      var isLoad = e.type && (e.type == 'load')
-
-      // Load or Using XOR to handle the switch, it fires only when it is needed
-      if (isLoad || (( isDesktop || mobileCond ) && !( isDesktop && mobileCond ))) {
-        return isDesktop = mobileCond // current view
-      }
-
-      return null
-    };
-
-    /**
       Navigation module API method assigns appropriate listeners based on conditions.
 
       @method Nav.api
     **/
     Nav.api = function (e) {
       var media = this.checkMedia(e)
+
       if(media === null) return false // check if there is a change of media
-        // console.log("call api")
-      if(typeof this.options.currentEffect.onSwitch === 'function')
-        this.options.currentEffect.onSwitch.call(this, false)
+
+      // Perform transition when leaving view
+      if(this.transition && typeof this.transition.onSwitch === 'function') {
+        this.transition.onSwitch.call(this, false)
+      }
 
       if (media) {
-
-        this.options.currentEffect = this.effects[this.options.effectDesktop]
-        this.element.removeClass(this.options.effectTouch)
-        this.element.addClass(this.options.effectDesktop)
-        // console.log("Add 'mouse' listeners and disable 'click.submenu'")
+        // Add 'mouse' listeners and disable 'click.submenu'
         $(document)
-          .on('mouseenter.submenu, mouseleave.submenu', this.options.submenu, this.options, this.Submenu.hover)
-          .on('mouseenter.submenu, mouseleave.submenu', this.options.toggle, this.options, this.Submenu.toggle)
+          .on('mouseenter.submenu, mouseleave.submenu', this.options.submenu, this, this.Submenu.hover)
+          .on('mouseenter.submenu, mouseleave.submenu', this.options.toggle, this, this.Submenu.toggle)
           .off('click.submenu')
       }
       else {
-        this.options.currentEffect = this.effects[this.options.effectTouch]
-        this.element.removeClass(this.options.effectDesktop)
-        this.element.addClass(this.options.effectTouch)
-        // console.log(this.options.currentEffect)
-        // console.log("Add 'click.submenu' listeners and disable 'mouse'")
+        // Add 'click.submenu' listeners and disable 'mouse'"
         $(document)
           .off('mouseenter.submenu, mouseleave.submenu')
-          .on('click.submenu', this.options.toggle, this.options, this.Submenu.toggle)
+          .on('click.submenu', this.options.toggle, this, this.Submenu.toggle)
 
       }
 
-      if(typeof this.options.currentEffect.onSwitch === 'function')
-        this.options.currentEffect.onSwitch.call(this, true)
-      // this.switchDOM()
+      // Perform all operations to switch between views
+      this.switchView(media)
+
+      // Perform transition after entering view
+      if(this.transition && typeof this.transition.onSwitch === 'function') {
+        this.transition.onSwitch.call(this, true)
+      }
+    };
+
+    /**
+      Checks current view if it satisfies switch condition. If no switch occured, it returns null.
+
+      @method Nav.checkMedia
+      @return Boolean or null
+    **/
+    Nav.checkMedia = function (e) {
+      var condition = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
+      var isLoad = e.type && (e.type == 'load')
+
+      // Load or Using XOR to handle the switch, it fires only when it is needed
+      if (isLoad || (( isDesktop || condition ) && !( isDesktop && condition ))) {
+        return isDesktop = condition // current view
+      }
+
+      return null
+    };
 
 
+    /**
+      TODO
+
+      @method Nav.switchView
+    **/
+    Nav.switchView = function (isDesktop) {
+      var t = this.getTransition(isDesktop)
+
+      this.element
+        .removeClass(this.getTransition(!isDesktop))
+        .addClass(t)
+
+      this.setTransition(t)
     };
 
     /**
@@ -177,14 +190,34 @@
     };
 
     /**
-      Setter for effects. New effects is added to effects collection.
+      Setter for transitions. New transitions is added to transitions collection.
 
-      @event Nav.registerEffect
-      @param {String}   name  Effect name
-      @param {Object}   obj   Effect definition
+      @event Nav.registerTransition
+      @param {String}   name  Transition name
+      @param {Object}   obj   Transition definition
     **/
-    Nav.registerEffect = function (name, obj) {
-      this.effects[name] = obj // save add-on
+    Nav.setTransition = function (name) {
+      this.transition = this.transitions[name] || false
+    };
+
+    /**
+      Getter for transitions.
+
+      @method Nav.getTransition
+    **/
+    Nav.getTransition = function (isDesktop) {
+      return isDesktop ? this.options.transitionDesktop : this.options.transitionMobile
+    };
+
+    /**
+      Setter for transitions. New transitions is added to transitions collection.
+
+      @event Nav.registerTransition
+      @param {String}   name  Transition name
+      @param {Object}   obj   Transition definition
+    **/
+    Nav.registerTransition = function (name, obj) {
+      this.transitions[name] = obj // save add-on
     };
 
     return Nav;
