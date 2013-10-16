@@ -1,5 +1,7 @@
 (function($){
 
-  // TODO: Our magnificent code
+  // NAV DEFAULT INITIALIZATION
+  // --------------------
+  $('[role=navigation]').nav()
 
 })(jQuery);

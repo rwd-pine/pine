@@ -42,142 +42,138 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
 // Submenu: Navigation behavior
 // --------------------------------
 
-+function ($) { "use strict";
+(function ($) { "use strict";
 
-  // SUBMENU CLASS DEFINITION
-  // ------------------------
-  var Submenu = function () {}
+  /**
+    Provides dropdown submenus for Responsive navigation module.
 
-  // SUBMENU METHODS
-  // ------------------------
-  Submenu.prototype.hover = function (e) {
-    var $submenu = $(this).find('> ul')
+    @module Nav
+  **/
+  var Submenu = (function() {
 
-    if (e.type == 'mouseenter') {
-      $submenu.addClass('is-hover')
-    }
-    else {
-      $submenu.removeClass('is-hover')
-      $(this).removeClass('is-open')
-    }
+    var version = '0.0.1',
 
-    // $('> a', this).trigger($.Event('toggle.submenu'))
-  }
+    Submenu = {};
 
+    /**
+      Event handler for hover.
 
-  Submenu.prototype.toggle = function (e) {
-    // console.log("Toggle submenu: " + e.type)
-    var $this = $(this)
-    var $parent  = $this.parent().closest('li')
-    var isActive  = $parent.hasClass('is-open')
-    var originalEvent = e
-    var currentEffect = e.data.currentEffect.onToggle
-// debugger
-    // Handle if the event was fired by link
-    if (!isActive) {
-      // if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
-      //   // if mobile we we use a backdrop because click events don't delegate
-      //   $('<div class="submenu-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
-      // }
+      @event Submenu.hover
+    **/
+    Submenu.hover = function (e) {
+      var $submenu = $(this).find('> ul')
 
-      // Execute special pre-show hook
-      if (typeof currentEffect === 'function') currentEffect.call(this, { show: isActive } );
+      if (e.type == 'mouseenter') {
+        $submenu.addClass('is-hover')
+      }
+      else {
+        $submenu.removeClass('is-hover')
+        $(this).removeClass('is-open')
+      }
 
-      $parent.trigger(e = $.Event('show.submenu'))
-      if (e.isDefaultPrevented()) return
+      // $('> a', this).trigger($.Event('toggle.submenu'))
+    };
 
-      // add hover to child submenu
-      // console.log(originalEvent)
-      if (originalEvent.type == 'mouseenter')
-        $parent.find('> ul').addClass('is-hover')
+    /**
+      Event handler for toggle.
 
-      $parent
-        .addClass('is-open')
-        .trigger('shown.submenu')
-    }
-    else {
+      @event Submenu.hover
+    **/
+    Submenu.toggle = function (e) {
+      // console.log("Toggle submenu: " + e.type)
 
-      // If submenu is hovered then return
-      if ($parent.find('> ul').hasClass('is-hover')) return
+      var $this = $(this)
+      var $parent  = $this.parent().closest('li')
+      var isActive  = $parent.hasClass('is-open')
+      var originalEvent = e
+      var currentEffect = e.data.currentEffect.onToggle
 
-      if (currentEffect) currentEffect.call(this, { show: isActive } );
+      // Handle if the event was fired by link
+      if (!isActive) {
+        // if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
+        //   // if mobile we we use a backdrop because click events don't delegate
+        //   $('<div class="submenu-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
+        // }
 
-      $parent.trigger(e = $.Event('hide.submenu'))
-      if (e.isDefaultPrevented()) return
-      $parent.removeClass('is-open').trigger('hidden.submenu')
-    }
+        // Execute special pre-show hook
+        if (typeof currentEffect === 'function') currentEffect.call(this, { show: isActive } );
 
-    return false
-  }
+        $parent.trigger(e = $.Event('show.submenu'))
+        if (e.isDefaultPrevented()) return
 
-    // Submenu.prototype.keydown = function (e) {
-  //   // Handle only arrow keys, esc and tab
-  //   if (!/(38|40|27|9)/.test(e.keyCode)) return
+        // add hover to child submenu
+        // console.log(originalEvent)
+        if (originalEvent.type == 'mouseenter')
+          $parent.find('> ul').addClass('is-hover')
 
-  //   var $this = $(this)
-  //   // e.preventDefault()
-  //   e.stopPropagation()
+        $parent
+          .addClass('is-open')
+          .trigger('shown.submenu')
+      }
+      else {
 
-  //   // if ($this.is('.disabled, :disabled')) return
+        // If submenu is hovered then return
+        if ($parent.find('> ul').hasClass('is-hover')) return
 
-  //   var $parent  = $this.parent()
-  //   var isActive = $parent.hasClass('is-open')
+        if (currentEffect) currentEffect.call(this, { show: isActive } );
 
-  //   // if (!isActive || (isActive && e.keyCode == 27)) {
-  //   //   if (e.which == 27) $parent.find(toggle).focus()
-  //   //   return $this.click()
-  //   // }
+        $parent.trigger(e = $.Event('hide.submenu'))
+        if (e.isDefaultPrevented()) return
+        $parent.removeClass('is-open').trigger('hidden.submenu')
+      }
 
-  //   var $items = $('[role=navigation] li:visible a', $parent)
+      return false
+    };
 
-  //   if (!$items.length) return
+    return Submenu;
 
-  //   var index = $items.index($items.filter(':focus'))
+  })();
 
-  //   if (e.keyCode == 38 && index > 0)                 index--                        // up
-  //   if ((e.keyCode == 40 || e.keyCode == 9) && index < $items.length - 1) index++                        // down
-  //   if (!~index)                                      index=0
+  $.fn.submenu = {}
+  $.fn.submenu.Module = Submenu
 
-  //   $items.eq(index).focus()
-  // }
-
-
-  // TODO: handle keyboard better
-  // ---------------------
-  // .on('keydown.submenu', toggle, Submenu.prototype.keydown)
-
-
-  $.fn.submenu = Submenu
-
-}(jQuery);
+})(jQuery);
 
 //
-// Navbar: Navigation behavior
+// Nav: Navigation behavior
 // --------------------------------
 
 (function ($, window) { "use strict";
 
-  //
-  // NAVBAR MODULE DEFINITION
-  // ------------------------
+  var Submenu = $.fn.submenu.Module || {};
 
-  var Navbar = (function() {
+  /**
+    Provides the base for Responsive navigation module.
 
-    var version = '0.1.0',
+    @module Nav
+  **/
+  var Nav = (function() {
+
+    var version = '0.0.1',
     isDesktop = null,
 
-    Navbar = {};
+    Nav = {};
 
-    Navbar.element = null;
-    Navbar.options = null;
+    // Submodule reference
+    Nav.Submenu = Submenu;
 
-    Navbar.currentEffect = null;
+    /**
+      Root element.
 
-    Navbar.effects = {};
+      @property Nav.element
+      @type jQuery Element
+      @default null
+    **/
+    Nav.element = null;
 
-    Navbar.submenu = $.fn.submenu;
+    /**
+      Default configuration for navigation module.
 
-    Navbar.defaults = {
+      @attribute Nav.defaults
+      @readOnly
+      @type boolean
+    **/
+    Nav.defaults = {
       jsBreakpoint:     '600px',
       toggle:           '.has-submenu > a',
       submenu:          '.has-submenu',
@@ -186,8 +182,38 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
       effectTouch:      'nav-behave-right-to-left'
     };
 
+    /**
+      Nav options that override defaults
 
-    Navbar.init = function(element, options) {
+      @attribute Nav.options
+      @type jQuery Element
+      @default null
+    **/
+    Nav.options = null;
+
+    /**
+      Applied effect, which depends on current view (dektop or mobile)
+
+      @attribute Nav.currentEffect
+      @type Object
+      @default null
+    **/
+    Nav.currentEffect = null;
+
+    /**
+      List of all available effects. Effects are loaded as plugins.
+
+      @attribute Nav.effects
+      @type Object
+    **/
+    Nav.effects = {};
+
+    /**
+      Initialize all properties of Nav Module and setup listeners
+
+      @method Nav.init
+    **/
+    Nav.init = function(element, options) {
       this.options = $.extend({}, this.defaults, options);
       this.element = $(element);
       isDesktop = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches;
@@ -196,13 +222,19 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
 
       // init submenus
       this.element.find('li').has('ul').addClass('has-submenu')
-      this.element.find('a').on('focus.navbar', this.focus)
+      this.element.find('a').on('focus.nav', this.focus)
 
       // setup API
       $(window).on('load resize', $.proxy(this.api, this))
     };
 
-    Navbar.checkMedia = function (e) {
+    /**
+      Checks current view if it satisfies switch condition. If no switch occured, it returns null.
+
+      @method Nav.checkMedia
+      @return Boolean or null
+    **/
+    Nav.checkMedia = function (e) {
       var mobileCond = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
       var isLoad = e.type && (e.type == 'load')
 
@@ -214,7 +246,12 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
       return null
     };
 
-    Navbar.api = function (e) {
+    /**
+      Navigation module API method assigns appropriate listeners based on conditions.
+
+      @method Nav.api
+    **/
+    Nav.api = function (e) {
       var media = this.checkMedia(e)
       if(media === null) return false // check if there is a change of media
         // console.log("call api")
@@ -228,8 +265,8 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
         this.element.addClass(this.options.effectDesktop)
         // console.log("Add 'mouse' listeners and disable 'click.submenu'")
         $(document)
-          .on('mouseenter.submenu, mouseleave.submenu', this.options.submenu, this.options, this.submenu.prototype.hover)
-          .on('mouseenter.submenu, mouseleave.submenu', this.options.toggle, this.options, this.submenu.prototype.toggle)
+          .on('mouseenter.submenu, mouseleave.submenu', this.options.submenu, this.options, this.Submenu.hover)
+          .on('mouseenter.submenu, mouseleave.submenu', this.options.toggle, this.options, this.Submenu.toggle)
           .off('click.submenu')
       }
       else {
@@ -240,7 +277,8 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
         // console.log("Add 'click.submenu' listeners and disable 'mouse'")
         $(document)
           .off('mouseenter.submenu, mouseleave.submenu')
-          .on('click.submenu', this.options.toggle, this.options, this.submenu.prototype.toggle)
+          .on('click.submenu', this.options.toggle, this.options, this.Submenu.toggle)
+
       }
 
       if(typeof this.options.currentEffect.onSwitch === 'function')
@@ -250,7 +288,13 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
 
     };
 
-    Navbar.focus = function (e) {
+    /**
+      Event handler which is fired after keyboard input (tab).
+
+      @event Nav.focus
+      @param {Object} Event Object
+    **/
+    Nav.focus = function (e) {
       // Check if the focused element is part of some Submenu
       var $this = $(this)
       var $parent  = $this.parent()
@@ -268,17 +312,56 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
       }).removeClass('is-open')
     };
 
-    Navbar.registerEffect = function (name, obj) {
+    /**
+      Setter for effects. New effects is added to effects collection.
+
+      @event Nav.registerEffect
+      @param {String}   name  Effect name
+      @param {Object}   obj   Effect definition
+    **/
+    Nav.registerEffect = function (name, obj) {
       this.effects[name] = obj // save add-on
     };
 
-    return Navbar;
+    return Nav;
 
   })();
 
 
+  // NAVBAR PLUGIN DEFINITION
+  // --------------------------
+
+  var old = $.fn.nav
+
+  $.fn.nav = function (option) {
+    return this.each(function () {
+      var $this   = $(this)
+      var data    = $this.data('nav')
+      var options = $.extend({}, $this.data(), typeof option == 'object' && option)
+
+      if (!data) $this.data('nav', (data = Nav.init(this, options)))
+      // if (typeof option == 'string') data[option]()
+    })
+  }
+
+  $.fn.nav.Module = Nav
+
+  // NAVBAR NO CONFLICT
+  // --------------------
+
+  $.fn.nav.noConflict = function () {
+    $.fn.nav = old
+    return this
+  }
+
+})(jQuery, window);
+
+(function ($) { "use strict";
+
+  var Nav = $.fn.nav.Module || {};
+
   // ADD-ON definition
-  Navbar.registerEffect('nav-behave-right-to-left', {
+  Nav.registerEffect('nav-behave-right-to-left', {
 
     onSwitch: function(condition){
       var $element = this.element
@@ -295,7 +378,7 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
             .prepend($('<li class="back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
         })
 
-        $(document).on('click.submenu', '.back', this.options, this.submenu.prototype.toggle)
+        $(document).on('click.submenu', '.back', this.options, Nav.Submenu.toggle)
 
         $element.find('ul').css('width', $(window).width())
         $(window).on('resize', resizeSubmenu)
@@ -328,7 +411,7 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
   })
 
   // ADD-ON definition
-  Navbar.registerEffect('hover', {
+  Nav.registerEffect('hover', {
     onSwitch: function(condition){
       if(condition) {
         // console.log("enter desktop")
@@ -341,45 +424,11 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
     onToggle: function(params){}
   })
 
-  // NAVBAR PLUGIN DEFINITION
-  // --------------------------
-
-  var old = $.fn.navbar
-
-  $.fn.navbar = function (option) {
-    return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('navbar')
-      var options = $.extend({}, $this.data(), typeof option == 'object' && option)
-
-      if (!data) $this.data('navbar', (data = Navbar.init(this, options)))
-      // if (typeof option == 'string') data[option]()
-    })
-  }
-
-  $.fn.navbar.Constructor = Navbar
-
-  // NAVBAR NO CONFLICT
-  // --------------------
-
-  $.fn.navbar.noConflict = function () {
-    $.fn.navbar = old
-    return this
-  }
-
-
-
-
-
-
-  // NAVBAR DEFAULT INITIALIZATION
-  // --------------------
-  $('[role=navigation]').navbar()
-
-})(jQuery, window);
-
+})(jQuery);
 (function($){
 
-  // TODO: Our magnificent code
+  // NAV DEFAULT INITIALIZATION
+  // --------------------
+  $('[role=navigation]').nav()
 
 })(jQuery);
