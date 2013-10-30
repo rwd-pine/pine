@@ -2,7 +2,7 @@
 // Submenu: Navigation behavior
 // --------------------------------
 
-(function ($) { "use strict";
+(function ($, undefined) { "use strict";
 
   /**
     Provides dropdown submenus for Responsive navigation module.
@@ -13,6 +13,9 @@
 
     var version = '0.0.1',
 
+    // Timer for delayed hiding of submenu
+    timer = null,
+
     Submenu = {};
 
     /**
@@ -21,14 +24,19 @@
       @event Submenu.hover
     **/
     Submenu.hover = function (e) {
-      var $submenu = $(this).find('> ul')
+      var $this = $(this)
+      var $submenu = $this.find('> ul')
 
       if (e.type == 'mouseenter') {
         $submenu.addClass('is-hover')
+        clearTimeout(timer)
       }
       else {
-        $submenu.removeClass('is-hover')
-        $(this).removeClass('is-open')
+        // Delay hiding of the menu, usability thing
+        timer = setTimeout(function(){
+          $submenu.removeClass('is-hover')
+          $this.removeClass('is-open')
+        },300)
       }
 
       // $('> a', this).trigger($.Event('toggle.submenu'))
@@ -46,7 +54,9 @@
           $parent  = $this.parent().closest('li'),
           isActive  = $parent.hasClass('is-open'),
           event = e,
-          transition = e.data.transition && e.data.transition.onToggle;
+          transition = e.data.activeTransition && e.data.activeTransition.onToggle;
+
+      // default click behavior needs to close menus clearMenus()
 
       // Handle if the event was fired by link
       if (!isActive) {
@@ -56,7 +66,7 @@
         // }
 
         // Execute special pre-show hook
-        if (transition && typeof transition === 'function') transition.call(this, { show: isActive } );
+        if (transition && typeof transition === 'function') transition.call(this, isActive);
 
         $parent.trigger(e = $.Event('show.submenu'))
 
@@ -73,7 +83,7 @@
         if ($parent.find('> ul').hasClass('is-hover')) return
 
         // Execute special pre-hide hook
-        if (transition && typeof transition === 'function') transition.call(this, { show: isActive } );
+        if (transition && typeof transition === 'function') transition.call(this, isActive);
 
         $parent.trigger(e = $.Event('hide.submenu'))
         $parent.removeClass('is-open').trigger('hidden.submenu')

@@ -31,39 +31,40 @@
         $submenu.find('li.back').remove()
         $(window).off('resize', resizeSubmenu)
       }
+    },
 
+    onToggle: function(isActive){
+      var $this = $(this),
+          $parentLists = $this.parents('ul'),
+          level = isActive ? $parentLists.length - 2 : $parentLists.length;
+
+      $parentLists.last().css('left', (-100 * level) + '%')
+    }
+  });
+
+  // ADD-ON definition
+  Nav.registerTransition('nav-hover', {
+    onSwitch: function(switchCondition){
+      if (switchCondition) {
+        // Add 'mouse' listeners and disable 'click.submenu'
+        $(document)
+          .on('mouseenter.submenu, mouseleave.submenu', this.options.submenu, this, this.Submenu.hover)
+          .on('mouseenter.submenu, mouseleave.submenu', this.options.toggle, this, this.Submenu.toggle)
+          .off('click.submenu')
+      }
+      else {
+        // Add 'click.submenu' listeners and disable 'mouse'"
+        $(document)
+          .off('mouseenter.submenu, mouseleave.submenu')
+          .on('click.submenu', this.options.toggle, this, this.Submenu.toggle)
+
+      }
     },
 
     onToggle: function(params){
-      var $this = $(this)
-
-      // TODO: simplify
-      if(params.show) {
-
-        var $parentLists = $this.parents('ul')
-        $parentLists.last().css('left', (-100 * ($parentLists.length - 2)) + '%')
-      }
-      else {
-        var $parentLists = $this.parents('ul')
-        $parentLists.last().css('left', (-100 * $parentLists.length) + '%')
-      }
+      // delay when hiding
+      // setTimeout(function(){ console.log("delayed") },1000)
     }
-
-
-  })
-
-  // ADD-ON definition
-  Nav.registerTransition('hover', {
-    onSwitch: function(condition){
-      if(condition) {
-        // console.log("enter desktop")
-      }
-      else {
-        // console.log("leave desktop")
-      }
-    },
-
-    onToggle: function(params){}
-  })
+  });
 
 })(jQuery);

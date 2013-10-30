@@ -42,7 +42,7 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
 // Submenu: Navigation behavior
 // --------------------------------
 
-(function ($) { "use strict";
+(function ($, undefined) { "use strict";
 
   /**
     Provides dropdown submenus for Responsive navigation module.
@@ -53,6 +53,9 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
 
     var version = '0.0.1',
 
+    // Timer for delayed hiding of submenu
+    timer = null,
+
     Submenu = {};
 
     /**
@@ -61,14 +64,19 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
       @event Submenu.hover
     **/
     Submenu.hover = function (e) {
-      var $submenu = $(this).find('> ul')
+      var $this = $(this)
+      var $submenu = $this.find('> ul')
 
       if (e.type == 'mouseenter') {
         $submenu.addClass('is-hover')
+        clearTimeout(timer)
       }
       else {
-        $submenu.removeClass('is-hover')
-        $(this).removeClass('is-open')
+        // Delay hiding of the menu, usability thing
+        timer = setTimeout(function(){
+          $submenu.removeClass('is-hover')
+          $this.removeClass('is-open')
+        },300)
       }
 
       // $('> a', this).trigger($.Event('toggle.submenu'))
@@ -86,7 +94,9 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
           $parent  = $this.parent().closest('li'),
           isActive  = $parent.hasClass('is-open'),
           event = e,
-          transition = e.data.transition && e.data.transition.onToggle;
+          transition = e.data.activeTransition && e.data.activeTransition.onToggle;
+
+      // default click behavior needs to close menus clearMenus()
 
       // Handle if the event was fired by link
       if (!isActive) {
@@ -96,7 +106,7 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
         // }
 
         // Execute special pre-show hook
-        if (transition && typeof transition === 'function') transition.call(this, { show: isActive } );
+        if (transition && typeof transition === 'function') transition.call(this, isActive);
 
         $parent.trigger(e = $.Event('show.submenu'))
 
@@ -113,7 +123,7 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
         if ($parent.find('> ul').hasClass('is-hover')) return
 
         // Execute special pre-hide hook
-        if (transition && typeof transition === 'function') transition.call(this, { show: isActive } );
+        if (transition && typeof transition === 'function') transition.call(this, isActive);
 
         $parent.trigger(e = $.Event('hide.submenu'))
         $parent.removeClass('is-open').trigger('hidden.submenu')
@@ -135,9 +145,7 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
 // Nav: Navigation behavior
 // --------------------------------
 
-(function ($, window) { "use strict";
-
-  var Submenu = $.fn.submenu.Module || {};
+(function ($, window, undefined) { "use strict";
 
   /**
     Provides the base for Responsive navigation module.
@@ -147,21 +155,34 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
   var Nav = (function() {
 
     var version = '0.0.1',
-    isDesktop = null,
+
 
     Nav = {};
+    /**
+      Stores the state of current view
 
-    // Submodule reference
-    Nav.Submenu = Submenu;
+      @property isDesktop
+      @type Boolean
+    **/
+    Nav.isDesktop = null;
 
     /**
-      Root element.
+      References Submenu module.
+
+      @submodule Nav.Submenu
+    **/
+    Nav.Submenu = $.fn.submenu.Module || {};
+
+    /**
+      Root navigation element.
 
       @property Nav.element
       @type jQuery Element
       @default null
     **/
     Nav.element = null;
+
+    // TODO: mozna prepsat na privatni promennou
 
     /**
       Default configuration for navigation module.
@@ -171,19 +192,18 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
       @type boolean
     **/
     Nav.defaults = {
-      jsBreakpoint:     '600px',
-      toggle:           '.has-submenu > a',
-      submenu:          '.has-submenu',
-      behaviorNoTouch:  'hover',
-      transitionDesktop:    null,
-      transitionMobile:      null
+      jsBreakpoint:       '600px',
+      toggle:             '.has-submenu > a',
+      submenu:            '.has-submenu',
+      transitionDesktop:  'nav-hover',
+      transitionMobile:   null
     };
 
     /**
-      Nav options that override defaults
+      Navigation options that override defaults
 
       @attribute Nav.options
-      @type jQuery Element
+      @type Object
       @default null
     **/
     Nav.options = null;
@@ -197,29 +217,32 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
     Nav.transitions = {};
 
     /**
-      Applied effect, which depends on current view (dektop or mobile)
+      Applied transition, which depends on the current view (dektop or mobile)
 
-      @attribute Nav.transition
+      @attribute Nav.activeTransition
       @type Object
     **/
-    Nav.transition = {};
+    Nav.activeTransition = {};
 
     /**
-      Initialize all properties of Nav Module and setup listeners
+      Initialize all properties of Nav Module and sets up event listeners
 
       @method Nav.init
     **/
     Nav.init = function(element, options) {
       this.options = $.extend({}, this.defaults, options);
       this.element = $(element);
-      isDesktop = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches;
+      this.isDesktop = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches;
 
+      // Set initial transition
+      this.isDesktop ? this.setTransition(this.options.transitionDesktop) : this.setTransition(this.options.transitionMobile)
 
-      this.transition = isDesktop ? this.setTransition[this.options.transitionDesktop] : this.setTransition[this.options.transitionMobile]
-
-      // init submenus
+      // Initialize Submenus
       this.element.find('li').has('ul').addClass('has-submenu')
       this.element.find('a').on('focus.nav', this.focus)
+
+      // Default behavior, submenu is triggered on click
+      $(document).on('click.submenu', this.options.toggle, this, this.Submenu.toggle)
 
       // setup API
       $(window).on('load resize', $.proxy(this.api, this))
@@ -233,34 +256,19 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
     Nav.api = function (e) {
       var media = this.checkMedia(e)
 
-      if(media === null) return false // check if there is a change of media
+      if(media === null) return false // check if there is actual change of media
 
       // Perform transition when leaving view
-      if(this.transition && typeof this.transition.onSwitch === 'function') {
-        this.transition.onSwitch.call(this, false)
-      }
-
-      if (media) {
-        // Add 'mouse' listeners and disable 'click.submenu'
-        $(document)
-          .on('mouseenter.submenu, mouseleave.submenu', this.options.submenu, this, this.Submenu.hover)
-          .on('mouseenter.submenu, mouseleave.submenu', this.options.toggle, this, this.Submenu.toggle)
-          .off('click.submenu')
-      }
-      else {
-        // Add 'click.submenu' listeners and disable 'mouse'"
-        $(document)
-          .off('mouseenter.submenu, mouseleave.submenu')
-          .on('click.submenu', this.options.toggle, this, this.Submenu.toggle)
-
+      if(this.activeTransition && typeof this.activeTransition.onSwitch === 'function') {
+        this.activeTransition.onSwitch.call(this, false)
       }
 
       // Perform all operations to switch between views
       this.switchView(media)
 
       // Perform transition after entering view
-      if(this.transition && typeof this.transition.onSwitch === 'function') {
-        this.transition.onSwitch.call(this, true)
+      if(this.activeTransition && typeof this.activeTransition.onSwitch === 'function') {
+        this.activeTransition.onSwitch.call(this, true)
       }
     };
 
@@ -274,9 +282,9 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
       var condition = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
       var isLoad = e.type && (e.type == 'load')
 
-      // Load or Using XOR to handle the switch, it fires only when it is needed
-      if (isLoad || (( isDesktop || condition ) && !( isDesktop && condition ))) {
-        return isDesktop = condition // current view
+      // Check first load or switch beetween views (mobile XOR desktop), it sets isDesktop value only when it is needed
+      if (isLoad || (( this.isDesktop || condition ) && !( this.isDesktop && condition ))) {
+        return this.isDesktop = condition
       }
 
       return null
@@ -298,6 +306,7 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
       this.setTransition(t)
     };
 
+    // TODO: abstrahovat eventy, nemusi to byt mousenter
     /**
       Event handler which is fired after keyboard input (tab).
 
@@ -323,20 +332,21 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
     };
 
     /**
-      Setter for transitions. New transitions is added to transitions collection.
+      Setter for transitions. New transition is added to transitions collection.
 
       @event Nav.registerTransition
       @param {String}   name  Transition name
       @param {Object}   obj   Transition definition
     **/
     Nav.setTransition = function (name) {
-      this.transition = this.transitions[name] || false
+      this.activeTransition = this.transitions[name] || false
     };
 
     /**
       Getter for transitions.
 
       @method Nav.getTransition
+      @param {Boolean}   isDesktop
     **/
     Nav.getTransition = function (isDesktop) {
       return isDesktop ? this.options.transitionDesktop : this.options.transitionMobile
@@ -350,7 +360,7 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
       @param {Object}   obj   Transition definition
     **/
     Nav.registerTransition = function (name, obj) {
-      this.transitions[name] = obj // save add-on
+      this.transitions[name] = obj
     };
 
     return Nav;
@@ -358,7 +368,7 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
   })();
 
 
-  // NAVBAR PLUGIN DEFINITION
+  // NAV PLUGIN DEFINITION
   // --------------------------
 
   var old = $.fn.nav
@@ -376,7 +386,7 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
 
   $.fn.nav.Module = Nav
 
-  // NAVBAR NO CONFLICT
+  // NAV NO CONFLICT
   // --------------------
 
   $.fn.nav.noConflict = function () {
@@ -419,40 +429,41 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
         $submenu.find('li.back').remove()
         $(window).off('resize', resizeSubmenu)
       }
+    },
 
+    onToggle: function(isActive){
+      var $this = $(this),
+          $parentLists = $this.parents('ul'),
+          level = isActive ? $parentLists.length - 2 : $parentLists.length;
+
+      $parentLists.last().css('left', (-100 * level) + '%')
+    }
+  });
+
+  // ADD-ON definition
+  Nav.registerTransition('nav-hover', {
+    onSwitch: function(switchCondition){
+      if (switchCondition) {
+        // Add 'mouse' listeners and disable 'click.submenu'
+        $(document)
+          .on('mouseenter.submenu, mouseleave.submenu', this.options.submenu, this, this.Submenu.hover)
+          .on('mouseenter.submenu, mouseleave.submenu', this.options.toggle, this, this.Submenu.toggle)
+          .off('click.submenu')
+      }
+      else {
+        // Add 'click.submenu' listeners and disable 'mouse'"
+        $(document)
+          .off('mouseenter.submenu, mouseleave.submenu')
+          .on('click.submenu', this.options.toggle, this, this.Submenu.toggle)
+
+      }
     },
 
     onToggle: function(params){
-      var $this = $(this)
-
-      // TODO: simplify
-      if(params.show) {
-
-        var $parentLists = $this.parents('ul')
-        $parentLists.last().css('left', (-100 * ($parentLists.length - 2)) + '%')
-      }
-      else {
-        var $parentLists = $this.parents('ul')
-        $parentLists.last().css('left', (-100 * $parentLists.length) + '%')
-      }
+      // delay when hiding
+      // setTimeout(function(){ console.log("delayed") },1000)
     }
-
-
-  })
-
-  // ADD-ON definition
-  Nav.registerTransition('hover', {
-    onSwitch: function(condition){
-      if(condition) {
-        // console.log("enter desktop")
-      }
-      else {
-        // console.log("leave desktop")
-      }
-    },
-
-    onToggle: function(params){}
-  })
+  });
 
 })(jQuery);
 (function($){
@@ -460,7 +471,8 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
   // NAV DEFAULT INITIALIZATION
   // --------------------
   $('[role=navigation]').nav({
-    transitionMobile: 'nav-behave-right-to-left'
+    transitionMobile: 'nav-behave-right-to-left',
+    transitionDesktop: 'nav-hover'
   })
 
 })(jQuery);
