@@ -4,7 +4,7 @@
   // --------------------
   $('[role=navigation]').nav({
     transitionMobile: 'nav-behave-right-to-left',
-    transitionDesktop: 'nav-hover'
+    transitionDesktop: 'nav-hover-fade'
   })
 
 })(jQuery);

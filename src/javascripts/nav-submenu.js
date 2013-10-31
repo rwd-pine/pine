@@ -6,8 +6,6 @@
 
   /**
     Provides dropdown submenus for Responsive navigation module.
-
-    @module Nav
   **/
   var Submenu = (function() {
 
@@ -20,8 +18,6 @@
 
     /**
       Event handler for hover.
-
-      @event Submenu.hover
     **/
     Submenu.hover = function (e) {
       var $this = $(this)
@@ -44,8 +40,6 @@
 
     /**
       Event handler for toggle.
-
-      @event Submenu.toggle
     **/
     Submenu.toggle = function (e) {
       // console.log("Toggle submenu: " + e.type)
