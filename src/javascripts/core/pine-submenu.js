@@ -2,12 +2,14 @@
 // Submenu: Navigation behavior
 // --------------------------------
 
-(function ($, undefined) { "use strict";
+(function ($, window, undefined) { "use strict";
+
+  var Pine = window.Pine || {}
 
   /**
     Provides dropdown submenus for Responsive navigation module.
   **/
-  var Submenu = (function() {
+  Pine.Submenu = (function() {
 
     var version = '0.0.1',
 
@@ -91,6 +93,6 @@
   })();
 
   $.fn.submenu = {}
-  $.fn.submenu.Module = Submenu
+  $.fn.submenu.Module = Pine.Submenu
 
-})(jQuery);
+})(jQuery, window);

@@ -2,9 +2,9 @@
 
   // NAV DEFAULT INITIALIZATION
   // --------------------
-  $('[role=navigation]').nav({
-    transitionMobile: 'right-to-left',
-    transitionDesktop: 'hover-fade'
+  $('[role=navigation]').pine({
+    transitionMobile: 'fx-right-to-left',
+    transitionDesktop: 'fx-hover-fade'
   })
 
 })(jQuery);

@@ -7374,7 +7374,7 @@ td.visible-print {
   }
 }
 
-.nav-behave-right-to-left > ul {
+.fx-right-to-left > ul {
   position: absolute;
   -webkit-transition: left 200ms;
      -moz-transition: left 200ms;
@@ -7383,29 +7383,29 @@ td.visible-print {
           transition: left 200ms;
 }
 
-.nav-behave-right-to-left ul ul {
+.fx-right-to-left ul ul {
   position: absolute;
   top: 0;
   left: 100%;
 }
 
-.nav-behave-right-to-left > ul > ul > ul {
+.fx-right-to-left > ul > ul > ul {
   left: 200%;
 }
 
-.nav-behave-right-to-left > ul > ul > ul > ul {
+.fx-right-to-left > ul > ul > ul > ul {
   left: 300%;
 }
 
-.js .nav-behave-right-to-left ul ul {
+.js .fx-right-to-left ul ul {
   display: none;
 }
 
-.nav-behave-right-to-left ul .is-open ul {
+.fx-right-to-left ul .is-open ul {
   display: block;
 }
 
-.nav-hover-fade ul ul {
+.fx-hover-fade ul ul {
   -webkit-opacity: 0;
      -moz-opacity: 0;
           opacity: 0;
@@ -7417,8 +7417,8 @@ td.visible-print {
           transition: opacity 0.3s ease-in-out;
 }
 
-.nav-hover-fade ul > li.is-open > ul,
-.nav-hover-fade ul ul > li.is-open > ul {
+.fx-hover-fade ul > li.is-open > ul,
+.fx-hover-fade ul ul > li.is-open > ul {
   -webkit-opacity: 1;
      -moz-opacity: 1;
           opacity: 1;

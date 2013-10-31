@@ -8,7 +8,7 @@
   /**
     Provides the base for Responsive navigation module.
   **/
-  var Nav = (function() {
+  window.Pine = (function() {
 
     var version = '0.0.1',
 
@@ -36,7 +36,7 @@
       jsBreakpoint:       '600px',
       toggle:             '.has-submenu > a',
       submenu:            '.has-submenu',
-      transitionDesktop:  'nav-hover',
+      transitionDesktop:  'pine-hover',
       transitionMobile:   null
     };
 
@@ -68,10 +68,10 @@
 
       // Initialize Submenus
       this.element.find('li').has('ul').addClass('has-submenu')
-      this.element.find('a').on('focus.nav', this.focus)
+      this.element.find('a').on('focus.pine', this.focus)
 
       // Default behavior, submenu is triggered on click
-      $(document).on('click.submenu', this.options.toggle, this, this.Submenu.toggle)
+      $(document).on('click.pine.submenu', this.options.toggle, this, this.Submenu.toggle)
 
       // Setup listeners
       $(window).on('load resize', $.proxy(this.api, this))
@@ -122,8 +122,8 @@
       var t = this.getTransitionName(isDesktop)
 
       this.element
-        .removeClass('fx-' + this.getTransitionName(!isDesktop))
-        .addClass('fx-' + t)
+        .removeClass(this.getTransitionName(!isDesktop))
+        .addClass(t)
 
       this.setActiveTransition(t)
     };
@@ -179,26 +179,26 @@
   // NAV PLUGIN DEFINITION
   // --------------------------
 
-  var old = $.fn.nav
+  var old = $.fn.pine
 
-  $.fn.nav = function (option) {
+  $.fn.pine = function (option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('nav')
+      var data    = $this.data('pine')
       var options = $.extend({}, $this.data(), typeof option == 'object' && option)
 
-      if (!data) $this.data('nav', (data = Nav.init(this, options)))
+      if (!data) $this.data('pine', (data = Pine.init(this, options)))
       // if (typeof option == 'string') data[option]()
     })
   }
 
-  $.fn.nav.Module = Nav
+  $.fn.pine.Module = Pine
 
   // NAV NO CONFLICT
   // --------------------
 
-  $.fn.nav.noConflict = function () {
-    $.fn.nav = old
+  $.fn.pine.noConflict = function () {
+    $.fn.pine = old
     return this
   }
 

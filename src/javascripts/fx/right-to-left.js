@@ -1,14 +1,14 @@
 //
 // MOBILE TRANSITION: RIGHT TO LEFT
 // -------------------------
-Nav.registerTransition('right-to-left', {
+Pine.registerTransition('fx-right-to-left', {
 
   onSwitch: function(condition){
     var $element = this.element
     var $submenu = $element.find('li').has('ul')
 
     var resizeSubmenu = function (){
-      $('.nav-behave-right-to-left ul').css('width', $(window).width())
+      $('.fx-right-to-left ul').css('width', $(window).width())
     }
 
     if(condition) {
@@ -18,7 +18,7 @@ Nav.registerTransition('right-to-left', {
           .prepend($('<li class="back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
       })
 
-      $(document).on('click.submenu', '.back', this, this.Submenu.toggle)
+      $(document).on('click.pine.submenu', '.back', this, this.Submenu.toggle)
 
       $element.find('ul').css('width', $(window).width())
       $(window).on('resize', resizeSubmenu)

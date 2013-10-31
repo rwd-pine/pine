@@ -76,9 +76,11 @@ module.exports = function(grunt) {
       main: {
         src: [
           'src/javascripts/lib/matchmedia.js',
-          'src/javascripts/core/nav-submenu.js',
-          'src/javascripts/core/nav.js',
-          'src/javascripts/fx/nav-effects.js',
+          'src/javascripts/core/pine-submenu.js',
+          'src/javascripts/core/pine.js',
+          'src/javascripts/fx/hover-fade.js',
+          'src/javascripts/fx/hover.js',
+          'src/javascripts/fx/right-to-left.js',
           'src/javascripts/app.js'
         ],
         dest: 'dist/javascripts/<%= pkg.name %>.js'

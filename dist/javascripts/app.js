@@ -42,12 +42,14 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
 // Submenu: Navigation behavior
 // --------------------------------
 
-(function ($, undefined) { "use strict";
+(function ($, window, undefined) { "use strict";
+
+  var Pine = window.Pine || {}
 
   /**
     Provides dropdown submenus for Responsive navigation module.
   **/
-  var Submenu = (function() {
+  Pine.Submenu = (function() {
 
     var version = '0.0.1',
 
@@ -131,9 +133,9 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
   })();
 
   $.fn.submenu = {}
-  $.fn.submenu.Module = Submenu
+  $.fn.submenu.Module = Pine.Submenu
 
-})(jQuery);
+})(jQuery, window);
 
 //
 // Responsive navigation module
@@ -145,7 +147,7 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
   /**
     Provides the base for Responsive navigation module.
   **/
-  var Nav = (function() {
+  window.Pine = (function() {
 
     var version = '0.0.1',
 
@@ -173,7 +175,7 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
       jsBreakpoint:       '600px',
       toggle:             '.has-submenu > a',
       submenu:            '.has-submenu',
-      transitionDesktop:  'nav-hover',
+      transitionDesktop:  'pine-hover',
       transitionMobile:   null
     };
 
@@ -205,10 +207,10 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
 
       // Initialize Submenus
       this.element.find('li').has('ul').addClass('has-submenu')
-      this.element.find('a').on('focus.nav', this.focus)
+      this.element.find('a').on('focus.pine', this.focus)
 
       // Default behavior, submenu is triggered on click
-      $(document).on('click.submenu', this.options.toggle, this, this.Submenu.toggle)
+      $(document).on('click.pine.submenu', this.options.toggle, this, this.Submenu.toggle)
 
       // Setup listeners
       $(window).on('load resize', $.proxy(this.api, this))
@@ -259,8 +261,8 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
       var t = this.getTransitionName(isDesktop)
 
       this.element
-        .removeClass('fx-' + this.getTransitionName(!isDesktop))
-        .addClass('fx-' + t)
+        .removeClass(this.getTransitionName(!isDesktop))
+        .addClass(t)
 
       this.setActiveTransition(t)
     };
@@ -316,38 +318,132 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
   // NAV PLUGIN DEFINITION
   // --------------------------
 
-  var old = $.fn.nav
+  var old = $.fn.pine
 
-  $.fn.nav = function (option) {
+  $.fn.pine = function (option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('nav')
+      var data    = $this.data('pine')
       var options = $.extend({}, $this.data(), typeof option == 'object' && option)
 
-      if (!data) $this.data('nav', (data = Nav.init(this, options)))
+      if (!data) $this.data('pine', (data = Pine.init(this, options)))
       // if (typeof option == 'string') data[option]()
     })
   }
 
-  $.fn.nav.Module = Nav
+  $.fn.pine.Module = Pine
 
   // NAV NO CONFLICT
   // --------------------
 
-  $.fn.nav.noConflict = function () {
-    $.fn.nav = old
+  $.fn.pine.noConflict = function () {
+    $.fn.pine = old
     return this
   }
 
 })(jQuery, window);
 
+//
+// DESKTOP TRANSITION: HOVER FADE
+// -------------------------
+Pine.registerTransition('fx-hover-fade', {
+
+  onSwitch: function(switchCondition){
+    if (switchCondition) {
+      // Add 'mouse' listeners and disable 'click.submenu'
+      $(document)
+        .on('mouseenter.pine.submenu, mouseleave.pine.submenu', this.options.submenu, this, this.Submenu.hover)
+        .on('mouseenter.pine.submenu, mouseleave.pine.submenu', this.options.toggle, this, this.Submenu.toggle)
+        .off('click.pine.submenu')
+    }
+    else {
+      // Add 'click.submenu' listeners and disable 'mouse'"
+      $(document)
+        .off('mouseenter.pine.submenu, mouseleave.pine.submenu')
+        .on('click.pine.submenu', this.options.toggle, this, this.Submenu.toggle)
+
+    }
+  },
+
+  onToggle: function(isActive){}
+});
+//
+// DESKTOP TRANSITION: HOVER
+// -------------------------
+Pine.registerTransition('fx-hover', {
+
+  onSwitch: function(switchCondition){
+    if (switchCondition) {
+      // Add 'mouse' listeners and disable 'click.submenu'
+      $(document)
+        .on('mouseenter.pine.submenu, mouseleave.pine.submenu', this.options.submenu, this, this.Submenu.hover)
+        .on('mouseenter.pine.submenu, mouseleave.pine.submenu', this.options.toggle, this, this.Submenu.toggle)
+        .off('click.submenu')
+    }
+    else {
+      // Add 'click.submenu' listeners and disable 'mouse'"
+      $(document)
+        .off('mouseenter.pine.submenu, mouseleave.pine.submenu')
+        .on('click.pine.submenu', this.options.toggle, this, this.Submenu.toggle)
+
+    }
+  },
+
+  onToggle: function(isActive){}
+});
+
+
+//
+// MOBILE TRANSITION: RIGHT TO LEFT
+// -------------------------
+Pine.registerTransition('fx-right-to-left', {
+
+  onSwitch: function(condition){
+    var $element = this.element
+    var $submenu = $element.find('li').has('ul')
+
+    var resizeSubmenu = function (){
+      $('.fx-right-to-left ul').css('width', $(window).width())
+    }
+
+    if(condition) {
+      // Enter mobile view
+      $submenu.each(function(){
+        $(this).find('> ul')
+          .prepend($('<li class="back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
+      })
+
+      $(document).on('click.pine.submenu', '.back', this, this.Submenu.toggle)
+
+      $element.find('ul').css('width', $(window).width())
+      $(window).on('resize', resizeSubmenu)
+    }
+    else {
+      // Leave mobile view
+      $element.find('ul').removeAttr('style')
+      $submenu.find('li.back').remove()
+      $(window).off('resize', resizeSubmenu)
+    }
+  },
+
+  onToggle: function(isActive){
+    var $this = $(this),
+        $parentLists = $this.parents('ul'),
+        level = isActive ? $parentLists.length - 2 : $parentLists.length;
+
+    $parentLists.last().css('left', (-100 * level) + '%')
+  }
+});
+
+
+
 (function($){
 
   // NAV DEFAULT INITIALIZATION
   // --------------------
-  $('[role=navigation]').nav({
-    transitionMobile: 'right-to-left',
-    transitionDesktop: 'hover-fade'
+  $('[role=navigation]').pine({
+    transitionMobile: 'fx-right-to-left',
+    transitionDesktop: 'fx-hover-fade'
   })
 
 })(jQuery);
