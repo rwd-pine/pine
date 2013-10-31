@@ -118,9 +118,13 @@ module.exports = function(grunt) {
             dest: 'dist/stylesheets/app.css'
           },
           {
-            src: ['src/stylesheets/test-bootstrap.less'],
-            dest: 'dist/stylesheets/test-bootstrap.css'
-          }
+            src: ['test/stylesheets/test.less'],
+            dest: 'test/stylesheets/test.css'
+          },
+          {
+            src: ['test/stylesheets/test-bootstrap.less'],
+            dest: 'test/stylesheets/test-bootstrap.css'
+          }          
         ]
       },
       min: {
@@ -134,7 +138,7 @@ module.exports = function(grunt) {
 
     watch: {
       recess: {
-        files: 'src/stylesheets/**/*.less',
+        files: ['src/stylesheets/**/*.less', 'test/stylesheets/**/*.less'],
         tasks: ['recess']
       },
       uglify: {
