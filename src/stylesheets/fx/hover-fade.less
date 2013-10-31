@@ -6,12 +6,13 @@
 .fx-hover-fade {
   ul ul {
     .opacity(0);
-    .transition(opacity .3s ease-in-out);
+    .transition(~"visiblity 0s .3s, opacity .3s ease-in-out");
   }
 
   // Otevrena druha uroven
   ul > li.is-open > ul,
   ul ul > li.is-open > ul {
     .opacity(1);
+    .transition(opacity .3s ease-in-out);
   }
 }

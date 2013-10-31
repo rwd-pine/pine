@@ -1,7 +1,7 @@
 //
 // MOBILE TRANSITION: RIGHT TO LEFT
 // -------------------------
-Pine.registerTransition('fx-right-to-left', {
+Pine.Navbar.registerTransition('fx-right-to-left', {
 
   onSwitch: function(condition){
     var $element = this.element
@@ -18,7 +18,7 @@ Pine.registerTransition('fx-right-to-left', {
           .prepend($('<li class="back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
       })
 
-      $(document).on('click.pine.submenu', '.back', this, this.Submenu.toggle)
+      $(document).on('click.pine.submenu', '.back', this, Pine.Submenu.toggle)
 
       $element.find('ul').css('width', $(window).width())
       $(window).on('resize', resizeSubmenu)

@@ -76,10 +76,11 @@ module.exports = function(grunt) {
       main: {
         src: [
           'src/javascripts/lib/matchmedia.js',
+          // 'src/javascripts/core/pine.js',
           'src/javascripts/core/pine-submenu.js',
-          'src/javascripts/core/pine.js',
-          'src/javascripts/fx/hover-fade.js',
+          'src/javascripts/core/pine-navbar.js',
           'src/javascripts/fx/hover.js',
+          'src/javascripts/fx/hover-fade.js',
           'src/javascripts/fx/right-to-left.js',
           'src/javascripts/app.js'
         ],
@@ -116,7 +117,7 @@ module.exports = function(grunt) {
       main: {
         files: [
           {
-            src: ['src/stylesheets/app.less'],
+            src: ['src/stylesheets/nav.less'],
             dest: 'dist/stylesheets/app.css'
           },
           {
@@ -126,14 +127,14 @@ module.exports = function(grunt) {
           {
             src: ['test/stylesheets/test-bootstrap.less'],
             dest: 'test/stylesheets/test-bootstrap.css'
-          }          
+          }
         ]
       },
       min: {
         options: {
           compress: true
         },
-        src: ['src/stylesheets/app.less'],
+        src: ['src/stylesheets/nav.less'],
         dest: 'dist/stylesheets/app.min.css'
       }
     },

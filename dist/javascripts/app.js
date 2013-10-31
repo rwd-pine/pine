@@ -42,280 +42,265 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
 // Submenu: Navigation behavior
 // --------------------------------
 
-(function ($, window, undefined) { "use strict";
+var Pine = window.Pine || {}
 
-  var Pine = window.Pine || {}
+/**
+  Provides dropdown submenus for Responsive navigation module.
+**/
+Pine.Submenu = (function($, window, undefined) { "use strict";
+
+  var version = '0.0.1',
+
+  // Timer for delayed hiding of submenu
+  timer = null,
+
+  Submenu = {};
 
   /**
-    Provides dropdown submenus for Responsive navigation module.
+    Event handler for hover.
   **/
-  Pine.Submenu = (function() {
+  Submenu.hover = function (e) {
+    var $this = $(this)
+    var $submenu = $this.find('> ul')
 
-    var version = '0.0.1',
+    if (e.type == 'mouseenter') {
+      $submenu.addClass('is-hover')
+      clearTimeout(timer)
+    }
+    else {
+      // Delay hiding of the menu, usability thing
+      timer = setTimeout(function(){
+        $submenu.removeClass('is-hover')
+        $this.removeClass('is-open')
+      },300)
+    }
 
-    // Timer for delayed hiding of submenu
-    timer = null,
+    // $('> a', this).trigger($.Event('toggle.submenu'))
+  };
 
-    Submenu = {};
+  /**
+    Event handler for toggle.
+  **/
+  Submenu.toggle = function (e) {
+    // console.log("Toggle submenu: " + e.type)
 
-    /**
-      Event handler for hover.
-    **/
-    Submenu.hover = function (e) {
-      var $this = $(this)
-      var $submenu = $this.find('> ul')
+    var $this = $(this),
+        $parent  = $this.parent().closest('li'),
+        isActive  = $parent.hasClass('is-open'),
+        event = e,
+        transition = e.data.activeTransition && e.data.activeTransition.onToggle;
 
-      if (e.type == 'mouseenter') {
-        $submenu.addClass('is-hover')
-        clearTimeout(timer)
-      }
-      else {
-        // Delay hiding of the menu, usability thing
-        timer = setTimeout(function(){
-          $submenu.removeClass('is-hover')
-          $this.removeClass('is-open')
-        },300)
-      }
+    // default click behavior needs to close menus clearMenus()
 
-      // $('> a', this).trigger($.Event('toggle.submenu'))
-    };
+    // Handle if the event was fired by link
+    if (!isActive) {
+      // if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
+      //   // if mobile we we use a backdrop because click events don't delegate
+      //   $('<div class="submenu-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
+      // }
 
-    /**
-      Event handler for toggle.
-    **/
-    Submenu.toggle = function (e) {
-      // console.log("Toggle submenu: " + e.type)
+      // Execute special pre-show hook
+      if (transition && typeof transition === 'function') transition.call(this, isActive);
 
-      var $this = $(this),
-          $parent  = $this.parent().closest('li'),
-          isActive  = $parent.hasClass('is-open'),
-          event = e,
-          transition = e.data.activeTransition && e.data.activeTransition.onToggle;
+      $parent.trigger(e = $.Event('show.submenu'))
 
-      // default click behavior needs to close menus clearMenus()
+      // add hover to child submenu
+      // console.log(event)
+      if (event.type == 'mouseenter') $parent.find('> ul').addClass('is-hover')
 
-      // Handle if the event was fired by link
-      if (!isActive) {
-        // if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
-        //   // if mobile we we use a backdrop because click events don't delegate
-        //   $('<div class="submenu-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
-        // }
+      $parent
+        .addClass('is-open')
+        .trigger('shown.submenu')
+    }
+    else {
+      // If submenu is hovered then return
+      if ($parent.find('> ul').hasClass('is-hover')) return
 
-        // Execute special pre-show hook
-        if (transition && typeof transition === 'function') transition.call(this, isActive);
+      // Execute special pre-hide hook
+      if (transition && typeof transition === 'function') transition.call(this, isActive);
 
-        $parent.trigger(e = $.Event('show.submenu'))
+      $parent.trigger(e = $.Event('hide.submenu'))
+      $parent.removeClass('is-open').trigger('hidden.submenu')
+    }
 
-        // add hover to child submenu
-        // console.log(event)
-        if (event.type == 'mouseenter') $parent.find('> ul').addClass('is-hover')
-
-        $parent
-          .addClass('is-open')
-          .trigger('shown.submenu')
-      }
-      else {
-        // If submenu is hovered then return
-        if ($parent.find('> ul').hasClass('is-hover')) return
-
-        // Execute special pre-hide hook
-        if (transition && typeof transition === 'function') transition.call(this, isActive);
-
-        $parent.trigger(e = $.Event('hide.submenu'))
-        $parent.removeClass('is-open').trigger('hidden.submenu')
-      }
-
-      return false
-    };
-
-    return Submenu;
-
-  })();
+    return false
+  };
 
   $.fn.submenu = {}
   $.fn.submenu.Module = Pine.Submenu
 
+  return Submenu;
+
 })(jQuery, window);
 
+
 //
-// Responsive navigation module
-//
+// Navbar
 // --------------------------------
 
-(function ($, window, undefined) { "use strict";
+var Pine = window.Pine || {}
+
+/**
+  Provides the base for Responsive navigation module.
+**/
+Pine.Navbar = (function ($, window, undefined) { "use strict";
+
+  var version = '0.0.1',
+
+  Navbar = {};
 
   /**
-    Provides the base for Responsive navigation module.
+    Stores the state of current view
   **/
-  window.Pine = (function() {
+  Navbar.isDesktop = null;
 
-    var version = '0.0.1',
+  /**
+    Root navigation element.
+  **/
+  Navbar.element = null;
 
-    Nav = {};
+  /**
+    Default configuration for navigation module.
+  **/
+  Navbar.defaults = {
+    jsBreakpoint:       '600px',
+    toggle:             '.has-submenu > a',
+    submenu:            '.has-submenu',
+    transitionDesktop:  'pine-hover',
+    transitionMobile:   null
+  };
 
-    /**
-      Stores the state of current view
-    **/
-    Nav.isDesktop = null;
+  /**
+    Navigation options that override defaults
+  **/
+  Navbar.options = null;
 
-    /**
-      References Submenu module.
-    **/
-    Nav.Submenu = $.fn.submenu.Module || {};
+  /**
+    List of all available transitions. Transitions are loaded as plugins.
+  **/
+  Navbar.transitions = {};
 
-    /**
-      Root navigation element.
-    **/
-    Nav.element = null;
+  /**
+    Applied transition, which depends on the current view (dektop or mobile)
+  **/
+  Navbar.activeTransition = {};
 
-    /**
-      Default configuration for navigation module.
-    **/
-    Nav.defaults = {
-      jsBreakpoint:       '600px',
-      toggle:             '.has-submenu > a',
-      submenu:            '.has-submenu',
-      transitionDesktop:  'pine-hover',
-      transitionMobile:   null
-    };
+  /**
+    Initialize all properties of Nav Module and sets up event listeners
+  **/
+  Navbar.init = function(element, options) {
+    this.options = $.extend({}, this.defaults, options)
+    this.element = $(element)
+    this.isDesktop = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
 
-    /**
-      Navigation options that override defaults
-    **/
-    Nav.options = null;
+    // Set initial transition
+    this.isDesktop ? this.setActiveTransition(this.options.transitionDesktop) : this.setActiveTransition(this.options.transitionMobile)
 
-    /**
-      List of all available transitions. Transitions are loaded as plugins.
-    **/
-    Nav.transitions = {};
+    // Initialize Submenus
+    this.element.find('li').has('ul').addClass('has-submenu')
+    this.element.find('a').on('focus.pine', this.focus)
+    // Default behavior, submenu is triggered on click
+    $(document).on('click.pine.submenu', this.options.toggle, this, Pine.Submenu.toggle)
 
-    /**
-      Applied transition, which depends on the current view (dektop or mobile)
-    **/
-    Nav.activeTransition = {};
+    // Setup listeners
+    $(window).on('load resize', $.proxy(this.api, this))
+  };
 
-    /**
-      Initialize all properties of Nav Module and sets up event listeners
-    **/
-    Nav.init = function(element, options) {
-      this.options = $.extend({}, this.defaults, options)
-      this.element = $(element)
-      this.isDesktop = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
+  /**
+    Navigation module API method handles switch between views.
+  **/
+  Navbar.api = function (e) {
+    var media = this.checkMedia(e)
 
-      // Set initial transition
-      this.isDesktop ? this.setActiveTransition(this.options.transitionDesktop) : this.setActiveTransition(this.options.transitionMobile)
+    if(media === null) return false // check if there is actual change of media
 
-      // Initialize Submenus
-      this.element.find('li').has('ul').addClass('has-submenu')
-      this.element.find('a').on('focus.pine', this.focus)
+    // Perform transition when leaving view
+    if(this.activeTransition && typeof this.activeTransition.onSwitch === 'function') {
+      this.activeTransition.onSwitch.call(this, false)
+    }
 
-      // Default behavior, submenu is triggered on click
-      $(document).on('click.pine.submenu', this.options.toggle, this, this.Submenu.toggle)
+    // Perform all operations to switch between views
+    this.switchView(media)
 
-      // Setup listeners
-      $(window).on('load resize', $.proxy(this.api, this))
-    };
+    // Perform transition after entering view
+    if(this.activeTransition && typeof this.activeTransition.onSwitch === 'function') {
+      this.activeTransition.onSwitch.call(this, true)
+    }
+  };
 
-    /**
-      Navigation module API method handles switch between views.
-    **/
-    Nav.api = function (e) {
-      var media = this.checkMedia(e)
+  /**
+    Checks current view if it satisfies switch condition. If no switch occurs, it returns null.
+  **/
+  Navbar.checkMedia = function (e) {
+    var condition = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
+    var isLoad = e.type && (e.type == 'load')
 
-      if(media === null) return false // check if there is actual change of media
+    // Check first load or switch beetween views (mobile XOR desktop), it sets isDesktop value only when it is needed
+    if (isLoad || (( this.isDesktop || condition ) && !( this.isDesktop && condition ))) {
+      return this.isDesktop = condition
+    }
 
-      // Perform transition when leaving view
-      if(this.activeTransition && typeof this.activeTransition.onSwitch === 'function') {
-        this.activeTransition.onSwitch.call(this, false)
-      }
-
-      // Perform all operations to switch between views
-      this.switchView(media)
-
-      // Perform transition after entering view
-      if(this.activeTransition && typeof this.activeTransition.onSwitch === 'function') {
-        this.activeTransition.onSwitch.call(this, true)
-      }
-    };
-
-    /**
-      Checks current view if it satisfies switch condition. If no switch occurs, it returns null.
-    **/
-    Nav.checkMedia = function (e) {
-      var condition = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
-      var isLoad = e.type && (e.type == 'load')
-
-      // Check first load or switch beetween views (mobile XOR desktop), it sets isDesktop value only when it is needed
-      if (isLoad || (( this.isDesktop || condition ) && !( this.isDesktop && condition ))) {
-        return this.isDesktop = condition
-      }
-
-      return null
-    };
+    return null
+  };
 
 
-    /**
-      Switches active transition when leaving one view and entering another.
-    **/
-    Nav.switchView = function (isDesktop) {
-      var t = this.getTransitionName(isDesktop)
+  /**
+    Switches active transition when leaving one view and entering another.
+  **/
+  Navbar.switchView = function (isDesktop) {
+    var t = this.getTransitionName(isDesktop)
 
-      this.element
-        .removeClass(this.getTransitionName(!isDesktop))
-        .addClass(t)
+    this.element
+      .removeClass(this.getTransitionName(!isDesktop))
+      .addClass(t)
 
-      this.setActiveTransition(t)
-    };
+    this.setActiveTransition(t)
+  };
 
-    // TODO: abstrahovat eventy, nemusi to byt mousenter
-    /**
-      Event handler which is fired after keyboard input (tab).
-    **/
-    Nav.focus = function (e) {
-      // Check if the focused element is part of some Submenu
-      var $this = $(this)
-      var $parent  = $this.parent()
+  // TODO: abstrahovat eventy, nemusi to byt mousenter
+  /**
+    Event handler which is fired after keyboard input (tab).
+  **/
+  Navbar.focus = function (e) {
+    // Check if the focused element is part of some Submenu
+    var $this = $(this)
+    var $parent  = $this.parent()
 
-      if ($parent.hasClass('has-submenu') && !$parent.hasClass('is-open')) {
-        $this.trigger($.Event('mouseenter'))
-      }
+    if ($parent.hasClass('has-submenu') && !$parent.hasClass('is-open')) {
+      $this.trigger($.Event('mouseenter'))
+    }
 
-      var openedMenus = $('.is-open')
+    var openedMenus = $('.is-open')
 
-      if(openedMenus.length == 0) return
+    if(openedMenus.length == 0) return
 
-      openedMenus.filter(function(i){
-        return $(this).find($this).length === 0
-      }).removeClass('is-open')
-    };
+    openedMenus.filter(function(i){
+      return $(this).find($this).length === 0
+    }).removeClass('is-open')
+  };
 
-    /**
-      Setter for transitions. New transition is added to transitions collection.
-    **/
-    Nav.setActiveTransition = function (name) {
-      this.activeTransition = this.transitions[name] || false
-    };
+  /**
+    Setter for transitions. New transition is added to transitions collection.
+  **/
+  Navbar.setActiveTransition = function (name) {
+    this.activeTransition = this.transitions[name] || false
+  };
 
-    /**
-      Getter for transition.
-    **/
-    Nav.getTransitionName = function (isDesktop) {
-      return isDesktop ? this.options.transitionDesktop : this.options.transitionMobile
-    };
+  /**
+    Getter for transition.
+  **/
+  Navbar.getTransitionName = function (isDesktop) {
+    return isDesktop ? this.options.transitionDesktop : this.options.transitionMobile
+  };
 
-    /**
-      Adds new transition to the collection.
-    **/
-    Nav.registerTransition = function (name, obj) {
-      this.transitions[name] = obj
-    };
+  /**
+    Adds new transition to the collection.
+  **/
+  Navbar.registerTransition = function (name, obj) {
+    this.transitions[name] = obj
+  };
 
-    return Nav;
-
-  })();
-
-
-  // NAV PLUGIN DEFINITION
+  // NAVBAR PLUGIN DEFINITION
   // --------------------------
 
   var old = $.fn.pine
@@ -326,14 +311,14 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
       var data    = $this.data('pine')
       var options = $.extend({}, $this.data(), typeof option == 'object' && option)
 
-      if (!data) $this.data('pine', (data = Pine.init(this, options)))
+      if (!data) $this.data('pine', (data = Navbar.init(this, options)))
       // if (typeof option == 'string') data[option]()
     })
   }
 
-  $.fn.pine.Module = Pine
+  $.fn.pine.Module = Navbar
 
-  // NAV NO CONFLICT
+  // NAVBAR NO CONFLICT
   // --------------------
 
   $.fn.pine.noConflict = function () {
@@ -341,62 +326,44 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
     return this
   }
 
+  return Navbar;
+
 })(jQuery, window);
 
 //
-// DESKTOP TRANSITION: HOVER FADE
+// DESKTOP TRANSITION: HOVER
 // -------------------------
-Pine.registerTransition('fx-hover-fade', {
-
+var pine_fx_hover = {
   onSwitch: function(switchCondition){
     if (switchCondition) {
       // Add 'mouse' listeners and disable 'click.submenu'
       $(document)
-        .on('mouseenter.pine.submenu, mouseleave.pine.submenu', this.options.submenu, this, this.Submenu.hover)
-        .on('mouseenter.pine.submenu, mouseleave.pine.submenu', this.options.toggle, this, this.Submenu.toggle)
+        .on('mouseenter.pine.submenu, mouseleave.pine.submenu', this.options.submenu, this, Pine.Submenu.hover)
+        .on('mouseenter.pine.submenu, mouseleave.pine.submenu', this.options.toggle, this, Pine.Submenu.toggle)
         .off('click.pine.submenu')
     }
     else {
       // Add 'click.submenu' listeners and disable 'mouse'"
       $(document)
         .off('mouseenter.pine.submenu, mouseleave.pine.submenu')
-        .on('click.pine.submenu', this.options.toggle, this, this.Submenu.toggle)
+        .on('click.pine.submenu', this.options.toggle, this, Pine.Submenu.toggle)
 
     }
   },
-
   onToggle: function(isActive){}
-});
+};
+
+Pine.Navbar.registerTransition('fx-hover', pine_fx_hover);
+
+
 //
-// DESKTOP TRANSITION: HOVER
+// DESKTOP TRANSITION: HOVER FADE
 // -------------------------
-Pine.registerTransition('fx-hover', {
-
-  onSwitch: function(switchCondition){
-    if (switchCondition) {
-      // Add 'mouse' listeners and disable 'click.submenu'
-      $(document)
-        .on('mouseenter.pine.submenu, mouseleave.pine.submenu', this.options.submenu, this, this.Submenu.hover)
-        .on('mouseenter.pine.submenu, mouseleave.pine.submenu', this.options.toggle, this, this.Submenu.toggle)
-        .off('click.submenu')
-    }
-    else {
-      // Add 'click.submenu' listeners and disable 'mouse'"
-      $(document)
-        .off('mouseenter.pine.submenu, mouseleave.pine.submenu')
-        .on('click.pine.submenu', this.options.toggle, this, this.Submenu.toggle)
-
-    }
-  },
-
-  onToggle: function(isActive){}
-});
-
-
+Pine.Navbar.registerTransition('fx-hover-fade', $.extend({}, pine_fx_hover));
 //
 // MOBILE TRANSITION: RIGHT TO LEFT
 // -------------------------
-Pine.registerTransition('fx-right-to-left', {
+Pine.Navbar.registerTransition('fx-right-to-left', {
 
   onSwitch: function(condition){
     var $element = this.element
@@ -413,7 +380,7 @@ Pine.registerTransition('fx-right-to-left', {
           .prepend($('<li class="back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
       })
 
-      $(document).on('click.pine.submenu', '.back', this, this.Submenu.toggle)
+      $(document).on('click.pine.submenu', '.back', this, Pine.Submenu.toggle)
 
       $element.find('ul').css('width', $(window).width())
       $(window).on('resize', resizeSubmenu)
