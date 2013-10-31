@@ -7405,7 +7405,7 @@ td.visible-print {
   display: block;
 }
 
-ul ul {
+.nav-hover-fade ul ul {
   -webkit-opacity: 0;
      -moz-opacity: 0;
           opacity: 0;
@@ -7417,8 +7417,8 @@ ul ul {
           transition: opacity 0.3s ease-in-out;
 }
 
-ul > li.is-open > ul,
-ul ul > li.is-open > ul {
+.nav-hover-fade ul > li.is-open > ul,
+.nav-hover-fade ul ul > li.is-open > ul {
   -webkit-opacity: 1;
      -moz-opacity: 1;
           opacity: 1;

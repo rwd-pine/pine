@@ -59,9 +59,9 @@
       Initialize all properties of Nav Module and sets up event listeners
     **/
     Nav.init = function(element, options) {
-      this.options = $.extend({}, this.defaults, options);
-      this.element = $(element);
-      this.isDesktop = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches;
+      this.options = $.extend({}, this.defaults, options)
+      this.element = $(element)
+      this.isDesktop = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
 
       // Set initial transition
       this.isDesktop ? this.setActiveTransition(this.options.transitionDesktop) : this.setActiveTransition(this.options.transitionMobile)

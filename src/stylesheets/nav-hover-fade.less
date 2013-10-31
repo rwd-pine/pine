@@ -1,10 +1,17 @@
-ul ul {
-  .opacity(0);
-  .transition(opacity .3s ease-in-out);
-}
+//
+// HOVER FADE
+// Effect for submenus. Submenu fades in and out on hover.
+// ----------------------------
 
-// Otevrena druha uroven
-ul > li.is-open > ul,
-ul ul > li.is-open > ul {
-  .opacity(1);
+.nav-hover-fade {
+  ul ul {
+    .opacity(0);
+    .transition(opacity .3s ease-in-out);
+  }
+
+  // Otevrena druha uroven
+  ul > li.is-open > ul,
+  ul ul > li.is-open > ul {
+    .opacity(1);
+  }
 }
