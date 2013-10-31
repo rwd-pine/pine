@@ -1,0 +1,10 @@
+ul ul {
+  .opacity(0);
+  .transition(opacity .3s ease-in-out);
+}
+
+// Otevrena druha uroven
+ul > li.is-open > ul,
+ul ul > li.is-open > ul {
+  .opacity(1);
+}
