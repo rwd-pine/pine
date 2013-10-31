@@ -7,28 +7,28 @@
 // - classes instead of 'ul ul ul'?
 
 // Context where we are positioning the indicator
-[role='navigation'] li.has-submenu > a,
+#nav li.has-submenu > a,
 [role='navigation'] li.has-submenu > strong {
 	position: relative;
 }
 
 // Default: vertical
-[role='navigation'] > ul > li.has-submenu > a:before {
+#nav > ul > li.has-submenu > a:before {
 	.has-submenu-triangle-indicator(right, @rwnLevel1SubIndColor, @rwnLevel1FontSize, @rwnLevel1FontSize*1.2);
 }
 
 // Horizontal variant
-[role='navigation'].nav-horizontal > ul > li.has-submenu > a:before {
+#nav.nav-horizontal > ul > li.has-submenu > a:before {
 	.has-submenu-triangle-indicator(bottom, @rwnLevel1SubIndColor, 0, @rwnLevel1FontSize*1.2);
 }
 
 // 2nd level
-[role='navigation'] ul ul > li.has-submenu > a:before {
+#nav ul ul > li.has-submenu > a:before {
 	.has-submenu-triangle-indicator(right, @rwnLevel2SubIndColor, @rwnLevel2FontSize, @rwnLevel3FontSize*1.2);
 }
 
 // 3rd level
-[role='navigation'] ul ul ul > li.has-submenu > a:before {
+#nav ul ul ul > li.has-submenu > a:before {
 	.has-submenu-triangle-indicator(right, @rwnLevel3SubIndColor, @rwnLevel3FontSize, @rwnLevel3FontSize*1.2);
 }
 
