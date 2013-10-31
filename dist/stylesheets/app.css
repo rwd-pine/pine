@@ -714,8 +714,7 @@ table {
     padding-bottom: 8px;
   }
   .js [role='navigation'].nav-horizontal ul ul {
-    top: -999px;
-    left: 0;
+    visibility: hidden;
   }
   [role='navigation'].nav-horizontal ul ul ul {
     padding-top: 0;
@@ -726,22 +725,26 @@ table {
     left: 0;
     z-index: 50001;
     max-width: 313px;
+    visibility: visible;
   }
   [role='navigation'].nav-horizontal ul ul > li > ul {
     top: 0;
     left: 100%;
     z-index: 50002;
+    visibility: visible;
   }
   [role='navigation'].nav-horizontal ul > li.is-open > ul {
     top: 100%;
     left: 0;
     z-index: 50001;
     max-width: 313px;
+    visibility: visible;
   }
   [role='navigation'].nav-horizontal ul ul > li.is-open > ul {
     top: 0;
     left: 100%;
     z-index: 50002;
+    visibility: visible;
   }
 }
 
@@ -847,8 +850,7 @@ table {
 }
 
 .js .old-ie [role='navigation'].nav-horizontal ul ul {
-  top: -999px;
-  left: 0;
+  visibility: hidden;
 }
 
 .old-ie [role='navigation'].nav-horizontal ul ul ul {
@@ -861,12 +863,14 @@ table {
   left: 0;
   z-index: 50001;
   max-width: 313px;
+  visibility: visible;
 }
 
 .old-ie [role='navigation'].nav-horizontal ul ul > li > ul {
   top: 0;
   left: 100%;
   z-index: 50002;
+  visibility: visible;
 }
 
 .old-ie [role='navigation'].nav-horizontal ul > li.is-open > ul {
@@ -874,12 +878,14 @@ table {
   left: 0;
   z-index: 50001;
   max-width: 313px;
+  visibility: visible;
 }
 
 .old-ie [role='navigation'].nav-horizontal ul ul > li.is-open > ul {
   top: 0;
   left: 100%;
   z-index: 50002;
+  visibility: visible;
 }
 
 @media (min-width: 600px) {
@@ -956,7 +962,7 @@ table {
     top: 0;
   }
   .js [role='navigation'].nav-vertical ul ul {
-    left: -999px;
+    visibility: hidden;
   }
   [role='navigation'].nav-vertical a,
   [role='navigation'].nav-vertical strong {
@@ -967,17 +973,21 @@ table {
     left: 100%;
     z-index: 50001;
     max-width: 313px;
+    visibility: visible;
   }
   [role='navigation'].nav-vertical ul ul > li > ul {
     z-index: 50002;
+    visibility: visible;
   }
   [role='navigation'].nav-vertical ul > li.is-open > ul {
     left: 100%;
     z-index: 50001;
     max-width: 313px;
+    visibility: visible;
   }
   [role='navigation'].nav-vertical ul ul > li.is-open > ul {
     z-index: 50002;
+    visibility: visible;
   }
 }
 
@@ -1067,7 +1077,7 @@ table {
 }
 
 .js .old-ie [role='navigation'].nav-vertical ul ul {
-  left: -999px;
+  visibility: hidden;
 }
 
 .old-ie [role='navigation'].nav-vertical a,
@@ -1080,18 +1090,22 @@ table {
   left: 100%;
   z-index: 50001;
   max-width: 313px;
+  visibility: visible;
 }
 
 .old-ie [role='navigation'].nav-vertical ul ul > li > ul {
   z-index: 50002;
+  visibility: visible;
 }
 
 .old-ie [role='navigation'].nav-vertical ul > li.is-open > ul {
   left: 100%;
   z-index: 50001;
   max-width: 313px;
+  visibility: visible;
 }
 
 .old-ie [role='navigation'].nav-vertical ul ul > li.is-open > ul {
   z-index: 50002;
+  visibility: visible;
 }

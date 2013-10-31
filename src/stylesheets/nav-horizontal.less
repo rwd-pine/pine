@@ -29,8 +29,7 @@ ul ul {
 
 // Pri nacteni JS: submenu schovame
 .js & ul ul {
-	top: -999px;
-	left: 0;
+	visibility: hidden;
 }
 
 // Treti uroven zanoreni nema odsazeni zezhora a zezdola z druhe
@@ -67,6 +66,7 @@ ul ul > li.is-open > ul {
 // Mixin: styl pro otevrenou druhou uroven zanoreni
 .nav-large-display-horizontal-2nd-level() {
 	z-index: 50001;
+	visibility: visible;
 	left: 0;
 	top: 100%;
 	max-width: 313px; // Max. sirka polozky v plne sirce layoutu
@@ -75,6 +75,7 @@ ul ul > li.is-open > ul {
 // Mixin: styl pro otevrenou treti uroven zanoreni
 .nav-large-display-horizontal-3rd-level() {
 	z-index: 50002;
+	visibility: visible;
 	left: 100%;
 	top: 0;
 }

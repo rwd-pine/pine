@@ -6,7 +6,7 @@ ul ul {
 
 // Zabaleny stav druhe a treti urovne (pri nacteni JS)
 .js & ul ul {
-	left: -999px;
+	visibility: hidden;
 }
 
 // Prvni uroven zanoreni
@@ -41,8 +41,9 @@ ul ul > li.is-open > ul {
 }
 
 // Mixin: styl pro otevrenou druhou uroven zanoreni
-.nav-large-display-horizontal-2nd-level() {
+.nav-large-display-horizontal-2nd-level() {	
 	z-index: 50001;
+	visibility: visible;
 	left: 100%;
 	max-width: 313px; // Max. sirka polozky v plne sirce layoutu
 }
@@ -50,4 +51,5 @@ ul ul > li.is-open > ul {
 // Mixin: styl pro otevrenou treti uroven zanoreni
 .nav-large-display-horizontal-3rd-level() {
 	z-index: 50002;
+	visibility: visible;
 }
