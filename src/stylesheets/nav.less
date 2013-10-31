@@ -1,34 +1,37 @@
-// RWD navigation
-
+// Pine navigation
 
 @import 'lesshat';
-@import 'nav-variables';
-@import 'nav-mixins';
-@import 'nav-base';
-@import 'nav-submenu-indicator';
-@import 'nav-behave-right-to-left.less';
-@import 'nav-hover-fade.less';
+
+@import 'core/variables';
+@import 'core/mixins';
+@import 'core/base';
+
+@import 'modules/submenu-indicator';
+
+@import 'fx/right-to-left.less';
+@import 'fx/hover-fade.less';
+
 
 // Large screen variants: horizontal and vertical
 
 [role='navigation'].nav-horizontal {
 	@media (min-width: @rwnLargeDisplayStart) {
-		@import 'nav-large-display';
-		@import 'nav-horizontal';
+		@import 'core/large-display';
+		@import 'core/horizontal';
 	}
 	.old-ie & {
-		@import 'nav-large-display';
-		@import 'nav-horizontal';
+		@import 'core/large-display';
+		@import 'core/horizontal';
 	}
 }
 
 [role='navigation'].nav-vertical {
 	@media (min-width: @rwnLargeDisplayStart) {
-		@import 'nav-large-display';
-		@import 'nav-vertical';
+		@import 'core/large-display';
+		@import 'core/vertical';
 	}
 	.old-ie & {
-		@import 'nav-large-display';
-		@import 'nav-vertical';
+		@import 'core/large-display';
+		@import 'core/vertical';
 	}
 }
