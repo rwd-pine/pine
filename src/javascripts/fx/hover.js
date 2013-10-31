@@ -1,7 +1,8 @@
 //
 // DESKTOP TRANSITION: HOVER
 // -------------------------
-Nav.registerTransition('nav-hover', {
+Nav.registerTransition('hover', {
+
   onSwitch: function(switchCondition){
     if (switchCondition) {
       // Add 'mouse' listeners and disable 'click.submenu'

@@ -3,8 +3,8 @@
   // NAV DEFAULT INITIALIZATION
   // --------------------
   $('[role=navigation]').nav({
-    transitionMobile: 'nav-behave-right-to-left',
-    transitionDesktop: 'nav-hover-fade'
+    transitionMobile: 'right-to-left',
+    transitionDesktop: 'hover-fade'
   })
 
 })(jQuery);

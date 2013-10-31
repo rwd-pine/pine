@@ -1,7 +1,7 @@
 //
 // DESKTOP TRANSITION: HOVER FADE
 // -------------------------
-Nav.registerTransition('nav-hover-fade', {
+Nav.registerTransition('hover-fade', {
 
   onSwitch: function(switchCondition){
     if (switchCondition) {

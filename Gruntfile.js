@@ -76,9 +76,9 @@ module.exports = function(grunt) {
       main: {
         src: [
           'src/javascripts/lib/matchmedia.js',
-          'src/javascripts/nav-submenu.js',
-          'src/javascripts/nav.js',
-          'src/javascripts/nav-effects.js',
+          'src/javascripts/core/nav-submenu.js',
+          'src/javascripts/core/nav.js',
+          'src/javascripts/fx/nav-effects.js',
           'src/javascripts/app.js'
         ],
         dest: 'dist/javascripts/<%= pkg.name %>.js'
@@ -134,11 +134,11 @@ module.exports = function(grunt) {
 
     watch: {
       recess: {
-        files: 'src/stylesheets/*.less',
+        files: 'src/stylesheets/**/*.less',
         tasks: ['recess']
       },
       uglify: {
-        files: 'src/javascripts/*.js',
+        files: 'src/javascripts/**/*.js',
         tasks: ['concat', 'uglify']
       }
     }

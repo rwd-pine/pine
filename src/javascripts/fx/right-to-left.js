@@ -1,7 +1,7 @@
 //
 // MOBILE TRANSITION: RIGHT TO LEFT
 // -------------------------
-Nav.registerTransition('nav-behave-right-to-left', {
+Nav.registerTransition('right-to-left', {
 
   onSwitch: function(condition){
     var $element = this.element

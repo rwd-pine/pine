@@ -122,8 +122,8 @@
       var t = this.getTransitionName(isDesktop)
 
       this.element
-        .removeClass(this.getTransitionName(!isDesktop))
-        .addClass(t)
+        .removeClass('fx-' + this.getTransitionName(!isDesktop))
+        .addClass('fx-' + t)
 
       this.setActiveTransition(t)
     };
