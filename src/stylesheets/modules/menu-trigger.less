@@ -1,0 +1,49 @@
+//
+// Menu trigger
+// ----------------------------
+
+// Hidden by default
+.nav-trigger {
+  display: none;
+
+  padding: @rwnSmallScreenPadding;
+  color: @rwnSmallScreenColor;
+  font-weight: normal;
+  .text-overflow();
+  background: @rwnSmallScreenBg;
+  text-decoration: none;
+
+  // Show the trigger only for small displays
+  @media (max-width: @rwnSmallDisplayEnd) {
+    display: inline-block;
+  }
+}
+
+.nav-trigger .icon-bar {
+  position: relative;
+  vertical-align: middle;
+  margin-top: -2px;
+
+  &, &:before, &:after {
+    display: inline-block;
+    width: 18px;
+    height: 2px;
+    background-color: #f5f5f5;
+    .border-radius(1px);
+    .box-shadow(0 1px 0 rgba(0,0,0,.25));
+  }
+
+  &:before, &:after {
+    position: absolute;
+    top: -4px;
+    content: '';
+  }
+
+  &:after {
+    top: 4px
+  }
+}
+
+.trigger-title {
+  display: inline-block;
+}
