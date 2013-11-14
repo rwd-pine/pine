@@ -167,7 +167,8 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     toggle:             '.has-submenu > a',
     submenu:            '.has-submenu',
     transitionDesktop:  'pine-hover',
-    transitionMobile:   null
+    transitionMobile:   null,
+    trigger:            '.nav-trigger'
   };
 
   /**
@@ -199,8 +200,10 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     // Initialize Submenus
     this.element.find('li').has('ul').addClass('has-submenu')
     this.element.find('a').on('focus.pine', this.focus)
+
     // Default behavior, submenu is triggered on click
     $(document).on('click.pine.submenu', this.options.toggle, this, Pine.Submenu.toggle)
+    $(document).on('click.pine.trigger', this.options.trigger, this, Pine.Navbar.toggle)
 
     // Setup listeners
     $(window).on('load resize', $.proxy(this.api, this))
@@ -298,6 +301,16 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   **/
   Navbar.registerTransition = function (name, obj) {
     this.transitions[name] = obj
+  };
+
+  /**
+    Toggles menu in mobile view
+  **/
+  Navbar.toggle = function (e) {
+    e.preventDefault();
+
+    $(this).toggleClass('is-active')
+    $(document).find($(this).attr('href')).toggleClass('is-visible')
   };
 
   // NAVBAR PLUGIN DEFINITION

@@ -7222,9 +7222,14 @@ td.visible-print {
 
 .js #nav {
   position: absolute;
-  top: 50px;
+  top: 42px;
   left: 0;
+  display: none;
   width: 100%;
+}
+
+#nav.is-visible {
+  display: block;
 }
 
 #nav ul,
@@ -7387,7 +7392,7 @@ td.visible-print {
 }
 
 @media (max-width: 599px) {
-  .nav-trigger {
+  .js .nav-trigger {
     display: inline-block;
   }
 }
@@ -7489,11 +7494,10 @@ td.visible-print {
 
 @media (min-width: 600px) {
   #nav.nav-horizontal {
-    /* RWD nav: Large displays */
-  
     position: static;
     top: auto;
     left: auto;
+    display: block;
     background: #f8f8f8;
     background: transparent;
   }
@@ -7610,11 +7614,10 @@ td.visible-print {
 }
 
 .old-ie #nav.nav-horizontal {
-  /* RWD nav: Large displays */
-
   position: static;
   top: auto;
   left: auto;
+  display: block;
   background: #f8f8f8;
   background: transparent;
 }
@@ -7752,11 +7755,10 @@ td.visible-print {
 
 @media (min-width: 600px) {
   #nav.nav-vertical {
-    /* RWD nav: Large displays */
-  
     position: static;
     top: auto;
     left: auto;
+    display: block;
     background: #f8f8f8;
   }
   #nav.nav-vertical li {
@@ -7854,11 +7856,10 @@ td.visible-print {
 }
 
 .old-ie #nav.nav-vertical {
-  /* RWD nav: Large displays */
-
   position: static;
   top: auto;
   left: auto;
+  display: block;
   background: #f8f8f8;
 }
 

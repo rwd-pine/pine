@@ -33,9 +33,14 @@
 
 .js #nav {
   position: absolute;
-  top: 50px;
+  top: 42px;
   left: 0;
+  display: none;
   width: 100%;
+}
+
+#nav.is-visible {
+  display: block;
 }
 
 #nav ul,
@@ -198,7 +203,7 @@
 }
 
 @media (max-width: 599px) {
-  .nav-trigger {
+  .js .nav-trigger {
     display: inline-block;
   }
 }
@@ -298,11 +303,10 @@
 
 @media (min-width: 600px) {
   #nav.nav-horizontal {
-    /* RWD nav: Large displays */
-  
     position: static;
     top: auto;
     left: auto;
+    display: block;
     background: transparent;
   }
   #nav.nav-horizontal li {
@@ -418,11 +422,10 @@
 }
 
 .old-ie #nav.nav-horizontal {
-  /* RWD nav: Large displays */
-
   position: static;
   top: auto;
   left: auto;
+  display: block;
   background: transparent;
 }
 
@@ -559,11 +562,10 @@
 
 @media (min-width: 600px) {
   #nav.nav-vertical {
-    /* RWD nav: Large displays */
-  
     position: static;
     top: auto;
     left: auto;
+    display: block;
     background: transparent;
   }
   #nav.nav-vertical li {
@@ -661,11 +663,10 @@
 }
 
 .old-ie #nav.nav-vertical {
-  /* RWD nav: Large displays */
-
   position: static;
   top: auto;
   left: auto;
+  display: block;
   background: transparent;
 }
 

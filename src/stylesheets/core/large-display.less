@@ -4,6 +4,7 @@
 // - really without selector?
 // - colours are sometimes on <a>/<strong>, sometimes on <li>
 
+display: block;
 position: static;
 top: auto;
 left: auto;
@@ -17,7 +18,7 @@ li {
 // Navigation item
 a,
 strong {
-	display: block;		
+	display: block;
 	border-bottom: 0; // TODO
 	text-indent: 0;	// TODO
 }
@@ -41,7 +42,7 @@ strong {
 
 // First level item active colors
 > ul > li.is-open > a {
-	background: @rwnLevel1ActiveBg;	
+	background: @rwnLevel1ActiveBg;
 	color: @rwnLevel1ActiveColor;
 }
 
@@ -64,7 +65,7 @@ strong {
 
 // Second level item active colors
 > ul ul > li.is-open > a {
-	background: @rwnLevel2ActiveBg;	
+	background: @rwnLevel2ActiveBg;
 	color: @rwnLevel2ActiveColor;
 }
 
@@ -81,12 +82,12 @@ strong {
 > ul ul ul > li > a:hover,
 > ul ul ul > li > a:focus,
 > ul ul ul > li > a:active {
-	background: @rwnLevel3HoverBg;	
+	background: @rwnLevel3HoverBg;
 	color: @rwnLevel3HoverColor;
 }
 
 // Third level item active colors
 > ul ul ul > li.is-open > a {
-	background: @rwnLevel3ActiveBg;	
+	background: @rwnLevel3ActiveBg;
 	color: @rwnLevel3ActiveColor;
 }

@@ -5,7 +5,7 @@
 // podle aktualniho umisteni v HTML
 
 #nav {
-	z-index: @rwnZIndex; 
+	z-index: @rwnZIndex;
 	margin-bottom: @rwnMarginBottom;
 	min-height: @rwnHeight;
 	background: @rwnBg;
@@ -13,7 +13,7 @@
 
 	@media	(min-width: @rwnLargeDisplayStart) {
 		border-radius: @rwnBorderRadius;
-	}	
+	}
 
 	@media print {
 		display: none;
@@ -27,10 +27,15 @@
 	// Na malych screenech s JS pozicovano absolutne
 	// nad obsah, hned pod .wm-l-mobile-header
 	.js & {
+		display: none;
 		position: absolute;
-		top: 50px;
+		top: 42px;
 		left: 0;
 		width: 100%;
+	}
+
+	&.is-visible {
+		display: block;
 	}
 }
 
