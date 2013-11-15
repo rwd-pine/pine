@@ -693,11 +693,11 @@ table {
   -webkit-opacity: 0;
      -moz-opacity: 0;
           opacity: 0;
-  -webkit-transition: visiblity 0s 0.3s, opacity 0.3s ease-in-out;
-     -moz-transition: visiblity 0s 0.3s, opacity 0.3s ease-in-out;
-      -ms-transition: visiblity 0s 0.3s, opacity 0.3s ease-in-out;
-       -o-transition: visiblity 0s 0.3s, opacity 0.3s ease-in-out;
-          transition: visiblity 0s 0.3s, opacity 0.3s ease-in-out;
+  -webkit-transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
+     -moz-transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
+      -ms-transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
+       -o-transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
+          transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
 }
 
 .fx-hover-fade ul > li.is-open > ul,
