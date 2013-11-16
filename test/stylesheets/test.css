@@ -497,17 +497,22 @@ table {
   position: relative;
 }
 
+#nav > ul > li.has-submenu > a {
+  padding-left: 32px;
+}
+
 #nav > ul > li.has-submenu > a:before {
   position: absolute;
-  top: 19.2px;
+  top: 50%;
   right: 16px;
   z-index: 100;
   display: inline-block;
   width: 0;
   height: 0;
+  margin-top: -5px;
   border-color: transparent transparent transparent #000000;
   border-style: solid;
-  border-width: 5px 0 5px 7px;
+  border-width: 5px 0 5px 5px;
   content: "";
 }
 
@@ -523,17 +528,22 @@ table {
   }
 }
 
+#nav.nav-horizontal > ul > li.has-submenu > a {
+  padding-right: 32px;
+}
+
 #nav.nav-horizontal > ul > li.has-submenu > a:before {
   position: absolute;
-  top: 19.2px;
-  right: 0;
+  top: 50%;
+  right: 16px;
   z-index: 100;
   display: inline-block;
   width: 0;
   height: 0;
+  margin-top: -2.5px;
   border-color: #000000 transparent transparent transparent;
   border-style: solid;
-  border-width: 7px 5px 0 5px;
+  border-width: 5px 5px 0 5px;
   content: "";
 }
 
@@ -549,17 +559,22 @@ table {
   }
 }
 
+#nav ul ul > li.has-submenu > a {
+  padding-right: 32px;
+}
+
 #nav ul ul > li.has-submenu > a:before {
   position: absolute;
-  top: 19.2px;
+  top: 50%;
   right: 16px;
   z-index: 100;
   display: inline-block;
   width: 0;
   height: 0;
+  margin-top: -5px;
   border-color: transparent transparent transparent #000000;
   border-style: solid;
-  border-width: 5px 0 5px 7px;
+  border-width: 5px 0 5px 5px;
   content: "";
 }
 
@@ -575,17 +590,22 @@ table {
   }
 }
 
+#nav ul ul ul > li.has-submenu > a {
+  padding-right: 32px;
+}
+
 #nav ul ul ul > li.has-submenu > a:before {
   position: absolute;
-  top: 19.2px;
+  top: 50%;
   right: 16px;
   z-index: 100;
   display: inline-block;
   width: 0;
   height: 0;
+  margin-top: -5px;
   border-color: transparent transparent transparent #000000;
   border-style: solid;
-  border-width: 5px 0 5px 7px;
+  border-width: 5px 0 5px 5px;
   content: "";
 }
 

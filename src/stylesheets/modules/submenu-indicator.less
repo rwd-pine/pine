@@ -1,10 +1,8 @@
 // --- Pine: Has submenu triangle indicator ---
 
 // TODO
-// - positionTop/positionRight more precise numbers
 // - on small screens there should be its own SubIndColor and @positionTop variable
 // - on small screen all indicators should point to bottom
-// - classes instead of 'ul ul ul'?
 
 // Context where we are positioning the indicator
 #nav li.has-submenu > a,
@@ -13,33 +11,49 @@
 }
 
 // Default: vertical
-#nav > ul > li.has-submenu > a:before {
-	.has-submenu-triangle-indicator(right, @pineLevel1SubIndColor, @pineLevel1FontSize, @pineLevel1FontSize*1.2);
+#nav > ul > li.has-submenu > a {
+	padding-left: 2*@pineLevel1PaddingHorizontal; 
+
+	&:before {
+		.has-submenu-triangle-indicator(right, @pineLevel1SubIndColor, @pineLevel1PaddingHorizontal, 5px);
+	}
 }
 
 // Horizontal variant
-#nav.nav-horizontal > ul > li.has-submenu > a:before {
-	.has-submenu-triangle-indicator(bottom, @pineLevel1SubIndColor, 0, @pineLevel1FontSize*1.2);
+#nav.nav-horizontal > ul > li.has-submenu > a {
+	padding-right: 2*@pineLevel1PaddingHorizontal; 
+
+	&:before {	
+		.has-submenu-triangle-indicator(bottom, @pineLevel1SubIndColor, @pineLevel1PaddingHorizontal, 5px);
+	}
 }
 
 // 2nd level
-#nav ul ul > li.has-submenu > a:before {
-	.has-submenu-triangle-indicator(right, @pineLevel2SubIndColor, @pineLevel2FontSize, @pineLevel3FontSize*1.2);
+#nav ul ul > li.has-submenu > a {
+	padding-right: 2*@pineLevel2PaddingHorizontal;
+
+	&:before {		
+		.has-submenu-triangle-indicator(right, @pineLevel2SubIndColor, @pineLevel2PaddingHorizontal, 5px);
+	}
 }
 
 // 3rd level
-#nav ul ul ul > li.has-submenu > a:before {
-	.has-submenu-triangle-indicator(right, @pineLevel3SubIndColor, @pineLevel3FontSize, @pineLevel3FontSize*1.2);
+#nav ul ul ul > li.has-submenu > a {
+	padding-right: 2*@pineLevel3PaddingHorizontal;
+
+	&:before {			
+		.has-submenu-triangle-indicator(right, @pineLevel3SubIndColor, @pineLevel3PaddingHorizontal, 5px);
+	}	
 }
 
 // Triangle indicator mixin
-.has-submenu-triangle-indicator(@direction, @color, @positionRight, @positionTop) {	
+.has-submenu-triangle-indicator(@direction, @color, @paddingRight, @indicatorSize) {	
 	z-index: 100;
 	content: "";
 	position: absolute;
-	right: @positionRight;
-	top: @positionTop;
-	display: inline-block;			
+	right: @paddingRight;
+	top: 50%;
+	display: inline-block;
 	width: 0px;
 	height: 0px;
 	border-style: solid;
@@ -49,8 +63,9 @@
 	}
 }
 
-.has-submenu-triangle-indicator(@direction, @color, @positionRight, @positionTop) when (@direction = bottom) {
-	border-width: 7px 5px 0 5px;
+.has-submenu-triangle-indicator(@direction, @color, @paddingRight, @indicatorSize) when (@direction = bottom) {
+	border-width: @indicatorSize @indicatorSize 0 @indicatorSize; // TODO variable	
+	margin-top: -1*@indicatorSize/2;
 	border-color: @color transparent transparent transparent;	
 	// Small screen version has only first level look 
 	@media (max-width: @pineLargeDisplayStart) {
@@ -58,8 +73,9 @@
 	}
 }
 
-.has-submenu-triangle-indicator(@direction, @color, @positionRight, @positionTop) when (@direction = right) {
-	border-width: 5px 0 5px 7px;
+.has-submenu-triangle-indicator(@direction, @color, @paddingRight, @indicatorSize) when (@direction = right) {
+	border-width: @indicatorSize 0 @indicatorSize @indicatorSize; 
+	margin-top: -1*@indicatorSize;
 	border-color: transparent transparent transparent @color;	
 	// Small screen version has only first level look 
 	@media (max-width: @pineLargeDisplayStart) {
