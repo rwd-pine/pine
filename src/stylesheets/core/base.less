@@ -5,14 +5,14 @@
 // podle aktualniho umisteni v HTML
 
 #nav {
-	z-index: @rwnZIndex;
-	margin-bottom: @rwnMarginBottom;
-	min-height: @rwnHeight;
-	background: @rwnBg;
+	z-index: @pineZIndex;
+	margin-bottom: @pineMarginBottom;
+	min-height: @pineHeight;
+	background: @pineBg;
 	.clearfix();
 
-	@media	(min-width: @rwnLargeDisplayStart) {
-		border-radius: @rwnBorderRadius;
+	@media	(min-width: @pineLargeDisplayStart) {
+		border-radius: @pineBorderRadius;
 	}
 
 	@media print {
@@ -51,12 +51,12 @@
 	li > a,
 	li > strong {
 		display: block;
-		padding: @rwnSmallScreenPadding;
-		color: @rwnSmallScreenColor;
+		padding: @pineSmallScreenPadding;
+		color: @pineSmallScreenColor;
 		font-weight: normal;
 		.text-overflow();
 		text-decoration: none;
-		background: @rwnSmallScreenBg;
+		background: @pineSmallScreenBg;
 	}
 
 	// Aktivni polozka
@@ -64,8 +64,8 @@
 	li a:focus,
 	li a:active,
 	li strong {
-		background: @rwnSmallScreenActiveBg;
-		color: @rwnSmallScreenActiveColor;
+		background: @pineSmallScreenActiveBg;
+		color: @pineSmallScreenActiveColor;
 	}
 
 	// Druha uroven zanoreni

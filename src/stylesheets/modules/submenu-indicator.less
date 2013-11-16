@@ -1,4 +1,4 @@
-// --- RWD Nav: Has submenu triangle indicator ---
+// --- Pine: Has submenu triangle indicator ---
 
 // TODO
 // - positionTop/positionRight more precise numbers
@@ -14,22 +14,22 @@
 
 // Default: vertical
 #nav > ul > li.has-submenu > a:before {
-	.has-submenu-triangle-indicator(right, @rwnLevel1SubIndColor, @rwnLevel1FontSize, @rwnLevel1FontSize*1.2);
+	.has-submenu-triangle-indicator(right, @pineLevel1SubIndColor, @pineLevel1FontSize, @pineLevel1FontSize*1.2);
 }
 
 // Horizontal variant
 #nav.nav-horizontal > ul > li.has-submenu > a:before {
-	.has-submenu-triangle-indicator(bottom, @rwnLevel1SubIndColor, 0, @rwnLevel1FontSize*1.2);
+	.has-submenu-triangle-indicator(bottom, @pineLevel1SubIndColor, 0, @pineLevel1FontSize*1.2);
 }
 
 // 2nd level
 #nav ul ul > li.has-submenu > a:before {
-	.has-submenu-triangle-indicator(right, @rwnLevel2SubIndColor, @rwnLevel2FontSize, @rwnLevel3FontSize*1.2);
+	.has-submenu-triangle-indicator(right, @pineLevel2SubIndColor, @pineLevel2FontSize, @pineLevel3FontSize*1.2);
 }
 
 // 3rd level
 #nav ul ul ul > li.has-submenu > a:before {
-	.has-submenu-triangle-indicator(right, @rwnLevel3SubIndColor, @rwnLevel3FontSize, @rwnLevel3FontSize*1.2);
+	.has-submenu-triangle-indicator(right, @pineLevel3SubIndColor, @pineLevel3FontSize, @pineLevel3FontSize*1.2);
 }
 
 // Triangle indicator mixin
@@ -44,8 +44,8 @@
 	height: 0px;
 	border-style: solid;
 	// Small screen version has only first level look
-	@media (max-width: @rwnLargeDisplayStart) {
-		right: @rwnLevel1FontSize; 
+	@media (max-width: @pineLargeDisplayStart) {
+		right: @pineLevel1FontSize; 
 	}
 }
 
@@ -53,8 +53,8 @@
 	border-width: 7px 5px 0 5px;
 	border-color: @color transparent transparent transparent;	
 	// Small screen version has only first level look 
-	@media (max-width: @rwnLargeDisplayStart) {
-		border-color: @rwnLevel1SubIndColor  transparent transparent transparent; 
+	@media (max-width: @pineLargeDisplayStart) {
+		border-color: @pineLevel1SubIndColor  transparent transparent transparent; 
 	}
 }
 
@@ -62,7 +62,7 @@
 	border-width: 5px 0 5px 7px;
 	border-color: transparent transparent transparent @color;	
 	// Small screen version has only first level look 
-	@media (max-width: @rwnLargeDisplayStart) {
-		border-color: transparent transparent transparent  @rwnLevel1SubIndColor; 
+	@media (max-width: @pineLargeDisplayStart) {
+		border-color: transparent transparent transparent  @pineLevel1SubIndColor; 
 	}	
 }
