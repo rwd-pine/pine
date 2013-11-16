@@ -7,6 +7,6 @@
     "normalize-css": "~2.1.3",
     "bootstrap": "~3.0.0",
     "matchmedia": "~0.1.0",
-    "lesshat": "~1.1.2"
+    "lesshat": "~2.0.6"
   }
 }
