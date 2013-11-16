@@ -117,7 +117,7 @@ module.exports = function(grunt) {
       main: {
         files: [
           {
-            src: ['src/stylesheets/nav.less'],
+            src: ['src/stylesheets/pine.less'],
             dest: 'dist/stylesheets/app.css'
           },
           {
@@ -134,7 +134,7 @@ module.exports = function(grunt) {
         options: {
           compress: true
         },
-        src: ['src/stylesheets/nav.less'],
+        src: ['src/stylesheets/pine.less'],
         dest: 'dist/stylesheets/app.min.css'
       }
     },
