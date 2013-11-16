@@ -750,6 +750,7 @@ table {
     left: auto;
     display: block;
     background: transparent;
+    border: none;
   }
   #nav.nav-horizontal li {
     position: relative;
@@ -777,6 +778,14 @@ table {
     color: #000000;
     background: #cccccc;
   }
+  #nav.nav-horizontal > ul > li > ul {
+    color: #000000;
+    background: transparent;
+    border: none;
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none;
+  }
   #nav.nav-horizontal > ul ul > li > a,
   #nav.nav-horizontal > ul ul > li > strong {
     padding: 12px 16px;
@@ -793,6 +802,14 @@ table {
   #nav.nav-horizontal > ul ul > li.is-open > a {
     color: #000000;
     background: #cccccc;
+  }
+  #nav.nav-horizontal > ul > li > ul > li > ul {
+    color: #000000;
+    background: transparent;
+    border: none;
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none;
   }
   #nav.nav-horizontal > ul ul ul > li > a,
   #nav.nav-horizontal > ul ul ul > li > strong {
@@ -814,6 +831,7 @@ table {
   #nav.nav-horizontal > ul > li {
     position: relative;
     display: inline-block;
+    float: left;
   }
   #nav.nav-horizontal > ul > li > a,
   #nav.nav-horizontal > ul > li > strong {
@@ -869,6 +887,7 @@ table {
   left: auto;
   display: block;
   background: transparent;
+  border: none;
 }
 
 .old-ie #nav.nav-horizontal li {
@@ -902,6 +921,15 @@ table {
   background: #cccccc;
 }
 
+.old-ie #nav.nav-horizontal > ul > li > ul {
+  color: #000000;
+  background: transparent;
+  border: none;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+}
+
 .old-ie #nav.nav-horizontal > ul ul > li > a,
 .old-ie #nav.nav-horizontal > ul ul > li > strong {
   padding: 12px 16px;
@@ -920,6 +948,15 @@ table {
 .old-ie #nav.nav-horizontal > ul ul > li.is-open > a {
   color: #000000;
   background: #cccccc;
+}
+
+.old-ie #nav.nav-horizontal > ul > li > ul > li > ul {
+  color: #000000;
+  background: transparent;
+  border: none;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
 }
 
 .old-ie #nav.nav-horizontal > ul ul ul > li > a,
@@ -945,6 +982,7 @@ table {
 .old-ie #nav.nav-horizontal > ul > li {
   position: relative;
   display: inline-block;
+  float: left;
 }
 
 .old-ie #nav.nav-horizontal > ul > li > a,
@@ -1009,6 +1047,7 @@ table {
     left: auto;
     display: block;
     background: transparent;
+    border: none;
   }
   #nav.nav-vertical li {
     position: relative;
@@ -1036,6 +1075,14 @@ table {
     color: #000000;
     background: #cccccc;
   }
+  #nav.nav-vertical > ul > li > ul {
+    color: #000000;
+    background: transparent;
+    border: none;
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none;
+  }
   #nav.nav-vertical > ul ul > li > a,
   #nav.nav-vertical > ul ul > li > strong {
     padding: 12px 16px;
@@ -1052,6 +1099,14 @@ table {
   #nav.nav-vertical > ul ul > li.is-open > a {
     color: #000000;
     background: #cccccc;
+  }
+  #nav.nav-vertical > ul > li > ul > li > ul {
+    color: #000000;
+    background: transparent;
+    border: none;
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none;
   }
   #nav.nav-vertical > ul ul ul > li > a,
   #nav.nav-vertical > ul ul ul > li > strong {
@@ -1110,6 +1165,7 @@ table {
   left: auto;
   display: block;
   background: transparent;
+  border: none;
 }
 
 .old-ie #nav.nav-vertical li {
@@ -1143,6 +1199,15 @@ table {
   background: #cccccc;
 }
 
+.old-ie #nav.nav-vertical > ul > li > ul {
+  color: #000000;
+  background: transparent;
+  border: none;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+}
+
 .old-ie #nav.nav-vertical > ul ul > li > a,
 .old-ie #nav.nav-vertical > ul ul > li > strong {
   padding: 12px 16px;
@@ -1161,6 +1226,15 @@ table {
 .old-ie #nav.nav-vertical > ul ul > li.is-open > a {
   color: #000000;
   background: #cccccc;
+}
+
+.old-ie #nav.nav-vertical > ul > li > ul > li > ul {
+  color: #000000;
+  background: transparent;
+  border: none;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
 }
 
 .old-ie #nav.nav-vertical > ul ul ul > li > a,

@@ -339,6 +339,7 @@
     left: auto;
     display: block;
     background: transparent;
+    border: none;
   }
   #nav.nav-horizontal li {
     position: relative;
@@ -366,6 +367,14 @@
     color: #000000;
     background: #cccccc;
   }
+  #nav.nav-horizontal > ul > li > ul {
+    color: #000000;
+    background: transparent;
+    border: none;
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none;
+  }
   #nav.nav-horizontal > ul ul > li > a,
   #nav.nav-horizontal > ul ul > li > strong {
     padding: 12px 16px;
@@ -382,6 +391,14 @@
   #nav.nav-horizontal > ul ul > li.is-open > a {
     color: #000000;
     background: #cccccc;
+  }
+  #nav.nav-horizontal > ul > li > ul > li > ul {
+    color: #000000;
+    background: transparent;
+    border: none;
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none;
   }
   #nav.nav-horizontal > ul ul ul > li > a,
   #nav.nav-horizontal > ul ul ul > li > strong {
@@ -403,6 +420,7 @@
   #nav.nav-horizontal > ul > li {
     position: relative;
     display: inline-block;
+    float: left;
   }
   #nav.nav-horizontal > ul > li > a,
   #nav.nav-horizontal > ul > li > strong {
@@ -458,6 +476,7 @@
   left: auto;
   display: block;
   background: transparent;
+  border: none;
 }
 
 .old-ie #nav.nav-horizontal li {
@@ -491,6 +510,15 @@
   background: #cccccc;
 }
 
+.old-ie #nav.nav-horizontal > ul > li > ul {
+  color: #000000;
+  background: transparent;
+  border: none;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+}
+
 .old-ie #nav.nav-horizontal > ul ul > li > a,
 .old-ie #nav.nav-horizontal > ul ul > li > strong {
   padding: 12px 16px;
@@ -509,6 +537,15 @@
 .old-ie #nav.nav-horizontal > ul ul > li.is-open > a {
   color: #000000;
   background: #cccccc;
+}
+
+.old-ie #nav.nav-horizontal > ul > li > ul > li > ul {
+  color: #000000;
+  background: transparent;
+  border: none;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
 }
 
 .old-ie #nav.nav-horizontal > ul ul ul > li > a,
@@ -534,6 +571,7 @@
 .old-ie #nav.nav-horizontal > ul > li {
   position: relative;
   display: inline-block;
+  float: left;
 }
 
 .old-ie #nav.nav-horizontal > ul > li > a,
@@ -598,6 +636,7 @@
     left: auto;
     display: block;
     background: transparent;
+    border: none;
   }
   #nav.nav-vertical li {
     position: relative;
@@ -625,6 +664,14 @@
     color: #000000;
     background: #cccccc;
   }
+  #nav.nav-vertical > ul > li > ul {
+    color: #000000;
+    background: transparent;
+    border: none;
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none;
+  }
   #nav.nav-vertical > ul ul > li > a,
   #nav.nav-vertical > ul ul > li > strong {
     padding: 12px 16px;
@@ -641,6 +688,14 @@
   #nav.nav-vertical > ul ul > li.is-open > a {
     color: #000000;
     background: #cccccc;
+  }
+  #nav.nav-vertical > ul > li > ul > li > ul {
+    color: #000000;
+    background: transparent;
+    border: none;
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none;
   }
   #nav.nav-vertical > ul ul ul > li > a,
   #nav.nav-vertical > ul ul ul > li > strong {
@@ -699,6 +754,7 @@
   left: auto;
   display: block;
   background: transparent;
+  border: none;
 }
 
 .old-ie #nav.nav-vertical li {
@@ -732,6 +788,15 @@
   background: #cccccc;
 }
 
+.old-ie #nav.nav-vertical > ul > li > ul {
+  color: #000000;
+  background: transparent;
+  border: none;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+}
+
 .old-ie #nav.nav-vertical > ul ul > li > a,
 .old-ie #nav.nav-vertical > ul ul > li > strong {
   padding: 12px 16px;
@@ -750,6 +815,15 @@
 .old-ie #nav.nav-vertical > ul ul > li.is-open > a {
   color: #000000;
   background: #cccccc;
+}
+
+.old-ie #nav.nav-vertical > ul > li > ul > li > ul {
+  color: #000000;
+  background: transparent;
+  border: none;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
 }
 
 .old-ie #nav.nav-vertical > ul ul ul > li > a,

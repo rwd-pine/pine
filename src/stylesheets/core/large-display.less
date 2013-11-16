@@ -9,6 +9,7 @@ position: static;
 top: auto;
 left: auto;
 background: @pineBg;
+border: @pineBorder;
 
 // Relative because of submenu positions od large screens
 li {
@@ -22,6 +23,9 @@ strong {
 	border-bottom: 0; // TODO
 	text-indent: 0;	// TODO
 }
+
+// - First level -
+
 
 // First level item
 > ul > li > a,
@@ -46,6 +50,16 @@ strong {
 	color: @pineLevel1ActiveColor;
 }
 
+// - Second level -
+
+> ul > li > ul {
+	color: @pineLevel2Color;
+	background: @pineLevel2Bg;	
+	border: @pineLevel2BorderFallback;
+	border: @pineLevel2Border;
+	.box-shadow(@pineLevel2Shadow);	
+}
+
 // Second level item
 > ul ul > li > a,
 > ul ul > li > strong {
@@ -67,6 +81,16 @@ strong {
 > ul ul > li.is-open > a {
 	background: @pineLevel2ActiveBg;
 	color: @pineLevel2ActiveColor;
+}
+
+// - Third level -
+
+> ul > li > ul > li > ul {
+	color: @pineLevel3Color;
+	background: @pineLevel3Bg;	
+	border: @pineLevel3BorderFallback;
+	border: @pineLevel3Border;
+	.box-shadow(@pineLevel3Shadow);	
 }
 
 // Third level item

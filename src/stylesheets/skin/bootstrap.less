@@ -12,6 +12,7 @@
 @pineBorderRadius:		@navbar-border-radius;
 @pineColor:				@navbar-default-color;
 @pineBg:				@navbar-default-bg;
+@pineBorder:			1px solid @navbar-default-border;
 
 // --- Small screens ---
 
@@ -28,7 +29,7 @@
 // --- Medium and large screens ---
 
 // Level 1
-@pineLevel1Color:            	inherit;
+@pineLevel1Color:            	@navbar-default-link-color;
 @pineLevel1Bg:      			transparent;
 @pineLevel1HoverColor:       	@navbar-default-link-hover-color;
 @pineLevel1HoverBg:       		@navbar-default-link-hover-bg;
@@ -41,7 +42,7 @@
 
 // Level 2
 @pineLevel2Color:            	@pineLevel1Color;
-@pineLevel2Bg:      			@pineLevel1Bg;
+@pineLevel2Bg:      			@dropdown-bg;
 @pineLevel2HoverColor:       	@pineLevel1HoverColor;
 @pineLevel2HoverBg:       		@pineLevel1HoverBg;
 @pineLevel2ActiveColor:      	@pineLevel1ActiveColor;
@@ -50,18 +51,24 @@
 @pineLevel2FontSize: 			@pineLevel1FontSize;
 @pineLevel2PaddingVertical:		@pineLevel1PaddingVertical;
 @pineLevel2PaddingHorizontal: 	@pineLevel1PaddingHorizontal;
+@pineLevel2BorderFallback:		1px solid @dropdown-fallback-border;
+@pineLevel2Border:				1px solid @dropdown-border;
+@pineLevel2Shadow:				0 6px 12px rgba(0,0,0,.175);
 
 // Level 3
-@pineLevel3Color:            	@pineLevel1Color;
-@pineLevel3Bg:      			@pineLevel1Bg;
-@pineLevel3HoverColor:       	@pineLevel1HoverColor;
-@pineLevel3HoverBg:       		@pineLevel1HoverBg;
-@pineLevel3ActiveColor:      	@pineLevel1ActiveColor;
-@pineLevel3ActiveBg:       		@pineLevel1ActiveBg;
-@pineLevel3SubIndColor:			@pineLevel1SubIndColor;
-@pineLevel3FontSize: 			@pineLevel1FontSize;
-@pineLevel3PaddingVertical:		@pineLevel1PaddingVertical;
-@pineLevel3PaddingHorizontal: 	@pineLevel1PaddingHorizontal;
+@pineLevel3Color:            	@pineLevel2Color;
+@pineLevel3Bg:      			@pineLevel2Bg;
+@pineLevel3HoverColor:       	@pineLevel2HoverColor;
+@pineLevel3HoverBg:       		@pineLevel2HoverBg;
+@pineLevel3ActiveColor:      	@pineLevel2ActiveColor;
+@pineLevel3ActiveBg:       		@pineLevel2ActiveBg;
+@pineLevel3SubIndColor:			@pineLevel2SubIndColor;
+@pineLevel3FontSize: 			@pineLevel2FontSize;
+@pineLevel3PaddingVertical:		@pineLevel2PaddingVertical;
+@pineLevel3PaddingHorizontal: 	@pineLevel2PaddingHorizontal;
+@pineLevel3BorderFallback:		@pineLevel2BorderFallback;
+@pineLevel3Border:				@pineLevel2Border;
+@pineLevel3Shadow:				@pineLevel2Shadow;
 
 // --- RWD breakpoints ---
 
