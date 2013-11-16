@@ -12,10 +12,11 @@
 
 // Default: vertical
 #nav > ul > li.has-submenu > a {
-	padding-left: 2*@pineLevel1PaddingHorizontal; 
+	padding-right: 2*@pineLevel1PaddingHorizontal; 
 
-	&:before {
-		.has-submenu-triangle-indicator(right, @pineLevel1SubIndColor, @pineLevel1PaddingHorizontal, 5px);
+	&:before {		
+		.triangle-indicator-base(@pineLevel1PaddingHorizontal);
+		.triangle-indicator-right(@pineLevel1SubIndColor, 5px);
 	}
 }
 
@@ -24,7 +25,8 @@
 	padding-right: 2*@pineLevel1PaddingHorizontal; 
 
 	&:before {	
-		.has-submenu-triangle-indicator(bottom, @pineLevel1SubIndColor, @pineLevel1PaddingHorizontal, 5px);
+		.triangle-indicator-base(@pineLevel1PaddingHorizontal);
+		.triangle-indicator-bottom(@pineLevel1SubIndColor, 5px);
 	}
 }
 
@@ -32,8 +34,9 @@
 #nav ul ul > li.has-submenu > a {
 	padding-right: 2*@pineLevel2PaddingHorizontal;
 
-	&:before {		
-		.has-submenu-triangle-indicator(right, @pineLevel2SubIndColor, @pineLevel2PaddingHorizontal, 5px);
+	&:before {	
+		.triangle-indicator-base(@pineLevel2PaddingHorizontal);
+		.triangle-indicator-right(@pineLevel2SubIndColor, 5px);
 	}
 }
 
@@ -41,13 +44,15 @@
 #nav ul ul ul > li.has-submenu > a {
 	padding-right: 2*@pineLevel3PaddingHorizontal;
 
-	&:before {			
-		.has-submenu-triangle-indicator(right, @pineLevel3SubIndColor, @pineLevel3PaddingHorizontal, 5px);
+	&:before {		
+		.triangle-indicator-base(@pineLevel3PaddingHorizontal);	
+		.triangle-indicator-right(@pineLevel3SubIndColor, 5px);
 	}	
 }
 
-// Triangle indicator mixin
-.has-submenu-triangle-indicator(@direction, @color, @paddingRight, @indicatorSize) {	
+// Mixin: Triangle indicator base
+
+.triangle-indicator-base(@paddingRight) {	
 	z-index: 100;
 	content: "";
 	position: absolute;
@@ -63,8 +68,10 @@
 	}
 }
 
-.has-submenu-triangle-indicator(@direction, @color, @paddingRight, @indicatorSize) when (@direction = bottom) {
-	border-width: @indicatorSize @indicatorSize 0 @indicatorSize; // TODO variable	
+// Mixin: Triangle indicator marker turned down
+
+.triangle-indicator-bottom(@color, @indicatorSize) {
+	border-width: @indicatorSize @indicatorSize 0 @indicatorSize; 
 	margin-top: -1*@indicatorSize/2;
 	border-color: @color transparent transparent transparent;	
 	// Small screen version has only first level look 
@@ -73,12 +80,14 @@
 	}
 }
 
-.has-submenu-triangle-indicator(@direction, @color, @paddingRight, @indicatorSize) when (@direction = right) {
+// Mixin: Triangle indicator marker facing left
+
+.triangle-indicator-right(@color, @indicatorSize) {
 	border-width: @indicatorSize 0 @indicatorSize @indicatorSize; 
 	margin-top: -1*@indicatorSize;
-	border-color: transparent transparent transparent @color;	
+	border-color: transparent transparent transparent @color;
 	// Small screen version has only first level look 
 	@media (max-width: @pineLargeDisplayStart) {
 		border-color: transparent transparent transparent  @pineLevel1SubIndColor; 
-	}	
+	}
 }

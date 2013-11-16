@@ -7315,7 +7315,7 @@ td.visible-print {
 }
 
 #nav > ul > li.has-submenu > a {
-  padding-left: 30px;
+  padding-right: 30px;
 }
 
 #nav > ul > li.has-submenu > a:before {
