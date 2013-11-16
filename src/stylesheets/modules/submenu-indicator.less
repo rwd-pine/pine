@@ -1,9 +1,5 @@
 // --- Pine: Has submenu triangle indicator ---
 
-// TODO
-// - on small screens there should be its own SubIndColor and @positionTop variable
-// - on small screen all indicators should point to bottom
-
 // Context where we are positioning the indicator
 #nav li.has-submenu > a,
 [role='navigation'] li.has-submenu > strong {
@@ -17,7 +13,7 @@
 	&:before {		
 		.triangle-indicator-base(@pineLevel1PaddingHorizontal);
 		.triangle-indicator-right(@pineLevel1SubIndColor, 5px);
-	}
+	}	
 }
 
 // Horizontal variant
@@ -27,6 +23,9 @@
 	&:before {	
 		.triangle-indicator-base(@pineLevel1PaddingHorizontal);
 		.triangle-indicator-bottom(@pineLevel1SubIndColor, 5px);
+		@media (max-width: @pineSmallDisplayEnd) {
+			.triangle-indicator-right(@pineLevel1SubIndColor, 5px);
+		}
 	}
 }
 

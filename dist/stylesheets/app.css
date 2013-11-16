@@ -148,6 +148,20 @@
   }
 }
 
+@media (max-width: 599px) {
+  #nav.nav-horizontal > ul > li.has-submenu > a:before {
+    margin-top: -5px;
+    border-color: transparent transparent transparent #000000;
+    border-width: 5px 0 5px 5px;
+  }
+}
+
+@media (max-width: 599px) and (max-width: 600px) {
+  #nav.nav-horizontal > ul > li.has-submenu > a:before {
+    border-color: transparent transparent transparent #000000;
+  }
+}
+
 #nav ul ul > li.has-submenu > a {
   padding-right: 32px;
 }
