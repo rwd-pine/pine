@@ -635,9 +635,9 @@ table {
   -webkit-border-radius: 1px;
      -moz-border-radius: 1px;
           border-radius: 1px;
-  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-     -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-          box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.25);
+     -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 1px 0px rgba(0, 0, 0, 0.25);
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;
           background-clip: padding-box;
@@ -662,7 +662,6 @@ table {
   position: absolute;
   -webkit-transition: left 200ms;
      -moz-transition: left 200ms;
-      -ms-transition: left 200ms;
        -o-transition: left 200ms;
           transition: left 200ms;
 }
@@ -695,7 +694,6 @@ table {
           opacity: 0;
   -webkit-transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
      -moz-transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
-      -ms-transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
        -o-transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
           transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
 }
@@ -707,7 +705,6 @@ table {
           opacity: 1;
   -webkit-transition: opacity 0.3s ease-in-out;
      -moz-transition: opacity 0.3s ease-in-out;
-      -ms-transition: opacity 0.3s ease-in-out;
        -o-transition: opacity 0.3s ease-in-out;
           transition: opacity 0.3s ease-in-out;
 }
