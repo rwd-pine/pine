@@ -7604,14 +7604,18 @@ td.visible-print {
     background: #ffffff;
     border: 1px solid #cccccc;
     border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
        -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background-clip: padding-box;
   }
   #nav.nav-horizontal > ul ul > li > a,
   #nav.nav-horizontal > ul ul > li > strong {
-    padding: 15px 15px;
+    padding: 7.5px 15px;
     font-size: 14px;
     color: #777777;
     background: #ffffff;
@@ -7619,26 +7623,29 @@ td.visible-print {
   #nav.nav-horizontal > ul ul > li > a:hover,
   #nav.nav-horizontal > ul ul > li > a:focus,
   #nav.nav-horizontal > ul ul > li > a:active {
-    color: #333333;
-    background: transparent;
+    color: #ffffff;
+    background: #428bca;
   }
   #nav.nav-horizontal > ul ul > li.is-open > a {
-    color: #555555;
-    background: #e7e7e7;
+    color: #ffffff;
+    background: #428bca;
   }
   #nav.nav-horizontal > ul > li > ul > li > ul {
+    overflow: hidden;
     color: #777777;
     background: #ffffff;
     border: 1px solid #cccccc;
     border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
        -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background-clip: padding-box;
   }
   #nav.nav-horizontal > ul ul ul > li > a,
   #nav.nav-horizontal > ul ul ul > li > strong {
-    padding: 15px 15px;
+    padding: 7.5px 15px;
     font-size: 14px;
     color: #777777;
     background: #ffffff;
@@ -7646,12 +7653,12 @@ td.visible-print {
   #nav.nav-horizontal > ul ul ul > li > a:hover,
   #nav.nav-horizontal > ul ul ul > li > a:focus,
   #nav.nav-horizontal > ul ul ul > li > a:active {
-    color: #333333;
-    background: transparent;
+    color: #ffffff;
+    background: #428bca;
   }
   #nav.nav-horizontal > ul ul ul > li.is-open > a {
-    color: #555555;
-    background: #e7e7e7;
+    color: #ffffff;
+    background: #428bca;
   }
   #nav.nav-horizontal > ul > li {
     position: relative;
@@ -7751,15 +7758,19 @@ td.visible-print {
   background: #ffffff;
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
      -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
 }
 
 .old-ie #nav.nav-horizontal > ul ul > li > a,
 .old-ie #nav.nav-horizontal > ul ul > li > strong {
-  padding: 15px 15px;
+  padding: 7.5px 15px;
   font-size: 14px;
   color: #777777;
   background: #ffffff;
@@ -7768,29 +7779,32 @@ td.visible-print {
 .old-ie #nav.nav-horizontal > ul ul > li > a:hover,
 .old-ie #nav.nav-horizontal > ul ul > li > a:focus,
 .old-ie #nav.nav-horizontal > ul ul > li > a:active {
-  color: #333333;
-  background: transparent;
+  color: #ffffff;
+  background: #428bca;
 }
 
 .old-ie #nav.nav-horizontal > ul ul > li.is-open > a {
-  color: #555555;
-  background: #e7e7e7;
+  color: #ffffff;
+  background: #428bca;
 }
 
 .old-ie #nav.nav-horizontal > ul > li > ul > li > ul {
+  overflow: hidden;
   color: #777777;
   background: #ffffff;
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
      -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
 }
 
 .old-ie #nav.nav-horizontal > ul ul ul > li > a,
 .old-ie #nav.nav-horizontal > ul ul ul > li > strong {
-  padding: 15px 15px;
+  padding: 7.5px 15px;
   font-size: 14px;
   color: #777777;
   background: #ffffff;
@@ -7799,13 +7813,13 @@ td.visible-print {
 .old-ie #nav.nav-horizontal > ul ul ul > li > a:hover,
 .old-ie #nav.nav-horizontal > ul ul ul > li > a:focus,
 .old-ie #nav.nav-horizontal > ul ul ul > li > a:active {
-  color: #333333;
-  background: transparent;
+  color: #ffffff;
+  background: #428bca;
 }
 
 .old-ie #nav.nav-horizontal > ul ul ul > li.is-open > a {
-  color: #555555;
-  background: #e7e7e7;
+  color: #ffffff;
+  background: #428bca;
 }
 
 .old-ie #nav.nav-horizontal > ul > li {
@@ -7909,14 +7923,18 @@ td.visible-print {
     background: #ffffff;
     border: 1px solid #cccccc;
     border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
        -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background-clip: padding-box;
   }
   #nav.nav-vertical > ul ul > li > a,
   #nav.nav-vertical > ul ul > li > strong {
-    padding: 15px 15px;
+    padding: 7.5px 15px;
     font-size: 14px;
     color: #777777;
     background: #ffffff;
@@ -7924,26 +7942,29 @@ td.visible-print {
   #nav.nav-vertical > ul ul > li > a:hover,
   #nav.nav-vertical > ul ul > li > a:focus,
   #nav.nav-vertical > ul ul > li > a:active {
-    color: #333333;
-    background: transparent;
+    color: #ffffff;
+    background: #428bca;
   }
   #nav.nav-vertical > ul ul > li.is-open > a {
-    color: #555555;
-    background: #e7e7e7;
+    color: #ffffff;
+    background: #428bca;
   }
   #nav.nav-vertical > ul > li > ul > li > ul {
+    overflow: hidden;
     color: #777777;
     background: #ffffff;
     border: 1px solid #cccccc;
     border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
        -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background-clip: padding-box;
   }
   #nav.nav-vertical > ul ul ul > li > a,
   #nav.nav-vertical > ul ul ul > li > strong {
-    padding: 15px 15px;
+    padding: 7.5px 15px;
     font-size: 14px;
     color: #777777;
     background: #ffffff;
@@ -7951,12 +7972,12 @@ td.visible-print {
   #nav.nav-vertical > ul ul ul > li > a:hover,
   #nav.nav-vertical > ul ul ul > li > a:focus,
   #nav.nav-vertical > ul ul ul > li > a:active {
-    color: #333333;
-    background: transparent;
+    color: #ffffff;
+    background: #428bca;
   }
   #nav.nav-vertical > ul ul ul > li.is-open > a {
-    color: #555555;
-    background: #e7e7e7;
+    color: #ffffff;
+    background: #428bca;
   }
   #nav.nav-vertical ul ul {
     position: absolute;
@@ -8037,15 +8058,19 @@ td.visible-print {
   background: #ffffff;
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
      -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
 }
 
 .old-ie #nav.nav-vertical > ul ul > li > a,
 .old-ie #nav.nav-vertical > ul ul > li > strong {
-  padding: 15px 15px;
+  padding: 7.5px 15px;
   font-size: 14px;
   color: #777777;
   background: #ffffff;
@@ -8054,29 +8079,32 @@ td.visible-print {
 .old-ie #nav.nav-vertical > ul ul > li > a:hover,
 .old-ie #nav.nav-vertical > ul ul > li > a:focus,
 .old-ie #nav.nav-vertical > ul ul > li > a:active {
-  color: #333333;
-  background: transparent;
+  color: #ffffff;
+  background: #428bca;
 }
 
 .old-ie #nav.nav-vertical > ul ul > li.is-open > a {
-  color: #555555;
-  background: #e7e7e7;
+  color: #ffffff;
+  background: #428bca;
 }
 
 .old-ie #nav.nav-vertical > ul > li > ul > li > ul {
+  overflow: hidden;
   color: #777777;
   background: #ffffff;
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
      -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
 }
 
 .old-ie #nav.nav-vertical > ul ul ul > li > a,
 .old-ie #nav.nav-vertical > ul ul ul > li > strong {
-  padding: 15px 15px;
+  padding: 7.5px 15px;
   font-size: 14px;
   color: #777777;
   background: #ffffff;
@@ -8085,13 +8113,13 @@ td.visible-print {
 .old-ie #nav.nav-vertical > ul ul ul > li > a:hover,
 .old-ie #nav.nav-vertical > ul ul ul > li > a:focus,
 .old-ie #nav.nav-vertical > ul ul ul > li > a:active {
-  color: #333333;
-  background: transparent;
+  color: #ffffff;
+  background: #428bca;
 }
 
 .old-ie #nav.nav-vertical > ul ul ul > li.is-open > a {
-  color: #555555;
-  background: #e7e7e7;
+  color: #ffffff;
+  background: #428bca;
 }
 
 .old-ie #nav.nav-vertical ul ul {

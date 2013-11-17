@@ -371,9 +371,13 @@
     color: #000000;
     background: transparent;
     border: none;
+    border-radius: none;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
     -webkit-box-shadow: none;
        -moz-box-shadow: none;
             box-shadow: none;
+    background-clip: padding-box;
   }
   #nav.nav-horizontal > ul ul > li > a,
   #nav.nav-horizontal > ul ul > li > strong {
@@ -393,12 +397,15 @@
     background: #cccccc;
   }
   #nav.nav-horizontal > ul > li > ul > li > ul {
+    overflow: hidden;
     color: #000000;
     background: transparent;
     border: none;
+    border-radius: none;
     -webkit-box-shadow: none;
        -moz-box-shadow: none;
             box-shadow: none;
+    background-clip: padding-box;
   }
   #nav.nav-horizontal > ul ul ul > li > a,
   #nav.nav-horizontal > ul ul ul > li > strong {
@@ -514,9 +521,13 @@
   color: #000000;
   background: transparent;
   border: none;
+  border-radius: none;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
   -webkit-box-shadow: none;
      -moz-box-shadow: none;
           box-shadow: none;
+  background-clip: padding-box;
 }
 
 .old-ie #nav.nav-horizontal > ul ul > li > a,
@@ -540,12 +551,15 @@
 }
 
 .old-ie #nav.nav-horizontal > ul > li > ul > li > ul {
+  overflow: hidden;
   color: #000000;
   background: transparent;
   border: none;
+  border-radius: none;
   -webkit-box-shadow: none;
      -moz-box-shadow: none;
           box-shadow: none;
+  background-clip: padding-box;
 }
 
 .old-ie #nav.nav-horizontal > ul ul ul > li > a,
@@ -668,9 +682,13 @@
     color: #000000;
     background: transparent;
     border: none;
+    border-radius: none;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
     -webkit-box-shadow: none;
        -moz-box-shadow: none;
             box-shadow: none;
+    background-clip: padding-box;
   }
   #nav.nav-vertical > ul ul > li > a,
   #nav.nav-vertical > ul ul > li > strong {
@@ -690,12 +708,15 @@
     background: #cccccc;
   }
   #nav.nav-vertical > ul > li > ul > li > ul {
+    overflow: hidden;
     color: #000000;
     background: transparent;
     border: none;
+    border-radius: none;
     -webkit-box-shadow: none;
        -moz-box-shadow: none;
             box-shadow: none;
+    background-clip: padding-box;
   }
   #nav.nav-vertical > ul ul ul > li > a,
   #nav.nav-vertical > ul ul ul > li > strong {
@@ -792,9 +813,13 @@
   color: #000000;
   background: transparent;
   border: none;
+  border-radius: none;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
   -webkit-box-shadow: none;
      -moz-box-shadow: none;
           box-shadow: none;
+  background-clip: padding-box;
 }
 
 .old-ie #nav.nav-vertical > ul ul > li > a,
@@ -818,12 +843,15 @@
 }
 
 .old-ie #nav.nav-vertical > ul > li > ul > li > ul {
+  overflow: hidden;
   color: #000000;
   background: transparent;
   border: none;
+  border-radius: none;
   -webkit-box-shadow: none;
      -moz-box-shadow: none;
           box-shadow: none;
+  background-clip: padding-box;
 }
 
 .old-ie #nav.nav-vertical > ul ul ul > li > a,
