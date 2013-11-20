@@ -5,7 +5,7 @@
 	// First level is container for animation
 	> ul {
 		position: absolute;
-		.transition(left 200ms);
+		.transition(~"left .2s");
 	}
 
 	// Second and succeeding levels
@@ -24,11 +24,12 @@
 	}
 
 	.js & ul ul {
-		display: none;
+		visibility: hidden;
+		.transition(~"visibility 0s .2s");
 	}
 
 	ul .is-open ul {
-		display: block;
+		visibility: visible;
 	}
 
 	// No 2nd, 3rd level indentation
