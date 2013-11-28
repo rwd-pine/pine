@@ -277,6 +277,51 @@
   display: inline-block;
 }
 
+.fx-toggle ul ul {
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height 0.3s ease-in-out;
+     -moz-transition: max-height 0.3s ease-in-out;
+       -o-transition: max-height 0.3s ease-in-out;
+          transition: max-height 0.3s ease-in-out;
+}
+
+.fx-toggle ul li.is-open > ul {
+  max-height: none;
+  overflow: visible;
+}
+
+.fx-toggle ul li > a,
+.fx-toggle ul li > strong {
+  text-indent: 0 !important;
+}
+
+.fx-hover-fade ul ul {
+  -webkit-opacity: 0;
+     -moz-opacity: 0;
+          opacity: 0;
+  -webkit-transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
+     -moz-transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
+       -o-transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
+          transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
+}
+
+.fx-hover-fade ul > li.is-open > ul,
+.fx-hover-fade ul ul > li.is-open > ul {
+  -webkit-opacity: 1;
+     -moz-opacity: 1;
+          opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in-out;
+     -moz-transition: opacity 0.3s ease-in-out;
+       -o-transition: opacity 0.3s ease-in-out;
+          transition: opacity 0.3s ease-in-out;
+}
+
+.fx-hover-fade ul li > a,
+.fx-hover-fade ul li > strong {
+  text-indent: 0 !important;
+}
+
 .fx-right-to-left > ul {
   position: absolute;
   -webkit-transition: left 200ms;
@@ -309,32 +354,6 @@
 
 .fx-right-to-left ul li > a,
 .fx-right-to-left ul li > strong {
-  text-indent: 0 !important;
-}
-
-.fx-hover-fade ul ul {
-  -webkit-opacity: 0;
-     -moz-opacity: 0;
-          opacity: 0;
-  -webkit-transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
-     -moz-transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
-       -o-transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
-          transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
-}
-
-.fx-hover-fade ul > li.is-open > ul,
-.fx-hover-fade ul ul > li.is-open > ul {
-  -webkit-opacity: 1;
-     -moz-opacity: 1;
-          opacity: 1;
-  -webkit-transition: opacity 0.3s ease-in-out;
-     -moz-transition: opacity 0.3s ease-in-out;
-       -o-transition: opacity 0.3s ease-in-out;
-          transition: opacity 0.3s ease-in-out;
-}
-
-.fx-hover-fade ul li > a,
-.fx-hover-fade ul li > strong {
   text-indent: 0 !important;
 }
 

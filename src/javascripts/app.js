@@ -3,7 +3,7 @@
   // NAV DEFAULT INITIALIZATION
   // --------------------
   $('[role=navigation]').pine({
-    transitionMobile: 'fx-right-to-left',
+    transitionMobile: 'fx-toggle',
     transitionDesktop: 'fx-hover-fade'
   })
 
