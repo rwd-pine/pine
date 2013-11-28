@@ -7251,7 +7251,7 @@ td.visible-print {
 
 .js #nav {
   position: absolute;
-  top: 50px;
+  top: 52px;
   left: 0;
   display: none;
   width: 100%;
@@ -7280,19 +7280,19 @@ td.visible-print {
   padding: 10.5px 14px;
   overflow: hidden;
   font-weight: normal;
-  color: #ffffff;
+  color: #777777;
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: #555555;
+  background: #f8f8f8;
 }
 
 #nav li a:hover,
 #nav li a:focus,
 #nav li a:active,
 #nav li strong {
-  color: #ffffff;
-  background: #999999;
+  color: #555555;
+  background: #e7e7e7;
 }
 
 #nav ul ul li > a,
@@ -7453,11 +7453,11 @@ td.visible-print {
   padding: 10.5px 14px;
   overflow: hidden;
   font-weight: normal;
-  color: #ffffff;
+  color: #777777;
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: #555555;
+  background: #f8f8f8;
 }
 
 @media (max-width: 599px) {
