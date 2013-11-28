@@ -1,0 +1,25 @@
+//
+// TOGGLE
+// Effect for submenus. Submenu fades in and out on hover.
+// ----------------------------
+
+.fx-toggle {
+  // Closed
+  ul ul {
+    height: 0;
+    .transition(~"max-height .3s ease-in-out");
+    overflow: hidden;
+  }
+
+  // Opened 
+  ul li.is-open > ul {
+    max-height: none;
+    overflow: visible;
+  }
+
+  // No 2nd, 3rd level indentation
+  ul li > a,
+  ul li > strong {
+    text-indent: 0 !important;
+  }
+}
