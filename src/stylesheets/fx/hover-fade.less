@@ -9,10 +9,16 @@
     .transition(~"visibility 0s .3s, opacity .3s ease-in-out");
   }
 
-  // Otevrena druha uroven
+  // Opened 2nd level
   ul > li.is-open > ul,
   ul ul > li.is-open > ul {
     .opacity(1);
     .transition(opacity .3s ease-in-out);
+  }
+
+  // No 2nd, 3rd level indentation
+  ul li > a,
+  ul li > strong {
+    text-indent: 0 !important;
   }
 }

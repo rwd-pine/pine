@@ -30,6 +30,12 @@
 	ul .is-open ul {
 		display: block;
 	}
+
+	// No 2nd, 3rd level indentation
+	ul li > a,
+	ul li > strong {
+		text-indent: 0 !important;
+	}	
 }
 
 

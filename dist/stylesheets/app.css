@@ -307,6 +307,11 @@
   display: block;
 }
 
+.fx-right-to-left ul li > a,
+.fx-right-to-left ul li > strong {
+  text-indent: 0 !important;
+}
+
 .fx-hover-fade ul ul {
   -webkit-opacity: 0;
      -moz-opacity: 0;
@@ -326,6 +331,11 @@
      -moz-transition: opacity 0.3s ease-in-out;
        -o-transition: opacity 0.3s ease-in-out;
           transition: opacity 0.3s ease-in-out;
+}
+
+.fx-hover-fade ul li > a,
+.fx-hover-fade ul li > strong {
+  text-indent: 0 !important;
 }
 
 @media (min-width: 600px) {
