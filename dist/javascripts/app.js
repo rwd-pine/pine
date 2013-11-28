@@ -168,7 +168,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     submenu:            '.has-submenu',
     transitionDesktop:  'pine-hover',
     transitionMobile:   null,
-    trigger:            '.nav-trigger'
+    trigger:            '.pine-trigger'
   };
 
   /**
