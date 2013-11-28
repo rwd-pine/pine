@@ -127,6 +127,10 @@ module.exports = function(grunt) {
           {
             src: ['test/stylesheets/test-bootstrap.less'],
             dest: 'test/stylesheets/test-bootstrap.css'
+          },
+          {
+            src: ['test/stylesheets/test-bootstrap-fixed-inverted.less'],
+            dest: 'test/stylesheets/test-bootstrap-fixed-inverted.css'
           }
         ]
       },

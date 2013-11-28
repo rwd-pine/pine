@@ -1,0 +1,94 @@
+// Pine Bootstrap 3 skin for fixed and inverted navigation
+
+// Navigation variables
+
+// --- Look, feel and typography ---
+
+@pineBaseFontSize:		@font-size-base;
+@pineBaseLineHeight:	@line-height-base;
+@pineMarginBottom:		@navbar-margin-bottom;
+@pineZIndex:			@zindex-navbar;
+@pineHeight:			@navbar-height;
+@pineBorderRadius:		@navbar-border-radius;
+@pineColor:				@navbar-inverse-color;
+@pineBg:				@navbar-inverse-bg;
+@pineBorder:			1px solid @navbar-inverse-border;
+
+// --- Small screens ---
+
+@pineSmallScreenColor: 				@navbar-inverse-color;
+@pineSmallScreenBg: 				@navbar-inverse-bg;
+@pineSmallScreenHoverColor:			@navbar-inverse-color;
+@pineSmallScreenHoverBg:			@navbar-inverse-link-hover-bg;
+@pineSmallScreenActiveColor:		@navbar-inverse-link-active-color;
+@pineSmallScreenActiveBg:			@navbar-inverse-link-active-bg;
+@pineSmallScreenFontSize: 			@pineBaseFontSize;
+@pineSmallScreenPaddingVertical: 	@pineSmallScreenFontSize*.75;
+@pineSmallScreenPaddingHorizontal:	@pineSmallScreenFontSize;
+@pineSmallScreenTop:				@navbar-height+2;
+
+
+// --- Medium and large screens ---
+
+// Level 1
+@pineLevel1Color:            	@navbar-inverse-link-color;
+@pineLevel1Bg:      			transparent;
+@pineLevel1HoverColor:       	@navbar-inverse-link-hover-color;
+@pineLevel1HoverBg:       		@navbar-inverse-link-hover-bg;
+@pineLevel1ActiveColor:      	@navbar-inverse-link-active-color;
+@pineLevel1ActiveBg:       		@navbar-inverse-link-active-bg;
+@pineLevel1SubIndColor:			@navbar-inverse-link-color;
+@pineLevel1FontSize: 			@pineBaseFontSize;
+@pineLevel1PaddingVertical: 	@navbar-padding-vertical;
+@pineLevel1PaddingHorizontal:	@navbar-padding-horizontal;
+
+// Level 2
+@pineLevel2Color:            	@pineLevel1Color;
+@pineLevel2Bg:      			@dropdown-bg;
+@pineLevel2HoverColor:       	@dropdown-link-hover-color;
+@pineLevel2HoverBg:       		@dropdown-link-hover-bg;
+@pineLevel2ActiveColor:      	@dropdown-link-active-color;
+@pineLevel2ActiveBg:       		@dropdown-link-active-bg;
+@pineLevel2SubIndColor:			@pineLevel1SubIndColor;
+@pineLevel2FontSize: 			@pineLevel1FontSize;
+@pineLevel2PaddingVertical:		@pineLevel1PaddingVertical/2;
+@pineLevel2PaddingHorizontal: 	@pineLevel1PaddingHorizontal;
+@pineLevel2BorderFallback:		1px solid @dropdown-fallback-border;
+@pineLevel2Border:				1px solid @dropdown-border;
+@pineLevel2BorderRadius:		@border-radius-base;
+@pineLevel2Shadow:				0 6px 12px rgba(0,0,0,.175);
+
+// Level 3
+@pineLevel3Color:            	@pineLevel2Color;
+@pineLevel3Bg:      			@pineLevel2Bg;
+@pineLevel3HoverColor:       	@pineLevel2HoverColor;
+@pineLevel3HoverBg:       		@pineLevel2HoverBg;
+@pineLevel3ActiveColor:      	@pineLevel2ActiveColor;
+@pineLevel3ActiveBg:       		@pineLevel2ActiveBg;
+@pineLevel3SubIndColor:			@pineLevel2SubIndColor;
+@pineLevel3FontSize: 			@pineLevel2FontSize;
+@pineLevel3PaddingVertical:		@pineLevel2PaddingVertical;
+@pineLevel3PaddingHorizontal: 	@pineLevel2PaddingHorizontal;
+@pineLevel3BorderFallback:		@pineLevel2BorderFallback;
+@pineLevel3Border:				@pineLevel2Border;
+@pineLevel3BorderRadius:		0 0 @border-radius-base @border-radius-base;
+@pineLevel3Shadow:				@pineLevel2Shadow;
+
+// --- RWD breakpoints ---
+
+@pineLargeDisplayStart: 		600px;
+@pineSmallDisplayEnd: 			@pineLargeDisplayStart - 1px;
+
+
+// --- CSS rules ---
+
+// Using .navbar as mobile header and Pine opening trigger.
+// So have to remove it on large displays.
+.navbar {
+	@media (min-width: @pineLargeDisplayStart) {
+		display: none;
+	}
+}
+
+
+
