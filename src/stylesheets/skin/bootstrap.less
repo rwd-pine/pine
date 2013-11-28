@@ -25,6 +25,8 @@
 @pineSmallScreenFontSize: 			@pineBaseFontSize;
 @pineSmallScreenPaddingVertical: 	@pineSmallScreenFontSize*.75;
 @pineSmallScreenPaddingHorizontal:	@pineSmallScreenFontSize;
+@pineSmallScreenTop:				@navbar-height;
+
 
 // --- Medium and large screens ---
 
@@ -76,3 +78,17 @@
 
 @pineLargeDisplayStart: 		600px;
 @pineSmallDisplayEnd: 			@pineLargeDisplayStart - 1px;
+
+
+// --- CSS rules ---
+
+// Using .navbar as mobile header and Pine opening trigger.
+// So have to remove it on large displays.
+.navbar {
+	@media (min-width: @pineLargeDisplayStart) {
+		display: none;
+	}
+}
+
+
+

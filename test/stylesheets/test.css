@@ -432,16 +432,6 @@ table {
   }
 }
 
-@media print {
-  #nav {
-    display: none;
-  }
-}
-
-.container-fluid #nav.hidden {
-  display: none;
-}
-
 .js #nav {
   position: absolute;
   top: 42px;
@@ -452,6 +442,12 @@ table {
 
 #nav.is-visible {
   display: block;
+}
+
+@media print {
+  #nav {
+    display: none;
+  }
 }
 
 #nav ul,

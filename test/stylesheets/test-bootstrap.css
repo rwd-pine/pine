@@ -7249,19 +7249,9 @@ td.visible-print {
   }
 }
 
-@media print {
-  #nav {
-    display: none;
-  }
-}
-
-.container-fluid #nav.hidden {
-  display: none;
-}
-
 .js #nav {
   position: absolute;
-  top: 42px;
+  top: 50px;
   left: 0;
   display: none;
   width: 100%;
@@ -7269,6 +7259,12 @@ td.visible-print {
 
 #nav.is-visible {
   display: block;
+}
+
+@media print {
+  #nav {
+    display: none;
+  }
 }
 
 #nav ul,
@@ -8161,6 +8157,14 @@ td.visible-print {
   visibility: visible;
 }
 
-#nav {
-  margin-top: 28px;
+@media (min-width: 600px) {
+  .navbar {
+    display: none;
+  }
+}
+
+@media (min-width: 600px) {
+  #nav {
+    margin-top: 28px;
+  }
 }

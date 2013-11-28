@@ -1,8 +1,8 @@
-// Default: Vertikalni (male screeny + vertikalni varianta pro velke)
+// Pine defaults
+// (Small screens and vertical variant styling.)
 // ------------------------------------------------------------------
 
-// Na malych screenech a bez js pozicovano zcela prirozene
-// podle aktualniho umisteni v HTML
+// Small screens positioning
 
 #nav {
 	z-index: @pineZIndex;
@@ -15,21 +15,10 @@
 		border-radius: @pineBorderRadius;
 	}
 
-	@media print {
-		display: none;
-	}
-
-	// Schovavani (na malych displejich) pomoci JS
-	.container-fluid &.hidden {
-		display: none;
-	}
-
-	// Na malych screenech s JS pozicovano absolutne
-	// nad obsah, hned pod .wm-l-mobile-header
 	.js & {
 		display: none;
 		position: absolute;
-		top: 42px;
+		top: @pineSmallScreenTop;
 		left: 0;
 		width: 100%;
 	}
@@ -37,9 +26,14 @@
 	&.is-visible {
 		display: block;
 	}
+
+	@media print {
+		display: none;
+	}	
 }
 
-// Vnitrek navigace
+// Navigation defaults
+
 #nav {
 	ul,
 	li {
@@ -59,7 +53,7 @@
 		background: @pineSmallScreenBg;
 	}
 
-	// Aktivni polozka
+	// Active
 	li a:hover,
 	li a:focus,
 	li a:active,
@@ -68,13 +62,13 @@
 		color: @pineSmallScreenActiveColor;
 	}
 
-	// Druha uroven zanoreni
+	// Second level
 	ul ul li > a,
 	ul ul li > strong {
 		text-indent: 1em;
 	}
 
-	// Treti uroven zanoreni
+	// Third level
 	ul ul ul li > a,
 	ul ul ul li > strong {
 		text-indent: 2em;

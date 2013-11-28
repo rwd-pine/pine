@@ -10,5 +10,7 @@
 @import "../../src/stylesheets/skin/bootstrap";
 
 #nav {
-	margin-top: 2*@font-size-base;
+	@media (min-width: @pineLargeDisplayStart) {
+		margin-top: 2*@font-size-base;
+	}
 }
