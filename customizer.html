@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive navigation</title>
+
+    <!-- Common stylesheet for all devices -->
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <style>
+      body {
+        margin: 1em;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <!-- Body
+    ================================================== -->
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12" role="main">
+
+          <form class="pine-customizer" role="form">
+            <div id="core">
+              <div class="page-header">
+                <h1 id="less">Core files</h1>
+              </div>
+              <p class="lead">Choose which type of navigation you want to compile into your custom build of Pine. We use horizontal as default.</p>
+
+              <div class="row">
+                <div class="col-xs-6 col-sm-4">
+                  <h3>Desktop Type</h3>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" checked="" value="horizontal.less">
+                      Horizontal
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value="vertical.less">
+                      Vertical
+                    </label>
+                  </div>
+
+                </div><!-- .col-xs-6 .col-sm-4 -->
+
+                <div class="col-xs-6 col-sm-4">
+                  <h3>Skin</h3>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" checked="" value="">
+                      Default
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value="bootstrap.less">
+                      Bootstrap
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value="bootstrap-inverted.less">
+                      Bootstrap Inverted
+                    </label>
+                  </div>
+                </div><!-- .col-xs-6 .col-sm-4 -->
+
+              </div><!-- /.row -->
+            </div>
+
+
+
+            <div id="effects">
+              <div class="page-header">
+                <h1 id="plugins">Effects</h1>
+              </div>
+              <p class="lead">Choose which effects you want to use with your navigation. Effects are divided into two groups: mobile and desktop.</p>
+              <div class="row">
+                <div class="col-xs-6 col-sm-4">
+                  <h4>Mobile Effects</h4>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" checked="" value="left-to-right.js">
+                      Left to Right
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" checked="" value="right-to-left.js">
+                      Right to Left
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" checked="" value="toggle.js">
+                      Toggle
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xs-6 col-sm-4">
+                  <h4>Desktop Effects</h4>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" checked="" value="hover-fade.js">
+                      Fade on Hover
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" checked="" value="hover.js">
+                      Hover
+                    </label>
+                  </div>
+
+
+                </div>
+              </div>
+
+              <div class="bs-callout bs-callout-info">
+                <h4>Produces two files</h4>
+                <p>All checked plugins will be compiled into a readable <code>pine.js</code> and a minified <code>pine.min.js</code>. We recommend you use the minified version in production.</p>
+              </div>
+
+              <div class="bs-callout bs-callout-danger">
+                <h4>jQuery required</h4>
+                <p>All plugins require the latest version of <a href="http://jquery.com/" target="_blank">jQuery</a> to be included.</p>
+              </div>
+            </div>
+
+
+
+            <div class="page-header">
+              <h1 id="download">Download</h1>
+            </div>
+            <div class="bs-customize-download">
+              <button type="submit" id="btn-compile" class="btn btn-block btn-lg btn-outline">Compile and Download</button>
+            </div>
+
+          </form>
+
+        </div><!-- /col -->
+      </div><!-- /row -->
+    </div><!-- /container -->
+
+
+    <!-- Javascripts
+    ================================================== -->
+
+    <!--[if lt IE 9]><script src="./dist/javascripts/jquery-1.10.2.min.js"></script><![endif]-->
+    <!--[if gt IE 8]><!--><script src="./dist/javascripts/jquery.min.js"></script><!--<![endif]-->
+    <script src="./dist/javascripts/app.js"></script>
+
+  </body>
+</html>
