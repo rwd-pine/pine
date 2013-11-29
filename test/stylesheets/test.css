@@ -735,10 +735,10 @@ table {
 
 .fx-right-to-left > ul {
   position: absolute;
-  -webkit-transition: left 200ms;
-     -moz-transition: left 200ms;
-       -o-transition: left 200ms;
-          transition: left 200ms;
+  -webkit-transition: left .2s;
+     -moz-transition: left .2s;
+       -o-transition: left .2s;
+          transition: left .2s;
 }
 
 .fx-right-to-left ul ul {
@@ -756,15 +756,58 @@ table {
 }
 
 .js .fx-right-to-left ul ul {
-  display: none;
+  visibility: hidden;
+  -webkit-transition: visibility 0s .2s;
+     -moz-transition: visibility 0s .2s;
+       -o-transition: visibility 0s .2s;
+          transition: visibility 0s .2s;
 }
 
 .fx-right-to-left ul .is-open ul {
-  display: block;
+  visibility: visible;
 }
 
 .fx-right-to-left ul li > a,
 .fx-right-to-left ul li > strong {
+  text-indent: 0 !important;
+}
+
+.fx-left-to-right > ul {
+  position: absolute;
+  -webkit-transition: right .2s;
+     -moz-transition: right .2s;
+       -o-transition: right .2s;
+          transition: right .2s;
+}
+
+.fx-left-to-right ul ul {
+  position: absolute;
+  top: 0;
+  right: 100%;
+}
+
+.fx-left-to-right > ul > ul > ul {
+  right: 200%;
+}
+
+.fx-left-to-right > ul > ul > ul > ul {
+  right: 300%;
+}
+
+.js .fx-left-to-right ul ul {
+  visibility: hidden;
+  -webkit-transition: visibility 0s .2s;
+     -moz-transition: visibility 0s .2s;
+       -o-transition: visibility 0s .2s;
+          transition: visibility 0s .2s;
+}
+
+.fx-left-to-right ul .is-open ul {
+  visibility: visible;
+}
+
+.fx-left-to-right ul li > a,
+.fx-left-to-right ul li > strong {
   text-indent: 0 !important;
 }
 

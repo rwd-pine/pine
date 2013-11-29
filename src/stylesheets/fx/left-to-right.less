@@ -1,0 +1,43 @@
+// Navigation left to right behaviour on small screens
+
+
+.fx-left-to-right {
+  // First level is container for animation
+  > ul {
+    position: absolute;
+    .transition(~"right .2s");
+  }
+
+  // Second and succeeding levels
+  ul ul {
+    position: absolute;
+    top: 0;
+    right: 100%;
+  }
+
+  > ul > ul > ul {
+    right: 200%;
+  }
+
+  > ul > ul > ul > ul {
+    right: 300%;
+  }
+
+  .js & ul ul {
+    visibility: hidden;
+    .transition(~"visibility 0s .2s");
+  }
+
+  ul .is-open ul {
+    visibility: visible;
+  }
+
+  // No 2nd, 3rd level indentation
+  ul li > a,
+  ul li > strong {
+    text-indent: 0 !important;
+  }
+}
+
+
+
