@@ -466,7 +466,7 @@ Pine.Navbar.registerTransition('fx-left-to-right', {
   // NAV DEFAULT INITIALIZATION
   // --------------------
   $('[role=navigation]').pine({
-    transitionMobile: 'fx-left-to-right',
+    transitionMobile: 'fx-toggle',
     transitionDesktop: 'fx-hover-fade'
   })
 
