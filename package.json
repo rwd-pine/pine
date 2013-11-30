@@ -20,5 +20,6 @@
     , "grunt-contrib-watch": "~0.5.1"
     , "grunt-contrib-rename": "~0.0.2"
     , "grunt-recess": "~0.3.3"
+    , "grunt-contrib-compress": "~0.5.3"
   }
 }

@@ -81,8 +81,8 @@ module.exports = function(grunt) {
           'src/javascripts/core/pine-navbar.js',
           'src/javascripts/fx/hover.js',
           'src/javascripts/fx/hover-fade.js',
-          'src/javascripts/fx/right-to-left.js',
-          'src/javascripts/fx/left-to-right.js',
+          // 'src/javascripts/fx/right-to-left.js',
+          // 'src/javascripts/fx/left-to-right.js',
           'src/javascripts/app.js'
         ],
         dest: 'dist/javascripts/<%= pkg.name %>.js'
@@ -107,6 +107,19 @@ module.exports = function(grunt) {
             src: ['src/javascripts/lib/modernizr.js'],
             dest: 'dist/javascripts/modernizr.min.js'
           }
+        ]
+      }
+    },
+
+    compress: {
+      main: {
+        options: {
+          mode: 'gzip'
+        },
+        files: [
+          // Each of the files in the src/ folder will be output to
+          // the dist/ folder each with the extension .gz.js
+          {expand: true, src: ['dist/javascripts/app.min.js'], dest: 'dist/javascripts', ext: '.gz.js'}
         ]
       }
     },
@@ -164,10 +177,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-rename');
+  grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-recess');
 
   // JS distribution task.
-  grunt.registerTask('dist-js', ['concat', 'uglify']);
+  grunt.registerTask('dist-js', ['concat', 'uglify', 'compress']);
 
   // Copy assets
   grunt.registerTask('dist-copy', ['copy', 'rename']);
