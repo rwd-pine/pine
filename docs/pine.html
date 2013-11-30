@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>pine-transitions.js</title>
+  <title>pine.js</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -46,7 +46,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>pine-transitions.js</h1>
+                  <h1>pine.js</h1>
               </div>
           </li>
         
@@ -60,27 +60,6 @@
               </div>
               
             </div>
-            
-            <div class="content"><div class='highlight'><pre>
-<span class="keyword">var</span> Pine = window.Pine || {}
-
-Pine.Transitions = (<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-  <span class="keyword">var</span> Transitions = {};
-
-  <span class="comment">/**
-    List of all available transitions. Transitions are loaded as plugins.
-  **/</span>
-  Transitions.collection = {};
-
-  <span class="comment">/**
-    Adds new transition to the collection.
-  **/</span>
-  Transitions.registerTransition = <span class="function"><span class="keyword">function</span> <span class="params">(name, obj)</span> {</span>
-    <span class="keyword">this</span>.collection[name] = obj
-  };
-
-  <span class="keyword">return</span> Transitions;
-});</pre></div></div>
             
         </li>
         

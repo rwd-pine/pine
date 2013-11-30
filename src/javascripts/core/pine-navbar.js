@@ -1,11 +1,46 @@
 //
-// Navbar
-// --------------------------------
+// PineJS: Responsive navigation widget
+// ====================================
 
+// PineJS is very simple and flexible responsive navigation. Its purpose is
+// to simplify implementation of the navigation in your projects.
+
+// ## BASIC USAGE
+
+// ```javascript
+//   $('[role=navigation]').pine({
+//     transitionMobile: 'fx-toggle',
+//     transitionDesktop: 'fx-hover-fade'
+//   })```
+//
+// ### Default configuration
+// ```javascript
+// Navbar.defaults = {
+//   jsBreakpoint:       '600px',
+//   toggle:             '.has-submenu > a',
+//   submenu:            '.has-submenu',
+//   transitionDesktop:  'pine-hover',
+//   transitionMobile:   null,
+//   trigger:            '.pine-trigger'
+// }```
+//
+// Available transitions out of the box:
+// 1. Mobile
+//   - **Toggle** - simple show and hide of the child list
+//   - **Right to Left** - each level of navigation slides in from the right
+//   - **Left to Right** - inverted direction, for Arabic and other languages
+// 2. Desktop
+//   - **Click** - menus are toggled by click
+//   - **Hover** - menus are toggled on hover
+//   - **Hover** with fade in/out - extension to 'hover' transition, animation is added
+
+/**
+  Global Pine object
+**/
 var Pine = window.Pine || {}
 
 /**
-  Provides the base for Responsive navigation module.
+  Navbar module - Provides the base for Responsive navigation module.
 **/
 Pine.Navbar = (function ($, window, undefined) { "use strict";
 
@@ -58,18 +93,18 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     this.element = $(element)
     this.isDesktop = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
 
-    // Set initial transition
+    /* Set initial transition */
     this.isDesktop ? this.setActiveTransition(this.options.transitionDesktop) : this.setActiveTransition(this.options.transitionMobile)
 
-    // Initialize Submenus
+    /* Initialize Submenus */
     this.element.find('li').has('ul').addClass('has-submenu')
     this.element.find('a').on('focus.pine', this.focus)
 
-    // Default behavior, submenu is triggered on click
+    /* Default behavior, submenu is triggered on click */
     $(document).on('click.pine.submenu', this.options.toggle, this, Pine.Submenu.toggle)
     $(document).on('click.pine.trigger', this.options.trigger, this, Pine.Navbar.toggle)
 
-    // Setup listeners
+    /* Setup listeners */
     $(window).on('load resize', $.proxy(this.api, this))
   };
 
@@ -79,17 +114,18 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   Navbar.api = function (e) {
     var media = this.checkMedia(e)
 
-    if(media === null) return false // check if there is actual change of media
+    /* check if there is actual change of media */
+    if(media === null) return false
 
-    // Perform transition when leaving view
+    /* Perform transition when leaving view */
     if(this.activeTransition && typeof this.activeTransition.onSwitch === 'function') {
       this.activeTransition.onSwitch.call(this, false)
     }
 
-    // Perform all operations to switch between views
+    /* Perform all operations to switch between views */
     this.switchView(media)
 
-    // Perform transition after entering view
+    /* Perform transition after entering view */
     if(this.activeTransition && typeof this.activeTransition.onSwitch === 'function') {
       this.activeTransition.onSwitch.call(this, true)
     }
@@ -102,7 +138,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     var condition = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
     var isLoad = e.type && (e.type == 'load')
 
-    // Check first load or switch beetween views (mobile XOR desktop), it sets isDesktop value only when it is needed
+    /* Check first load or switch beetween views (mobile XOR desktop), it sets isDesktop value only when it is needed */
     if (isLoad || (( this.isDesktop || condition ) && !( this.isDesktop && condition ))) {
       return this.isDesktop = condition
     }
@@ -129,7 +165,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     Event handler which is fired after keyboard input (tab).
   **/
   Navbar.focus = function (e) {
-    // Check if the focused element is part of some Submenu
+    /* Check if the focused element is part of some Submenu */
     var $this = $(this)
     var $parent  = $this.parent()
 
@@ -189,7 +225,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
       var options = $.extend({}, $this.data(), typeof option == 'object' && option)
 
       if (!data) $this.data('pine', (data = Navbar.init(this, options)))
-      // if (typeof option == 'string') data[option]()
+      /*  if (typeof option == 'string') data[option]() */
     })
   }
 

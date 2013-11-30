@@ -39,8 +39,29 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
 
 
 //
-// Submenu: Navigation behavior
+// PineJS: Responsive navigation widget
 // --------------------------------
+
+// PineJS is very simple and flexible responsive navigation. Its purpose is
+// to simplify implementation of the navigation in your projects.
+
+// BASIC USAGE
+// -----------
+// ```(function($){
+//   $('[role=navigation]').pine({
+//     transitionMobile: 'fx-toggle',
+//     transitionDesktop: 'fx-hover-fade'
+//   })```
+//
+var Pine = {}
+
+// Register Pine globally
+window.Pine = Pine
+//
+// Pine Submenu: Navigation behavior
+// --------------------------------
+
+// Submodule handles behavior of each submenu in the navigation bar. Its basis purpose is to handle 'hover' and 'toggle'.
 
 var Pine = window.Pine || {}
 
@@ -51,7 +72,7 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
 
   var version = '0.0.1',
 
-  // Timer for delayed hiding of submenu
+  // Timer delays hiding of the submenu. It improves usability.
   timer = null,
 
   Submenu = {};
@@ -125,9 +146,6 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
 
     return false
   };
-
-  $.fn.submenu = {}
-  $.fn.submenu.Module = Pine.Submenu
 
   return Submenu;
 

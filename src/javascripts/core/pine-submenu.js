@@ -1,7 +1,13 @@
 //
-// Submenu: Navigation behavior
-// --------------------------------
+// PineJS: Submenu
+// ====================================
 
+// ## Pine-submenu.js
+// Submodule handles behavior of each submenu in the navigation bar. Its basis purpose is to handle 'hover' and 'toggle'.
+
+/**
+  Global Pine object
+**/
 var Pine = window.Pine || {}
 
 /**
@@ -11,14 +17,14 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
 
   var version = '0.0.1',
 
-  // Timer for delayed hiding of submenu
+  // Timer delays hiding of the submenu. It improves usability.
   timer = null,
 
   Submenu = {};
 
-  /**
-    Event handler for hover.
-  **/
+  // Method: Hover
+  // -------------
+  // Event handler for hover.
   Submenu.hover = function (e) {
     var $this = $(this)
     var $submenu = $this.find('> ul')
@@ -38,9 +44,9 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
     // $('> a', this).trigger($.Event('toggle.submenu'))
   };
 
-  /**
-    Event handler for toggle.
-  **/
+  // Method: Toggle
+  // -------------
+  // Event handler for toggle.
   Submenu.toggle = function (e) {
     // console.log("Toggle submenu: " + e.type)
 
@@ -85,9 +91,6 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
 
     return false
   };
-
-  $.fn.submenu = {}
-  $.fn.submenu.Module = Pine.Submenu
 
   return Submenu;
 
