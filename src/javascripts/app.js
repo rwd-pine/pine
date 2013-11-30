@@ -1,5 +1,4 @@
-(function($){
-
+(function ($, undefined) { "use strict";
   // NAV DEFAULT INITIALIZATION
   // --------------------
   $('[role=navigation]').pine({
@@ -7,4 +6,4 @@
     transitionDesktop: 'fx-hover-fade'
   })
 
-})(jQuery);
+}(window.Zepto || window.jQuery));

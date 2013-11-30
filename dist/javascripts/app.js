@@ -131,7 +131,7 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
 
   return Submenu;
 
-})(jQuery, window);
+}(window.Zepto || window.jQuery, window));
 
 
 //
@@ -351,35 +351,9 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     $(document).find($(this).attr('href')).toggleClass('is-visible')
   };
 
-  // NAVBAR PLUGIN DEFINITION
-  // --------------------------
-
-  var old = $.fn.pine
-
-  $.fn.pine = function (option) {
-    return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('pine')
-      var options = $.extend({}, $this.data(), typeof option == 'object' && option)
-
-      if (!data) $this.data('pine', (data = Navbar.init(this, options)))
-      /*  if (typeof option == 'string') data[option]() */
-    })
-  }
-
-  $.fn.pine.Module = Navbar
-
-  // NAVBAR NO CONFLICT
-  // --------------------
-
-  $.fn.pine.noConflict = function () {
-    $.fn.pine = old
-    return this
-  }
-
   return Navbar;
 
-})(jQuery, window);
+}(window.Zepto || window.jQuery, window));
 
 //
 // DESKTOP TRANSITION: HOVER
@@ -411,8 +385,124 @@ Pine.Navbar.registerTransition('fx-hover', pine_fx_hover);
 // DESKTOP TRANSITION: HOVER FADE
 // -------------------------
 Pine.Navbar.registerTransition('fx-hover-fade', $.extend({}, pine_fx_hover));
-(function($){
+//
+// MOBILE TRANSITION: RIGHT TO LEFT
+// -------------------------
+Pine.Navbar.registerTransition('fx-right-to-left', {
 
+  onSwitch: function(condition){
+    var $element = this.element
+    var $submenu = $element.find('li').has('ul')
+
+    var resizeSubmenu = function (){
+      $('.fx-right-to-left ul').css('width', $(window).width())
+    }
+
+    if(condition) {
+      // Enter mobile view
+      $submenu.each(function(){
+        $(this).find('> ul')
+          .prepend($('<li class="back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
+      })
+
+      $(document).on('click.pine.submenu', '.back', this, Pine.Submenu.toggle)
+
+      $element.find('ul').css('width', $(window).width())
+      $(window).on('resize', resizeSubmenu)
+    }
+    else {
+      // Leave mobile view
+      $element.find('ul').removeAttr('style')
+      $submenu.find('li.back').remove()
+      $(window).off('resize', resizeSubmenu)
+    }
+  },
+
+  onToggle: function(isActive){
+    var $this = $(this),
+        $parentLists = $this.parents('ul'),
+        level = isActive ? $parentLists.length - 2 : $parentLists.length;
+
+    $parentLists.last().css('left', (-100 * level) + '%')
+  }
+});
+
+
+
+//
+// MOBILE TRANSITION: LEFT TO RIGHT
+// -------------------------
+Pine.Navbar.registerTransition('fx-left-to-right', {
+
+  onSwitch: function(condition){
+    var $element = this.element
+    var $submenu = $element.find('li').has('ul')
+
+    var resizeSubmenu = function (){
+      $('.fx-left-to-right ul').css('width', $(window).width())
+    }
+
+    if(condition) {
+      // Enter mobile view
+      $submenu.each(function(){
+        $(this).find('> ul')
+          .prepend($('<li class="back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
+      })
+
+      $(document).on('click.pine.submenu', '.back', this, Pine.Submenu.toggle)
+
+      $element.find('ul').css('width', $(window).width())
+      $(window).on('resize', resizeSubmenu)
+    }
+    else {
+      // Leave mobile view
+      $element.find('ul').removeAttr('style')
+      $submenu.find('li.back').remove()
+      $(window).off('resize', resizeSubmenu)
+    }
+  },
+
+  onToggle: function(isActive){
+    var $this = $(this),
+        $parentLists = $this.parents('ul'),
+        level = isActive ? $parentLists.length - 2 : $parentLists.length;
+
+    $parentLists.last().css('right', (-100 * level) + '%')
+  }
+});
+
+
+
+// NAVBAR PLUGIN DEFINITION
+// --------------------------
+
+(function ($, Pine, undefined) { "use strict";
+
+  var old = $.fn.pine
+
+  $.fn.pine = function (option) {
+    return this.each(function () {
+      var $this   = $(this)
+      var data    = $this.data('pine')
+      var options = $.extend({}, $this.data(), typeof option == 'object' && option)
+
+      if (!data) $this.data('pine', (data = Pine.Navbar.init(this, options)))
+      /*  if (typeof option == 'string') data[option]() */
+    })
+  }
+
+  $.fn.pine.Module = Pine.Navbar
+
+  // NAVBAR NO CONFLICT
+  // --------------------
+
+  $.fn.pine.noConflict = function () {
+    $.fn.pine = old
+    return this
+  }
+
+}(jQuery, Pine));
+(function ($, undefined) { "use strict";
   // NAV DEFAULT INITIALIZATION
   // --------------------
   $('[role=navigation]').pine({
@@ -420,4 +510,4 @@ Pine.Navbar.registerTransition('fx-hover-fade', $.extend({}, pine_fx_hover));
     transitionDesktop: 'fx-hover-fade'
   })
 
-})(jQuery);
+}(window.Zepto || window.jQuery));

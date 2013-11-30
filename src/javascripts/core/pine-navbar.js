@@ -215,32 +215,6 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     $(document).find($(this).attr('href')).toggleClass('is-visible')
   };
 
-  // NAVBAR PLUGIN DEFINITION
-  // --------------------------
-
-  var old = $.fn.pine
-
-  $.fn.pine = function (option) {
-    return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('pine')
-      var options = $.extend({}, $this.data(), typeof option == 'object' && option)
-
-      if (!data) $this.data('pine', (data = Navbar.init(this, options)))
-      /*  if (typeof option == 'string') data[option]() */
-    })
-  }
-
-  $.fn.pine.Module = Navbar
-
-  // NAVBAR NO CONFLICT
-  // --------------------
-
-  $.fn.pine.noConflict = function () {
-    $.fn.pine = old
-    return this
-  }
-
   return Navbar;
 
-})(jQuery, window);
+}(window.Zepto || window.jQuery, window));
