@@ -28,16 +28,6 @@
                 pine-submenu.js
               </a>
             
-              
-              <a class="source" href="pine-transitions.html">
-                pine-transitions.js
-              </a>
-            
-              
-              <a class="source" href="pine.html">
-                pine.js
-              </a>
-            
           </div>
         </li>
       </ul>
@@ -121,7 +111,8 @@ Pine.Submenu = (<span class="function"><span class="keyword">function</span><spa
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p>Event handler for hover.</p>
+              <p>Event handler for hover. When user enters the menu, timeout is cleared and
+class &#39;is-hover&#39; is added. Otherwise a 300ms timeout is set and the menu is closed.</p>
 
             </div>
             
@@ -133,7 +124,14 @@ Pine.Submenu = (<span class="function"><span class="keyword">function</span><spa
       $submenu.addClass(<span class="string">'is-hover'</span>)
       clearTimeout(timer)
     }
-    <span class="keyword">else</span> {</pre></div></div>
+    <span class="keyword">else</span> {
+      <span class="comment">/* Delay hiding of the menu, usability thing */</span>
+      timer = setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+        $submenu.removeClass(<span class="string">'is-hover'</span>)
+        $<span class="keyword">this</span>.removeClass(<span class="string">'is-open'</span>)
+      },<span class="number">300</span>)
+    }
+  };</pre></div></div>
             
         </li>
         
@@ -144,15 +142,9 @@ Pine.Submenu = (<span class="function"><span class="keyword">function</span><spa
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>Delay hiding of the menu, usability thing</p>
+              <h2 id="method-toggle">Method: Toggle</h2>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>      timer = setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-        $submenu.removeClass(<span class="string">'is-hover'</span>)
-        $<span class="keyword">this</span>.removeClass(<span class="string">'is-open'</span>)
-      },<span class="number">300</span>)
-    }</pre></div></div>
             
         </li>
         
@@ -163,11 +155,16 @@ Pine.Submenu = (<span class="function"><span class="keyword">function</span><spa
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <p>$(&#39;&gt; a&#39;, this).trigger($.Event(&#39;toggle.submenu&#39;))</p>
+              <p>Event handler for toggle.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  };</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  Submenu.toggle = <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span>
+    <span class="keyword">var</span> $<span class="keyword">this</span> = $(<span class="keyword">this</span>),
+        $parent  = $<span class="keyword">this</span>.parent().closest(<span class="string">'li'</span>),
+        isActive  = $parent.hasClass(<span class="string">'is-open'</span>),
+        event = e,
+        transition = e.data.activeTransition &amp;&amp; e.data.activeTransition.onToggle;</pre></div></div>
             
         </li>
         
@@ -177,53 +174,6 @@ Pine.Submenu = (<span class="function"><span class="keyword">function</span><spa
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
-              </div>
-              <h2 id="method-toggle">Method: Toggle</h2>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-9">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
-              </div>
-              <p>Event handler for toggle.</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>  Submenu.toggle = <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span></pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-10">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-10">&#182;</a>
-              </div>
-              <p>console.log(&quot;Toggle submenu: &quot; + e.type)</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>    <span class="keyword">var</span> $<span class="keyword">this</span> = $(<span class="keyword">this</span>),
-        $parent  = $<span class="keyword">this</span>.parent().closest(<span class="string">'li'</span>),
-        isActive  = $parent.hasClass(<span class="string">'is-open'</span>),
-        event = e,
-        transition = e.data.activeTransition &amp;&amp; e.data.activeTransition.onToggle;</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-11">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
               <p>default click behavior needs to close menus clearMenus()</p>
 <p>Handle if the event was fired by link</p>
@@ -235,11 +185,11 @@ Pine.Submenu = (<span class="function"><span class="keyword">function</span><spa
         </li>
         
         
-        <li id="section-12">
+        <li id="section-9">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-12">&#182;</a>
+                <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
               <p>if (&#39;ontouchstart&#39; in document.documentElement &amp;&amp; !$parent.closest(&#39;.navbar-nav&#39;).length) {
   // if mobile we we use a backdrop because click events don&#39;t delegate
@@ -256,11 +206,11 @@ Pine.Submenu = (<span class="function"><span class="keyword">function</span><spa
         </li>
         
         
-        <li id="section-13">
+        <li id="section-10">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-13">&#182;</a>
+                <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
               <p>add hover to child submenu
 console.log(event)</p>
@@ -278,11 +228,11 @@ console.log(event)</p>
         </li>
         
         
-        <li id="section-14">
+        <li id="section-11">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-14">&#182;</a>
+                <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
               <p>If submenu is hovered then return</p>
 
@@ -293,11 +243,11 @@ console.log(event)</p>
         </li>
         
         
-        <li id="section-15">
+        <li id="section-12">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-15">&#182;</a>
+                <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
               <p>Execute special pre-hide hook</p>
 

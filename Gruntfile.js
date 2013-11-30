@@ -76,13 +76,12 @@ module.exports = function(grunt) {
       main: {
         src: [
           'src/javascripts/lib/matchmedia.js',
-          // 'src/javascripts/core/pine.js',
           'src/javascripts/core/pine-submenu.js',
           'src/javascripts/core/pine-navbar.js',
           'src/javascripts/fx/hover.js',
           'src/javascripts/fx/hover-fade.js',
-          // 'src/javascripts/fx/right-to-left.js',
-          // 'src/javascripts/fx/left-to-right.js',
+          'src/javascripts/fx/right-to-left.js',
+          'src/javascripts/fx/left-to-right.js',
           'src/javascripts/app.js'
         ],
         dest: 'dist/javascripts/<%= pkg.name %>.js'
@@ -117,9 +116,7 @@ module.exports = function(grunt) {
           mode: 'gzip'
         },
         files: [
-          // Each of the files in the src/ folder will be output to
-          // the dist/ folder each with the extension .gz.js
-          {expand: true, src: ['dist/javascripts/app.min.js'], dest: 'dist/javascripts', ext: '.gz.js'}
+          {expand: true, src: ['dist/javascripts/app.min.js'], dest: '', ext: '.gz.js'}
         ]
       }
     },

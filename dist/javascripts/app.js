@@ -39,30 +39,15 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
 
 
 //
-// PineJS: Responsive navigation widget
-// --------------------------------
+// PineJS: Submenu
+// ====================================
 
-// PineJS is very simple and flexible responsive navigation. Its purpose is
-// to simplify implementation of the navigation in your projects.
-
-// BASIC USAGE
-// -----------
-// ```(function($){
-//   $('[role=navigation]').pine({
-//     transitionMobile: 'fx-toggle',
-//     transitionDesktop: 'fx-hover-fade'
-//   })```
-//
-var Pine = {}
-
-// Register Pine globally
-window.Pine = Pine
-//
-// Pine Submenu: Navigation behavior
-// --------------------------------
-
+// ## Pine-submenu.js
 // Submodule handles behavior of each submenu in the navigation bar. Its basis purpose is to handle 'hover' and 'toggle'.
 
+/**
+  Global Pine object
+**/
 var Pine = window.Pine || {}
 
 /**
@@ -77,9 +62,10 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
 
   Submenu = {};
 
-  /**
-    Event handler for hover.
-  **/
+  // Method: Hover
+  // -------------
+  // Event handler for hover. When user enters the menu, timeout is cleared and
+  // class 'is-hover' is added. Otherwise a 300ms timeout is set and the menu is closed.
   Submenu.hover = function (e) {
     var $this = $(this)
     var $submenu = $this.find('> ul')
@@ -89,22 +75,18 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
       clearTimeout(timer)
     }
     else {
-      // Delay hiding of the menu, usability thing
+      /* Delay hiding of the menu, usability thing */
       timer = setTimeout(function(){
         $submenu.removeClass('is-hover')
         $this.removeClass('is-open')
       },300)
     }
-
-    // $('> a', this).trigger($.Event('toggle.submenu'))
   };
 
-  /**
-    Event handler for toggle.
-  **/
+  // Method: Toggle
+  // -------------
+  // Event handler for toggle.
   Submenu.toggle = function (e) {
-    // console.log("Toggle submenu: " + e.type)
-
     var $this = $(this),
         $parent  = $this.parent().closest('li'),
         isActive  = $parent.hasClass('is-open'),
@@ -153,13 +135,50 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
 
 
 //
-// Navbar
-// --------------------------------
+// PineJS: Responsive navigation widget
+// ====================================
 
+// PineJS is very simple and flexible responsive navigation. Its purpose is
+// to simplify implementation of the navigation in your projects.
+
+// ## BASIC USAGE
+
+// ```javascript
+//   $('[role=navigation]').pine()
+// ```
+//
+// ## CONFIGURATION
+// ```javascript
+//   $('[role=navigation]').pine({
+//     transitionMobile:   'fx-toggle',
+//     transitionDesktop:  'fx-hover-fade'
+//   })```
+//
+// ### Defaults
+// ```javascript
+//   Navbar.defaults = {
+//     jsBreakpoint:       '600px',
+//     transitionMobile:   'fx-toggle',
+//     transitionDesktop:  'fx-hover-fade'
+//   }```
+//
+// Available transitions out of the box:
+// 1. Mobile
+//   - **Toggle** - simple show and hide of the child list
+//   - **Right to Left** - each level of navigation slides in from the right
+//   - **Left to Right** - inverted direction, for Arabic and other languages
+// 2. Desktop
+//   - **Toggle** - menus are toggled by click
+//   - **Hover** - menus are toggled on hover
+//   - **Hover with fade in/out** - extension to 'hover' transition, animation is added
+
+/**
+  Global Pine object
+**/
 var Pine = window.Pine || {}
 
 /**
-  Provides the base for Responsive navigation module.
+  Navbar module provides base for the responsive navigation widget.
 **/
 Pine.Navbar = (function ($, window, undefined) { "use strict";
 
@@ -168,34 +187,34 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   Navbar = {};
 
   /**
-    Stores the state of current view
+    Stores the state of the current view. Either true for large displays or false for small ones.
   **/
   Navbar.isDesktop = null;
 
   /**
-    Root navigation element.
+    Root element.
   **/
   Navbar.element = null;
 
   /**
-    Default configuration for navigation module.
+    Default configuration for the module.
   **/
-  Navbar.defaults = {
+  Navbar.DEFAULTS = {
     jsBreakpoint:       '600px',
-    toggle:             '.has-submenu > a',
-    submenu:            '.has-submenu',
-    transitionDesktop:  'pine-hover',
-    transitionMobile:   null,
-    trigger:            '.pine-trigger'
+    transitionDesktop:  'fx-hover',
+    transitionMobile:   'fx-toggle'
   };
 
+  Navbar.NAVBAR_TOGGLE =  '[data-pine=toggle]';
+  Navbar.SUBMENU =        '.has-submenu';
+
   /**
-    Navigation options that override defaults
+    Navigation options which override defaults
   **/
   Navbar.options = null;
 
   /**
-    List of all available transitions. Transitions are loaded as plugins.
+    List of all available transitions. Transitions are loaded as plugins via registerTransition().
   **/
   Navbar.transitions = {};
 
@@ -205,25 +224,25 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   Navbar.activeTransition = {};
 
   /**
-    Initialize all properties of Nav Module and sets up event listeners
+    Initialize all properties and sets up event listeners
   **/
   Navbar.init = function(element, options) {
-    this.options = $.extend({}, this.defaults, options)
+    this.options = $.extend({}, this.DEFAULTS, options)
     this.element = $(element)
-    this.isDesktop = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
 
-    // Set initial transition
+    /* Initialize view and set active transtition */
+    this.isDesktop = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
     this.isDesktop ? this.setActiveTransition(this.options.transitionDesktop) : this.setActiveTransition(this.options.transitionMobile)
 
-    // Initialize Submenus
+    /* Initialize submenus */
     this.element.find('li').has('ul').addClass('has-submenu')
     this.element.find('a').on('focus.pine', this.focus)
 
-    // Default behavior, submenu is triggered on click
-    $(document).on('click.pine.submenu', this.options.toggle, this, Pine.Submenu.toggle)
-    $(document).on('click.pine.trigger', this.options.trigger, this, Pine.Navbar.toggle)
+    /* Default behavior, submenu is triggered on click */
+    $(document).on('click.pine.submenu', this.SUBMENU + ' > a', this, Pine.Submenu.toggle)
+    $(document).on('click.pine.trigger', this.NAVBAR_TOGGLE, this, Pine.Navbar.toggle)
 
-    // Setup listeners
+    /* Setup API with all listeners */
     $(window).on('load resize', $.proxy(this.api, this))
   };
 
@@ -233,17 +252,18 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   Navbar.api = function (e) {
     var media = this.checkMedia(e)
 
-    if(media === null) return false // check if there is actual change of media
+    /* Check if there is actual change of media */
+    if(media === null) return false
 
-    // Perform transition when leaving view
+    /* Perform transition when leaving view */
     if(this.activeTransition && typeof this.activeTransition.onSwitch === 'function') {
       this.activeTransition.onSwitch.call(this, false)
     }
 
-    // Perform all operations to switch between views
+    /* Perform all operations to switch between views */
     this.switchView(media)
 
-    // Perform transition after entering view
+    /* Perform transition after entering view */
     if(this.activeTransition && typeof this.activeTransition.onSwitch === 'function') {
       this.activeTransition.onSwitch.call(this, true)
     }
@@ -256,7 +276,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     var condition = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
     var isLoad = e.type && (e.type == 'load')
 
-    // Check first load or switch beetween views (mobile XOR desktop), it sets isDesktop value only when it is needed
+    /* Check first load or switch beetween views (mobile XOR desktop), it sets isDesktop value only when it is needed */
     if (isLoad || (( this.isDesktop || condition ) && !( this.isDesktop && condition ))) {
       return this.isDesktop = condition
     }
@@ -283,7 +303,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     Event handler which is fired after keyboard input (tab).
   **/
   Navbar.focus = function (e) {
-    // Check if the focused element is part of some Submenu
+    /* Check if the focused element is part of some Submenu */
     var $this = $(this)
     var $parent  = $this.parent()
 
@@ -343,7 +363,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
       var options = $.extend({}, $this.data(), typeof option == 'object' && option)
 
       if (!data) $this.data('pine', (data = Navbar.init(this, options)))
-      // if (typeof option == 'string') data[option]()
+      /*  if (typeof option == 'string') data[option]() */
     })
   }
 
@@ -369,15 +389,15 @@ var pine_fx_hover = {
     if (switchCondition) {
       // Add 'mouse' listeners and disable 'click.submenu'
       $(document)
-        .on('mouseenter.pine.submenu, mouseleave.pine.submenu', this.options.submenu, this, Pine.Submenu.hover)
-        .on('mouseenter.pine.submenu, mouseleave.pine.submenu', this.options.toggle, this, Pine.Submenu.toggle)
+        .on('mouseenter.pine.submenu, mouseleave.pine.submenu', this.SUBMENU, this, Pine.Submenu.hover)
+        .on('mouseenter.pine.submenu, mouseleave.pine.submenu', this.SUBMENU + ' > a', this, Pine.Submenu.toggle)
         .off('click.pine.submenu')
     }
     else {
       // Add 'click.submenu' listeners and disable 'mouse'"
       $(document)
         .off('mouseenter.pine.submenu, mouseleave.pine.submenu')
-        .on('click.pine.submenu', this.options.toggle, this, Pine.Submenu.toggle)
+        .on('click.pine.submenu', this.SUBMENU + ' > a', this, Pine.Submenu.toggle)
 
     }
   },
@@ -391,94 +411,6 @@ Pine.Navbar.registerTransition('fx-hover', pine_fx_hover);
 // DESKTOP TRANSITION: HOVER FADE
 // -------------------------
 Pine.Navbar.registerTransition('fx-hover-fade', $.extend({}, pine_fx_hover));
-//
-// MOBILE TRANSITION: RIGHT TO LEFT
-// -------------------------
-Pine.Navbar.registerTransition('fx-right-to-left', {
-
-  onSwitch: function(condition){
-    var $element = this.element
-    var $submenu = $element.find('li').has('ul')
-
-    var resizeSubmenu = function (){
-      $('.fx-right-to-left ul').css('width', $(window).width())
-    }
-
-    if(condition) {
-      // Enter mobile view
-      $submenu.each(function(){
-        $(this).find('> ul')
-          .prepend($('<li class="back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
-      })
-
-      $(document).on('click.pine.submenu', '.back', this, Pine.Submenu.toggle)
-
-      $element.find('ul').css('width', $(window).width())
-      $(window).on('resize', resizeSubmenu)
-    }
-    else {
-      // Leave mobile view
-      $element.find('ul').removeAttr('style')
-      $submenu.find('li.back').remove()
-      $(window).off('resize', resizeSubmenu)
-    }
-  },
-
-  onToggle: function(isActive){
-    var $this = $(this),
-        $parentLists = $this.parents('ul'),
-        level = isActive ? $parentLists.length - 2 : $parentLists.length;
-
-    $parentLists.last().css('left', (-100 * level) + '%')
-  }
-});
-
-
-
-//
-// MOBILE TRANSITION: LEFT TO RIGHT
-// -------------------------
-Pine.Navbar.registerTransition('fx-left-to-right', {
-
-  onSwitch: function(condition){
-    var $element = this.element
-    var $submenu = $element.find('li').has('ul')
-
-    var resizeSubmenu = function (){
-      $('.fx-left-to-right ul').css('width', $(window).width())
-    }
-
-    if(condition) {
-      // Enter mobile view
-      $submenu.each(function(){
-        $(this).find('> ul')
-          .prepend($('<li class="back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
-      })
-
-      $(document).on('click.pine.submenu', '.back', this, Pine.Submenu.toggle)
-
-      $element.find('ul').css('width', $(window).width())
-      $(window).on('resize', resizeSubmenu)
-    }
-    else {
-      // Leave mobile view
-      $element.find('ul').removeAttr('style')
-      $submenu.find('li.back').remove()
-      $(window).off('resize', resizeSubmenu)
-    }
-  },
-
-  onToggle: function(isActive){
-    var $this = $(this),
-        $parentLists = $this.parents('ul'),
-        level = isActive ? $parentLists.length - 2 : $parentLists.length;
-
-    $parentLists.last().css('right', (-100 * level) + '%')
-  }
-});
-
-
-
 (function($){
 
   // NAV DEFAULT INITIALIZATION

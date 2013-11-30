@@ -8,21 +8,23 @@
 // ## BASIC USAGE
 
 // ```javascript
+//   $('[role=navigation]').pine()
+// ```
+//
+// ## CONFIGURATION
+// ```javascript
 //   $('[role=navigation]').pine({
-//     transitionMobile: 'fx-toggle',
-//     transitionDesktop: 'fx-hover-fade'
+//     transitionMobile:   'fx-toggle',
+//     transitionDesktop:  'fx-hover-fade'
 //   })```
 //
-// ### Default configuration
+// ### Defaults
 // ```javascript
-// Navbar.defaults = {
-//   jsBreakpoint:       '600px',
-//   toggle:             '.has-submenu > a',
-//   submenu:            '.has-submenu',
-//   transitionDesktop:  'pine-hover',
-//   transitionMobile:   null,
-//   trigger:            '.pine-trigger'
-// }```
+//   Navbar.defaults = {
+//     jsBreakpoint:       '600px',
+//     transitionMobile:   'fx-toggle',
+//     transitionDesktop:  'fx-hover-fade'
+//   }```
 //
 // Available transitions out of the box:
 // 1. Mobile
@@ -30,9 +32,9 @@
 //   - **Right to Left** - each level of navigation slides in from the right
 //   - **Left to Right** - inverted direction, for Arabic and other languages
 // 2. Desktop
-//   - **Click** - menus are toggled by click
+//   - **Toggle** - menus are toggled by click
 //   - **Hover** - menus are toggled on hover
-//   - **Hover** with fade in/out - extension to 'hover' transition, animation is added
+//   - **Hover with fade in/out** - extension to 'hover' transition, animation is added
 
 /**
   Global Pine object
@@ -40,7 +42,7 @@
 var Pine = window.Pine || {}
 
 /**
-  Navbar module - Provides the base for Responsive navigation module.
+  Navbar module provides base for the responsive navigation widget.
 **/
 Pine.Navbar = (function ($, window, undefined) { "use strict";
 
@@ -49,34 +51,34 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   Navbar = {};
 
   /**
-    Stores the state of current view
+    Stores the state of the current view. Either true for large displays or false for small ones.
   **/
   Navbar.isDesktop = null;
 
   /**
-    Root navigation element.
+    Root element.
   **/
   Navbar.element = null;
 
   /**
-    Default configuration for navigation module.
+    Default configuration for the module.
   **/
-  Navbar.defaults = {
+  Navbar.DEFAULTS = {
     jsBreakpoint:       '600px',
-    toggle:             '.has-submenu > a',
-    submenu:            '.has-submenu',
-    transitionDesktop:  'pine-hover',
-    transitionMobile:   null,
-    trigger:            '.pine-trigger'
+    transitionDesktop:  'fx-hover',
+    transitionMobile:   'fx-toggle'
   };
 
+  Navbar.NAVBAR_TOGGLE =  '[data-pine=toggle]';
+  Navbar.SUBMENU =        '.has-submenu';
+
   /**
-    Navigation options that override defaults
+    Navigation options which override defaults
   **/
   Navbar.options = null;
 
   /**
-    List of all available transitions. Transitions are loaded as plugins.
+    List of all available transitions. Transitions are loaded as plugins via registerTransition().
   **/
   Navbar.transitions = {};
 
@@ -86,25 +88,25 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   Navbar.activeTransition = {};
 
   /**
-    Initialize all properties of Nav Module and sets up event listeners
+    Initialize all properties and sets up event listeners
   **/
   Navbar.init = function(element, options) {
-    this.options = $.extend({}, this.defaults, options)
+    this.options = $.extend({}, this.DEFAULTS, options)
     this.element = $(element)
-    this.isDesktop = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
 
-    /* Set initial transition */
+    /* Initialize view and set active transtition */
+    this.isDesktop = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
     this.isDesktop ? this.setActiveTransition(this.options.transitionDesktop) : this.setActiveTransition(this.options.transitionMobile)
 
-    /* Initialize Submenus */
+    /* Initialize submenus */
     this.element.find('li').has('ul').addClass('has-submenu')
     this.element.find('a').on('focus.pine', this.focus)
 
     /* Default behavior, submenu is triggered on click */
-    $(document).on('click.pine.submenu', this.options.toggle, this, Pine.Submenu.toggle)
-    $(document).on('click.pine.trigger', this.options.trigger, this, Pine.Navbar.toggle)
+    $(document).on('click.pine.submenu', this.SUBMENU + ' > a', this, Pine.Submenu.toggle)
+    $(document).on('click.pine.trigger', this.NAVBAR_TOGGLE, this, Pine.Navbar.toggle)
 
-    /* Setup listeners */
+    /* Setup API with all listeners */
     $(window).on('load resize', $.proxy(this.api, this))
   };
 
@@ -114,7 +116,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   Navbar.api = function (e) {
     var media = this.checkMedia(e)
 
-    /* check if there is actual change of media */
+    /* Check if there is actual change of media */
     if(media === null) return false
 
     /* Perform transition when leaving view */

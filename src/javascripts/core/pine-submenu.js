@@ -24,7 +24,8 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
 
   // Method: Hover
   // -------------
-  // Event handler for hover.
+  // Event handler for hover. When user enters the menu, timeout is cleared and
+  // class 'is-hover' is added. Otherwise a 300ms timeout is set and the menu is closed.
   Submenu.hover = function (e) {
     var $this = $(this)
     var $submenu = $this.find('> ul')
@@ -34,22 +35,18 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
       clearTimeout(timer)
     }
     else {
-      // Delay hiding of the menu, usability thing
+      /* Delay hiding of the menu, usability thing */
       timer = setTimeout(function(){
         $submenu.removeClass('is-hover')
         $this.removeClass('is-open')
       },300)
     }
-
-    // $('> a', this).trigger($.Event('toggle.submenu'))
   };
 
   // Method: Toggle
   // -------------
   // Event handler for toggle.
   Submenu.toggle = function (e) {
-    // console.log("Toggle submenu: " + e.type)
-
     var $this = $(this),
         $parent  = $this.parent().closest('li'),
         isActive  = $parent.hasClass('is-open'),

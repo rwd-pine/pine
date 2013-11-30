@@ -28,16 +28,6 @@
                 pine-submenu.js
               </a>
             
-              
-              <a class="source" href="pine-transitions.html">
-                pine-transitions.js
-              </a>
-            
-              
-              <a class="source" href="pine.html">
-                pine.js
-              </a>
-            
           </div>
         </li>
       </ul>
@@ -68,19 +58,18 @@
               <p>PineJS is very simple and flexible responsive navigation. Its purpose is
 to simplify implementation of the navigation in your projects.</p>
 <h2 id="basic-usage">BASIC USAGE</h2>
+<pre><code class="lang-javascript">  $(&#39;[role=navigation]&#39;).pine()</code></pre>
+<h2 id="configuration">CONFIGURATION</h2>
 <pre><code class="lang-javascript">  $(&#39;[role=navigation]&#39;).pine({
-    transitionMobile: &#39;fx-toggle&#39;,
-    transitionDesktop: &#39;fx-hover-fade&#39;
+    transitionMobile:   &#39;fx-toggle&#39;,
+    transitionDesktop:  &#39;fx-hover-fade&#39;
   })</code></pre>
-<h3 id="default-configuration">Default configuration</h3>
-<pre><code class="lang-javascript">Navbar.defaults = {
-  jsBreakpoint:       &#39;600px&#39;,
-  toggle:             &#39;.has-submenu &gt; a&#39;,
-  submenu:            &#39;.has-submenu&#39;,
-  transitionDesktop:  &#39;pine-hover&#39;,
-  transitionMobile:   null,
-  trigger:            &#39;.pine-trigger&#39;
-}</code></pre>
+<h3 id="defaults">Defaults</h3>
+<pre><code class="lang-javascript">  Navbar.defaults = {
+    jsBreakpoint:       &#39;600px&#39;,
+    transitionMobile:   &#39;fx-toggle&#39;,
+    transitionDesktop:  &#39;fx-hover-fade&#39;
+  }</code></pre>
 <p>Available transitions out of the box:</p>
 <ol>
 <li>Mobile<ul>
@@ -90,9 +79,9 @@ to simplify implementation of the navigation in your projects.</p>
 </ul>
 </li>
 <li>Desktop<ul>
-<li><strong>Click</strong> - menus are toggled by click</li>
+<li><strong>Toggle</strong> - menus are toggled by click</li>
 <li><strong>Hover</strong> - menus are toggled on hover</li>
-<li><strong>Hover</strong> with fade in/out - extension to &#39;hover&#39; transition, animation is added</li>
+<li><strong>Hover with fade in/out</strong> - extension to &#39;hover&#39; transition, animation is added</li>
 </ul>
 </li>
 </ol>
@@ -105,7 +94,7 @@ to simplify implementation of the navigation in your projects.</p>
 <span class="keyword">var</span> Pine = window.Pine || {}
 
 <span class="comment">/**
-  Navbar module - Provides the base for Responsive navigation module.
+  Navbar module provides base for the responsive navigation widget.
 **/</span>
 Pine.Navbar = (<span class="function"><span class="keyword">function</span> <span class="params">($, window, undefined)</span> {</span> <span class="string">"use strict"</span>;
 
@@ -114,34 +103,34 @@ Pine.Navbar = (<span class="function"><span class="keyword">function</span> <spa
   Navbar = {};
 
   <span class="comment">/**
-    Stores the state of current view
+    Stores the state of the current view. Either true for large displays or false for small ones.
   **/</span>
   Navbar.isDesktop = <span class="literal">null</span>;
 
   <span class="comment">/**
-    Root navigation element.
+    Root element.
   **/</span>
   Navbar.element = <span class="literal">null</span>;
 
   <span class="comment">/**
-    Default configuration for navigation module.
+    Default configuration for the module.
   **/</span>
-  Navbar.defaults = {
+  Navbar.DEFAULTS = {
     jsBreakpoint:       <span class="string">'600px'</span>,
-    toggle:             <span class="string">'.has-submenu &gt; a'</span>,
-    submenu:            <span class="string">'.has-submenu'</span>,
-    transitionDesktop:  <span class="string">'pine-hover'</span>,
-    transitionMobile:   <span class="literal">null</span>,
-    trigger:            <span class="string">'.pine-trigger'</span>
+    transitionDesktop:  <span class="string">'fx-hover'</span>,
+    transitionMobile:   <span class="string">'fx-toggle'</span>
   };
 
+  Navbar.NAVBAR_TOGGLE =  <span class="string">'[data-pine=toggle]'</span>;
+  Navbar.SUBMENU =        <span class="string">'.has-submenu'</span>;
+
   <span class="comment">/**
-    Navigation options that override defaults
+    Navigation options which override defaults
   **/</span>
   Navbar.options = <span class="literal">null</span>;
 
   <span class="comment">/**
-    List of all available transitions. Transitions are loaded as plugins.
+    List of all available transitions. Transitions are loaded as plugins via registerTransition().
   **/</span>
   Navbar.transitions = {};
 
@@ -151,25 +140,25 @@ Pine.Navbar = (<span class="function"><span class="keyword">function</span> <spa
   Navbar.activeTransition = {};
 
   <span class="comment">/**
-    Initialize all properties of Nav Module and sets up event listeners
+    Initialize all properties and sets up event listeners
   **/</span>
   Navbar.init = <span class="function"><span class="keyword">function</span><span class="params">(element, options)</span> {</span>
-    <span class="keyword">this</span>.options = $.extend({}, <span class="keyword">this</span>.defaults, options)
+    <span class="keyword">this</span>.options = $.extend({}, <span class="keyword">this</span>.DEFAULTS, options)
     <span class="keyword">this</span>.element = $(element)
-    <span class="keyword">this</span>.isDesktop = window.matchMedia(<span class="string">'(min-width: '</span> + <span class="keyword">this</span>.options.jsBreakpoint + <span class="string">')'</span>).matches
 
-    <span class="comment">/* Set initial transition */</span>
+    <span class="comment">/* Initialize view and set active transtition */</span>
+    <span class="keyword">this</span>.isDesktop = window.matchMedia(<span class="string">'(min-width: '</span> + <span class="keyword">this</span>.options.jsBreakpoint + <span class="string">')'</span>).matches
     <span class="keyword">this</span>.isDesktop ? <span class="keyword">this</span>.setActiveTransition(<span class="keyword">this</span>.options.transitionDesktop) : <span class="keyword">this</span>.setActiveTransition(<span class="keyword">this</span>.options.transitionMobile)
 
-    <span class="comment">/* Initialize Submenus */</span>
+    <span class="comment">/* Initialize submenus */</span>
     <span class="keyword">this</span>.element.find(<span class="string">'li'</span>).has(<span class="string">'ul'</span>).addClass(<span class="string">'has-submenu'</span>)
     <span class="keyword">this</span>.element.find(<span class="string">'a'</span>).on(<span class="string">'focus.pine'</span>, <span class="keyword">this</span>.focus)
 
     <span class="comment">/* Default behavior, submenu is triggered on click */</span>
-    $(document).on(<span class="string">'click.pine.submenu'</span>, <span class="keyword">this</span>.options.toggle, <span class="keyword">this</span>, Pine.Submenu.toggle)
-    $(document).on(<span class="string">'click.pine.trigger'</span>, <span class="keyword">this</span>.options.trigger, <span class="keyword">this</span>, Pine.Navbar.toggle)
+    $(document).on(<span class="string">'click.pine.submenu'</span>, <span class="keyword">this</span>.SUBMENU + <span class="string">' &gt; a'</span>, <span class="keyword">this</span>, Pine.Submenu.toggle)
+    $(document).on(<span class="string">'click.pine.trigger'</span>, <span class="keyword">this</span>.NAVBAR_TOGGLE, <span class="keyword">this</span>, Pine.Navbar.toggle)
 
-    <span class="comment">/* Setup listeners */</span>
+    <span class="comment">/* Setup API with all listeners */</span>
     $(window).on(<span class="string">'load resize'</span>, $.proxy(<span class="keyword">this</span>.api, <span class="keyword">this</span>))
   };
 
@@ -179,7 +168,7 @@ Pine.Navbar = (<span class="function"><span class="keyword">function</span> <spa
   Navbar.api = <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span>
     <span class="keyword">var</span> media = <span class="keyword">this</span>.checkMedia(e)
 
-    <span class="comment">/* check if there is actual change of media */</span>
+    <span class="comment">/* Check if there is actual change of media */</span>
     <span class="keyword">if</span>(media === <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">false</span>
 
     <span class="comment">/* Perform transition when leaving view */</span>
