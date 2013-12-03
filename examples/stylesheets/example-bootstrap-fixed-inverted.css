@@ -7310,11 +7310,11 @@ td.visible-print {
   position: relative;
 }
 
-.pine > ul > li.has-submenu > a {
+.pine ul > li.has-submenu > a {
   padding-right: 30px;
 }
 
-.pine > ul > li.has-submenu > a:before {
+.pine ul > li.has-submenu > a:before {
   position: absolute;
   top: 50%;
   right: 15px;
@@ -7330,50 +7330,35 @@ td.visible-print {
 }
 
 @media (max-width: 600px) {
-  .pine > ul > li.has-submenu > a:before {
+  .pine ul > li.has-submenu > a:before {
     right: 14px;
   }
 }
 
 @media (max-width: 600px) {
-  .pine > ul > li.has-submenu > a:before {
+  .pine ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #999999;
   }
 }
 
-.pine.pine-horizontal > ul > li.has-submenu > a {
+.pine.pine-horizontal ul > li.has-submenu > a {
   padding-right: 30px;
 }
 
-.pine.pine-horizontal > ul > li.has-submenu > a:before {
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  z-index: 100;
-  display: inline-block;
-  width: 0;
-  height: 0;
+.pine.pine-horizontal ul > li.has-submenu > a:before {
   margin-top: -2.5px;
   border-color: #999999 transparent transparent transparent;
-  border-style: solid;
   border-width: 5px 5px 0 5px;
-  content: "";
 }
 
 @media (max-width: 600px) {
-  .pine.pine-horizontal > ul > li.has-submenu > a:before {
-    right: 14px;
-  }
-}
-
-@media (max-width: 600px) {
-  .pine.pine-horizontal > ul > li.has-submenu > a:before {
+  .pine.pine-horizontal ul > li.has-submenu > a:before {
     border-color: #999999 transparent transparent transparent;
   }
 }
 
 @media (max-width: 599px) {
-  .pine.pine-horizontal > ul > li.has-submenu > a:before {
+  .pine.pine-horizontal ul > li.has-submenu > a:before {
     margin-top: -5px;
     border-color: transparent transparent transparent #999999;
     border-width: 5px 0 5px 5px;
@@ -7381,16 +7366,16 @@ td.visible-print {
 }
 
 @media (max-width: 599px) and (max-width: 600px) {
-  .pine.pine-horizontal > ul > li.has-submenu > a:before {
+  .pine.pine-horizontal ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #999999;
   }
 }
 
-.pine ul ul > li.has-submenu > a {
+.pine ul li.is-open ul > li.has-submenu > a {
   padding-right: 30px;
 }
 
-.pine ul ul > li.has-submenu > a:before {
+.pine ul li.is-open ul > li.has-submenu > a:before {
   position: absolute;
   top: 50%;
   right: 15px;
@@ -7406,13 +7391,13 @@ td.visible-print {
 }
 
 @media (max-width: 600px) {
-  .pine ul ul > li.has-submenu > a:before {
+  .pine ul li.is-open ul > li.has-submenu > a:before {
     right: 14px;
   }
 }
 
 @media (max-width: 600px) {
-  .pine ul ul > li.has-submenu > a:before {
+  .pine ul li.is-open ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #999999;
   }
 }
@@ -7650,24 +7635,24 @@ td.visible-print {
     text-indent: 0;
     border-bottom: 0;
   }
-  .pine.pine-horizontal > ul > li > a,
-  .pine.pine-horizontal > ul > li > strong {
+  .pine.pine-horizontal ul > li > a,
+  .pine.pine-horizontal ul > li > strong {
     padding: 15px 15px;
     font-size: 14px;
     color: #999999;
     background: #222222;
   }
-  .pine.pine-horizontal > ul > li > a:hover,
-  .pine.pine-horizontal > ul > li > a:focus,
-  .pine.pine-horizontal > ul > li > a:active {
+  .pine.pine-horizontal ul > li > a:hover,
+  .pine.pine-horizontal ul > li > a:focus,
+  .pine.pine-horizontal ul > li > a:active {
     color: #ffffff;
     background: transparent;
   }
-  .pine.pine-horizontal > ul > li.is-open > a {
+  .pine.pine-horizontal ul > li.is-open > a {
     color: #ffffff;
     background: #080808;
   }
-  .pine.pine-horizontal > ul > li > ul {
+  .pine.pine-horizontal ul > li > ul {
     color: #999999;
     background: #222222;
     border: 1px solid #080808;
@@ -7680,24 +7665,24 @@ td.visible-print {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     background-clip: padding-box;
   }
-  .pine.pine-horizontal > ul ul > li > a,
-  .pine.pine-horizontal > ul ul > li > strong {
+  .pine.pine-horizontal ul ul > li > a,
+  .pine.pine-horizontal ul ul > li > strong {
     padding: 7.5px 15px;
     font-size: 14px;
     color: #999999;
     background: #222222;
   }
-  .pine.pine-horizontal > ul ul > li > a:hover,
-  .pine.pine-horizontal > ul ul > li > a:focus,
-  .pine.pine-horizontal > ul ul > li > a:active {
+  .pine.pine-horizontal ul ul > li > a:hover,
+  .pine.pine-horizontal ul ul > li > a:focus,
+  .pine.pine-horizontal ul ul > li > a:active {
     color: #ffffff;
     background: transparent;
   }
-  .pine.pine-horizontal > ul ul > li.is-open > a {
+  .pine.pine-horizontal ul ul > li.is-open > a {
     color: #ffffff;
     background: #080808;
   }
-  .pine.pine-horizontal > ul > li > ul > li > ul {
+  .pine.pine-horizontal ul > li > ul > li > ul {
     overflow: hidden;
     color: #999999;
     background: #222222;
@@ -7709,30 +7694,30 @@ td.visible-print {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     background-clip: padding-box;
   }
-  .pine.pine-horizontal > ul ul ul > li > a,
-  .pine.pine-horizontal > ul ul ul > li > strong {
+  .pine.pine-horizontal ul ul ul > li > a,
+  .pine.pine-horizontal ul ul ul > li > strong {
     padding: 7.5px 15px;
     font-size: 14px;
     color: #999999;
     background: #222222;
   }
-  .pine.pine-horizontal > ul ul ul > li > a:hover,
-  .pine.pine-horizontal > ul ul ul > li > a:focus,
-  .pine.pine-horizontal > ul ul ul > li > a:active {
+  .pine.pine-horizontal ul ul ul > li > a:hover,
+  .pine.pine-horizontal ul ul ul > li > a:focus,
+  .pine.pine-horizontal ul ul ul > li > a:active {
     color: #ffffff;
     background: transparent;
   }
-  .pine.pine-horizontal > ul ul ul > li.is-open > a {
+  .pine.pine-horizontal ul ul ul > li.is-open > a {
     color: #ffffff;
     background: #080808;
   }
-  .pine.pine-horizontal > ul > li {
+  .pine.pine-horizontal ul > li {
     position: relative;
     display: inline-block;
     float: left;
   }
-  .pine.pine-horizontal > ul > li > a,
-  .pine.pine-horizontal > ul > li > strong {
+  .pine.pine-horizontal ul > li > a,
+  .pine.pine-horizontal ul > li > strong {
     display: block;
     text-align: center;
   }
@@ -7743,6 +7728,14 @@ td.visible-print {
     position: absolute;
     padding-top: 8px;
     padding-bottom: 8px;
+  }
+  .pine.pine-horizontal ul ul li {
+    display: block;
+    float: none;
+  }
+  .pine.pine-horizontal ul ul > li > a,
+  .pine.pine-horizontal ul ul > li > strong {
+    text-align: left;
   }
   .js .pine.pine-horizontal ul ul {
     visibility: hidden;
@@ -7799,27 +7792,27 @@ td.visible-print {
   border-bottom: 0;
 }
 
-.old-ie .pine.pine-horizontal > ul > li > a,
-.old-ie .pine.pine-horizontal > ul > li > strong {
+.old-ie .pine.pine-horizontal ul > li > a,
+.old-ie .pine.pine-horizontal ul > li > strong {
   padding: 15px 15px;
   font-size: 14px;
   color: #999999;
   background: #222222;
 }
 
-.old-ie .pine.pine-horizontal > ul > li > a:hover,
-.old-ie .pine.pine-horizontal > ul > li > a:focus,
-.old-ie .pine.pine-horizontal > ul > li > a:active {
+.old-ie .pine.pine-horizontal ul > li > a:hover,
+.old-ie .pine.pine-horizontal ul > li > a:focus,
+.old-ie .pine.pine-horizontal ul > li > a:active {
   color: #ffffff;
   background: transparent;
 }
 
-.old-ie .pine.pine-horizontal > ul > li.is-open > a {
+.old-ie .pine.pine-horizontal ul > li.is-open > a {
   color: #ffffff;
   background: #080808;
 }
 
-.old-ie .pine.pine-horizontal > ul > li > ul {
+.old-ie .pine.pine-horizontal ul > li > ul {
   color: #999999;
   background: #222222;
   border: 1px solid #080808;
@@ -7833,27 +7826,27 @@ td.visible-print {
   background-clip: padding-box;
 }
 
-.old-ie .pine.pine-horizontal > ul ul > li > a,
-.old-ie .pine.pine-horizontal > ul ul > li > strong {
+.old-ie .pine.pine-horizontal ul ul > li > a,
+.old-ie .pine.pine-horizontal ul ul > li > strong {
   padding: 7.5px 15px;
   font-size: 14px;
   color: #999999;
   background: #222222;
 }
 
-.old-ie .pine.pine-horizontal > ul ul > li > a:hover,
-.old-ie .pine.pine-horizontal > ul ul > li > a:focus,
-.old-ie .pine.pine-horizontal > ul ul > li > a:active {
+.old-ie .pine.pine-horizontal ul ul > li > a:hover,
+.old-ie .pine.pine-horizontal ul ul > li > a:focus,
+.old-ie .pine.pine-horizontal ul ul > li > a:active {
   color: #ffffff;
   background: transparent;
 }
 
-.old-ie .pine.pine-horizontal > ul ul > li.is-open > a {
+.old-ie .pine.pine-horizontal ul ul > li.is-open > a {
   color: #ffffff;
   background: #080808;
 }
 
-.old-ie .pine.pine-horizontal > ul > li > ul > li > ul {
+.old-ie .pine.pine-horizontal ul > li > ul > li > ul {
   overflow: hidden;
   color: #999999;
   background: #222222;
@@ -7866,34 +7859,34 @@ td.visible-print {
   background-clip: padding-box;
 }
 
-.old-ie .pine.pine-horizontal > ul ul ul > li > a,
-.old-ie .pine.pine-horizontal > ul ul ul > li > strong {
+.old-ie .pine.pine-horizontal ul ul ul > li > a,
+.old-ie .pine.pine-horizontal ul ul ul > li > strong {
   padding: 7.5px 15px;
   font-size: 14px;
   color: #999999;
   background: #222222;
 }
 
-.old-ie .pine.pine-horizontal > ul ul ul > li > a:hover,
-.old-ie .pine.pine-horizontal > ul ul ul > li > a:focus,
-.old-ie .pine.pine-horizontal > ul ul ul > li > a:active {
+.old-ie .pine.pine-horizontal ul ul ul > li > a:hover,
+.old-ie .pine.pine-horizontal ul ul ul > li > a:focus,
+.old-ie .pine.pine-horizontal ul ul ul > li > a:active {
   color: #ffffff;
   background: transparent;
 }
 
-.old-ie .pine.pine-horizontal > ul ul ul > li.is-open > a {
+.old-ie .pine.pine-horizontal ul ul ul > li.is-open > a {
   color: #ffffff;
   background: #080808;
 }
 
-.old-ie .pine.pine-horizontal > ul > li {
+.old-ie .pine.pine-horizontal ul > li {
   position: relative;
   display: inline-block;
   float: left;
 }
 
-.old-ie .pine.pine-horizontal > ul > li > a,
-.old-ie .pine.pine-horizontal > ul > li > strong {
+.old-ie .pine.pine-horizontal ul > li > a,
+.old-ie .pine.pine-horizontal ul > li > strong {
   display: block;
   text-align: center;
 }
@@ -7906,6 +7899,16 @@ td.visible-print {
   position: absolute;
   padding-top: 8px;
   padding-bottom: 8px;
+}
+
+.old-ie .pine.pine-horizontal ul ul li {
+  display: block;
+  float: none;
+}
+
+.old-ie .pine.pine-horizontal ul ul > li > a,
+.old-ie .pine.pine-horizontal ul ul > li > strong {
+  text-align: left;
 }
 
 .js .old-ie .pine.pine-horizontal ul ul {
@@ -7965,24 +7968,24 @@ td.visible-print {
     text-indent: 0;
     border-bottom: 0;
   }
-  .pine.pine-vertical > ul > li > a,
-  .pine.pine-vertical > ul > li > strong {
+  .pine.pine-vertical ul > li > a,
+  .pine.pine-vertical ul > li > strong {
     padding: 15px 15px;
     font-size: 14px;
     color: #999999;
     background: #222222;
   }
-  .pine.pine-vertical > ul > li > a:hover,
-  .pine.pine-vertical > ul > li > a:focus,
-  .pine.pine-vertical > ul > li > a:active {
+  .pine.pine-vertical ul > li > a:hover,
+  .pine.pine-vertical ul > li > a:focus,
+  .pine.pine-vertical ul > li > a:active {
     color: #ffffff;
     background: transparent;
   }
-  .pine.pine-vertical > ul > li.is-open > a {
+  .pine.pine-vertical ul > li.is-open > a {
     color: #ffffff;
     background: #080808;
   }
-  .pine.pine-vertical > ul > li > ul {
+  .pine.pine-vertical ul > li > ul {
     color: #999999;
     background: #222222;
     border: 1px solid #080808;
@@ -7995,24 +7998,24 @@ td.visible-print {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     background-clip: padding-box;
   }
-  .pine.pine-vertical > ul ul > li > a,
-  .pine.pine-vertical > ul ul > li > strong {
+  .pine.pine-vertical ul ul > li > a,
+  .pine.pine-vertical ul ul > li > strong {
     padding: 7.5px 15px;
     font-size: 14px;
     color: #999999;
     background: #222222;
   }
-  .pine.pine-vertical > ul ul > li > a:hover,
-  .pine.pine-vertical > ul ul > li > a:focus,
-  .pine.pine-vertical > ul ul > li > a:active {
+  .pine.pine-vertical ul ul > li > a:hover,
+  .pine.pine-vertical ul ul > li > a:focus,
+  .pine.pine-vertical ul ul > li > a:active {
     color: #ffffff;
     background: transparent;
   }
-  .pine.pine-vertical > ul ul > li.is-open > a {
+  .pine.pine-vertical ul ul > li.is-open > a {
     color: #ffffff;
     background: #080808;
   }
-  .pine.pine-vertical > ul > li > ul > li > ul {
+  .pine.pine-vertical ul > li > ul > li > ul {
     overflow: hidden;
     color: #999999;
     background: #222222;
@@ -8024,20 +8027,20 @@ td.visible-print {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     background-clip: padding-box;
   }
-  .pine.pine-vertical > ul ul ul > li > a,
-  .pine.pine-vertical > ul ul ul > li > strong {
+  .pine.pine-vertical ul ul ul > li > a,
+  .pine.pine-vertical ul ul ul > li > strong {
     padding: 7.5px 15px;
     font-size: 14px;
     color: #999999;
     background: #222222;
   }
-  .pine.pine-vertical > ul ul ul > li > a:hover,
-  .pine.pine-vertical > ul ul ul > li > a:focus,
-  .pine.pine-vertical > ul ul ul > li > a:active {
+  .pine.pine-vertical ul ul ul > li > a:hover,
+  .pine.pine-vertical ul ul ul > li > a:focus,
+  .pine.pine-vertical ul ul ul > li > a:active {
     color: #ffffff;
     background: transparent;
   }
-  .pine.pine-vertical > ul ul ul > li.is-open > a {
+  .pine.pine-vertical ul ul ul > li.is-open > a {
     color: #ffffff;
     background: #080808;
   }
@@ -8095,27 +8098,27 @@ td.visible-print {
   border-bottom: 0;
 }
 
-.old-ie .pine.pine-vertical > ul > li > a,
-.old-ie .pine.pine-vertical > ul > li > strong {
+.old-ie .pine.pine-vertical ul > li > a,
+.old-ie .pine.pine-vertical ul > li > strong {
   padding: 15px 15px;
   font-size: 14px;
   color: #999999;
   background: #222222;
 }
 
-.old-ie .pine.pine-vertical > ul > li > a:hover,
-.old-ie .pine.pine-vertical > ul > li > a:focus,
-.old-ie .pine.pine-vertical > ul > li > a:active {
+.old-ie .pine.pine-vertical ul > li > a:hover,
+.old-ie .pine.pine-vertical ul > li > a:focus,
+.old-ie .pine.pine-vertical ul > li > a:active {
   color: #ffffff;
   background: transparent;
 }
 
-.old-ie .pine.pine-vertical > ul > li.is-open > a {
+.old-ie .pine.pine-vertical ul > li.is-open > a {
   color: #ffffff;
   background: #080808;
 }
 
-.old-ie .pine.pine-vertical > ul > li > ul {
+.old-ie .pine.pine-vertical ul > li > ul {
   color: #999999;
   background: #222222;
   border: 1px solid #080808;
@@ -8129,27 +8132,27 @@ td.visible-print {
   background-clip: padding-box;
 }
 
-.old-ie .pine.pine-vertical > ul ul > li > a,
-.old-ie .pine.pine-vertical > ul ul > li > strong {
+.old-ie .pine.pine-vertical ul ul > li > a,
+.old-ie .pine.pine-vertical ul ul > li > strong {
   padding: 7.5px 15px;
   font-size: 14px;
   color: #999999;
   background: #222222;
 }
 
-.old-ie .pine.pine-vertical > ul ul > li > a:hover,
-.old-ie .pine.pine-vertical > ul ul > li > a:focus,
-.old-ie .pine.pine-vertical > ul ul > li > a:active {
+.old-ie .pine.pine-vertical ul ul > li > a:hover,
+.old-ie .pine.pine-vertical ul ul > li > a:focus,
+.old-ie .pine.pine-vertical ul ul > li > a:active {
   color: #ffffff;
   background: transparent;
 }
 
-.old-ie .pine.pine-vertical > ul ul > li.is-open > a {
+.old-ie .pine.pine-vertical ul ul > li.is-open > a {
   color: #ffffff;
   background: #080808;
 }
 
-.old-ie .pine.pine-vertical > ul > li > ul > li > ul {
+.old-ie .pine.pine-vertical ul > li > ul > li > ul {
   overflow: hidden;
   color: #999999;
   background: #222222;
@@ -8162,22 +8165,22 @@ td.visible-print {
   background-clip: padding-box;
 }
 
-.old-ie .pine.pine-vertical > ul ul ul > li > a,
-.old-ie .pine.pine-vertical > ul ul ul > li > strong {
+.old-ie .pine.pine-vertical ul ul ul > li > a,
+.old-ie .pine.pine-vertical ul ul ul > li > strong {
   padding: 7.5px 15px;
   font-size: 14px;
   color: #999999;
   background: #222222;
 }
 
-.old-ie .pine.pine-vertical > ul ul ul > li > a:hover,
-.old-ie .pine.pine-vertical > ul ul ul > li > a:focus,
-.old-ie .pine.pine-vertical > ul ul ul > li > a:active {
+.old-ie .pine.pine-vertical ul ul ul > li > a:hover,
+.old-ie .pine.pine-vertical ul ul ul > li > a:focus,
+.old-ie .pine.pine-vertical ul ul ul > li > a:active {
   color: #ffffff;
   background: transparent;
 }
 
-.old-ie .pine.pine-vertical > ul ul ul > li.is-open > a {
+.old-ie .pine.pine-vertical ul ul ul > li.is-open > a {
   color: #ffffff;
   background: #080808;
 }

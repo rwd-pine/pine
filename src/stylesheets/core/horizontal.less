@@ -1,36 +1,47 @@
 // Pine: horizontal variant
 
-> ul > li {
+// - First level -
+
+ul > li {
 	display: inline-block;
 	position: relative;	
 	float: left; // Because of side and bottom spaces
 }
 
-> ul > li > a,
-> ul > li > strong {
+ul > li > a,
+ul > li > strong {
 	text-align: center;
 	display: block;
 }
-
-// - Nerozbaleny stav -
 
 ul a {
 	position: relative; // TODO why?
 }
 
-// Zabaleny stav druhe a treti urovne
+// - 2nd + 3rd level -
+
 ul ul {
 	position: absolute;
 	padding-top: 8px;
 	padding-bottom: 8px;
+
+	li {
+		display: block;
+		float: none;
+	}
+
+	> li > a,
+	> li > strong {
+		text-align: left;
+	}
 }
 
-// Pri nacteni JS: submenu schovame
+// Hidden when JS is activated
 .js & ul ul {
 	visibility: hidden;
 }
 
-// Treti uroven zanoreni nema odsazeni zezhora a zezdola z druhe
+// 3rd level top and bottom
 ul ul ul {
 	padding-top: 0;
 	padding-bottom: 0;

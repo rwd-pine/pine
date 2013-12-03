@@ -6,8 +6,8 @@
 	position: relative;
 }
 
-// Default: vertical
-.pine > ul > li.has-submenu > a {
+// 1st level: Default - vertical
+.pine ul > li.has-submenu > a {
 	padding-right: 2*@pineLevel1PaddingHorizontal; 
 
 	&:before {		
@@ -16,12 +16,11 @@
 	}	
 }
 
-// Horizontal variant
-.pine.pine-horizontal > ul > li.has-submenu > a {
+// 1st level: Horizontal variant
+.pine.pine-horizontal ul > li.has-submenu > a {
 	padding-right: 2*@pineLevel1PaddingHorizontal; 
 
-	&:before {	
-		.triangle-indicator-base(@pineLevel1PaddingHorizontal);
+	&:before {
 		.triangle-indicator-bottom(@pineLevel1SubIndColor, 5px);
 		@media (max-width: @pineSmallDisplayEnd) {
 			.triangle-indicator-right(@pineLevel1SubIndColor, 5px);
@@ -30,7 +29,7 @@
 }
 
 // 2nd level
-.pine ul ul > li.has-submenu > a {
+.pine ul li.is-open ul > li.has-submenu > a {
 	padding-right: 2*@pineLevel2PaddingHorizontal;
 
 	&:before {	
@@ -40,7 +39,7 @@
 }
 
 // 3rd level
-.pine ul ul ul > li.has-submenu > a {
+.pine ul ul li.is-open ul > li.has-submenu > a {
 	padding-right: 2*@pineLevel3PaddingHorizontal;
 
 	&:before {		
