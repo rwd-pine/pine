@@ -105,7 +105,7 @@ module.exports = function(grunt) {
           mode: 'gzip'
         },
         files: [
-          {expand: true, src: ['dist/javascripts/app.min.js'], dest: '', ext: '.gz.js'}
+          {expand: true, src: ['dist/javascripts/<%= pkg.name %>.min.js'], dest: '', ext: '.gz.js'}
         ]
       }
     },
@@ -118,7 +118,7 @@ module.exports = function(grunt) {
         files: [
           {
             src: ['src/stylesheets/pine.less'],
-            dest: 'dist/stylesheets/app.css'
+            dest: 'dist/stylesheets/pine.css'
           },
           {
             src: ['examples/stylesheets/example.less'],
@@ -139,7 +139,7 @@ module.exports = function(grunt) {
           compress: true
         },
         src: ['src/stylesheets/pine.less'],
-        dest: 'dist/stylesheets/app.min.css'
+        dest: 'dist/stylesheets/pine.min.css'
       }
     },
 
