@@ -501,6 +501,11 @@ Pine.Navbar.registerTransition('fx-left-to-right', {
     return this
   }
 
+  // APPLY TO STANDARD PINE ELEMENTS
+  // ===================================
+  $('[data-pine=navbar]').pine()
+
+
 }(jQuery, Pine));
 (function ($, undefined) { "use strict";
   // NAV DEFAULT INITIALIZATION

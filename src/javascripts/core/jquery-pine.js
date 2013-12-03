@@ -26,4 +26,9 @@
     return this
   }
 
+  // APPLY TO STANDARD PINE ELEMENTS
+  // ===================================
+  $('[data-pine=navbar]').pine()
+
+
 }(jQuery, Pine));
