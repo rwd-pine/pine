@@ -56,7 +56,7 @@ Installation of Pine is quite easy, just follow steps below and you will be able
 ```
 ## Advanced Usage
 
-PineJS comes with common tools, which help you to easily customize it and make you own builds.
+
 
 * bower?
 * git?
@@ -71,6 +71,30 @@ TODO MM
 * Simplest CSS usage
 * Bootstrap usage – 3 variants
 * LESS usage
+
+# Tested on the following platforms
+
+<!-- TODO -->
+
+# Working on the repository
+
+PineJS comes with common tools, which help you to easily customize it and make you own builds. [GruntJS](http://gruntjs.com/) is used for the build process. If you already have it, you are ready to go. Otherwise you need node and npm on your machine. Installation of Grunt is described in [Getting Started Tutorial](http://gruntjs.com/getting-started).
+
+## Dependencies
+
+After you've set up the environment, use ```npm install``` to get all dependencies. To build the project, enter the following at the terminal:
+
+```sh
+grunt
+```
+
+Grunt can also be used to monitor files and re-build the project on each change. For this we use Grunt's watch task:
+
+```sh
+grunt watch
+```
+
+Next time you change the file, Grunt will perform all build tasks.
 
 
 ## Customization
