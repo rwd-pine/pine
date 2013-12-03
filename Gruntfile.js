@@ -30,7 +30,7 @@ module.exports = function(grunt) {
     //     src: ['src/javascripts/*.js']
     //   },
     //   test: {
-    //     src: ['src/javascripts/tests/unit/*.js']
+    //     src: ['src/javascripts/examples/unit/*.js']
     //   }
     // },
 
@@ -133,16 +133,16 @@ module.exports = function(grunt) {
             dest: 'dist/stylesheets/app.css'
           },
           {
-            src: ['test/stylesheets/test.less'],
-            dest: 'test/stylesheets/test.css'
+            src: ['examples/stylesheets/example.less'],
+            dest: 'examples/stylesheets/example.css'
           },
           {
-            src: ['test/stylesheets/test-bootstrap.less'],
-            dest: 'test/stylesheets/test-bootstrap.css'
+            src: ['examples/stylesheets/example-bootstrap.less'],
+            dest: 'examples/stylesheets/example-bootstrap.css'
           },
           {
-            src: ['test/stylesheets/test-bootstrap-fixed-inverted.less'],
-            dest: 'test/stylesheets/test-bootstrap-fixed-inverted.css'
+            src: ['examples/stylesheets/example-bootstrap-fixed-inverted.less'],
+            dest: 'examples/stylesheets/example-bootstrap-fixed-inverted.css'
           }
         ]
       },
@@ -157,7 +157,7 @@ module.exports = function(grunt) {
 
     watch: {
       recess: {
-        files: ['src/stylesheets/**/*.less', 'test/stylesheets/**/*.less'],
+        files: ['src/stylesheets/**/*.less', 'examples/stylesheets/**/*.less'],
         tasks: ['recess']
       },
       uglify: {
