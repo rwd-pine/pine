@@ -8236,6 +8236,12 @@ td.visible-print {
 }
 
 @media (min-width: 600px) {
+  .mobile-header {
+    display: none;
+  }
+}
+
+@media (min-width: 600px) {
   #nav {
     margin-top: 28px;
   }

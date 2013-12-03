@@ -8222,7 +8222,7 @@ td.visible-print {
 }
 
 @media (min-width: 600px) {
-  .navbar {
+  .mobile-header {
     display: none;
   }
 }

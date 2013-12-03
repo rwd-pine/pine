@@ -9,6 +9,16 @@
 
 @import "../../src/stylesheets/skin/bootstrap-inverted";
 
+
+// --- CSS rules ---
+
+// Remove mobile header on large displays.
+.mobile-header {
+	@media (min-width: @pineLargeDisplayStart) {
+		display: none;
+	}
+}
+
 #nav {
 	@media (min-width: @pineLargeDisplayStart) {
 		margin-top: 2*@font-size-base;
