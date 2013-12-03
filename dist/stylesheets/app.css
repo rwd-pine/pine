@@ -307,8 +307,9 @@
   text-indent: 0 !important;
 }
 
-.fx-right-to-left > ul {
+.fx-right-to-left .pine-navbar {
   position: absolute;
+  left: 0;
   -webkit-transition: left .2s;
      -moz-transition: left .2s;
        -o-transition: left .2s;

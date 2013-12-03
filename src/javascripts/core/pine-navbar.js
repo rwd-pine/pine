@@ -98,7 +98,9 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     this.isDesktop = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
     this.isDesktop ? this.setActiveTransition(this.options.transitionDesktop) : this.setActiveTransition(this.options.transitionMobile)
 
-    /* Initialize submenus */
+    /* Mark navbar */
+    this.element.find('ul:first').addClass('pine-navbar')
+    /* Mark all submenus */
     this.element.find('li').has('ul').addClass('has-submenu')
     this.element.find('a').on('focus.pine', this.focus)
 
