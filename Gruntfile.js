@@ -50,20 +50,8 @@ module.exports = function(grunt) {
       },
       styles: {
         files: [
-          { expand: true, cwd: 'bower_components/normalize-css', src: ['normalize.css'], dest: 'src/stylesheets/lib' },
           { expand: true, cwd: 'bower_components/lesshat/build', src: ['lesshat.less'], dest: 'src/stylesheets/lib' }
           // { expand: true, cwd: 'bower_components/bootstrap/less', src: ['*.less'], dest: 'src/stylesheets/bootstrap' }
-        ]
-      }
-    },
-
-    rename: {
-      normalize: {
-        files: [
-          {
-            src: 'src/stylesheets/lib/normalize.css',
-            dest: 'src/stylesheets/lib/normalize.less'
-          }
         ]
       }
     },

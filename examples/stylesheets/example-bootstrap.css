@@ -7402,11 +7402,11 @@ td.visible-print {
   }
 }
 
-.pine ul ul ul > li.has-submenu > a {
+.pine ul ul li.is-open ul > li.has-submenu > a {
   padding-right: 30px;
 }
 
-.pine ul ul ul > li.has-submenu > a:before {
+.pine ul ul li.is-open ul > li.has-submenu > a:before {
   position: absolute;
   top: 50%;
   right: 15px;
@@ -7422,13 +7422,13 @@ td.visible-print {
 }
 
 @media (max-width: 600px) {
-  .pine ul ul ul > li.has-submenu > a:before {
+  .pine ul ul li.is-open ul > li.has-submenu > a:before {
     right: 14px;
   }
 }
 
 @media (max-width: 600px) {
-  .pine ul ul ul > li.has-submenu > a:before {
+  .pine ul ul li.is-open ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #777777;
   }
 }

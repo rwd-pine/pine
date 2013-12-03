@@ -174,11 +174,11 @@
   }
 }
 
-.pine ul ul ul > li.has-submenu > a {
+.pine ul ul li.is-open ul > li.has-submenu > a {
   padding-right: 32px;
 }
 
-.pine ul ul ul > li.has-submenu > a:before {
+.pine ul ul li.is-open ul > li.has-submenu > a:before {
   position: absolute;
   top: 50%;
   right: 16px;
@@ -194,13 +194,13 @@
 }
 
 @media (max-width: 600px) {
-  .pine ul ul ul > li.has-submenu > a:before {
+  .pine ul ul li.is-open ul > li.has-submenu > a:before {
     right: 16px;
   }
 }
 
 @media (max-width: 600px) {
-  .pine ul ul ul > li.has-submenu > a:before {
+  .pine ul ul li.is-open ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #000000;
   }
 }
