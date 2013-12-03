@@ -342,6 +342,13 @@
   visibility: visible;
 }
 
+.fx-right-to-left .pine-navbar > .is-open > ul {
+  -webkit-transition: visibility 0s 0s;
+     -moz-transition: visibility 0s 0s;
+       -o-transition: visibility 0s 0s;
+          transition: visibility 0s 0s;
+}
+
 .fx-right-to-left ul li > a,
 .fx-right-to-left ul li > strong {
   text-indent: 0 !important;
