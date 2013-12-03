@@ -1,13 +1,13 @@
 // --- Pine: Has submenu triangle indicator ---
 
 // Context where we are positioning the indicator
-#nav li.has-submenu > a,
+.pine li.has-submenu > a,
 [role='navigation'] li.has-submenu > strong {
 	position: relative;
 }
 
 // Default: vertical
-#nav > ul > li.has-submenu > a {
+.pine > ul > li.has-submenu > a {
 	padding-right: 2*@pineLevel1PaddingHorizontal; 
 
 	&:before {		
@@ -17,7 +17,7 @@
 }
 
 // Horizontal variant
-#nav.nav-horizontal > ul > li.has-submenu > a {
+.pine.pine-horizontal > ul > li.has-submenu > a {
 	padding-right: 2*@pineLevel1PaddingHorizontal; 
 
 	&:before {	
@@ -30,7 +30,7 @@
 }
 
 // 2nd level
-#nav ul ul > li.has-submenu > a {
+.pine ul ul > li.has-submenu > a {
 	padding-right: 2*@pineLevel2PaddingHorizontal;
 
 	&:before {	
@@ -40,7 +40,7 @@
 }
 
 // 3rd level
-#nav ul ul ul > li.has-submenu > a {
+.pine ul ul ul > li.has-submenu > a {
 	padding-right: 2*@pineLevel3PaddingHorizontal;
 
 	&:before {		
