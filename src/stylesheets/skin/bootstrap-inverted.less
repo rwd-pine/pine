@@ -32,7 +32,7 @@
 
 // Level 1
 @pineLevel1Color:            	@navbar-inverse-link-color;
-@pineLevel1Bg:      			transparent;
+@pineLevel1Bg:      			@pineBg;
 @pineLevel1HoverColor:       	@navbar-inverse-link-hover-color;
 @pineLevel1HoverBg:       		@navbar-inverse-link-hover-bg;
 @pineLevel1ActiveColor:      	@navbar-inverse-link-active-color;
@@ -44,17 +44,17 @@
 
 // Level 2
 @pineLevel2Color:            	@pineLevel1Color;
-@pineLevel2Bg:      			@dropdown-bg;
-@pineLevel2HoverColor:       	@dropdown-link-hover-color;
-@pineLevel2HoverBg:       		@dropdown-link-hover-bg;
-@pineLevel2ActiveColor:      	@dropdown-link-active-color;
-@pineLevel2ActiveBg:       		@dropdown-link-active-bg;
+@pineLevel2Bg:      			@pineLevel1Bg;
+@pineLevel2HoverColor:       	@pineLevel1HoverColor;
+@pineLevel2HoverBg:       		@pineLevel1HoverBg;
+@pineLevel2ActiveColor:      	@pineLevel1ActiveColor;
+@pineLevel2ActiveBg:       		@pineLevel1ActiveBg;
 @pineLevel2SubIndColor:			@pineLevel1SubIndColor;
 @pineLevel2FontSize: 			@pineLevel1FontSize;
 @pineLevel2PaddingVertical:		@pineLevel1PaddingVertical/2;
 @pineLevel2PaddingHorizontal: 	@pineLevel1PaddingHorizontal;
-@pineLevel2BorderFallback:		1px solid @dropdown-fallback-border;
-@pineLevel2Border:				1px solid @dropdown-border;
+@pineLevel2BorderFallback:		1px solid @navbar-inverse-border;
+@pineLevel2Border:				1px solid @navbar-inverse-border;
 @pineLevel2BorderRadius:		@border-radius-base;
 @pineLevel2Shadow:				0 6px 12px rgba(0,0,0,.175);
 
