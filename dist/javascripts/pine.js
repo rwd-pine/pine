@@ -201,8 +201,8 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   **/
   Navbar.DEFAULTS = {
     jsBreakpoint:       '600px',
-    transitionDesktop:  'fx-hover',
-    transitionMobile:   'fx-toggle'
+    transitionLargeDisplay:  'fx-hover',
+    transitionSmallDisplay:  'fx-toggle'
   };
 
   Navbar.NAVBAR_TOGGLE =  '[data-pine=toggle]';
@@ -231,8 +231,8 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     this.element = $(element)
 
     /* Initialize view and set active transtition */
-    this.isDesktop = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
-    this.isDesktop ? this.setActiveTransition(this.options.transitionDesktop) : this.setActiveTransition(this.options.transitionMobile)
+    this.isLargeDisplay = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
+    this.isLargeDisplay ? this.setActiveTransition(this.options.transitionLargeDisplay) : this.setActiveTransition(this.options.transitionLargeDisplay)
 
     /* Mark navbar */
     this.element.find('ul:first').addClass('pine-navbar')
@@ -278,9 +278,9 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     var condition = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
     var isLoad = e.type && (e.type == 'load')
 
-    /* Check first load or switch beetween views (mobile XOR desktop), it sets isDesktop value only when it is needed */
-    if (isLoad || (( this.isDesktop || condition ) && !( this.isDesktop && condition ))) {
-      return this.isDesktop = condition
+    /* Check first load or switch beetween views (mobile XOR desktop), it sets isLargeDisplay value only when it is needed */
+    if (isLoad || (( this.isLargeDisplay || condition ) && !( this.isLargeDisplay && condition ))) {
+      return this.isLargeDisplay = condition
     }
 
     return null
@@ -290,11 +290,11 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   /**
     Switches active transition when leaving one view and entering another.
   **/
-  Navbar.switchView = function (isDesktop) {
-    var t = this.getTransitionName(isDesktop)
+  Navbar.switchView = function (isLargeDisplay) {
+    var t = this.getTransitionName(isLargeDisplay)
 
     this.element
-      .removeClass(this.getTransitionName(!isDesktop))
+      .removeClass(this.getTransitionName(!isLargeDisplay))
       .addClass(t)
 
     this.setActiveTransition(t)
@@ -332,8 +332,8 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   /**
     Getter for transition.
   **/
-  Navbar.getTransitionName = function (isDesktop) {
-    return isDesktop ? this.options.transitionDesktop : this.options.transitionMobile
+  Navbar.getTransitionName = function (isLargeDisplay) {
+    return isLargeDisplay ? this.options.transitionLargeDisplay : this.options.transitionSmallDisplay
   };
 
   /**
@@ -513,8 +513,8 @@ Pine.Navbar.registerTransition('fx-left-to-right', {
   // NAV DEFAULT INITIALIZATION
   // --------------------
   $('.pine').pine({
-    transitionMobile: 'fx-right-to-left',
-    transitionDesktop: 'fx-hover-fade'
+    transitionSmallDisplay: 'fx-right-to-left',
+    transitionLargeDisplay: 'fx-hover-fade'
   })
 
 }(window.Zepto || window.jQuery));

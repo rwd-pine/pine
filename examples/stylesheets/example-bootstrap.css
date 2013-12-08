@@ -7539,6 +7539,21 @@ td.visible-print {
   text-indent: 0 !important;
 }
 
+.fx-hover-fade .pine-navbar > li > a,
+.fx-hover-fade .pine-navbar > li > strong {
+  -webkit-transition: background .4s;
+     -moz-transition: background .4s;
+       -o-transition: background .4s;
+          transition: background .4s;
+}
+
+.fx-hover-fade .noanim {
+  -webkit-transition: none!important;
+     -moz-transition: none!important;
+       -o-transition: none!important;
+          transition: none!important;
+}
+
 .fx-right-to-left .pine-navbar {
   position: absolute;
   left: 0;

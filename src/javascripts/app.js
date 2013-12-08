@@ -2,8 +2,8 @@
   // NAV DEFAULT INITIALIZATION
   // --------------------
   $('.pine').pine({
-    transitionMobile: 'fx-right-to-left',
-    transitionDesktop: 'fx-hover-fade'
+    transitionSmallDisplay: 'fx-right-to-left',
+    transitionLargeDisplay: 'fx-hover-fade'
   })
 
 }(window.Zepto || window.jQuery));
