@@ -96,7 +96,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
 
     /* Initialize view and set active transtition */
     this.isLargeDisplay = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
-    this.isLargeDisplay ? this.setActiveTransition(this.options.transitionLargeDisplay) : this.setActiveTransition(this.options.transitionLargeDisplay)
+    this.isLargeDisplay ? this.setActiveTransition(this.options.transitionLargeDisplay) : this.setActiveTransition(this.options.transitionSmallDisplay)
 
     /* Mark navbar */
     this.element.find('ul:first').addClass('pine-navbar')

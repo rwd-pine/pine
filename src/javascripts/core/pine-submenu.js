@@ -54,7 +54,6 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
         transition = e.data.activeTransition && e.data.activeTransition.onToggle;
 
     // default click behavior needs to close menus clearMenus()
-
     // Handle if the event was fired by link
     if (!isActive) {
       // if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
