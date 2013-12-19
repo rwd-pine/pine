@@ -201,8 +201,8 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   **/
   Navbar.DEFAULTS = {
     jsBreakpoint:       '600px',
-    transitionLargeDisplay:  'fx-hover',
-    transitionSmallDisplay:  'fx-toggle'
+    transitionSmallDisplay: 'fx-right-to-left',
+    transitionLargeDisplay: 'fx-hover-fade'
   };
 
   Navbar.NAVBAR_TOGGLE =  '[data-pine=toggle]';
@@ -239,6 +239,8 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     /* Mark all submenus */
     this.element.find('li').has('ul').addClass('has-submenu')
     this.element.find('a').on('focus.pine', this.focus)
+    /* TODO refactor: Add master class */
+    this.isLargeDisplay ? this.element.addClass('pine-large') : this.element.addClass('pine-large')
 
     /* Default behavior, submenu is triggered on click */
     $(document).on('click.pine.submenu', this.SUBMENU + ' > a', this, Pine.Submenu.toggle)
@@ -292,10 +294,16 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   **/
   Navbar.switchView = function (isLargeDisplay) {
     var t = this.getTransitionName(isLargeDisplay)
+    var c = this.getNavbarClass(isLargeDisplay)
 
     this.element
       .removeClass(this.getTransitionName(!isLargeDisplay))
       .addClass(t)
+
+    // TODO refactor
+    this.element
+      .removeClass(this.getNavbarClass(!isLargeDisplay))
+      .addClass(c)
 
     this.setActiveTransition(t)
   };
@@ -334,6 +342,13 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   **/
   Navbar.getTransitionName = function (isLargeDisplay) {
     return isLargeDisplay ? this.options.transitionLargeDisplay : this.options.transitionSmallDisplay
+  };
+
+  /**
+    Getter for classname.
+  **/
+  Navbar.getNavbarClass = function (isLargeDisplay) {
+    return isLargeDisplay ? 'pine-large' : 'pine-small'
   };
 
   /**
