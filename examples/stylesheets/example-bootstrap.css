@@ -7505,11 +7505,6 @@ td.visible-print {
   max-height: 5000px;
 }
 
-.fx-toggle ul li > a,
-.fx-toggle ul li > strong {
-  text-indent: 0 !important;
-}
-
 .fx-hover-fade ul ul {
   -webkit-opacity: 0;
      -moz-opacity: 0;
