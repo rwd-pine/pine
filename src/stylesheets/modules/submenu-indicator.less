@@ -48,7 +48,22 @@
 	}	
 }
 
-// Mixin: Triangle indicator base
+// --- Toggle FX: triangle to bottom everywhere ---
+
+// 1st level: Horizontal variant
+.pine.fx-toggle {
+	ul > li.has-submenu > a, // 1st level 
+	ul li.is-open ul > li.has-submenu > a, // 2nd level 
+	ul ul li.is-open ul > li.has-submenu > a { // 3rd level 
+		&:before {
+			@media (max-width: @pineSmallDisplayEnd) {
+				.triangle-indicator-bottom(@pineLevel1SubIndColor, 5px);
+			}
+		}
+	}
+}
+
+// -- Mixin: Triangle indicator base ---
 
 .triangle-indicator-base(@paddingRight) {	
 	z-index: 100;
