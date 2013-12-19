@@ -5,16 +5,15 @@
 
 .fx-toggle {
   // Closed
-  ul ul {
-    height: 0;
+  ul ul {    
     .transition(~"max-height .3s ease-in-out");
     overflow: hidden;
+    max-height: 0;    
   }
 
   // Opened 
   ul li.is-open > ul {
-    max-height: none;
-    overflow: visible;
+    max-height: 5000px; // Makes transition working
   }
 
   // No 2nd, 3rd level indentation

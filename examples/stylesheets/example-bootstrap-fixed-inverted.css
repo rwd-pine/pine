@@ -7493,7 +7493,7 @@ td.visible-print {
 }
 
 .fx-toggle ul ul {
-  height: 0;
+  max-height: 0;
   overflow: hidden;
   -webkit-transition: max-height 0.3s ease-in-out;
      -moz-transition: max-height 0.3s ease-in-out;
@@ -7502,8 +7502,7 @@ td.visible-print {
 }
 
 .fx-toggle ul li.is-open > ul {
-  max-height: none;
-  overflow: visible;
+  max-height: 5000px;
 }
 
 .fx-toggle ul li > a,
