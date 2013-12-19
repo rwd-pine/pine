@@ -53,7 +53,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   /**
     Stores the state of the current view. Either true for large displays or false for small ones.
   **/
-  Navbar.isDesktop = null;
+  Navbar.isLargeDisplay = null;
 
   /**
     Root element.

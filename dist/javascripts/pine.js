@@ -189,7 +189,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   /**
     Stores the state of the current view. Either true for large displays or false for small ones.
   **/
-  Navbar.isDesktop = null;
+  Navbar.isLargeDisplay = null;
 
   /**
     Root element.
@@ -509,12 +509,3 @@ Pine.Navbar.registerTransition('fx-left-to-right', {
 
 
 }(jQuery, Pine));
-(function ($, undefined) { "use strict";
-  // NAV DEFAULT INITIALIZATION
-  // --------------------
-  $('.pine').pine({
-    transitionSmallDisplay: 'fx-right-to-left',
-    transitionLargeDisplay: 'fx-hover-fade'
-  })
-
-}(window.Zepto || window.jQuery));
