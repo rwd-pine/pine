@@ -21,16 +21,23 @@
   }
 }
 
-.js .pine {
-  position: absolute;
-  top: 42px;
-  left: 0;
-  display: none;
-  width: 100%;
-}
-
-.pine.is-visible {
-  display: block;
+@media (max-width: 599px) {
+  .js .pine {
+    position: absolute;
+    top: 42px;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    min-height: 0;
+    overflow: hidden;
+    -webkit-transition: max-height 0.3s ease-in-out;
+       -moz-transition: max-height 0.3s ease-in-out;
+         -o-transition: max-height 0.3s ease-in-out;
+            transition: max-height 0.3s ease-in-out;
+  }
+  .js .pine.is-visible {
+    max-height: 1000px;
+  }
 }
 
 @media print {

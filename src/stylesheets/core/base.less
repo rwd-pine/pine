@@ -2,7 +2,7 @@
 // (Small screens and vertical variant styling.)
 // ------------------------------------------------------------------
 
-// Small screens positioning
+// Defaults TODO refactor
 
 .pine {
 	z-index: @pineZIndex;
@@ -11,20 +11,28 @@
 	background: @pineBg;
 	.clearfix();
 
-	@media	(min-width: @pineLargeDisplayStart) {
+	@media (min-width: @pineLargeDisplayStart) {
 		border-radius: @pineBorderRadius;
 	}
 
-	.js & {
-		display: none;
-		position: absolute;
-		top: @pineSmallScreenTop;
-		left: 0;
-		width: 100%;
-	}
+	// Small screens with JS positioning and opening
+	
+	@media (max-width: @pineSmallDisplayEnd) {
+		.js & {
+			min-height: 0;
+			max-height: 0;
+			overflow: hidden;
+			position: absolute;
+			top: @pineSmallScreenTop;
+			left: 0;
+			width: 100%;
+			.transition(~"max-height .3s ease-in-out");
+		}
 
-	&.is-visible {
-		display: block;
+		.js &.is-visible {
+			max-height: 1000px; // Makes transition working, TODO add real value by JS
+		}
+
 	}
 
 	@media print {
