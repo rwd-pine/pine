@@ -8254,6 +8254,13 @@ td.visible-print {
   visibility: visible;
 }
 
+@media (max-width: 599px) {
+  .pine > .container > ul {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+}
+
 @media (min-width: 600px) {
   .mobile-header {
     display: none;
