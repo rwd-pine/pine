@@ -8270,3 +8270,8 @@ td.visible-print {
 body {
   padding-top: 80px;
 }
+
+.pine .logo a {
+  font-weight: bold;
+  text-transform: uppercase;
+}
