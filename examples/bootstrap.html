@@ -31,7 +31,7 @@
       </div>
 
       <div class="container">
-        <div id="nav" role="navigation" class="pine pine-horizontal navbar navbar-default">
+        <div id="nav" role="navigation" class="pine pine-horizontal">
           <ul>
             <li>
                 <strong>
@@ -151,8 +151,17 @@
 
   <!-- TODO: load conditionally -->
   <script src="../dist/javascripts/jquery.min.js"></script>
-  <!-- <script src="../dist/javascripts/zepto.min.js"></script> -->
-  <script src="../dist/javascripts/app.js"></script>
+  <script src="../dist/javascripts/pine.js"></script>
+  <script>
+
+    $(function() {
+      $('.pine').pine({
+        transitionSmallDisplay: 'fx-left-to-right',
+        transitionLargeDisplay: 'fx-hover-fade'
+      });
+    });
+
+  </script>
 
 </body>
 </html>
