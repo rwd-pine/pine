@@ -15,15 +15,14 @@
 
 // --- CSS rules ---
 
-// Remove mobile header on large displays.
+// Remove mobile header on large displays
 .mobile-header {
 	@media (min-width: @pineLargeDisplayStart) {
 		display: none;
 	}
 }
 
-.pine {
-	@media (min-width: @pineLargeDisplayStart) {
-		margin-top: 2*@font-size-base;
-	}
+// Content top padding because of Pine fixed position
+body {
+  padding-top: 80px;
 }

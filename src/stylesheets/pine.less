@@ -13,7 +13,7 @@
 @import 'fx/hover-fade';
 @import 'fx/right-to-left';
 
-// Large screen variants: horizontal and vertical
+// - Variants: horizontal and vertical for large screen -
 
 .pine.pine-horizontal {
 	@media (min-width: @pineLargeDisplayStart) {
@@ -35,4 +35,13 @@
 		@import 'core/large-display';
 		@import 'core/vertical';
 	}
+}
+
+// - Variant: fixed position -
+
+.pine.pine-fixed {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
 }

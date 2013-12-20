@@ -8255,6 +8255,13 @@ td.visible-print {
   visibility: visible;
 }
 
+.pine.pine-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
 @media (max-width: 599px) {
   .pine > .container > ul {
     margin-right: -15px;
