@@ -108,13 +108,13 @@
   content: "";
 }
 
-@media (max-width: 600px) {
+@media (max-width: 599px) {
   .pine ul > li.has-submenu > a:before {
     right: 16px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 599px) {
   .pine ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #000000;
   }
@@ -130,7 +130,7 @@
   border-width: 5px 5px 0 5px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 599px) {
   .pine.pine-horizontal ul > li.has-submenu > a:before {
     border-color: #000000 transparent transparent transparent;
   }
@@ -144,7 +144,7 @@
   }
 }
 
-@media (max-width: 599px) and (max-width: 600px) {
+@media (max-width: 599px) and (max-width: 599px) {
   .pine.pine-horizontal ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #000000;
   }
@@ -169,13 +169,13 @@
   content: "";
 }
 
-@media (max-width: 600px) {
+@media (max-width: 599px) {
   .pine ul li.is-open ul > li.has-submenu > a:before {
     right: 16px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 599px) {
   .pine ul li.is-open ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #000000;
   }
@@ -200,13 +200,13 @@
   content: "";
 }
 
-@media (max-width: 600px) {
+@media (max-width: 599px) {
   .pine ul ul li.is-open ul > li.has-submenu > a:before {
     right: 16px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 599px) {
   .pine ul ul li.is-open ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #000000;
   }
@@ -222,7 +222,7 @@
   }
 }
 
-@media (max-width: 599px) and (max-width: 600px) {
+@media (max-width: 599px) and (max-width: 599px) {
   .pine.fx-toggle ul > li.has-submenu > a:before,
   .pine.fx-toggle ul li.is-open ul > li.has-submenu > a:before,
   .pine.fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {

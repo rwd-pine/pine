@@ -7284,7 +7284,7 @@ td.visible-print {
 .pine li > a,
 .pine li > strong {
   display: block;
-  padding: 10.5px 14px;
+  padding: 10.5px 15px;
   overflow: hidden;
   font-weight: normal;
   color: #999999;
@@ -7336,13 +7336,13 @@ td.visible-print {
   content: "";
 }
 
-@media (max-width: 600px) {
+@media (max-width: 599px) {
   .pine ul > li.has-submenu > a:before {
-    right: 14px;
+    right: 15px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 599px) {
   .pine ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #999999;
   }
@@ -7358,7 +7358,7 @@ td.visible-print {
   border-width: 5px 5px 0 5px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 599px) {
   .pine.pine-horizontal ul > li.has-submenu > a:before {
     border-color: #999999 transparent transparent transparent;
   }
@@ -7372,7 +7372,7 @@ td.visible-print {
   }
 }
 
-@media (max-width: 599px) and (max-width: 600px) {
+@media (max-width: 599px) and (max-width: 599px) {
   .pine.pine-horizontal ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #999999;
   }
@@ -7397,13 +7397,13 @@ td.visible-print {
   content: "";
 }
 
-@media (max-width: 600px) {
+@media (max-width: 599px) {
   .pine ul li.is-open ul > li.has-submenu > a:before {
-    right: 14px;
+    right: 15px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 599px) {
   .pine ul li.is-open ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #999999;
   }
@@ -7428,13 +7428,13 @@ td.visible-print {
   content: "";
 }
 
-@media (max-width: 600px) {
+@media (max-width: 599px) {
   .pine ul ul li.is-open ul > li.has-submenu > a:before {
-    right: 14px;
+    right: 15px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 599px) {
   .pine ul ul li.is-open ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #999999;
   }
@@ -7450,7 +7450,7 @@ td.visible-print {
   }
 }
 
-@media (max-width: 599px) and (max-width: 600px) {
+@media (max-width: 599px) and (max-width: 599px) {
   .pine.fx-toggle ul > li.has-submenu > a:before,
   .pine.fx-toggle ul li.is-open ul > li.has-submenu > a:before,
   .pine.fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
@@ -7460,7 +7460,7 @@ td.visible-print {
 
 .nav-trigger {
   display: none;
-  padding: 10.5px 14px;
+  padding: 10.5px 15px;
   overflow: hidden;
   font-weight: normal;
   color: #999999;

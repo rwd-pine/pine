@@ -76,8 +76,8 @@
 	height: 0px;
 	border-style: solid;
 	// Small screen version has only first level look
-	@media (max-width: @pineLargeDisplayStart) {
-		right: @pineLevel1FontSize; 
+	@media (max-width: @pineSmallDisplayEnd) {
+		right: @pineSmallScreenPaddingHorizontal; 
 	}
 }
 
@@ -88,7 +88,7 @@
 	margin-top: -1*@indicatorSize/2;
 	border-color: @color transparent transparent transparent;	
 	// Small screen version has only first level look 
-	@media (max-width: @pineLargeDisplayStart) {
+	@media (max-width: @pineSmallDisplayEnd) {
 		border-color: @pineLevel1SubIndColor  transparent transparent transparent; 
 	}
 }
@@ -100,7 +100,7 @@
 	margin-top: -1*@indicatorSize;
 	border-color: transparent transparent transparent @color;
 	// Small screen version has only first level look 
-	@media (max-width: @pineLargeDisplayStart) {
+	@media (max-width: @pineSmallDisplayEnd) {
 		border-color: transparent transparent transparent  @pineLevel1SubIndColor; 
 	}
 }
