@@ -7525,7 +7525,7 @@ td.visible-print {
 }
 
 .fx-toggle ul li.is-open > ul {
-  max-height: 1000px;
+  max-height: 2000px;
 }
 
 .fx-hover-fade ul ul {
