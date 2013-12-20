@@ -599,7 +599,7 @@ dd {
   margin-left: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .dl-horizontal dt {
     float: left;
     width: 160px;
@@ -3468,7 +3468,7 @@ input[type="button"].btn-block {
   margin-bottom: 1px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar-right .dropdown-menu {
     right: 0;
     left: auto;
@@ -4270,7 +4270,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   clear: both;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar {
     border-radius: 4px;
   }
@@ -4316,7 +4316,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   clear: both;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar-header {
     float: left;
   }
@@ -4376,7 +4376,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   overflow-y: auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar-collapse {
     width: auto;
     border-top: 0;
@@ -4408,7 +4408,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   margin-left: -15px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .container > .navbar-header,
   .container > .navbar-collapse {
     margin-right: 0;
@@ -4420,7 +4420,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   border-width: 0 0 1px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar-static-top {
     border-radius: 0;
   }
@@ -4434,7 +4434,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   border-width: 0 0 1px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar-fixed-top,
   .navbar-fixed-bottom {
     border-radius: 0;
@@ -4463,7 +4463,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   text-decoration: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar > .container .navbar-brand {
     margin-left: -15px;
   }
@@ -4492,7 +4492,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   margin-top: 4px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar-toggle {
     display: none;
   }
@@ -4531,7 +4531,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar-nav {
     float: left;
     margin: 0;
@@ -4545,7 +4545,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar-left {
     float: left !important;
   }
@@ -4598,7 +4598,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar-form {
     width: auto;
     padding-top: 0;
@@ -4640,7 +4640,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   margin-bottom: 15px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar-text {
     margin-right: 15px;
     margin-left: 15px;
@@ -7199,7 +7199,7 @@ td.visible-print {
 .pine {
   z-index: 1000;
   margin-bottom: 20px;
-  background: #222222;
+  background: #f8f8f8;
 }
 
 .pine:before,
@@ -7242,13 +7242,13 @@ td.visible-print {
   clear: both;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 992px) {
   .pine {
     border-radius: 0;
   }
 }
 
-@media (max-width: 599px) {
+@media (max-width: 991px) {
   .js .pine {
     position: absolute;
     top: 52px;
@@ -7286,19 +7286,19 @@ td.visible-print {
   padding: 10.5px 15px;
   overflow: hidden;
   font-weight: normal;
-  color: #999999;
+  color: #777777;
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: #222222;
+  background: #f8f8f8;
 }
 
 .pine li a:hover,
 .pine li a:focus,
 .pine li a:active,
 .pine li strong {
-  color: #ffffff;
-  background: #080808;
+  color: #555555;
+  background: #e7e7e7;
 }
 
 .pine ul ul li > a,
@@ -7329,21 +7329,21 @@ td.visible-print {
   width: 0;
   height: 0;
   margin-top: -5px;
-  border-color: transparent transparent transparent #999999;
+  border-color: transparent transparent transparent #777777;
   border-style: solid;
   border-width: 5px 0 5px 5px;
   content: "";
 }
 
-@media (max-width: 599px) {
+@media (max-width: 991px) {
   .pine ul > li.has-submenu > a:before {
     right: 15px;
   }
 }
 
-@media (max-width: 599px) {
+@media (max-width: 991px) {
   .pine ul > li.has-submenu > a:before {
-    border-color: transparent transparent transparent #999999;
+    border-color: transparent transparent transparent #777777;
   }
 }
 
@@ -7353,27 +7353,27 @@ td.visible-print {
 
 .pine.pine-horizontal ul > li.has-submenu > a:before {
   margin-top: -2.5px;
-  border-color: #999999 transparent transparent transparent;
+  border-color: #777777 transparent transparent transparent;
   border-width: 5px 5px 0 5px;
 }
 
-@media (max-width: 599px) {
+@media (max-width: 991px) {
   .pine.pine-horizontal ul > li.has-submenu > a:before {
-    border-color: #999999 transparent transparent transparent;
+    border-color: #777777 transparent transparent transparent;
   }
 }
 
-@media (max-width: 599px) {
+@media (max-width: 991px) {
   .pine.pine-horizontal ul > li.has-submenu > a:before {
     margin-top: -5px;
-    border-color: transparent transparent transparent #999999;
+    border-color: transparent transparent transparent #777777;
     border-width: 5px 0 5px 5px;
   }
 }
 
-@media (max-width: 599px) and (max-width: 599px) {
+@media (max-width: 991px) and (max-width: 991px) {
   .pine.pine-horizontal ul > li.has-submenu > a:before {
-    border-color: transparent transparent transparent #999999;
+    border-color: transparent transparent transparent #777777;
   }
 }
 
@@ -7390,21 +7390,21 @@ td.visible-print {
   width: 0;
   height: 0;
   margin-top: -5px;
-  border-color: transparent transparent transparent #999999;
+  border-color: transparent transparent transparent #777777;
   border-style: solid;
   border-width: 5px 0 5px 5px;
   content: "";
 }
 
-@media (max-width: 599px) {
+@media (max-width: 991px) {
   .pine ul li.is-open ul > li.has-submenu > a:before {
     right: 15px;
   }
 }
 
-@media (max-width: 599px) {
+@media (max-width: 991px) {
   .pine ul li.is-open ul > li.has-submenu > a:before {
-    border-color: transparent transparent transparent #999999;
+    border-color: transparent transparent transparent #777777;
   }
 }
 
@@ -7421,39 +7421,39 @@ td.visible-print {
   width: 0;
   height: 0;
   margin-top: -5px;
-  border-color: transparent transparent transparent #999999;
+  border-color: transparent transparent transparent #777777;
   border-style: solid;
   border-width: 5px 0 5px 5px;
   content: "";
 }
 
-@media (max-width: 599px) {
+@media (max-width: 991px) {
   .pine ul ul li.is-open ul > li.has-submenu > a:before {
     right: 15px;
   }
 }
 
-@media (max-width: 599px) {
+@media (max-width: 991px) {
   .pine ul ul li.is-open ul > li.has-submenu > a:before {
-    border-color: transparent transparent transparent #999999;
+    border-color: transparent transparent transparent #777777;
   }
 }
 
-@media (max-width: 599px) {
+@media (max-width: 991px) {
   .pine.fx-toggle ul > li.has-submenu > a:before,
   .pine.fx-toggle ul li.is-open ul > li.has-submenu > a:before,
   .pine.fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
     margin-top: -2.5px;
-    border-color: #999999 transparent transparent transparent;
+    border-color: #777777 transparent transparent transparent;
     border-width: 5px 5px 0 5px;
   }
 }
 
-@media (max-width: 599px) and (max-width: 599px) {
+@media (max-width: 991px) and (max-width: 991px) {
   .pine.fx-toggle ul > li.has-submenu > a:before,
   .pine.fx-toggle ul li.is-open ul > li.has-submenu > a:before,
   .pine.fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
-    border-color: #999999 transparent transparent transparent;
+    border-color: #777777 transparent transparent transparent;
   }
 }
 
@@ -7462,14 +7462,14 @@ td.visible-print {
   padding: 10.5px 15px;
   overflow: hidden;
   font-weight: normal;
-  color: #999999;
+  color: #777777;
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: #222222;
+  background: #f8f8f8;
 }
 
-@media (max-width: 599px) {
+@media (max-width: 991px) {
   .js .nav-trigger {
     display: inline-block;
   }
@@ -7622,7 +7622,7 @@ td.visible-print {
 .fx-right-to-left .pine-back > a {
   position: relative;
   text-align: center;
-  background: #080808;
+  background: #e7e7e7;
 }
 
 .fx-right-to-left .pine-back > a:before {
@@ -7634,20 +7634,20 @@ td.visible-print {
   width: 0;
   height: 0;
   margin-top: -2.5px;
-  border-color: transparent #999999 transparent transparent;
+  border-color: transparent #777777 transparent transparent;
   border-style: solid;
   border-width: 5px 5px 5px 0;
   content: "";
 }
 
-@media (min-width: 600px) {
+@media (min-width: 992px) {
   .pine.pine-horizontal {
     position: static;
     top: auto;
     left: auto;
     display: block;
-    background: #222222;
-    border: 1px solid #080808;
+    background: #f8f8f8;
+    border: 1px solid #e7e7e7;
   }
   .pine.pine-horizontal li {
     position: relative;
@@ -7664,24 +7664,25 @@ td.visible-print {
     font-size: 14px;
   }
   .pine.pine-horizontal ul > li > a {
-    color: #999999;
-    background: #222222;
+    color: #777777;
+    background: transparent;
   }
   .pine.pine-horizontal ul > li > a:hover,
   .pine.pine-horizontal ul > li > a:focus,
   .pine.pine-horizontal ul > li > a:active {
-    color: #ffffff;
+    color: #333333;
     background: transparent;
   }
   .pine.pine-horizontal ul > li > strong,
   .pine.pine-horizontal ul > li.is-open > a {
-    color: #ffffff;
-    background: #080808;
+    color: #555555;
+    background: #e7e7e7;
   }
   .pine.pine-horizontal ul > li > ul {
-    color: #999999;
-    background: #222222;
-    border: 1px solid #080808;
+    color: #777777;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
@@ -7695,24 +7696,25 @@ td.visible-print {
   .pine.pine-horizontal ul ul > li > strong {
     padding: 7.5px 15px;
     font-size: 14px;
-    color: #999999;
-    background: #222222;
+    color: #777777;
+    background: #ffffff;
   }
   .pine.pine-horizontal ul ul > li > a:hover,
   .pine.pine-horizontal ul ul > li > a:focus,
   .pine.pine-horizontal ul ul > li > a:active {
     color: #ffffff;
-    background: transparent;
+    background: #428bca;
   }
   .pine.pine-horizontal ul ul > li.is-open > a {
     color: #ffffff;
-    background: #080808;
+    background: #428bca;
   }
   .pine.pine-horizontal ul > li > ul > li > ul {
     overflow: hidden;
-    color: #999999;
-    background: #222222;
-    border: 1px solid #080808;
+    color: #777777;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 0 0 4px 4px;
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
        -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -7724,18 +7726,18 @@ td.visible-print {
   .pine.pine-horizontal ul ul ul > li > strong {
     padding: 7.5px 15px;
     font-size: 14px;
-    color: #999999;
-    background: #222222;
+    color: #777777;
+    background: #ffffff;
   }
   .pine.pine-horizontal ul ul ul > li > a:hover,
   .pine.pine-horizontal ul ul ul > li > a:focus,
   .pine.pine-horizontal ul ul ul > li > a:active {
     color: #ffffff;
-    background: transparent;
+    background: #428bca;
   }
   .pine.pine-horizontal ul ul ul > li.is-open > a {
     color: #ffffff;
-    background: #080808;
+    background: #428bca;
   }
   .pine.pine-horizontal ul > li {
     position: relative;
@@ -7803,8 +7805,8 @@ td.visible-print {
   top: auto;
   left: auto;
   display: block;
-  background: #222222;
-  border: 1px solid #080808;
+  background: #f8f8f8;
+  border: 1px solid #e7e7e7;
 }
 
 .old-ie .pine.pine-horizontal li {
@@ -7825,27 +7827,28 @@ td.visible-print {
 }
 
 .old-ie .pine.pine-horizontal ul > li > a {
-  color: #999999;
-  background: #222222;
+  color: #777777;
+  background: transparent;
 }
 
 .old-ie .pine.pine-horizontal ul > li > a:hover,
 .old-ie .pine.pine-horizontal ul > li > a:focus,
 .old-ie .pine.pine-horizontal ul > li > a:active {
-  color: #ffffff;
+  color: #333333;
   background: transparent;
 }
 
 .old-ie .pine.pine-horizontal ul > li > strong,
 .old-ie .pine.pine-horizontal ul > li.is-open > a {
-  color: #ffffff;
-  background: #080808;
+  color: #555555;
+  background: #e7e7e7;
 }
 
 .old-ie .pine.pine-horizontal ul > li > ul {
-  color: #999999;
-  background: #222222;
-  border: 1px solid #080808;
+  color: #777777;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
@@ -7860,27 +7863,28 @@ td.visible-print {
 .old-ie .pine.pine-horizontal ul ul > li > strong {
   padding: 7.5px 15px;
   font-size: 14px;
-  color: #999999;
-  background: #222222;
+  color: #777777;
+  background: #ffffff;
 }
 
 .old-ie .pine.pine-horizontal ul ul > li > a:hover,
 .old-ie .pine.pine-horizontal ul ul > li > a:focus,
 .old-ie .pine.pine-horizontal ul ul > li > a:active {
   color: #ffffff;
-  background: transparent;
+  background: #428bca;
 }
 
 .old-ie .pine.pine-horizontal ul ul > li.is-open > a {
   color: #ffffff;
-  background: #080808;
+  background: #428bca;
 }
 
 .old-ie .pine.pine-horizontal ul > li > ul > li > ul {
   overflow: hidden;
-  color: #999999;
-  background: #222222;
-  border: 1px solid #080808;
+  color: #777777;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0 0 4px 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
      -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -7893,20 +7897,20 @@ td.visible-print {
 .old-ie .pine.pine-horizontal ul ul ul > li > strong {
   padding: 7.5px 15px;
   font-size: 14px;
-  color: #999999;
-  background: #222222;
+  color: #777777;
+  background: #ffffff;
 }
 
 .old-ie .pine.pine-horizontal ul ul ul > li > a:hover,
 .old-ie .pine.pine-horizontal ul ul ul > li > a:focus,
 .old-ie .pine.pine-horizontal ul ul ul > li > a:active {
   color: #ffffff;
-  background: transparent;
+  background: #428bca;
 }
 
 .old-ie .pine.pine-horizontal ul ul ul > li.is-open > a {
   color: #ffffff;
-  background: #080808;
+  background: #428bca;
 }
 
 .old-ie .pine.pine-horizontal ul > li {
@@ -7980,14 +7984,14 @@ td.visible-print {
   visibility: visible;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 992px) {
   .pine.pine-vertical {
     position: static;
     top: auto;
     left: auto;
     display: block;
-    background: #222222;
-    border: 1px solid #080808;
+    background: #f8f8f8;
+    border: 1px solid #e7e7e7;
   }
   .pine.pine-vertical li {
     position: relative;
@@ -8004,24 +8008,25 @@ td.visible-print {
     font-size: 14px;
   }
   .pine.pine-vertical ul > li > a {
-    color: #999999;
-    background: #222222;
+    color: #777777;
+    background: transparent;
   }
   .pine.pine-vertical ul > li > a:hover,
   .pine.pine-vertical ul > li > a:focus,
   .pine.pine-vertical ul > li > a:active {
-    color: #ffffff;
+    color: #333333;
     background: transparent;
   }
   .pine.pine-vertical ul > li > strong,
   .pine.pine-vertical ul > li.is-open > a {
-    color: #ffffff;
-    background: #080808;
+    color: #555555;
+    background: #e7e7e7;
   }
   .pine.pine-vertical ul > li > ul {
-    color: #999999;
-    background: #222222;
-    border: 1px solid #080808;
+    color: #777777;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
@@ -8035,24 +8040,25 @@ td.visible-print {
   .pine.pine-vertical ul ul > li > strong {
     padding: 7.5px 15px;
     font-size: 14px;
-    color: #999999;
-    background: #222222;
+    color: #777777;
+    background: #ffffff;
   }
   .pine.pine-vertical ul ul > li > a:hover,
   .pine.pine-vertical ul ul > li > a:focus,
   .pine.pine-vertical ul ul > li > a:active {
     color: #ffffff;
-    background: transparent;
+    background: #428bca;
   }
   .pine.pine-vertical ul ul > li.is-open > a {
     color: #ffffff;
-    background: #080808;
+    background: #428bca;
   }
   .pine.pine-vertical ul > li > ul > li > ul {
     overflow: hidden;
-    color: #999999;
-    background: #222222;
-    border: 1px solid #080808;
+    color: #777777;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 0 0 4px 4px;
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
        -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -8064,18 +8070,18 @@ td.visible-print {
   .pine.pine-vertical ul ul ul > li > strong {
     padding: 7.5px 15px;
     font-size: 14px;
-    color: #999999;
-    background: #222222;
+    color: #777777;
+    background: #ffffff;
   }
   .pine.pine-vertical ul ul ul > li > a:hover,
   .pine.pine-vertical ul ul ul > li > a:focus,
   .pine.pine-vertical ul ul ul > li > a:active {
     color: #ffffff;
-    background: transparent;
+    background: #428bca;
   }
   .pine.pine-vertical ul ul ul > li.is-open > a {
     color: #ffffff;
-    background: #080808;
+    background: #428bca;
   }
   .pine.pine-vertical ul ul {
     position: absolute;
@@ -8116,8 +8122,8 @@ td.visible-print {
   top: auto;
   left: auto;
   display: block;
-  background: #222222;
-  border: 1px solid #080808;
+  background: #f8f8f8;
+  border: 1px solid #e7e7e7;
 }
 
 .old-ie .pine.pine-vertical li {
@@ -8138,27 +8144,28 @@ td.visible-print {
 }
 
 .old-ie .pine.pine-vertical ul > li > a {
-  color: #999999;
-  background: #222222;
+  color: #777777;
+  background: transparent;
 }
 
 .old-ie .pine.pine-vertical ul > li > a:hover,
 .old-ie .pine.pine-vertical ul > li > a:focus,
 .old-ie .pine.pine-vertical ul > li > a:active {
-  color: #ffffff;
+  color: #333333;
   background: transparent;
 }
 
 .old-ie .pine.pine-vertical ul > li > strong,
 .old-ie .pine.pine-vertical ul > li.is-open > a {
-  color: #ffffff;
-  background: #080808;
+  color: #555555;
+  background: #e7e7e7;
 }
 
 .old-ie .pine.pine-vertical ul > li > ul {
-  color: #999999;
-  background: #222222;
-  border: 1px solid #080808;
+  color: #777777;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
@@ -8173,27 +8180,28 @@ td.visible-print {
 .old-ie .pine.pine-vertical ul ul > li > strong {
   padding: 7.5px 15px;
   font-size: 14px;
-  color: #999999;
-  background: #222222;
+  color: #777777;
+  background: #ffffff;
 }
 
 .old-ie .pine.pine-vertical ul ul > li > a:hover,
 .old-ie .pine.pine-vertical ul ul > li > a:focus,
 .old-ie .pine.pine-vertical ul ul > li > a:active {
   color: #ffffff;
-  background: transparent;
+  background: #428bca;
 }
 
 .old-ie .pine.pine-vertical ul ul > li.is-open > a {
   color: #ffffff;
-  background: #080808;
+  background: #428bca;
 }
 
 .old-ie .pine.pine-vertical ul > li > ul > li > ul {
   overflow: hidden;
-  color: #999999;
-  background: #222222;
-  border: 1px solid #080808;
+  color: #777777;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0 0 4px 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
      -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -8206,20 +8214,20 @@ td.visible-print {
 .old-ie .pine.pine-vertical ul ul ul > li > strong {
   padding: 7.5px 15px;
   font-size: 14px;
-  color: #999999;
-  background: #222222;
+  color: #777777;
+  background: #ffffff;
 }
 
 .old-ie .pine.pine-vertical ul ul ul > li > a:hover,
 .old-ie .pine.pine-vertical ul ul ul > li > a:focus,
 .old-ie .pine.pine-vertical ul ul ul > li > a:active {
   color: #ffffff;
-  background: transparent;
+  background: #428bca;
 }
 
 .old-ie .pine.pine-vertical ul ul ul > li.is-open > a {
   color: #ffffff;
-  background: #080808;
+  background: #428bca;
 }
 
 .old-ie .pine.pine-vertical ul ul {
@@ -8268,14 +8276,14 @@ td.visible-print {
   width: 100%;
 }
 
-@media (max-width: 599px) {
+@media (max-width: 991px) {
   .pine > .container > ul {
     margin-right: -15px;
     margin-left: -15px;
   }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 992px) {
   .mobile-header {
     display: none;
   }
