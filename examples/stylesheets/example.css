@@ -430,6 +430,8 @@
   .pine.pine-horizontal ul > li > strong {
     padding: 12px 16px;
     font-size: 16px;
+  }
+  .pine.pine-horizontal ul > li > a {
     color: #000000;
     background: transparent;
   }
@@ -439,6 +441,7 @@
     color: #0000ff;
     background: transparent;
   }
+  .pine.pine-horizontal ul > li > strong,
   .pine.pine-horizontal ul > li.is-open > a {
     color: #000000;
     background: #cccccc;
@@ -585,6 +588,9 @@
 .old-ie .pine.pine-horizontal ul > li > strong {
   padding: 12px 16px;
   font-size: 16px;
+}
+
+.old-ie .pine.pine-horizontal ul > li > a {
   color: #000000;
   background: transparent;
 }
@@ -596,6 +602,7 @@
   background: transparent;
 }
 
+.old-ie .pine.pine-horizontal ul > li > strong,
 .old-ie .pine.pine-horizontal ul > li.is-open > a {
   color: #000000;
   background: #cccccc;
@@ -759,6 +766,8 @@
   .pine.pine-vertical ul > li > strong {
     padding: 12px 16px;
     font-size: 16px;
+  }
+  .pine.pine-vertical ul > li > a {
     color: #000000;
     background: transparent;
   }
@@ -768,6 +777,7 @@
     color: #0000ff;
     background: transparent;
   }
+  .pine.pine-vertical ul > li > strong,
   .pine.pine-vertical ul > li.is-open > a {
     color: #000000;
     background: #cccccc;
@@ -887,6 +897,9 @@
 .old-ie .pine.pine-vertical ul > li > strong {
   padding: 12px 16px;
   font-size: 16px;
+}
+
+.old-ie .pine.pine-vertical ul > li > a {
   color: #000000;
   background: transparent;
 }
@@ -898,6 +911,7 @@
   background: transparent;
 }
 
+.old-ie .pine.pine-vertical ul > li > strong,
 .old-ie .pine.pine-vertical ul > li.is-open > a {
   color: #000000;
   background: #cccccc;

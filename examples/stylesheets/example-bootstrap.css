@@ -7662,6 +7662,8 @@ td.visible-print {
   .pine.pine-horizontal ul > li > strong {
     padding: 15px 15px;
     font-size: 14px;
+  }
+  .pine.pine-horizontal ul > li > a {
     color: #777777;
     background: transparent;
   }
@@ -7671,6 +7673,7 @@ td.visible-print {
     color: #333333;
     background: transparent;
   }
+  .pine.pine-horizontal ul > li > strong,
   .pine.pine-horizontal ul > li.is-open > a {
     color: #555555;
     background: #e7e7e7;
@@ -7821,6 +7824,9 @@ td.visible-print {
 .old-ie .pine.pine-horizontal ul > li > strong {
   padding: 15px 15px;
   font-size: 14px;
+}
+
+.old-ie .pine.pine-horizontal ul > li > a {
   color: #777777;
   background: transparent;
 }
@@ -7832,6 +7838,7 @@ td.visible-print {
   background: transparent;
 }
 
+.old-ie .pine.pine-horizontal ul > li > strong,
 .old-ie .pine.pine-horizontal ul > li.is-open > a {
   color: #555555;
   background: #e7e7e7;
@@ -7999,6 +8006,8 @@ td.visible-print {
   .pine.pine-vertical ul > li > strong {
     padding: 15px 15px;
     font-size: 14px;
+  }
+  .pine.pine-vertical ul > li > a {
     color: #777777;
     background: transparent;
   }
@@ -8008,6 +8017,7 @@ td.visible-print {
     color: #333333;
     background: transparent;
   }
+  .pine.pine-vertical ul > li > strong,
   .pine.pine-vertical ul > li.is-open > a {
     color: #555555;
     background: #e7e7e7;
@@ -8131,6 +8141,9 @@ td.visible-print {
 .old-ie .pine.pine-vertical ul > li > strong {
   padding: 15px 15px;
   font-size: 14px;
+}
+
+.old-ie .pine.pine-vertical ul > li > a {
   color: #777777;
   background: transparent;
 }
@@ -8142,6 +8155,7 @@ td.visible-print {
   background: transparent;
 }
 
+.old-ie .pine.pine-vertical ul > li > strong,
 .old-ie .pine.pine-vertical ul > li.is-open > a {
   color: #555555;
   background: #e7e7e7;

@@ -27,13 +27,17 @@ strong {
 // - First level -
 
 
-// First level item
+// First level item dimensions
 ul > li > a,
 ul > li > strong {
-	background: @pineLevel1Bg;
-	color: @pineLevel1Color;
 	padding: @pineLevel1PaddingVertical @pineLevel1PaddingHorizontal;
 	font-size: @pineLevel1FontSize;
+}
+
+// First level colors
+ul > li > a {
+  background: @pineLevel1Bg;
+  color: @pineLevel1Color;
 }
 
 // First level item hover colors
@@ -45,6 +49,7 @@ ul > li > a:active {
 }
 
 // First level item active colors
+ul > li > strong,
 ul > li.is-open > a {
 	background: @pineLevel1ActiveBg;
 	color: @pineLevel1ActiveColor;
