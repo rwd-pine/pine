@@ -7198,7 +7198,6 @@ td.visible-print {
 
 .pine {
   z-index: 1000;
-  min-height: 50px;
   margin-bottom: 20px;
   background: #f8f8f8;
 }
@@ -7256,7 +7255,6 @@ td.visible-print {
     left: 0;
     width: 100%;
     max-height: 0;
-    min-height: 0;
     overflow: hidden;
     -webkit-transition: max-height 0.3s ease-in-out;
        -moz-transition: max-height 0.3s ease-in-out;
