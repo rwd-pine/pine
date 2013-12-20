@@ -130,6 +130,10 @@ module.exports = function(grunt) {
           {
             src: ['examples/stylesheets/example-bootstrap-fixed.less'],
             dest: 'examples/stylesheets/example-bootstrap-fixed.css'
+          },
+          {
+            src: ['examples/stylesheets/example-bootstrap-vertical.less'],
+            dest: 'examples/stylesheets/example-bootstrap-vertical.css'
           }
         ]
       },
