@@ -5,6 +5,7 @@
 
 
 .fx-right-to-left {
+
 	// First level is container for animation
 	.pine-navbar {
 		position: absolute;
@@ -47,5 +48,25 @@
 	}
 }
 
+// Back button for return to highest level
 
-
+.fx-right-to-left .pine-back > a {
+  position: relative;
+  background: @pineSmallScreenActiveBg;
+  text-align: center; 
+  
+  &:before {
+	z-index: 100;
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: @pineSmallScreenPaddingHorizontal;
+	display: inline-block;
+	width: 0px;
+	height: 0px;
+	border-style: solid;  	
+	border-width: 5px 5px 5px 0;
+	margin-top: -2.5px;
+	border-color: transparent @pineSmallScreenColor transparent transparent;	
+  }
+}

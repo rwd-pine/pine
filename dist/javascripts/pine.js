@@ -418,10 +418,10 @@ Pine.Navbar.registerTransition('fx-right-to-left', {
       // Enter mobile view
       $submenu.each(function(){
         $(this).find('> ul')
-          .prepend($('<li class="back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
+          .prepend($('<li class="pine-back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
       })
 
-      $(document).on('click.pine.submenu', '.back', this, Pine.Submenu.toggle)
+      $(document).on('click.pine.submenu', '.pine-back', this, Pine.Submenu.toggle)
 
       $element.find('ul').css('width', $(window).width())
       $(window).on('resize', resizeSubmenu)
@@ -429,7 +429,7 @@ Pine.Navbar.registerTransition('fx-right-to-left', {
     else {
       // Leave mobile view
       $element.find('ul').removeAttr('style')
-      $submenu.find('li.back').remove()
+      $submenu.find('li.pine-back').remove()
       $(window).off('resize', resizeSubmenu)
     }
   },
@@ -462,10 +462,10 @@ Pine.Navbar.registerTransition('fx-left-to-right', {
       // Enter mobile view
       $submenu.each(function(){
         $(this).find('> ul')
-          .prepend($('<li class="back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
+          .prepend($('<li class="pine-back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
       })
 
-      $(document).on('click.pine.submenu', '.back', this, Pine.Submenu.toggle)
+      $(document).on('click.pine.submenu', '.pine-back', this, Pine.Submenu.toggle)
 
       $element.find('ul').css('width', $(window).width())
       $(window).on('resize', resizeSubmenu)
@@ -473,7 +473,7 @@ Pine.Navbar.registerTransition('fx-left-to-right', {
     else {
       // Leave mobile view
       $element.find('ul').removeAttr('style')
-      $submenu.find('li.back').remove()
+      $submenu.find('li.pine-back').remove()
       $(window).off('resize', resizeSubmenu)
     }
   },

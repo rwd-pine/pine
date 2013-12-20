@@ -7619,6 +7619,27 @@ td.visible-print {
   text-indent: 0 !important;
 }
 
+.fx-right-to-left .pine-back > a {
+  position: relative;
+  text-align: center;
+  background: #080808;
+}
+
+.fx-right-to-left .pine-back > a:before {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  z-index: 100;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-top: -2.5px;
+  border-color: transparent #999999 transparent transparent;
+  border-style: solid;
+  border-width: 5px 5px 5px 0;
+  content: "";
+}
+
 .fx-left-to-right > ul {
   position: absolute;
   -webkit-transition: right .2s;
@@ -7656,6 +7677,27 @@ td.visible-print {
 .fx-left-to-right ul li > a,
 .fx-left-to-right ul li > strong {
   text-indent: 0 !important;
+}
+
+.fx-left-to-right .pine-back > a {
+  position: relative;
+  text-align: center;
+  background: #080808;
+}
+
+.fx-left-to-right .pine-back > a:before {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  z-index: 100;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-top: -2.5px;
+  border-color: transparent transparent transparent #999999;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  content: "";
 }
 
 @media (min-width: 600px) {
