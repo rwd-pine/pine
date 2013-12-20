@@ -69,7 +69,6 @@ module.exports = function(grunt) {
           'src/javascripts/fx/hover.js',
           'src/javascripts/fx/hover-fade.js',
           'src/javascripts/fx/right-to-left.js',
-          'src/javascripts/fx/left-to-right.js',
           'src/javascripts/core/jquery-pine.js',
           //'src/javascripts/app.js'
         ],

@@ -126,7 +126,17 @@
 
   <!-- TODO: load conditionally -->
   <script src="../dist/javascripts/jquery.min.js"></script>
-  <script src="../dist/javascripts/app.js"></script>
+  <script src="../dist/javascripts/pine.js"></script>
+  <script>
+
+    $(function() {
+      $('.pine').pine({
+        transitionSmallDisplay: 'fx-right-to-left',
+        transitionLargeDisplay: 'fx-hover-fade'
+      });
+    });
+
+  </script>
 
 </body>
 </html>

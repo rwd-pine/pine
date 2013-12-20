@@ -7640,66 +7640,6 @@ td.visible-print {
   content: "";
 }
 
-.fx-left-to-right > ul {
-  position: absolute;
-  -webkit-transition: right .2s;
-     -moz-transition: right .2s;
-       -o-transition: right .2s;
-          transition: right .2s;
-}
-
-.fx-left-to-right ul ul {
-  position: absolute;
-  top: 0;
-  right: 100%;
-}
-
-.fx-left-to-right > ul > ul > ul {
-  right: 200%;
-}
-
-.fx-left-to-right > ul > ul > ul > ul {
-  right: 300%;
-}
-
-.js .fx-left-to-right ul ul {
-  visibility: hidden;
-  -webkit-transition: visibility 0s .2s;
-     -moz-transition: visibility 0s .2s;
-       -o-transition: visibility 0s .2s;
-          transition: visibility 0s .2s;
-}
-
-.fx-left-to-right ul .is-open ul {
-  visibility: visible;
-}
-
-.fx-left-to-right ul li > a,
-.fx-left-to-right ul li > strong {
-  text-indent: 0 !important;
-}
-
-.fx-left-to-right .pine-back > a {
-  position: relative;
-  text-align: center;
-  background: #e7e7e7;
-}
-
-.fx-left-to-right .pine-back > a:before {
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  z-index: 100;
-  display: inline-block;
-  width: 0;
-  height: 0;
-  margin-top: -2.5px;
-  border-color: transparent transparent transparent #777777;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  content: "";
-}
-
 @media (min-width: 600px) {
   .pine.pine-horizontal {
     position: static;
