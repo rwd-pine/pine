@@ -1,5 +1,7 @@
 // Pine.JS example – Bootstrap vertical navigation
 
+// --- Imports ---
+
 @import "../../bower_components/bootstrap/less/bootstrap";
 
 @import "../../src/stylesheets/pine";
@@ -12,13 +14,17 @@
 @pineLargeDisplayStart: 992px;
 
 // --- Bootstrap variables ---
-// BS we are using for mobile nav toggler
 
 @grid-float-breakpoint: 992px;
 
-// --- CSS rules ---
+// --- This example CSS rules ---
+
+body {
+  margin-top: 60px;
+}
 
 // Remove mobile header on large displays
+// TODO accessibility
 .mobile-header {
 	@media (min-width: @pineLargeDisplayStart) {
 		display: none;

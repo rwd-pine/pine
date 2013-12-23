@@ -8306,6 +8306,10 @@ td.visible-print {
   }
 }
 
+body {
+  margin-top: 60px;
+}
+
 @media (min-width: 992px) {
   .mobile-header {
     display: none;
