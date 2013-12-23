@@ -72,14 +72,18 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
 
     if (e.type == 'mouseenter') {
       $submenu.addClass('is-hover')
-      clearTimeout(timer)
+      // Prepared for timeout: clearTimeout(timer)
     }
     else {
-      /* Delay hiding of the menu, usability thing */
-      timer = setTimeout(function(){
-        $submenu.removeClass('is-hover')
-        $this.removeClass('is-open')
-      },300)
+      /* TODO: Delay hiding of the menu, usability thing */
+      // timer = setTimeout(function(){
+      //   $submenu.removeClass('is-hover')
+      //   $this.removeClass('is-open')
+      // },300)
+
+      $submenu.removeClass('is-hover')
+      $this.removeClass('is-open')
+
     }
   };
 
@@ -473,9 +477,28 @@ Pine.Navbar.registerTransition('fx-right-to-left', {
     return this
   }
 
+}(jQuery, Pine));
+
+// NAVBAR PLUGIN DEFINITION
+// --------------------------
+
+(function ($, Pine, undefined) { "use strict";
+
+  $.fn.pine = function (option) {
+    $.each(this, function(index, item){
+      var $this   = $(this)
+      var options = $.extend({}, typeof option == 'object' && option)
+
+      Pine.Navbar.init(this, options)
+    })
+  }
+
+}(Zepto, Pine));
+
+(function ($, undefined) { "use strict";
+
   // APPLY TO STANDARD PINE ELEMENTS
   // ===================================
   $('[data-pine=navbar]').pine()
 
-
-}(jQuery, Pine));
+}(window.Zepto || window.jQuery));

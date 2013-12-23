@@ -12,8 +12,4 @@
     })
   }
 
-  // APPLY TO STANDARD PINE ELEMENTS
-  // ===================================
-  $('[data-pine=navbar]').pine()
-
 }(Zepto, Pine));

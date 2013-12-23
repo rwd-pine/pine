@@ -40,7 +40,7 @@ module.exports = function(grunt) {
         files: [
           { expand: true, cwd: 'bower_components/jquery', src: ['jquery.min.js'], dest: 'dist/javascripts', filter: 'isFile' },
           { expand: true, cwd: 'bower_components/zepto', src: ['zepto.min.js'], dest: 'dist/javascripts', filter: 'isFile' },
-          { expand: true, cwd: 'bower_components/matchmedia/', src: ['matchmedia.js'], dest: 'src/javascripts/', filter: 'isFile' },
+          { expand: true, cwd: 'bower_components/matchmedia/', src: ['matchmedia.js'], dest: 'src/javascripts/lib', filter: 'isFile' },
         ]
       },
       assets: {
@@ -61,7 +61,7 @@ module.exports = function(grunt) {
         banner: '<%= banner %>',
         stripBanners: false
       },
-      main: {
+      pine: {
         src: [
           'src/javascripts/lib/matchmedia.js',
           'src/javascripts/core/pine-submenu.js',
@@ -70,19 +70,21 @@ module.exports = function(grunt) {
           'src/javascripts/fx/hover-fade.js',
           'src/javascripts/fx/right-to-left.js',
           'src/javascripts/core/jquery-pine.js',
+          'src/javascripts/core/zepto-pine.js',
+          'src/javascripts/app.js',
         ],
-        dest: 'dist/javascripts/<%= pkg.name %>.js'
+        dest: 'dist/javascripts/pine.js'
       }
     },
 
     uglify: {
-      main: {
+      pine: {
         options: {
           banner: '<%= banner %>'
         },
         files: [
           {
-            src: ['<%= concat.main.dest %>'],
+            src: ['<%= concat.pine.dest %>'],
             dest: 'dist/javascripts/<%= pkg.name %>.min.js'
           }
         ]
@@ -164,7 +166,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-rename');
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-recess');
 
@@ -172,13 +173,13 @@ module.exports = function(grunt) {
   grunt.registerTask('dist-js', ['concat', 'uglify', 'compress']);
 
   // Copy assets
-  grunt.registerTask('dist-copy', ['copy', 'rename']);
+  grunt.registerTask('dist-copy', ['copy']);
 
   // CSS distribution task.
   grunt.registerTask('dist-css', ['recess']);
 
   // Full distribution task.
-  grunt.registerTask('dist', ['clean', 'copy', 'rename', 'dist-css', 'dist-js']);
+  grunt.registerTask('dist', ['clean', 'copy', 'dist-css', 'dist-js']);
 
   // Default task.
   grunt.registerTask('default', ['dist-css', 'dist-js']);
