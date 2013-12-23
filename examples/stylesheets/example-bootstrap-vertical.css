@@ -7719,7 +7719,7 @@ td.visible-print {
     background: #ffffff;
     border: 1px solid #cccccc;
     border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
+    border-radius: O;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -7751,7 +7751,7 @@ td.visible-print {
     background: #ffffff;
     border: 1px solid #cccccc;
     border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 0 0 4px 4px;
+    border-radius: O;
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
        -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -7883,7 +7883,7 @@ td.visible-print {
   background: #ffffff;
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
+  border-radius: O;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -7919,7 +7919,7 @@ td.visible-print {
   background: #ffffff;
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0 0 4px 4px;
+  border-radius: O;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
      -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -8059,7 +8059,7 @@ td.visible-print {
     background: #ffffff;
     border: 1px solid #cccccc;
     border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
+    border-radius: O;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -8091,7 +8091,7 @@ td.visible-print {
     background: #ffffff;
     border: 1px solid #cccccc;
     border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 0 0 4px 4px;
+    border-radius: O;
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
        -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -8196,7 +8196,7 @@ td.visible-print {
   background: #ffffff;
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
+  border-radius: O;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -8232,7 +8232,7 @@ td.visible-print {
   background: #ffffff;
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0 0 4px 4px;
+  border-radius: O;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
      -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
