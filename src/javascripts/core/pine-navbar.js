@@ -98,8 +98,10 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     this.isLargeDisplay = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
     this.isLargeDisplay ? this.setActiveTransition(this.options.transitionLargeDisplay) : this.setActiveTransition(this.options.transitionSmallDisplay)
 
-    /* Mark navbar */
-    this.element.find('ul:first').addClass('pine-navbar')
+    /* Mark navbar
+       Note: Syntax ul:first cannot be used for Zepto
+    */
+    this.element.find('ul').first().addClass('pine-navbar')
     /* Mark all submenus */
     this.element.find('li').has('ul').addClass('has-submenu')
     this.element.find('a').on('focus.pine', this.focus)

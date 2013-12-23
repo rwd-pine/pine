@@ -1,7 +1,8 @@
 // NAVBAR PLUGIN DEFINITION
 // --------------------------
 
-(function ($, Pine, undefined) { "use strict";
+// Execute only if Zepto is present
+window.Zepto && (function ($, Pine, undefined) { "use strict";
 
   $.fn.pine = function (option) {
     $.each(this, function(index, item){

@@ -72,18 +72,14 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
 
     if (e.type == 'mouseenter') {
       $submenu.addClass('is-hover')
-      // Prepared for timeout: clearTimeout(timer)
+      clearTimeout(timer)
     }
     else {
-      /* TODO: Delay hiding of the menu, usability thing */
-      // timer = setTimeout(function(){
-      //   $submenu.removeClass('is-hover')
-      //   $this.removeClass('is-open')
-      // },300)
-
-      $submenu.removeClass('is-hover')
-      $this.removeClass('is-open')
-
+      /* Delay hiding of the menu, usability thing */
+      timer = setTimeout(function(){
+        $submenu.removeClass('is-hover')
+        $this.removeClass('is-open')
+      },300)
     }
   };
 
@@ -237,8 +233,10 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     this.isLargeDisplay = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
     this.isLargeDisplay ? this.setActiveTransition(this.options.transitionLargeDisplay) : this.setActiveTransition(this.options.transitionSmallDisplay)
 
-    /* Mark navbar */
-    this.element.find('ul:first').addClass('pine-navbar')
+    /* Mark navbar
+       Note: Syntax ul:first cannot be used for Zepto
+    */
+    this.element.find('ul').first().addClass('pine-navbar')
     /* Mark all submenus */
     this.element.find('li').has('ul').addClass('has-submenu')
     this.element.find('a').on('focus.pine', this.focus)
@@ -452,7 +450,8 @@ Pine.Navbar.registerTransition('fx-right-to-left', {
 // NAVBAR PLUGIN DEFINITION
 // --------------------------
 
-(function ($, Pine, undefined) { "use strict";
+// Execute only if jQuery is present
+window.jQuery && (function ($, Pine, undefined) { "use strict";
 
   var old = $.fn.pine
 
@@ -482,7 +481,8 @@ Pine.Navbar.registerTransition('fx-right-to-left', {
 // NAVBAR PLUGIN DEFINITION
 // --------------------------
 
-(function ($, Pine, undefined) { "use strict";
+// Execute only if Zepto is present
+window.Zepto && (function ($, Pine, undefined) { "use strict";
 
   $.fn.pine = function (option) {
     $.each(this, function(index, item){

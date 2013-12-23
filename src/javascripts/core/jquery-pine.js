@@ -1,7 +1,8 @@
 // NAVBAR PLUGIN DEFINITION
 // --------------------------
 
-(function ($, Pine, undefined) { "use strict";
+// Execute only if jQuery is present
+window.jQuery && (function ($, Pine, undefined) { "use strict";
 
   var old = $.fn.pine
 
