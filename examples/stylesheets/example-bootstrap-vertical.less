@@ -1,5 +1,6 @@
 // Pine.JS example – Bootstrap vertical navigation
 
+
 // --- Imports ---
 
 @import "../../bower_components/bootstrap/less/bootstrap";
@@ -8,14 +9,26 @@
 
 @import "../../src/stylesheets/skin/bootstrap";
 
+
 // --- Pine variables ---
 
 @pineBorderRadius: 0;
 @pineLargeDisplayStart: 992px;
 
+
 // --- Bootstrap variables ---
 
+// Breakpoint synchronized with
 @grid-float-breakpoint: 992px;
+
+// Small screen navigation has Bootstrap inverse colours
+@pineSmallScreenColor:              @navbar-inverse-color;
+@pineSmallScreenBg:                 @navbar-inverse-bg;
+@pineSmallScreenHoverColor:         @navbar-inverse-color;
+@pineSmallScreenHoverBg:            @navbar-inverse-link-hover-bg;
+@pineSmallScreenActiveColor:        @navbar-inverse-link-active-color;
+@pineSmallScreenActiveBg:           @navbar-inverse-link-active-bg;
+
 
 // --- This example CSS rules ---
 

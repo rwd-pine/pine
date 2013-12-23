@@ -7251,7 +7251,7 @@ td.visible-print {
 @media (max-width: 991px) {
   .js .pine {
     position: absolute;
-    top: 52px;
+    top: 51px;
     left: 0;
     width: 100%;
     max-height: 0;
@@ -7286,19 +7286,19 @@ td.visible-print {
   padding: 10.5px 15px;
   overflow: hidden;
   font-weight: normal;
-  color: #777777;
+  color: #999999;
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: #f8f8f8;
+  background: #222222;
 }
 
 .pine li a:hover,
 .pine li a:focus,
 .pine li a:active,
 .pine li strong {
-  color: #555555;
-  background: #e7e7e7;
+  color: #ffffff;
+  background: #080808;
 }
 
 .pine ul ul li > a,
@@ -7462,11 +7462,11 @@ td.visible-print {
   padding: 10.5px 15px;
   overflow: hidden;
   font-weight: normal;
-  color: #777777;
+  color: #999999;
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: #f8f8f8;
+  background: #222222;
 }
 
 @media (max-width: 991px) {
@@ -7525,14 +7525,14 @@ td.visible-print {
 
 @media (max-width: 991px) {
   .js .pine-fixed {
-    top: 52px;
+    top: 51px;
   }
 }
 
 @media (max-width: 991px) {
   .js .pine-fixed-small {
     position: fixed;
-    top: 52px;
+    top: 51px;
     left: 0;
     width: 100%;
   }
@@ -7660,7 +7660,7 @@ td.visible-print {
 .fx-right-to-left .pine-back > a {
   position: relative;
   text-align: center;
-  background: #e7e7e7;
+  background: #080808;
 }
 
 .fx-right-to-left .pine-back > a:before {
@@ -7672,7 +7672,7 @@ td.visible-print {
   width: 0;
   height: 0;
   margin-top: -2.5px;
-  border-color: transparent #777777 transparent transparent;
+  border-color: transparent #999999 transparent transparent;
   border-style: solid;
   border-width: 5px 5px 5px 0;
   content: "";
