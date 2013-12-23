@@ -7256,10 +7256,10 @@ td.visible-print {
     width: 100%;
     max-height: 0;
     overflow: hidden;
-    -webkit-transition: max-height 0.3s ease-in-out;
-       -moz-transition: max-height 0.3s ease-in-out;
-         -o-transition: max-height 0.3s ease-in-out;
-            transition: max-height 0.3s ease-in-out;
+    -webkit-transition: max-height 0.1s ease-in-out;
+       -moz-transition: max-height 0.1s ease-in-out;
+         -o-transition: max-height 0.1s ease-in-out;
+            transition: max-height 0.1s ease-in-out;
   }
   .js .pine.is-visible {
     max-height: 2000px;
@@ -7557,10 +7557,10 @@ td.visible-print {
 .fx-toggle ul ul {
   max-height: 0;
   overflow: hidden;
-  -webkit-transition: max-height 0.3s ease-in-out;
-     -moz-transition: max-height 0.3s ease-in-out;
-       -o-transition: max-height 0.3s ease-in-out;
-          transition: max-height 0.3s ease-in-out;
+  -webkit-transition: max-height 0.1s ease-in-out;
+     -moz-transition: max-height 0.1s ease-in-out;
+       -o-transition: max-height 0.1s ease-in-out;
+          transition: max-height 0.1s ease-in-out;
 }
 
 .fx-toggle ul li.is-open > ul {
@@ -7572,10 +7572,10 @@ td.visible-print {
      -moz-opacity: 0;
           opacity: 0;
   filter: alpha(opacity=0);
-  -webkit-transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
-     -moz-transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
-       -o-transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
-          transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
+  -webkit-transition: visibility 0s 0.1s, opacity 0.1s ease-in-out;
+     -moz-transition: visibility 0s 0.1s, opacity 0.1s ease-in-out;
+       -o-transition: visibility 0s 0.1s, opacity 0.1s ease-in-out;
+          transition: visibility 0s 0.1s, opacity 0.1s ease-in-out;
 }
 
 .fx-hover-fade ul > li.is-open > ul,
@@ -7584,10 +7584,10 @@ td.visible-print {
      -moz-opacity: 1;
           opacity: 1;
   filter: alpha(opacity=100);
-  -webkit-transition: opacity 0.3s ease-in-out;
-     -moz-transition: opacity 0.3s ease-in-out;
-       -o-transition: opacity 0.3s ease-in-out;
-          transition: opacity 0.3s ease-in-out;
+  -webkit-transition: opacity 0.1s ease-in-out;
+     -moz-transition: opacity 0.1s ease-in-out;
+       -o-transition: opacity 0.1s ease-in-out;
+          transition: opacity 0.1s ease-in-out;
 }
 
 .fx-hover-fade ul li > a,
@@ -7597,17 +7597,17 @@ td.visible-print {
 
 .fx-hover-fade .pine-navbar > li > a,
 .fx-hover-fade .pine-navbar > li > strong {
-  -webkit-transition: background .4s;
-     -moz-transition: background .4s;
-       -o-transition: background .4s;
-          transition: background .4s;
+  -webkit-transition: background .1s;
+     -moz-transition: background .1s;
+       -o-transition: background .1s;
+          transition: background .1s;
 }
 
 .fx-hover-fade .noanim {
-  -webkit-transition: none!important;
-     -moz-transition: none!important;
-       -o-transition: none!important;
-          transition: none!important;
+  -webkit-transition: none !important;
+     -moz-transition: none !important;
+       -o-transition: none !important;
+          transition: none !important;
 }
 
 .fx-right-to-left .pine-navbar {

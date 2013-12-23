@@ -6,14 +6,14 @@
 .fx-hover-fade {
   ul ul {
     .opacity(0);
-    .transition(~"visibility 0s .3s, opacity .3s ease-in-out");
+    .transition(~"visibility 0s .1s, opacity .1s ease-in-out");
   }
 
   // Opened 2nd level
   ul > li.is-open > ul,
   ul ul > li.is-open > ul {
     .opacity(1);
-    .transition(opacity .3s ease-in-out);
+    .transition(opacity .1s ease-in-out);
   }
 
   // No 2nd, 3rd level indentation
@@ -24,10 +24,10 @@
 
   .pine-navbar > li > a,
   .pine-navbar > li > strong {
-    .transition(~"background .4s");
+    .transition(~"background .1s");
   }
 
   .noanim {
-    .transition(~"none!important");
+    .transition(~"none !important");
   }
 }
