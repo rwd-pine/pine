@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" class="js">
+<html lang="en" class="no-js">
 
 <head>
   <meta charset="UTF-8">
@@ -154,6 +154,10 @@
   <script>
 
     $(function() {
+      $('html')
+        .removeClass('no-js')
+        .addClass('js');
+
       $('.pine').pine({
         transitionSmallDisplay: 'fx-right-to-left',
         transitionLargeDisplay: 'fx-hover-fade'

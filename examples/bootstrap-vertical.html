@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" class="js">
+<html lang="en" class="no-js">
 
 <head>
   <meta charset="UTF-8">
@@ -16,7 +16,7 @@
 <body>
 
 
-      <div class="navbar navbar-inverse mobile-header">
+      <div class="navbar navbar-inverse navbar-fixed-top mobile-header">
         <div class="container">
           <div class="navbar-header">
             <a class="navbar-toggle" data-pine="toggle" type="button" href="#nav">
@@ -34,10 +34,10 @@
 <!-- Layout container -->
       <div class="container">
         <div class="row">
-          
-<!-- Layout column for navigation --> 
+
+<!-- Layout column for navigation -->
           <div class="col-md-2">
-            <div class="pine pine-vertical" role="navigation" id="nav">
+            <div class="pine pine-vertical pine-fixed-small" role="navigation" id="nav">
             <!--
                Data source:
                http://webdesigntutsplus.s3.amazonaws.com/tuts/378_tessa/tessa-lt-dropdowns-21c7868/index.html
@@ -151,7 +151,7 @@
                         <li><a href="#">Party</a></li>
                       </ul>
                     </li>
-                    
+
                   </ul>
                 </li>
                 <li>
@@ -226,19 +226,19 @@
                 </li>
               </ul>
 
-            </div><!-- [role=navigation] -->           
-<!-- /Layout column for navigation -->            
+            </div><!-- [role=navigation] -->
+<!-- /Layout column for navigation -->
           </div>
 
 
-<!-- Layout column for content --> 
+<!-- Layout column for content -->
           <div class="col-md-10">
 
             <div class="jumbotron">
               <h1>Pine.JS responsive navigation example</h1>
               <p>
-              Vertical variant build inside Bootstrap layout 
-                — Custom skin — Custom small/large screen breakpoint 
+              Vertical variant build inside Bootstrap layout
+                — Custom skin — Custom small/large screen breakpoint
                 — More complex navigation structure
               </p>
             </div>
@@ -283,9 +283,9 @@
                   Cras a porttitor elit. Sed purus dui, accumsan eget odio sit amet, imperdiet faucibus erat. Nam non nibh commodo, consequat nunc sed, tempus tortor.
                 </p>
               </div>
-            </div>                        
+            </div>
 
-<!-- /Layout column for content -->            
+<!-- /Layout column for content -->
           </div>
 
 <!-- /Layout container -->
@@ -303,6 +303,10 @@
   <script>
 
     $(function() {
+      $('html')
+        .removeClass('no-js')
+        .addClass('js');
+
       $('.pine').pine({
         transitionSmallDisplay: 'fx-right-to-left',
         transitionLargeDisplay: 'fx-hover-fade'

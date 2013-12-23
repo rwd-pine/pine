@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" class="js">
+<html lang="en" class="no-js">
 
 <head>
   <meta charset="UTF-8">
@@ -9,7 +9,7 @@
 
   <title>Pine navigation — Bootstrap skin example</title>
 
-  <link rel="stylesheet" href="stylesheets/example-bootstrap-fixed-inverted.css">
+  <link rel="stylesheet" href="stylesheets/example-bootstrap-fixed.css">
 
 </head>
 
@@ -189,6 +189,10 @@
   <script>
 
     $(function() {
+      $('html')
+        .removeClass('no-js')
+        .addClass('js');
+
       $('.pine').pine({
         transitionSmallDisplay: 'fx-toggle',
         transitionLargeDisplay: 'fx-hover-fade'

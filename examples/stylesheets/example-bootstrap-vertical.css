@@ -7516,6 +7516,44 @@ td.visible-print {
   display: inline-block;
 }
 
+.js .pine-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .js .pine-fixed {
+    top: 52px;
+  }
+}
+
+@media (max-width: 991px) {
+  .js .pine-fixed-small {
+    position: fixed;
+    top: 52px;
+    left: 0;
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .js .pine-fixed-large {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.old-ie.js .pine-fixed-large {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
 .fx-toggle ul ul {
   max-height: 0;
   overflow: hidden;
@@ -7642,10 +7680,8 @@ td.visible-print {
 
 @media (min-width: 992px) {
   .pine.pine-horizontal {
-    position: static;
-    top: auto;
-    left: auto;
-    display: block;
+    /* Pine: Large displays */
+  
     background: #f8f8f8;
     border: 1px solid #e7e7e7;
   }
@@ -7801,10 +7837,8 @@ td.visible-print {
 }
 
 .old-ie .pine.pine-horizontal {
-  position: static;
-  top: auto;
-  left: auto;
-  display: block;
+  /* Pine: Large displays */
+
   background: #f8f8f8;
   border: 1px solid #e7e7e7;
 }
@@ -7986,10 +8020,8 @@ td.visible-print {
 
 @media (min-width: 992px) {
   .pine.pine-vertical {
-    position: static;
-    top: auto;
-    left: auto;
-    display: block;
+    /* Pine: Large displays */
+  
     background: #f8f8f8;
     border: 1px solid #e7e7e7;
   }
@@ -8118,10 +8150,8 @@ td.visible-print {
 }
 
 .old-ie .pine.pine-vertical {
-  position: static;
-  top: auto;
-  left: auto;
-  display: block;
+  /* Pine: Large displays */
+
   background: #f8f8f8;
   border: 1px solid #e7e7e7;
 }
@@ -8267,13 +8297,6 @@ td.visible-print {
 .old-ie .pine.pine-vertical ul ul > li.is-open > ul {
   z-index: 50002;
   visibility: visible;
-}
-
-.pine.pine-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
 }
 
 @media (max-width: 991px) {

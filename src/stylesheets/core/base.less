@@ -14,21 +14,21 @@
 		border-radius: @pineBorderRadius;
 	}
 
-	// Small screens with JS positioning and opening
-	
+	// Small screens with JS opening
+
 	@media (max-width: @pineSmallDisplayEnd) {
 		.js & {
 			max-height: 0;
+      position: absolute;
+      top: @pineSmallScreenTop;
+      left: 0;
 			overflow: hidden;
-			position: absolute;
-			top: @pineSmallScreenTop;
-			left: 0;
 			width: 100%;
 			.transition(~"max-height .3s ease-in-out");
 		}
 
 		.js &.is-visible {
-			max-height: 2000px; 
+			max-height: 2000px;
 			overflow: visible;
 		}
 
@@ -36,7 +36,7 @@
 
 	@media print {
 		display: none;
-	}	
+	}
 }
 
 // Navigation defaults
