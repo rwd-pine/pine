@@ -10,28 +10,42 @@
 @import "../../src/stylesheets/skin/bootstrap";
 
 
-// --- Pine variables ---
-
-@pineBorderRadius: 0;
-@pineLargeDisplayStart: 992px;
-
-
 // --- Bootstrap variables ---
 
 // Breakpoint synchronized with
-@grid-float-breakpoint: 992px;
+@grid-float-breakpoint     : 992px;
+
+// --- Pine variables ---
+// Changes in addition to Pine Boostrap skin
+
+@pineBorderRadius          : 0;
+@pineLargeDisplayStart     : 992px;
+@pineBorder                : 0;
 
 // Small screen navigation has Bootstrap inverse colours
-@pineSmallScreenColor:              @navbar-inverse-color;
-@pineSmallScreenBg:                 @navbar-inverse-bg;
-@pineSmallScreenHoverColor:         @navbar-inverse-color;
-@pineSmallScreenHoverBg:            @navbar-inverse-link-hover-bg;
-@pineSmallScreenActiveColor:        @navbar-inverse-link-active-color;
-@pineSmallScreenActiveBg:           @navbar-inverse-link-active-bg;
+@pineSmallScreenColor      : @navbar-inverse-color;
+@pineSmallScreenBg         : @navbar-inverse-bg;
+@pineSmallScreenHoverColor : @navbar-inverse-color;
+@pineSmallScreenHoverBg    : @navbar-inverse-link-hover-bg;
+@pineSmallScreenActiveColor: @navbar-inverse-link-active-color;
+@pineSmallScreenActiveBg   : @navbar-inverse-link-active-bg;
 
-// There is no border-radius here
-@pineLevel2BorderRadius:  O;
-@pineLevel3BorderRadius:  O;
+// 1st level
+@pineLevel1Bg              : #FAFFA0;
+@pineLevel1HoverBg         : darken(@pineLevel1Bg, 25%);
+@pineLevel1ActiveBg        : darken(@pineLevel1Bg, 25%);
+
+// 2nd level
+@pineLevel2Bg              : @pineLevel1Bg;
+@pineLevel2HoverColor      : @pineColor;
+@pineLevel2HoverBg         : @pineLevel1HoverBg;
+@pineLevel2ActiveColor     : @pineColor;
+@pineLevel2ActiveBg        : @pineLevel1ActiveBg;
+@pineLevel2Shadow          : none;
+@pineLevel2Border          : 0;
+@pineLevel2BorderFallback  : 0;
+@pineLevel2BorderRadius    : 0;
+
 
 
 // --- This example CSS rules ---
