@@ -1,6 +1,11 @@
+// TODO
+// - english
+// - more accurate selectors
+
+
 // Vychozi stav druhe a treti urovne
 ul ul {
-	top: 0;		
+	top: 0;
 	position: absolute;
 }
 
@@ -16,12 +21,12 @@ strong {
 	padding-bottom: 8px;
 }
 
-// - Rozbaleny stav: bez JS -	
+// - Rozbaleny stav: bez JS -
 
 // Otevrena druha uroven
 ul > li > ul {
 	.nav-large-display-horizontal-2nd-level;
-}	
+}
 
 // Otevrena treti uroven
 ul ul > li > ul {
@@ -41,15 +46,17 @@ ul ul > li.is-open > ul {
 }
 
 // Mixin: styl pro otevrenou druhou uroven zanoreni
-.nav-large-display-horizontal-2nd-level() {	
+.nav-large-display-horizontal-2nd-level() {
 	z-index: 50001;
 	visibility: visible;
 	left: 100%;
 	max-width: 313px; // Max. sirka polozky v plne sirce layoutu
+  margin-left: 1px;
 }
 
 // Mixin: styl pro otevrenou treti uroven zanoreni
 .nav-large-display-horizontal-3rd-level() {
 	z-index: 50002;
 	visibility: visible;
+  margin-left: 1px;
 }
