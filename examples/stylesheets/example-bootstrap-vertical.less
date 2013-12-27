@@ -31,9 +31,10 @@
 @pineSmallScreenActiveBg   : @navbar-inverse-link-active-bg;
 
 // 1st level
-@pineLevel1Bg              : #FAFFA0;
-@pineLevel1HoverBg         : darken(@pineLevel1Bg, 25%);
-@pineLevel1ActiveBg        : darken(@pineLevel1Bg, 25%);
+@pineLevel1Bg              : linear-gradient(180deg, darken(#FAFFA0, 20%), #FAFFA0);
+@pineLevel1HoverBg         : darken(#FAFFA0, 20%);
+@pineLevel1ActiveBg        : darken(#FAFFA0, 20%);
+@pineLevel1BorderBottom    : 1px solid #fff;
 
 // 2nd level
 @pineLevel2Bg              : @pineLevel1Bg;
@@ -45,10 +46,14 @@
 @pineLevel2Border          : 0;
 @pineLevel2BorderFallback  : 0;
 @pineLevel2BorderRadius    : 0;
+@pineLevel2BorderBottom    : 1px solid #fff;
+
+// 3rd level
+@pineLevel3BorderBottom    : 1px solid #fff;
 
 
 
-// --- This example CSS rules ---
+// --- CSS rules for this example ---
 
 body {
   margin-top: 60px;

@@ -24,36 +24,44 @@ strong {
 
 
 // First level item dimensions
-ul > li > a,
-ul > li > strong {
+> ul > li > a,
+> ul > li > strong {
 	padding: @pineLevel1PaddingVertical @pineLevel1PaddingHorizontal;
 	font-size: @pineLevel1FontSize;
+  border-bottom: @pineLevel1BorderBottom;
+  border-right: @pineLevel1BorderRight;
 }
 
-// First level colors
-ul > li > a {
+> ul > li:last-child > a,
+> ul > li:last-child > strong {
+  border-bottom: 0;
+  border-right: 0;
+}
+
+// First level item colors
+> ul > li > a {
   background: @pineLevel1Bg;
   color: @pineLevel1Color;
 }
 
 // First level item hover colors
-ul > li > a:hover,
-ul > li > a:focus,
-ul > li > a:active {
+> ul > li > a:hover,
+> ul > li > a:focus,
+> ul > li > a:active {
 	background: @pineLevel1HoverBg;
 	color: @pineLevel1HoverColor;
 }
 
 // First level item active colors
-ul > li > strong,
-ul > li.is-open > a {
+> ul > li > strong,
+> ul > li.is-open > a {
 	background: @pineLevel1ActiveBg;
 	color: @pineLevel1ActiveColor;
 }
 
 // - Second level -
 
-ul > li > ul {
+> ul > li > ul {
 	color: @pineLevel2Color;
 	background: @pineLevel2Bg;
 	border: @pineLevel2BorderFallback;
@@ -65,32 +73,38 @@ ul > li > ul {
 	.box-shadow(@pineLevel2Shadow);
 }
 
-// Second level item
-ul ul > li > a,
-ul ul > li > strong {
+// Second level item dimensions and colors
+> ul > li > ul > li > a,
+> ul > li > ul > li > strong {
 	background: @pineLevel2Bg;
 	padding: @pineLevel2PaddingVertical @pineLevel2PaddingHorizontal;
 	font-size: @pineLevel2FontSize;
 	color: @pineLevel2Color;
+  border-bottom: @pineLevel2BorderBottom;
+}
+
+> ul > li > ul > li:last-child > a,
+> ul > li > ul > li:last-child > strong {
+  border-bottom: 0;
 }
 
 // Second level item hover colors
-ul ul > li > a:hover,
-ul ul > li > a:focus,
-ul ul > li > a:active {
+> ul > li > ul > li > a:hover,
+> ul > li > ul > li > a:focus,
+> ul > li > ul > li > a:active {
 	background: @pineLevel3HoverBg;
 	color: @pineLevel2HoverColor;
 }
 
 // Second level item active colors
-ul ul > li.is-open > a {
+> ul > li > ul > li.is-open > a {
 	background: @pineLevel2ActiveBg;
 	color: @pineLevel2ActiveColor;
 }
 
 // - Third level -
 
-ul > li > ul > li > ul {
+> ul > li > ul > li > ul {
 	color: @pineLevel3Color;
 	background: @pineLevel3Bg;
 	border: @pineLevel3BorderFallback;
@@ -102,24 +116,30 @@ ul > li > ul > li > ul {
 }
 
 // Third level item
-ul ul ul > li > a,
-ul ul ul > li > strong {
+> ul > li > ul > li > ul > li > a,
+> ul > li > ul > li > ul > li > strong {
 	background: @pineLevel3Bg;
 	padding: @pineLevel3PaddingVertical @pineLevel3PaddingHorizontal;
 	font-size: @pineLevel3FontSize;
 	color: @pineLevel3Color;
+  border-bottom: @pineLevel3BorderBottom;
+}
+
+> ul > li > ul > li > ul > li:last-child > a,
+> ul > li > ul > li > ul > li:last-child > strong {
+  border-bottom: 0;
 }
 
 // Third level item hover colors
-ul ul ul > li > a:hover,
-ul ul ul > li > a:focus,
-ul ul ul > li > a:active {
+> ul > li > ul > li > ul > li > a:hover,
+> ul > li > ul > li > ul > li > a:focus,
+> ul > li > ul > li > ul > li > a:active {
 	background: @pineLevel3HoverBg;
 	color: @pineLevel3HoverColor;
 }
 
 // Third level item active colors
-ul ul ul > li.is-open > a {
+> ul > li > ul > li > ul> li.is-open > a {
 	background: @pineLevel3ActiveBg;
 	color: @pineLevel3ActiveColor;
 }
