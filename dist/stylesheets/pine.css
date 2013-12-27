@@ -941,20 +941,24 @@
     left: 100%;
     z-index: 50001;
     max-width: 313px;
+    margin-left: 1px;
     visibility: visible;
   }
   .pine.pine-vertical ul ul > li > ul {
     z-index: 50002;
+    margin-left: 1px;
     visibility: visible;
   }
   .pine.pine-vertical ul > li.is-open > ul {
     left: 100%;
     z-index: 50001;
     max-width: 313px;
+    margin-left: 1px;
     visibility: visible;
   }
   .pine.pine-vertical ul ul > li.is-open > ul {
     z-index: 50002;
+    margin-left: 1px;
     visibility: visible;
   }
 }
@@ -1105,11 +1109,13 @@
   left: 100%;
   z-index: 50001;
   max-width: 313px;
+  margin-left: 1px;
   visibility: visible;
 }
 
 .old-ie .pine.pine-vertical ul ul > li > ul {
   z-index: 50002;
+  margin-left: 1px;
   visibility: visible;
 }
 
@@ -1117,10 +1123,12 @@
   left: 100%;
   z-index: 50001;
   max-width: 313px;
+  margin-left: 1px;
   visibility: visible;
 }
 
 .old-ie .pine.pine-vertical ul ul > li.is-open > ul {
   z-index: 50002;
+  margin-left: 1px;
   visibility: visible;
 }
