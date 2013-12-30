@@ -156,7 +156,21 @@ module.exports = function(grunt) {
         files: 'src/javascripts/**/*.js',
         tasks: ['concat', 'uglify']
       }
+    },
+
+    legacssy: {
+      default: {
+        options: {
+          legacyWidth: 600,
+          matchingOnly: true,
+          overridesOnly: true
+        },
+        files: {
+          'dist/stylesheets/pine-ie8.css': 'dist/stylesheets/pine.css'
+        }
+      }
     }
+
   });
 
 
@@ -168,6 +182,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-recess');
+  grunt.loadNpmTasks('grunt-legacssy');
 
   // JS distribution task.
   grunt.registerTask('dist-js', ['concat', 'uglify', 'compress']);
