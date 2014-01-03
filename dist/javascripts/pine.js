@@ -1,6 +1,17 @@
 /**
 * pine.js v0.0.1
 */
+//
+// LOGGER
+// Very simple javascript logging plugin
+// ------------------------------------
+
+(function($) {
+  $.log = function(message) {
+    if (window.log && window.console && window.console.log)
+      console.log(message)
+  }
+}(window.jQuery || window.Zepto));
 /*! matchMedia() polyfill - Test a CSS media type/query in JS. Authors & copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas. Dual MIT/BSD license */
 
 window.matchMedia = window.matchMedia || (function( doc, undefined ) {
@@ -62,71 +73,29 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
 
   Submenu = {};
 
-  // Method: Hover
+  // Method: Event handler that shows submenus
   // -------------
-  // Event handler for hover. When user enters the menu, timeout is cleared and
-  // class 'is-hover' is added. Otherwise a 300ms timeout is set and the menu is closed.
-  Submenu.hover = function (e) {
-    var $this = $(this)
-    var $submenu = $this.find('> ul')
-
-    if (e.type == 'mouseenter') {
-      $submenu.addClass('is-hover')
-      clearTimeout(timer)
-    }
-    else {
-      /* Delay hiding of the menu, usability thing */
-      timer = setTimeout(function(){
-        $submenu.removeClass('is-hover')
-        $this.removeClass('is-open')
-      },300)
-    }
-  };
-
-  // Method: Toggle
-  // -------------
-  // Event handler for toggle.
   Submenu.toggle = function (e) {
-    var $this = $(this),
-        $parent  = $this.parent().closest('li'),
-        isActive  = $parent.hasClass('is-open'),
-        event = e,
-        transition = e.data.activeTransition && e.data.activeTransition.onToggle;
+    var $menu = $(e.currentTarget).closest('.has-submenu'),
+        transition = this.activeTransition && this.activeTransition.onToggle,
+        isActive = $menu.hasClass('is-open');
 
-    // default click behavior needs to close menus clearMenus()
-    // Handle if the event was fired by link
-    if (!isActive) {
-      // if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
-      //   // if mobile we we use a backdrop because click events don't delegate
-      //   $('<div class="submenu-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
-      // }
+    // Execute special pre-show hook
+    if (transition && typeof transition === 'function') transition.call(this, isActive);
 
-      // Execute special pre-show hook
-      if (transition && typeof transition === 'function') transition.call(this, isActive);
+    if(!isActive) {
+      $menu.trigger(e = $.Event('show')) /* show.submenu */
+      $menu.addClass('is-open').trigger('shown') /* shown.submenu */
 
-      $parent.trigger(e = $.Event('show.submenu'))
-
-      // add hover to child submenu
-      // console.log(event)
-      if (event.type == 'mouseenter') $parent.find('> ul').addClass('is-hover')
-
-      $parent
-        .addClass('is-open')
-        .trigger('shown.submenu')
+      $.log('Event: show')
     }
     else {
-      // If submenu is hovered then return
-      if ($parent.find('> ul').hasClass('is-hover')) return
+      $menu.trigger(e = $.Event('hide')) /* hide.submenu */
+      $menu.removeClass('is-open').trigger('hidden') /* hidden.submenu */
 
-      // Execute special pre-hide hook
-      if (transition && typeof transition === 'function') transition.call(this, isActive);
-
-      $parent.trigger(e = $.Event('hide.submenu'))
-      $parent.removeClass('is-open').trigger('hidden.submenu')
+      $.log('Event: hide')
     }
-
-    return false
-  };
+  }
 
   return Submenu;
 
@@ -239,16 +208,22 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     this.element.find('ul').first().addClass('pine-navbar')
     /* Mark all submenus */
     this.element.find('li').has('ul').addClass('has-submenu')
-    this.element.find('a').on('focus.pine', this.focus)
+    this.element.find('a').on('focus', this.focus) /* focus.pine */
     /* TODO refactor: Add master class */
     this.isLargeDisplay ? this.element.addClass('pine-large') : this.element.addClass('pine-large')
 
-    /* Default behavior, submenu is triggered on click */
-    $(document).on('click.pine.submenu', this.SUBMENU + ' > a', this, Pine.Submenu.toggle)
-    $(document).on('click.pine.trigger', this.NAVBAR_TOGGLE, this, Pine.Navbar.toggle)
+    /* CLICK: Default behavior, submenu is triggered on click */
+
+    $(document).on('click', this.SUBMENU + ' > a', $.proxy(Pine.Submenu.toggle, Pine.Submenu))
+
+    // Navbar toggle button
+    $(this.NAVBAR_TOGGLE).on('click', Pine.Navbar.toggle)
 
     /* Setup API with all listeners */
-    $(window).on('load resize', $.proxy(this.api, this))
+    $(window).on({
+      'load': $.proxy(this.api, this),
+      'resize': $.proxy(this.api, this)
+    })
   };
 
   /**
@@ -294,19 +269,25 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     Switches active transition when leaving one view and entering another.
   **/
   Navbar.switchView = function (isLargeDisplay) {
-    var t = this.getTransitionName(isLargeDisplay)
-    var c = this.getNavbarClass(isLargeDisplay)
+    var newTransition = this.getTransitionName(isLargeDisplay)
+    var origTransition = this.getTransitionName(!isLargeDisplay)
+    var newClass = this.getNavbarClass(isLargeDisplay)
+    var origClass = this.getNavbarClass(!isLargeDisplay)
 
     this.element
-      .removeClass(this.getTransitionName(!isLargeDisplay))
-      .addClass(t)
+      .removeClass(origTransition)
+      .addClass(newTransition)
+
+    $.log('Transition: '+ newTransition)
 
     // TODO refactor
     this.element
-      .removeClass(this.getNavbarClass(!isLargeDisplay))
-      .addClass(c)
+      .removeClass(origClass)
+      .addClass(newClass)
 
-    this.setActiveTransition(t)
+    this.setActiveTransition(newTransition)
+
+    $.log('View: ' + newClass)
   };
 
   // TODO: abstrahovat eventy, nemusi to byt mousenter
@@ -319,7 +300,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     var $parent  = $this.parent()
 
     if ($parent.hasClass('has-submenu') && !$parent.hasClass('is-open')) {
-      $this.trigger($.Event('mouseenter'))
+      $this.trigger($.Event('mouseover'))
     }
 
     var openedMenus = $('.is-open')
@@ -329,6 +310,18 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     openedMenus.filter(function(i){
       return $(this).find($this).length === 0
     }).removeClass('is-open')
+  };
+
+  /**
+    Toggles navigation bar in mobile view
+  **/
+  Navbar.toggle = function (e) {
+    e.preventDefault();
+
+    $(this).toggleClass('is-active')
+    $(document).find($(this).attr('href')).toggleClass('is-visible')
+
+    $.log('Event: Toggle Navbar')
   };
 
   /**
@@ -359,16 +352,6 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     this.transitions[name] = obj
   };
 
-  /**
-    Toggles menu in mobile view
-  **/
-  Navbar.toggle = function (e) {
-    e.preventDefault();
-
-    $(this).toggleClass('is-active')
-    $(document).find($(this).attr('href')).toggleClass('is-visible')
-  };
-
   return Navbar;
 
 }(window.Zepto || window.jQuery, window));
@@ -381,16 +364,16 @@ var pine_fx_hover = {
     if (switchCondition) {
       // Add 'mouse' listeners and disable 'click.submenu'
       $(document)
-        .on('mouseenter.pine.submenu, mouseleave.pine.submenu', this.SUBMENU, this, Pine.Submenu.hover)
-        .on('mouseenter.pine.submenu, mouseleave.pine.submenu', this.SUBMENU + ' > a', this, Pine.Submenu.toggle)
-        .off('click.pine.submenu')
+        .on({'mouseenter': $.proxy(Pine.Submenu.toggle, this), 'mouseleave': $.proxy(Pine.Submenu.toggle, this)}, this.SUBMENU)
+        .off('click')
+        // .off('click.pine.submenu')
     }
     else {
       // Add 'click.submenu' listeners and disable 'mouse'"
       $(document)
-        .off('mouseenter.pine.submenu, mouseleave.pine.submenu')
-        .on('click.pine.submenu', this.SUBMENU + ' > a', this, Pine.Submenu.toggle)
-
+        .off('mouseenter')
+        .off('mouseleave')
+        .on('click', this.SUBMENU + ' > a', $.proxy(Pine.Submenu.toggle, this))
     }
   },
   onToggle: function(isActive){}
@@ -419,11 +402,12 @@ Pine.Navbar.registerTransition('fx-right-to-left', {
     if(condition) {
       // Enter mobile view
       $submenu.each(function(){
-        $(this).find('> ul')
+        $(this).find('ul').first()
           .prepend($('<li class="pine-back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
       })
 
-      $(document).on('click.pine.submenu', '.pine-back', this, Pine.Submenu.toggle)
+      $(document).on('click', '.pine-back', $.proxy(Pine.Submenu.toggle, this))
+      // $(document).on('click.pine.submenu', '.pine-back', this, Pine.Submenu.toggle)
 
       $element.find('ul').css('width', $(window).width())
       $(window).on('resize', resizeSubmenu)

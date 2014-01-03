@@ -66,6 +66,24 @@
                             <a href="#">
                               Third level
                             </a>
+
+                            <ul>
+                              <li>
+                                  <a href="#">
+                                    Who we are
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#">
+                                    Very very very very long nav item
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#">
+                                    Fourth level
+                                  </a>
+                              </li>
+                            </ul>
                         </li>
                       </ul>
                   </li>
@@ -73,6 +91,41 @@
                       <a href="#">
                         Our families
                       </a>
+                      <ul>
+                        <li>
+                            <a href="#">
+                              Who we are
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                              Very very very very long nav item
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                              Third level
+                            </a>
+
+                            <ul>
+                              <li>
+                                  <a href="#">
+                                    Who we are
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#">
+                                    Very very very very long nav item
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#">
+                                    Fourth level
+                                  </a>
+                              </li>
+                            </ul>
+                        </li>
+                      </ul>
                   </li>
                 </ul>
             </li>
@@ -184,17 +237,18 @@
   ========================== -->
 
   <!-- TODO: load conditionally -->
-  <script src="../dist/javascripts/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="../dist/javascripts/pine.js"></script>
   <script>
-
     $(function() {
+      window.log = true
+
       $('html')
         .removeClass('no-js')
         .addClass('js');
 
       $('.pine').pine({
-        transitionSmallDisplay: 'fx-toggle',
+        transitionSmallDisplay: 'fx-right-to-left',
         transitionLargeDisplay: 'fx-hover-fade'
       });
     });

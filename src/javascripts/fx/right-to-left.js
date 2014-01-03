@@ -14,11 +14,12 @@ Pine.Navbar.registerTransition('fx-right-to-left', {
     if(condition) {
       // Enter mobile view
       $submenu.each(function(){
-        $(this).find('> ul')
+        $(this).find('ul').first()
           .prepend($('<li class="pine-back"><a href="#">' + $(this).find('> a').text() + '</a></li>'))
       })
 
-      $(document).on('click.pine.submenu', '.pine-back', this, Pine.Submenu.toggle)
+      $(document).on('click', '.pine-back', $.proxy(Pine.Submenu.toggle, this))
+      // $(document).on('click.pine.submenu', '.pine-back', this, Pine.Submenu.toggle)
 
       $element.find('ul').css('width', $(window).width())
       $(window).on('resize', resizeSubmenu)

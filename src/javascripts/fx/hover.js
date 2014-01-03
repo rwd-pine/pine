@@ -6,16 +6,16 @@ var pine_fx_hover = {
     if (switchCondition) {
       // Add 'mouse' listeners and disable 'click.submenu'
       $(document)
-        .on('mouseenter.pine.submenu, mouseleave.pine.submenu', this.SUBMENU, this, Pine.Submenu.hover)
-        .on('mouseenter.pine.submenu, mouseleave.pine.submenu', this.SUBMENU + ' > a', this, Pine.Submenu.toggle)
-        .off('click.pine.submenu')
+        .on({'mouseenter': $.proxy(Pine.Submenu.toggle, this), 'mouseleave': $.proxy(Pine.Submenu.toggle, this)}, this.SUBMENU)
+        .off('click')
+        // .off('click.pine.submenu')
     }
     else {
       // Add 'click.submenu' listeners and disable 'mouse'"
       $(document)
-        .off('mouseenter.pine.submenu, mouseleave.pine.submenu')
-        .on('click.pine.submenu', this.SUBMENU + ' > a', this, Pine.Submenu.toggle)
-
+        .off('mouseenter')
+        .off('mouseleave')
+        .on('click', this.SUBMENU + ' > a', $.proxy(Pine.Submenu.toggle, this))
     }
   },
   onToggle: function(isActive){}

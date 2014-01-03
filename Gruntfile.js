@@ -34,13 +34,14 @@ module.exports = function(grunt) {
     //   }
     // },
 
-
     copy: {
       javascript: {
         files: [
           { expand: true, cwd: 'bower_components/jquery', src: ['jquery.min.js'], dest: 'dist/javascripts', filter: 'isFile' },
+          { expand: true, cwd: 'bower_components/jquery-legacy', src: ['jquery.min.js'], dest: 'dist/javascripts/jquery-legacy', filter: 'isFile' },
           { expand: true, cwd: 'bower_components/zepto', src: ['*.js'], dest: 'dist/javascripts', filter: 'isFile' },
           { expand: true, cwd: 'bower_components/matchmedia/', src: ['matchmedia.js'], dest: 'src/javascripts/lib', filter: 'isFile' },
+          { expand: true, cwd: 'bower_components/hoover/lib', src: ['hoover.js'], dest: 'src/javascripts/lib', filter: 'isFile' }
         ]
       },
       assets: {
@@ -63,7 +64,9 @@ module.exports = function(grunt) {
       },
       pine: {
         src: [
+          'src/javascripts/lib/log.js',
           'src/javascripts/lib/matchmedia.js',
+          'src/javascripts/lib/hoover.js',
           'src/javascripts/core/pine-submenu.js',
           'src/javascripts/core/pine-navbar.js',
           'src/javascripts/fx/hover.js',
@@ -185,7 +188,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-legacssy');
 
   // JS distribution task.
-  grunt.registerTask('dist-js', ['concat', 'uglify', 'compress']);
+  // TODO: Compress later grunt.registerTask('dist-js', ['concat', 'uglify', 'compress']);
+  grunt.registerTask('dist-js', ['concat', 'uglify']);
 
   // Copy assets
   grunt.registerTask('dist-copy', ['copy']);

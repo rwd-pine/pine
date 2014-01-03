@@ -104,16 +104,22 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     this.element.find('ul').first().addClass('pine-navbar')
     /* Mark all submenus */
     this.element.find('li').has('ul').addClass('has-submenu')
-    this.element.find('a').on('focus.pine', this.focus)
+    this.element.find('a').on('focus', this.focus) /* focus.pine */
     /* TODO refactor: Add master class */
     this.isLargeDisplay ? this.element.addClass('pine-large') : this.element.addClass('pine-large')
 
-    /* Default behavior, submenu is triggered on click */
-    $(document).on('click.pine.submenu', this.SUBMENU + ' > a', this, Pine.Submenu.toggle)
-    $(document).on('click.pine.trigger', this.NAVBAR_TOGGLE, this, Pine.Navbar.toggle)
+    /* CLICK: Default behavior, submenu is triggered on click */
+
+    $(document).on('click', this.SUBMENU + ' > a', $.proxy(Pine.Submenu.toggle, Pine.Submenu))
+
+    // Navbar toggle button
+    $(this.NAVBAR_TOGGLE).on('click', Pine.Navbar.toggle)
 
     /* Setup API with all listeners */
-    $(window).on('load resize', $.proxy(this.api, this))
+    $(window).on({
+      'load': $.proxy(this.api, this),
+      'resize': $.proxy(this.api, this)
+    })
   };
 
   /**
@@ -159,19 +165,25 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     Switches active transition when leaving one view and entering another.
   **/
   Navbar.switchView = function (isLargeDisplay) {
-    var t = this.getTransitionName(isLargeDisplay)
-    var c = this.getNavbarClass(isLargeDisplay)
+    var newTransition = this.getTransitionName(isLargeDisplay)
+    var origTransition = this.getTransitionName(!isLargeDisplay)
+    var newClass = this.getNavbarClass(isLargeDisplay)
+    var origClass = this.getNavbarClass(!isLargeDisplay)
 
     this.element
-      .removeClass(this.getTransitionName(!isLargeDisplay))
-      .addClass(t)
+      .removeClass(origTransition)
+      .addClass(newTransition)
+
+    $.log('Transition: '+ newTransition)
 
     // TODO refactor
     this.element
-      .removeClass(this.getNavbarClass(!isLargeDisplay))
-      .addClass(c)
+      .removeClass(origClass)
+      .addClass(newClass)
 
-    this.setActiveTransition(t)
+    this.setActiveTransition(newTransition)
+
+    $.log('View: ' + newClass)
   };
 
   // TODO: abstrahovat eventy, nemusi to byt mousenter
@@ -184,7 +196,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     var $parent  = $this.parent()
 
     if ($parent.hasClass('has-submenu') && !$parent.hasClass('is-open')) {
-      $this.trigger($.Event('mouseenter'))
+      $this.trigger($.Event('mouseover'))
     }
 
     var openedMenus = $('.is-open')
@@ -194,6 +206,18 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     openedMenus.filter(function(i){
       return $(this).find($this).length === 0
     }).removeClass('is-open')
+  };
+
+  /**
+    Toggles navigation bar in mobile view
+  **/
+  Navbar.toggle = function (e) {
+    e.preventDefault();
+
+    $(this).toggleClass('is-active')
+    $(document).find($(this).attr('href')).toggleClass('is-visible')
+
+    $.log('Event: Toggle Navbar')
   };
 
   /**
@@ -222,16 +246,6 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   **/
   Navbar.registerTransition = function (name, obj) {
     this.transitions[name] = obj
-  };
-
-  /**
-    Toggles menu in mobile view
-  **/
-  Navbar.toggle = function (e) {
-    e.preventDefault();
-
-    $(this).toggleClass('is-active')
-    $(document).find($(this).attr('href')).toggleClass('is-visible')
   };
 
   return Navbar;

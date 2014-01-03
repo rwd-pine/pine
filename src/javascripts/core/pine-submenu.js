@@ -22,71 +22,29 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
 
   Submenu = {};
 
-  // Method: Hover
+  // Method: Event handler that shows submenus
   // -------------
-  // Event handler for hover. When user enters the menu, timeout is cleared and
-  // class 'is-hover' is added. Otherwise a 300ms timeout is set and the menu is closed.
-  Submenu.hover = function (e) {
-    var $this = $(this)
-    var $submenu = $this.find('> ul')
-
-    if (e.type == 'mouseenter') {
-      $submenu.addClass('is-hover')
-      clearTimeout(timer)
-    }
-    else {
-      /* Delay hiding of the menu, usability thing */
-      timer = setTimeout(function(){
-        $submenu.removeClass('is-hover')
-        $this.removeClass('is-open')
-      },300)
-    }
-  };
-
-  // Method: Toggle
-  // -------------
-  // Event handler for toggle.
   Submenu.toggle = function (e) {
-    var $this = $(this),
-        $parent  = $this.parent().closest('li'),
-        isActive  = $parent.hasClass('is-open'),
-        event = e,
-        transition = e.data.activeTransition && e.data.activeTransition.onToggle;
+    var $menu = $(e.currentTarget).closest('.has-submenu'),
+        transition = this.activeTransition && this.activeTransition.onToggle,
+        isActive = $menu.hasClass('is-open');
 
-    // default click behavior needs to close menus clearMenus()
-    // Handle if the event was fired by link
-    if (!isActive) {
-      // if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
-      //   // if mobile we we use a backdrop because click events don't delegate
-      //   $('<div class="submenu-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
-      // }
+    // Execute special pre-show hook
+    if (transition && typeof transition === 'function') transition.call(this, isActive);
 
-      // Execute special pre-show hook
-      if (transition && typeof transition === 'function') transition.call(this, isActive);
+    if(!isActive) {
+      $menu.trigger(e = $.Event('show')) /* show.submenu */
+      $menu.addClass('is-open').trigger('shown') /* shown.submenu */
 
-      $parent.trigger(e = $.Event('show.submenu'))
-
-      // add hover to child submenu
-      // console.log(event)
-      if (event.type == 'mouseenter') $parent.find('> ul').addClass('is-hover')
-
-      $parent
-        .addClass('is-open')
-        .trigger('shown.submenu')
+      $.log('Event: show')
     }
     else {
-      // If submenu is hovered then return
-      if ($parent.find('> ul').hasClass('is-hover')) return
+      $menu.trigger(e = $.Event('hide')) /* hide.submenu */
+      $menu.removeClass('is-open').trigger('hidden') /* hidden.submenu */
 
-      // Execute special pre-hide hook
-      if (transition && typeof transition === 'function') transition.call(this, isActive);
-
-      $parent.trigger(e = $.Event('hide.submenu'))
-      $parent.removeClass('is-open').trigger('hidden.submenu')
+      $.log('Event: hide')
     }
-
-    return false
-  };
+  }
 
   return Submenu;
 
