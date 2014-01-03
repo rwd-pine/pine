@@ -110,7 +110,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
 
     /* CLICK: Default behavior, submenu is triggered on click */
 
-    $(document).on('click', this.SUBMENU + ' > a', $.proxy(Pine.Submenu.toggle, Pine.Submenu))
+    $(document).on('click', this.SUBMENU + ' > a', $.proxy(Pine.Submenu.toggle, Pine.Navbar))
 
     // Navbar toggle button
     $(this.NAVBAR_TOGGLE).on('click', Pine.Navbar.toggle)
@@ -184,6 +184,8 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     this.setActiveTransition(newTransition)
 
     $.log('View: ' + newClass)
+
+    this.resetNav()
   };
 
   // TODO: abstrahovat eventy, nemusi to byt mousenter
@@ -218,6 +220,13 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     $(document).find($(this).attr('href')).toggleClass('is-visible')
 
     $.log('Event: Toggle Navbar')
+  };
+
+  /**
+    Resets navigation to default state.
+  **/
+  Navbar.resetNav = function () {
+    $(this.SUBMENU).removeClass('is-open')
   };
 
   /**

@@ -7634,7 +7634,7 @@ td.visible-print {
           transition: visibility 0s .2s;
 }
 
-.fx-right-to-left ul .is-open ul {
+.fx-right-to-left ul .is-open > ul {
   visibility: visible;
 }
 
@@ -7995,13 +7995,6 @@ td.visible-print {
     z-index: 50002;
     margin-left: 1px;
     visibility: visible;
-  }
-}
-
-@media (max-width: 599px) {
-  .pine > .container > ul {
-    margin-right: -15px;
-    margin-left: -15px;
   }
 }
 

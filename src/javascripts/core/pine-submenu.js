@@ -30,7 +30,7 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
         isActive = $menu.hasClass('is-open');
 
     // Execute special pre-show hook
-    if (transition && typeof transition === 'function') transition.call(this, isActive);
+    if (transition && typeof transition === 'function') transition.call(e.currentTarget, isActive);
 
     if(!isActive) {
       $menu.trigger(e = $.Event('show')) /* show.submenu */

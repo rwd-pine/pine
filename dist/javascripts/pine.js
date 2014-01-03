@@ -81,7 +81,7 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
         isActive = $menu.hasClass('is-open');
 
     // Execute special pre-show hook
-    if (transition && typeof transition === 'function') transition.call(this, isActive);
+    if (transition && typeof transition === 'function') transition.call(e.currentTarget, isActive);
 
     if(!isActive) {
       $menu.trigger(e = $.Event('show')) /* show.submenu */
@@ -214,7 +214,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
 
     /* CLICK: Default behavior, submenu is triggered on click */
 
-    $(document).on('click', this.SUBMENU + ' > a', $.proxy(Pine.Submenu.toggle, Pine.Submenu))
+    $(document).on('click', this.SUBMENU + ' > a', $.proxy(Pine.Submenu.toggle, Pine.Navbar))
 
     // Navbar toggle button
     $(this.NAVBAR_TOGGLE).on('click', Pine.Navbar.toggle)
@@ -288,6 +288,8 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     this.setActiveTransition(newTransition)
 
     $.log('View: ' + newClass)
+
+    this.resetNav()
   };
 
   // TODO: abstrahovat eventy, nemusi to byt mousenter
@@ -322,6 +324,13 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     $(document).find($(this).attr('href')).toggleClass('is-visible')
 
     $.log('Event: Toggle Navbar')
+  };
+
+  /**
+    Resets navigation to default state.
+  **/
+  Navbar.resetNav = function () {
+    $(this.SUBMENU).removeClass('is-open')
   };
 
   /**
@@ -407,7 +416,6 @@ Pine.Navbar.registerTransition('fx-right-to-left', {
       })
 
       $(document).on('click', '.pine-back', $.proxy(Pine.Submenu.toggle, this))
-      // $(document).on('click.pine.submenu', '.pine-back', this, Pine.Submenu.toggle)
 
       $element.find('ul').css('width', $(window).width())
       $(window).on('resize', resizeSubmenu)
@@ -416,7 +424,7 @@ Pine.Navbar.registerTransition('fx-right-to-left', {
       // Leave mobile view
       $element.find('ul').removeAttr('style')
       $submenu.find('li.pine-back').remove()
-      $(window).off('resize', resizeSubmenu)
+      $(window).off('resize')
     }
   },
 

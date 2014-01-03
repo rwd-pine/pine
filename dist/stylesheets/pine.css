@@ -402,7 +402,7 @@
           transition: visibility 0s .2s;
 }
 
-.fx-right-to-left ul .is-open ul {
+.fx-right-to-left ul .is-open > ul {
   visibility: visible;
 }
 

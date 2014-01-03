@@ -19,7 +19,6 @@ Pine.Navbar.registerTransition('fx-right-to-left', {
       })
 
       $(document).on('click', '.pine-back', $.proxy(Pine.Submenu.toggle, this))
-      // $(document).on('click.pine.submenu', '.pine-back', this, Pine.Submenu.toggle)
 
       $element.find('ul').css('width', $(window).width())
       $(window).on('resize', resizeSubmenu)
@@ -28,7 +27,7 @@ Pine.Navbar.registerTransition('fx-right-to-left', {
       // Leave mobile view
       $element.find('ul').removeAttr('style')
       $submenu.find('li.pine-back').remove()
-      $(window).off('resize', resizeSubmenu)
+      $(window).off('resize')
     }
   },
 
