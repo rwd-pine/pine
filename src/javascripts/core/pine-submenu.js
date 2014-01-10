@@ -26,7 +26,7 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
   // -------------
   Submenu.toggle = function (e) {
     var $menu = $(e.currentTarget).closest('.has-submenu'),
-        transition = this.activeTransition && this.activeTransition.onToggle,
+        transition = this.activeTransition && this.activeTransition.beforeToggle,
         isActive = $menu.hasClass('is-open');
 
     // Execute special pre-show hook
