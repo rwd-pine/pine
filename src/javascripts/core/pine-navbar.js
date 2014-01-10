@@ -109,11 +109,8 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     this.isLargeDisplay ? this.element.addClass('pine-large') : this.element.addClass('pine-large')
 
     /* CLICK: Default behavior, submenu is triggered on click */
-
-    $(document).on({
-      'click': $.proxy(Pine.Submenu.toggle, Pine.Navbar),
-      'touchstart': $.proxy(Pine.Submenu.toggle, Pine.Navbar)},
-      this.SUBMENU + ' > a')
+    var eventType = ('ontouchstart' in document.documentElement) ? 'touchstart' : 'click'
+    $(document).on(eventType, this.SUBMENU + ' > a', $.proxy(Pine.Submenu.toggle, Pine.Navbar))
 
     // Navbar toggle button
     $(this.NAVBAR_TOGGLE).on('click', Pine.Navbar.toggle)

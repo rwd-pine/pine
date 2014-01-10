@@ -129,6 +129,9 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
         transition = this.activeTransition && this.activeTransition.beforeToggle,
         isActive = $menu.hasClass('is-open');
 
+    // e.preventDefault()
+    // e.stopPropagation()
+
     // Execute special pre-show hook
     if (transition && typeof transition === 'function') transition.call(e.currentTarget, isActive);
 
@@ -267,11 +270,8 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     this.isLargeDisplay ? this.element.addClass('pine-large') : this.element.addClass('pine-large')
 
     /* CLICK: Default behavior, submenu is triggered on click */
-
-    $(document).on({
-      'click': $.proxy(Pine.Submenu.toggle, Pine.Navbar),
-      'touchstart': $.proxy(Pine.Submenu.toggle, Pine.Navbar)},
-      this.SUBMENU + ' > a')
+    var eventType = ('ontouchstart' in document.documentElement) ? 'touchstart' : 'click'
+    $(document).on(eventType, this.SUBMENU + ' > a', $.proxy(Pine.Submenu.toggle, Pine.Navbar))
 
     // Navbar toggle button
     $(this.NAVBAR_TOGGLE).on('click', Pine.Navbar.toggle)

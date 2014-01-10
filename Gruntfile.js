@@ -39,7 +39,7 @@ module.exports = function(grunt) {
         files: [
           { expand: true, cwd: 'bower_components/jquery', src: ['jquery.min.js'], dest: 'dist/javascripts', filter: 'isFile' },
           { expand: true, cwd: 'bower_components/jquery-legacy', src: ['jquery.min.js'], dest: 'dist/javascripts/jquery-legacy', filter: 'isFile' },
-          { expand: true, cwd: 'bower_components/zepto', src: ['*.js'], dest: 'dist/javascripts', filter: 'isFile' },
+          { expand: true, cwd: 'bower_components/zepto', src: ['zepto.js'], dest: 'src/javascripts/lib', filter: 'isFile' },
           { expand: true, cwd: 'bower_components/matchmedia/', src: ['matchmedia.js'], dest: 'src/javascripts/lib', filter: 'isFile' },
           { expand: true, cwd: 'bower_components/hoover/lib', src: ['hoover.js'], dest: 'src/javascripts/lib', filter: 'isFile' }
         ]
@@ -61,6 +61,13 @@ module.exports = function(grunt) {
       options: {
         banner: '<%= banner %>',
         stripBanners: false
+      },
+      zepto: {
+        src: [
+          'src/javascripts/lib/zepto.js',
+          'src/javascripts/lib/zepto-touch.js'
+        ],
+        dest: 'dist/javascripts/zepto.js'
       },
       pine: {
         src: [
@@ -92,11 +99,11 @@ module.exports = function(grunt) {
           }
         ]
       },
-      modernizr: {
+      zepto: {
         files: [
           {
-            src: ['src/javascripts/lib/modernizr.js'],
-            dest: 'dist/javascripts/modernizr.min.js'
+            src: ['<%= concat.zepto.dest %>'],
+            dest: 'dist/javascripts/zepto.min.js'
           }
         ]
       }
