@@ -49,6 +49,55 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
 
 
 
+(function() {
+
+  (function($) {
+    return $.fn.hoover = function(options) {
+      var el, enter, hovering, leave, reset, settings, timeout,
+        _this = this;
+      el = this;
+      timeout = null;
+      hovering = false;
+      settings = {
+        "in": 250,
+        out: 150
+      };
+      if (options) $.extend(settings, options);
+      enter = function() {
+        el.trigger("hooverIn");
+        reset();
+        return hovering = true;
+      };
+      leave = function() {
+        el.trigger("hooverOut");
+        reset();
+        return hovering = false;
+      };
+      reset = function() {
+        if (timeout) clearTimeout(timeout);
+        return timeout = null;
+      };
+      el.bind("mouseover", function() {
+        if (hovering) {
+          return reset();
+        } else {
+          if (!timeout) return timeout = setTimeout(enter, settings["in"]);
+        }
+      });
+      el.bind("mouseout", function() {
+        if (hovering) {
+          if (timeout) reset();
+          return timeout = setTimeout(leave, settings.out);
+        } else {
+          return reset();
+        }
+      });
+      return this;
+    };
+  })(window.Zepto || window.jQuery);
+
+}).call(this);
+
 //
 // PineJS: Submenu
 // ====================================
@@ -84,6 +133,11 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
     if (transition && typeof transition === 'function') transition.call(e.currentTarget, isActive);
 
     if(!isActive) {
+      // if ('ontouchstart' in document.documentElement && !$menu.closest('.pine').length) {
+      //   // if mobile we use a backdrop because click events don't delegate
+      //   $('<div class="dropdown-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
+      // }
+
       $menu.trigger(e = $.Event('show')) /* show.submenu */
       $menu.addClass('is-open').trigger('shown') /* shown.submenu */
 
@@ -214,7 +268,10 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
 
     /* CLICK: Default behavior, submenu is triggered on click */
 
-    $(document).on('click', this.SUBMENU + ' > a', $.proxy(Pine.Submenu.toggle, Pine.Navbar))
+    $(document).on({
+      'click': $.proxy(Pine.Submenu.toggle, Pine.Navbar),
+      'touchstart': $.proxy(Pine.Submenu.toggle, Pine.Navbar)},
+      this.SUBMENU + ' > a')
 
     // Navbar toggle button
     $(this.NAVBAR_TOGGLE).on('click', Pine.Navbar.toggle)

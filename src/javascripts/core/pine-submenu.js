@@ -33,6 +33,11 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
     if (transition && typeof transition === 'function') transition.call(e.currentTarget, isActive);
 
     if(!isActive) {
+      // if ('ontouchstart' in document.documentElement && !$menu.closest('.pine').length) {
+      //   // if mobile we use a backdrop because click events don't delegate
+      //   $('<div class="dropdown-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
+      // }
+
       $menu.trigger(e = $.Event('show')) /* show.submenu */
       $menu.addClass('is-open').trigger('shown') /* shown.submenu */
 

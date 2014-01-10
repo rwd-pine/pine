@@ -110,7 +110,10 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
 
     /* CLICK: Default behavior, submenu is triggered on click */
 
-    $(document).on('click', this.SUBMENU + ' > a', $.proxy(Pine.Submenu.toggle, Pine.Navbar))
+    $(document).on({
+      'click': $.proxy(Pine.Submenu.toggle, Pine.Navbar),
+      'touchstart': $.proxy(Pine.Submenu.toggle, Pine.Navbar)},
+      this.SUBMENU + ' > a')
 
     // Navbar toggle button
     $(this.NAVBAR_TOGGLE).on('click', Pine.Navbar.toggle)
