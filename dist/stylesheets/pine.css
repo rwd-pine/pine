@@ -278,15 +278,8 @@
   }
 }
 .fx-toggle ul ul {
-  -webkit-transition: max-height .1s ease-in-out;
-  -moz-transition: max-height .1s ease-in-out;
-  -o-transition: max-height .1s ease-in-out;
-  transition: max-height .1s ease-in-out;
   overflow: hidden;
   max-height: 0;
-}
-.fx-toggle ul li.is-open > ul {
-  max-height: 2000px;
 }
 .fx-hover-fade ul ul {
   -webkit-opacity: 0;
