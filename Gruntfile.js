@@ -131,20 +131,24 @@ module.exports = function(grunt) {
             dest: 'dist/stylesheets/pine.css'
           },
           {
-            src: ['examples/stylesheets/example.less'],
-            dest: 'examples/stylesheets/example.css'
+            src: ['examples/bootstrap-fixed/css/bootstrap-fixed.less'],
+            dest: 'examples/bootstrap-fixed/css/bootstrap-fixed.css'
           },
           {
-            src: ['examples/stylesheets/example-bootstrap.less'],
-            dest: 'examples/stylesheets/example-bootstrap.css'
+            src: ['examples/bootstrap-horizontal/css/bootstrap-horizontal.less'],
+            dest: 'examples/bootstrap-horizontal/css/bootstrap-horizontal.css'
           },
           {
-            src: ['examples/stylesheets/example-bootstrap-fixed.less'],
-            dest: 'examples/stylesheets/example-bootstrap-fixed.css'
+            src: ['examples/bootstrap-vertical/css/bootstrap-vertical.less'],
+            dest: 'examples/bootstrap-vertical/css/bootstrap-vertical.css'
           },
           {
-            src: ['examples/stylesheets/example-bootstrap-vertical.less'],
-            dest: 'examples/stylesheets/example-bootstrap-vertical.css'
+            src: ['examples/horizontal/css/horizontal.less'],
+            dest: 'examples/horizontal/css/horizontal.css'
+          },
+          {
+            src: ['examples/vertical/css/vertical.less'],
+            dest: 'examples/vertical/css/vertical.css'
           }
         ]
       },
@@ -159,7 +163,7 @@ module.exports = function(grunt) {
 
     watch: {
       recess: {
-        files: ['src/stylesheets/**/*.less', 'examples/stylesheets/**/*.less'],
+        files: ['src/stylesheets/**/*.less', 'examples/**/*.less'],
         tasks: ['recess']
       },
       uglify: {
