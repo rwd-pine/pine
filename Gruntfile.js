@@ -120,7 +120,6 @@ module.exports = function(grunt) {
       }
     },
 
-<<<<<<< HEAD
     less: {
       pine: {
         // options: {
@@ -134,42 +133,8 @@ module.exports = function(grunt) {
           'dist/stylesheets/<%= pkg.name %>.css': 'src/stylesheets/pine.less',
           'examples/bootstrap-fixed/css/bootstrap-fixed.css': 'examples/bootstrap-fixed/css/bootstrap-fixed.less',
           'examples/bootstrap-horizontal/css/bootstrap-horizontal.css': 'examples/bootstrap-horizontal/css/bootstrap-horizontal.less',
-          'examples/bootstrap-vertical/css/bootstrap-vertical.css': 'examples/bootstrap-vertical/css/bootstrap-vertical.less',
-          'examples/horizontal/css/horizontal.css': 'examples/horizontal/css/horizontal.less',
-          'examples/vertical/css/vertical.css': 'examples/vertical/css/vertical.less'
+          'examples/bootstrap-vertical/css/bootstrap-vertical.css': 'examples/bootstrap-vertical/css/bootstrap-vertical.less'
         }
-=======
-    recess: {
-      options: {
-        compile: true
-      },
-      main: {
-        files: [
-          {
-            src: ['src/stylesheets/pine.less'],
-            dest: 'dist/stylesheets/pine.css'
-          },
-          {
-            src: ['examples/bootstrap-fixed/css/bootstrap-fixed.less'],
-            dest: 'examples/bootstrap-fixed/css/bootstrap-fixed.css'
-          },
-          {
-            src: ['examples/bootstrap-horizontal/css/bootstrap-horizontal.less'],
-            dest: 'examples/bootstrap-horizontal/css/bootstrap-horizontal.css'
-          },
-          {
-            src: ['examples/bootstrap-vertical/css/bootstrap-vertical.less'],
-            dest: 'examples/bootstrap-vertical/css/bootstrap-vertical.css'
-          }
-        ]
-      },
-      min: {
-        options: {
-          compress: true
-        },
-        src: ['src/stylesheets/pine.less'],
-        dest: 'dist/stylesheets/pine.min.css'
->>>>>>> Horizontal/Vertical examples implemented CSS-way now, added comments too
       }
       // minify: {
       //   options: {
