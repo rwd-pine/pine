@@ -374,10 +374,6 @@
 .fx-right-to-left .pine-navbar {
   position: absolute;
   left: 0;
-  -webkit-transition: left .2s;
-     -moz-transition: left .2s;
-       -o-transition: left .2s;
-          transition: left .2s;
 }
 
 .fx-right-to-left ul ul {

@@ -106,7 +106,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     this.element.find('li').has('ul').addClass('has-submenu')
     this.element.find('a').on('focus', this.focus) /* focus.pine */
     /* TODO refactor: Add master class */
-    this.isLargeDisplay ? this.element.addClass('pine-large') : this.element.addClass('pine-large')
+    this.isLargeDisplay ? this.element.addClass('pine-large') : this.element.addClass('pine-small')
 
     /* CLICK: Default behavior, submenu is triggered on click */
     // var eventType = ('ontouchstart' in document.documentElement) ? 'touchstart' : 'click'

@@ -52,7 +52,11 @@ Pine.Navbar.registerTransition('fx-right-to-left', {
         level = isActive ? $parentLists.length - 2 : $parentLists.length;
 
     // Pan left or right depending on isActive and target level
-    $parentLists.last().css('left', (-100 * level) + '%')
+    // $parentLists.last().css('left', (-100 * level) + '%')
+    $parentLists.last().animate({
+      translate: (-100 * level) + '%'
+    }, 300, 'ease-out')
+
   }
 });
 
