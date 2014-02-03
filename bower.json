@@ -7,7 +7,6 @@
     "jquery-legacy": "jquery#1.10",
     "normalize-css": "~2.1.3",
     "bootstrap": "latest",
-    "matchmedia": "~0.1.0",
     "lesshat": "~2.0.6",
     "FileSaver": "*",
     "uglify-js": "~1.3.5",
