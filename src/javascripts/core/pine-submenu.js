@@ -29,7 +29,7 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
         transition = this.activeTransition && this.activeTransition.beforeToggle,
         isActive = $menu.hasClass('is-open');
 
-    // e.preventDefault()
+    e.preventDefault()
     // e.stopPropagation()
 
     // Execute special pre-show hook

@@ -16,15 +16,20 @@ Pine.Navbar.registerTransition('fx-toggle', {
         submenuHeight = '0px';
 
     if(!isActive) {
-      var el = $submenu.clone().css({"max-height":"none"}).appendTo("body")
-      submenuHeight = el.css("height")
-      el.remove()
+      // If it is not active, calculate the right height
+      $submenuItems = $submenu.find('> li')
+      submenuHeight = $submenuItems.length * $submenuItems.first().height()
+    }
+    else {
+      // If it is active, set max-height to actual height
+      $submenu.css({ 'max-height' : $submenu.height() })
     }
 
-    console.log(submenuHeight)
     $submenu.animate({
       'max-height': submenuHeight
-    }, 300) //'ease-in-out' can be added later (needs to be compatible with jQuery)
+    }, 300, 'linear', function(){
+      $submenu.css({ 'max-height' : submenuHeight * 100})
+    }) //'ease-in-out' can be added later (needs to be compatible with jQuery)
 
   }
 
