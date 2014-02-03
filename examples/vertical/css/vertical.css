@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .pine {
   z-index: 100;
   margin-bottom: 24px;
@@ -12,8 +13,17 @@
 }
 .pine:after {
   clear: both;
+=======
+/*  Pine.JS vertical example */
+
+/*  Layout  */
+
+body {
+  margin: 1em;
+>>>>>>> Horizontal/Vertical examples implemented CSS-way now, added comments too
 }
 @media (min-width: 600px) {
+<<<<<<< HEAD
   .pine {
     border-radius: 0;
   }
@@ -594,3 +604,39 @@
     width: auto;
   }
 }
+=======
+  .nav-box {
+    width: 15em;
+    float: left;
+    margin-right: 2em;
+  }
+
+  .content-box {
+    width: 50em;
+    float: left;
+  }
+}
+
+/*  Pine navigation styling  */
+
+/*  Navigation item
+    We need high selector specificity, so we
+    are using #nav selector
+*/
+
+#nav.pine a {
+  color: #333;
+  background-color: #eee;
+  margin-bottom: 0;
+}
+
+/* Opened or hovered navigation item */
+
+#nav.pine li.is-open > a,
+#nav.pine a:hover,
+#nav.pine a:active,
+#nav.pine a:focus {
+  color: #333;
+  background-color: #ccc;
+}
+>>>>>>> Horizontal/Vertical examples implemented CSS-way now, added comments too
