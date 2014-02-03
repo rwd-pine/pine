@@ -18,7 +18,7 @@
     border-radius: 0;
   }
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .js .pine {
     max-height: 0;
     position: absolute;
@@ -95,12 +95,12 @@
   margin-top: -5px;
   border-color: transparent transparent transparent #000000;
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .pine ul > li.has-submenu > a:before {
     right: 16px;
   }
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .pine ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #000000;
   }
@@ -113,19 +113,19 @@
   margin-top: -2.5px;
   border-color: #000000 transparent transparent transparent;
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .pine.pine-horizontal ul > li.has-submenu > a:before {
     border-color: #000000 transparent transparent transparent;
   }
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .pine.pine-horizontal ul > li.has-submenu > a:before {
     border-width: 5px 0 5px 5px;
     margin-top: -5px;
     border-color: transparent transparent transparent #000000;
   }
 }
-@media (max-width: 600px - 1px) and (max-width: 600px - 1px) {
+@media (max-width: 599px) and (max-width: 599px) {
   .pine.pine-horizontal ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #000000;
   }
@@ -147,12 +147,12 @@
   margin-top: -5px;
   border-color: transparent transparent transparent #000000;
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .pine ul li.is-open ul > li.has-submenu > a:before {
     right: 16px;
   }
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .pine ul li.is-open ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #000000;
   }
@@ -174,17 +174,17 @@
   margin-top: -5px;
   border-color: transparent transparent transparent #000000;
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .pine ul ul li.is-open ul > li.has-submenu > a:before {
     right: 16px;
   }
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .pine ul ul li.is-open ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #000000;
   }
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .pine.fx-toggle ul > li.has-submenu > a:before,
   .pine.fx-toggle ul li.is-open ul > li.has-submenu > a:before,
   .pine.fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
@@ -193,7 +193,7 @@
     border-color: #000000 transparent transparent transparent;
   }
 }
-@media (max-width: 600px - 1px) and (max-width: 600px - 1px) {
+@media (max-width: 599px) and (max-width: 599px) {
   .pine.fx-toggle ul > li.has-submenu > a:before,
   .pine.fx-toggle ul li.is-open ul > li.has-submenu > a:before,
   .pine.fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
@@ -211,7 +211,7 @@
   background: #555555;
   text-decoration: none;
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .js .nav-trigger {
     display: inline-block;
   }
@@ -256,12 +256,12 @@
   position: fixed;
   width: 100%;
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .js .pine-fixed {
     top: 42px;
   }
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .js .pine-fixed-small {
     top: 42px;
     left: 0;

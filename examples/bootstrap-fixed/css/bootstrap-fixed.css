@@ -6033,7 +6033,7 @@ td.visible-print {
     border-radius: 0;
   }
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .js .pine {
     max-height: 0;
     position: absolute;
@@ -6110,12 +6110,12 @@ td.visible-print {
   margin-top: -5px;
   border-color: transparent transparent transparent #999999;
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .pine ul > li.has-submenu > a:before {
     right: 15px;
   }
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .pine ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #999999;
   }
@@ -6128,19 +6128,19 @@ td.visible-print {
   margin-top: -2.5px;
   border-color: #999999 transparent transparent transparent;
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .pine.pine-horizontal ul > li.has-submenu > a:before {
     border-color: #999999 transparent transparent transparent;
   }
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .pine.pine-horizontal ul > li.has-submenu > a:before {
     border-width: 5px 0 5px 5px;
     margin-top: -5px;
     border-color: transparent transparent transparent #999999;
   }
 }
-@media (max-width: 600px - 1px) and (max-width: 600px - 1px) {
+@media (max-width: 599px) and (max-width: 599px) {
   .pine.pine-horizontal ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #999999;
   }
@@ -6162,12 +6162,12 @@ td.visible-print {
   margin-top: -5px;
   border-color: transparent transparent transparent #999999;
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .pine ul li.is-open ul > li.has-submenu > a:before {
     right: 15px;
   }
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .pine ul li.is-open ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #999999;
   }
@@ -6189,17 +6189,17 @@ td.visible-print {
   margin-top: -5px;
   border-color: transparent transparent transparent #999999;
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .pine ul ul li.is-open ul > li.has-submenu > a:before {
     right: 15px;
   }
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .pine ul ul li.is-open ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #999999;
   }
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .pine.fx-toggle ul > li.has-submenu > a:before,
   .pine.fx-toggle ul li.is-open ul > li.has-submenu > a:before,
   .pine.fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
@@ -6208,7 +6208,7 @@ td.visible-print {
     border-color: #999999 transparent transparent transparent;
   }
 }
-@media (max-width: 600px - 1px) and (max-width: 600px - 1px) {
+@media (max-width: 599px) and (max-width: 599px) {
   .pine.fx-toggle ul > li.has-submenu > a:before,
   .pine.fx-toggle ul li.is-open ul > li.has-submenu > a:before,
   .pine.fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
@@ -6226,7 +6226,7 @@ td.visible-print {
   background: #222222;
   text-decoration: none;
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .js .nav-trigger {
     display: inline-block;
   }
@@ -6273,12 +6273,12 @@ td.visible-print {
   position: fixed;
   width: 100%;
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .js .pine-fixed {
     top: 51px;
   }
 }
-@media (max-width: 600px - 1px) {
+@media (max-width: 599px) {
   .js .pine-fixed-small {
     top: 51px;
     left: 0;
