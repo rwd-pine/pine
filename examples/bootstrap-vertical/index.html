@@ -7,7 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Pine navigation — Bootstrap skin example</title>
+  <title>Pine.JS example — Bootstrap vertical</title>
 
   <link rel="stylesheet" href="css/bootstrap-vertical.css">
 
@@ -18,7 +18,10 @@
 <body>
 
 
-<!-- Small screen header hidden on large screens -->
+      <!--
+        Bootstrap's navbar as small screen header hidden on large screens.
+        Watch data-pine="toggle" attribute.
+      -->
       <div class="navbar navbar-inverse navbar-fixed-top mobile-header">
         <div class="container">
           <div class="navbar-header">
@@ -238,24 +241,33 @@
 <!-- Layout column for content -->
           <div class="col-md-10">
 
-              <h1>Pine.JS Bootstrap vertical example</h1>
+            <div class="page-header">
+              <h1>Pine.JS example: Bootstrap vertical</h1>
+            </div>
 
-              <p>In this test-case:</p>
+            <p>In this test-case:</p>
 
-              <ul>
-                <li>Vertical navigation variant build inside Bootstrap layout</li>
-                <li>Custom skin</li>
-                <li>Custom small/large screen breakpoint</li>
-                <li>More complex navigation structure</li>
-                <li>Implemented via LESS</li>
-              </ul>
+            <ul>
+              <li>Vertical navigation build inside Bootstrap layout</li>
+              <li>Custom skin</li>
+              <li>Custom small/large screen breakpoint</li>
+              <li>More complex navigation structure</li>
+              <li>right-to-left effect on small screens</li>
+              <li>Implemented via LESS</li>
+              <li>IE8 support by Respond.js</li>
+            </ul>
 
-              <p>
-                Follow comments in <code>example-bootstrap-vertical.less</code>
-                and this HTML file.
-              </p>
+            <p>
+              Follow comments in <code>css/bootstrap-vertical.less</code>
+              and this HTML file.
+            </p>
 
-              <hr>
+            <p>
+                <a href="#TODO" class="btn btn-primary btn-lg" role="button">Pine.JS documentation</a>
+            </p>
+
+            <hr>
+
 
             <div class="row">
               <div class="col-md-12">
@@ -317,13 +329,13 @@
   <script>
 
     $(function() {
-      $('html')
+      $('html') // TODO
         .removeClass('no-js')
         .addClass('js');
 
       $('.pine').pine({
         transitionSmallDisplay: 'fx-right-to-left',
-        jsBreakpoint: '992px'
+        jsBreakpoint: '992px'   // Custom small/large breakpoint
       });
     });
 

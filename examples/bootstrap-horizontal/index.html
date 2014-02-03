@@ -17,6 +17,10 @@
 
 <body>
 
+      <!--
+        Bootstrap's navbar as small screen header hidden on large screens.
+        Watch data-pine="toggle" attribute.
+      -->
       <div class="navbar navbar-default mobile-header">
         <div class="container">
           <div class="navbar-header">
@@ -226,13 +230,30 @@
 
     <div class="container">
 
-      <div class="jumbotron">
-        <h1>Pine navigation example</h1>
-        <p>Example of use Pine navigation inside Bootstrap template. Example of use Pine navigation inside Bootstrap template. Example of use Pine navigation inside Bootstrap template. Example of use Pine navigation inside Bootstrap template. Example of use Pine navigation inside Bootstrap template.</p>
-        <p>
-          <a class="btn btn-lg btn-primary" href="#">Button &raquo;</a>
-        </p>
+      <div class="page-header">
+        <h1>Pine.JS example: Bootstrap horizontal</h1>
       </div>
+
+      <p>In this test-case:</p>
+
+      <ul>
+        <li>Horizontal navigation build inside Bootstrap layout</li>
+        <li>Bootstrap skin</li>
+        <li>Implemented via LESS</li>
+        <li>right-to-left effect on small screens</li>
+        <li>IE8 support by Respond.js</li>
+      </ul>
+
+      <p>
+        Follow comments in <code>css/bootstrap-horizontal.less</code>
+        and this HTML file.
+      </p>
+
+      <p>
+          <a href="#TODO" class="btn btn-primary btn-lg" role="button">Pine.JS documentation</a>
+      </p>
+
+      <hr>
 
 
       <div class="row">
@@ -260,6 +281,7 @@
   <script>
 
     $(function() {
+      // TODO
       $('html')
         .removeClass('no-js')
         .addClass('js');

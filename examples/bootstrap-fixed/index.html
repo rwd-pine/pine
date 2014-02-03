@@ -7,7 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Pine navigation — Bootstrap skin example</title>
+  <title>Pine.JS — Bootstrap fixed inverted</title>
 
   <link rel="stylesheet" href="css/bootstrap-fixed.css">
 
@@ -18,6 +18,10 @@
 <body>
 
 
+      <!--
+        Bootstrap's navbar as small screen header hidden on large screens.
+        Watch data-pine="toggle" attribute.
+      -->
       <div class="navbar navbar-inverse navbar-fixed-top mobile-header">
         <div class="container">
           <div class="navbar-header">
@@ -34,8 +38,10 @@
 
 
       <div id="nav" role="navigation" class="pine pine-horizontal pine-fixed">
+        <!--  Bootstrap's container is needed here -->
         <div class="container">
           <!--
+             Navigation content
              Data source:
              http://webdesigntutsplus.s3.amazonaws.com/tuts/378_tessa/tessa-lt-dropdowns-21c7868/index.html
           -->
@@ -228,14 +234,30 @@
 
     <div class="container">
 
-      <div class="jumbotron">
-        <h1>Pine navigation example</h1>
-        <p>With fixed position, full width navigation, hover-fade effect and inverted Bootstrap navigation colors.</p>
-        <p>
-          <a class="btn btn-lg btn-primary" href="#">Button &raquo;</a>
-        </p>
+      <div class="page-header">
+        <h1>Pine.JS example: Bootstrap fixed inverted</h1>
       </div>
 
+      <p>In this test-case:</p>
+
+      <ul>
+        <li>Top fixed navigation build inside Bootstrap layout</li>
+        <li>Bootstrap inverted skin</li>
+        <li>right-to-left effect on small screens</li>
+        <li>Implemented via LESS</li>
+        <li>IE8 support by Respond.js</li>
+      </ul>
+
+      <p>
+        Follow comments in <code>css/bootstrap-fixed.less</code>
+        and this HTML file.
+      </p>
+
+      <p>
+          <a href="#TODO" class="btn btn-primary btn-lg" role="button">Pine.JS documentation</a>
+      </p>
+
+      <hr>
 
       <div class="row">
         <div class="col-md-12">
