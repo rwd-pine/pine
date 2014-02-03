@@ -263,9 +263,9 @@
   -webkit-border-radius: 1px;
      -moz-border-radius: 1px;
           border-radius: 1px;
-  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-     -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-          box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.25);
+     -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 1px 0px rgba(0, 0, 0, 0.25);
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;
           background-clip: padding-box;
@@ -751,5 +751,16 @@
     z-index: 50002;
     margin-left: 1px;
     visibility: visible;
+  }
+}
+
+.nav-container {
+  width: 15em;
+  margin: 1em;
+}
+
+@media (max-width: 599px) {
+  .nav-container {
+    width: auto;
   }
 }
