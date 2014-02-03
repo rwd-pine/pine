@@ -2,10 +2,95 @@
   border-radius: 0;
 }
 
-.js .pine-fixed-large {
+.js .pine {
+  max-height: 0;
+  position: absolute;
+  top: 42px;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  -webkit-transition: max-height .1s ease-in-out;
+  -moz-transition: max-height .1s ease-in-out;
+  -o-transition: max-height .1s ease-in-out;
+  transition: max-height .1s ease-in-out;
+}
+
+.js .pine.is-visible {
+  max-height: 2000px;
+  overflow: visible;
+}
+
+.pine ul > li.has-submenu > a:before {
+  right: 16px;
+}
+
+.pine ul > li.has-submenu > a:before {
+  border-color: transparent transparent transparent #000000;
+}
+
+.pine.pine-horizontal ul > li.has-submenu > a:before {
+  border-color: #000000 transparent transparent transparent;
+}
+
+.pine.pine-horizontal ul > li.has-submenu > a:before {
+  border-width: 5px 0 5px 5px;
+  margin-top: -5px;
+  border-color: transparent transparent transparent #000000;
+}
+
+.pine.pine-horizontal ul > li.has-submenu > a:before {
+  border-color: transparent transparent transparent #000000;
+}
+
+.pine ul li.is-open ul > li.has-submenu > a:before {
+  right: 16px;
+}
+
+.pine ul li.is-open ul > li.has-submenu > a:before {
+  border-color: transparent transparent transparent #000000;
+}
+
+.pine ul ul li.is-open ul > li.has-submenu > a:before {
+  right: 16px;
+}
+
+.pine ul ul li.is-open ul > li.has-submenu > a:before {
+  border-color: transparent transparent transparent #000000;
+}
+
+.pine.fx-toggle ul > li.has-submenu > a:before,
+.pine.fx-toggle ul li.is-open ul > li.has-submenu > a:before,
+.pine.fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
+  border-width: 5px 5px 0 5px;
+  margin-top: -2.5px;
+  border-color: #000000 transparent transparent transparent;
+}
+
+.pine.fx-toggle ul > li.has-submenu > a:before,
+.pine.fx-toggle ul li.is-open ul > li.has-submenu > a:before,
+.pine.fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
+  border-color: #000000 transparent transparent transparent;
+}
+
+.js .nav-trigger {
+  display: inline-block;
+}
+
+.js .pine-fixed {
+  top: 42px;
+}
+
+.js .pine-fixed-small {
+  top: 42px;
+  left: 0;
   position: fixed;
+  width: 100%;
+}
+
+.js .pine-fixed-large {
   top: 0;
   left: 0;
+  position: fixed;
   width: 100%;
 }
 
@@ -22,40 +107,40 @@
 .pine.pine-horizontal a,
 .pine.pine-horizontal strong {
   display: block;
-  text-indent: 0;
   border-bottom: 0;
+  text-indent: 0;
 }
 
 .pine.pine-horizontal > ul > li > a,
 .pine.pine-horizontal > ul > li > strong {
   padding: 12px 16px;
   font-size: 16px;
-  border-right: 0;
   border-bottom: 0;
+  border-right: 0;
 }
 
 .pine.pine-horizontal > ul > li:last-child > a,
 .pine.pine-horizontal > ul > li:last-child > strong {
-  border-right: 0;
   border-bottom: 0;
+  border-right: 0;
 }
 
 .pine.pine-horizontal > ul > li > a {
-  color: #000000;
   background: transparent;
+  color: #000000;
 }
 
 .pine.pine-horizontal > ul > li > a:hover,
 .pine.pine-horizontal > ul > li > a:focus,
 .pine.pine-horizontal > ul > li > a:active {
-  color: #0000ff;
   background: transparent;
+  color: #0000ff;
 }
 
 .pine.pine-horizontal > ul > li > strong,
 .pine.pine-horizontal > ul > li.is-open > a {
-  color: #000000;
   background: #cccccc;
+  color: #000000;
 }
 
 .pine.pine-horizontal > ul > li > ul {
@@ -63,20 +148,20 @@
   background: transparent;
   border: none;
   border-radius: none;
-  border-top-right-radius: 0;
   border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  background-clip: padding-box;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  background-clip: padding-box;
 }
 
 .pine.pine-horizontal > ul > li > ul > li > a,
 .pine.pine-horizontal > ul > li > ul > li > strong {
+  background: transparent;
   padding: 12px 16px;
   font-size: 16px;
   color: #000000;
-  background: transparent;
   border-bottom: 0;
 }
 
@@ -88,33 +173,33 @@
 .pine.pine-horizontal > ul > li > ul > li > a:hover,
 .pine.pine-horizontal > ul > li > ul > li > a:focus,
 .pine.pine-horizontal > ul > li > ul > li > a:active {
-  color: #0000ff;
   background: transparent;
+  color: #0000ff;
 }
 
 .pine.pine-horizontal > ul > li > ul > li.is-open > a {
-  color: #000000;
   background: #cccccc;
+  color: #000000;
 }
 
 .pine.pine-horizontal > ul > li > ul > li > ul {
-  overflow: hidden;
   color: #000000;
   background: transparent;
   border: none;
   border-radius: none;
+  background-clip: padding-box;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  background-clip: padding-box;
+  overflow: hidden;
 }
 
 .pine.pine-horizontal > ul > li > ul > li > ul > li > a,
 .pine.pine-horizontal > ul > li > ul > li > ul > li > strong {
+  background: transparent;
   padding: 12px 16px;
   font-size: 16px;
   color: #000000;
-  background: transparent;
   border-bottom: 0;
 }
 
@@ -126,25 +211,25 @@
 .pine.pine-horizontal > ul > li > ul > li > ul > li > a:hover,
 .pine.pine-horizontal > ul > li > ul > li > ul > li > a:focus,
 .pine.pine-horizontal > ul > li > ul > li > ul > li > a:active {
-  color: #0000ff;
   background: transparent;
+  color: #0000ff;
 }
 
 .pine.pine-horizontal > ul > li > ul > li > ul > li.is-open > a {
-  color: #000000;
   background: #cccccc;
+  color: #000000;
 }
 
 .pine.pine-horizontal ul > li {
-  position: relative;
   display: inline-block;
+  position: relative;
   float: left;
 }
 
 .pine.pine-horizontal ul > li > a,
 .pine.pine-horizontal ul > li > strong {
-  display: block;
   text-align: center;
+  display: block;
 }
 
 .pine.pine-horizontal ul a {
@@ -177,164 +262,38 @@
 }
 
 .pine.pine-horizontal ul > li > ul {
-  top: 100%;
-  left: 0;
   z-index: 50001;
-  max-width: 313px;
   visibility: visible;
+  left: 0;
+  top: 100%;
+  max-width: 313px;
 }
 
 .pine.pine-horizontal ul ul > li > ul {
-  top: 0;
-  left: 100%;
   z-index: 50002;
   visibility: visible;
+  left: 100%;
+  top: 0;
 }
 
 .pine.pine-horizontal ul > li.is-open > ul {
-  top: 100%;
-  left: 0;
   z-index: 50001;
-  max-width: 313px;
   visibility: visible;
+  left: 0;
+  top: 100%;
+  max-width: 313px;
 }
 
 .pine.pine-horizontal ul ul > li.is-open > ul {
-  top: 0;
-  left: 100%;
   z-index: 50002;
   visibility: visible;
-}
-
-.pine.pine-vertical {
-  /* Pine: Large displays */
-  background: transparent;
-  border: none;
-}
-
-.pine.pine-vertical li {
-  position: relative;
-}
-
-.pine.pine-vertical a,
-.pine.pine-vertical strong {
-  display: block;
-  text-indent: 0;
-  border-bottom: 0;
-}
-
-.pine.pine-vertical > ul > li > a,
-.pine.pine-vertical > ul > li > strong {
-  padding: 12px 16px;
-  font-size: 16px;
-  border-right: 0;
-  border-bottom: 0;
-}
-
-.pine.pine-vertical > ul > li:last-child > a,
-.pine.pine-vertical > ul > li:last-child > strong {
-  border-right: 0;
-  border-bottom: 0;
-}
-
-.pine.pine-vertical > ul > li > a {
-  color: #000000;
-  background: transparent;
-}
-
-.pine.pine-vertical > ul > li > a:hover,
-.pine.pine-vertical > ul > li > a:focus,
-.pine.pine-vertical > ul > li > a:active {
-  color: #0000ff;
-  background: transparent;
-}
-
-.pine.pine-vertical > ul > li > strong,
-.pine.pine-vertical > ul > li.is-open > a {
-  color: #000000;
-  background: #cccccc;
-}
-
-.pine.pine-vertical > ul > li > ul {
-  color: #000000;
-  background: transparent;
-  border: none;
-  border-radius: none;
-  border-top-right-radius: 0;
-  border-top-left-radius: 0;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  background-clip: padding-box;
-}
-
-.pine.pine-vertical > ul > li > ul > li > a,
-.pine.pine-vertical > ul > li > ul > li > strong {
-  padding: 12px 16px;
-  font-size: 16px;
-  color: #000000;
-  background: transparent;
-  border-bottom: 0;
-}
-
-.pine.pine-vertical > ul > li > ul > li:last-child > a,
-.pine.pine-vertical > ul > li > ul > li:last-child > strong {
-  border-bottom: 0;
-}
-
-.pine.pine-vertical > ul > li > ul > li > a:hover,
-.pine.pine-vertical > ul > li > ul > li > a:focus,
-.pine.pine-vertical > ul > li > ul > li > a:active {
-  color: #0000ff;
-  background: transparent;
-}
-
-.pine.pine-vertical > ul > li > ul > li.is-open > a {
-  color: #000000;
-  background: #cccccc;
-}
-
-.pine.pine-vertical > ul > li > ul > li > ul {
-  overflow: hidden;
-  color: #000000;
-  background: transparent;
-  border: none;
-  border-radius: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  background-clip: padding-box;
-}
-
-.pine.pine-vertical > ul > li > ul > li > ul > li > a,
-.pine.pine-vertical > ul > li > ul > li > ul > li > strong {
-  padding: 12px 16px;
-  font-size: 16px;
-  color: #000000;
-  background: transparent;
-  border-bottom: 0;
-}
-
-.pine.pine-vertical > ul > li > ul > li > ul > li:last-child > a,
-.pine.pine-vertical > ul > li > ul > li > ul > li:last-child > strong {
-  border-bottom: 0;
-}
-
-.pine.pine-vertical > ul > li > ul > li > ul > li > a:hover,
-.pine.pine-vertical > ul > li > ul > li > ul > li > a:focus,
-.pine.pine-vertical > ul > li > ul > li > ul > li > a:active {
-  color: #0000ff;
-  background: transparent;
-}
-
-.pine.pine-vertical > ul > li > ul > li > ul > li.is-open > a {
-  color: #000000;
-  background: #cccccc;
+  left: 100%;
+  top: 0;
 }
 
 .pine.pine-vertical ul ul {
-  position: absolute;
   top: 0;
+  position: absolute;
 }
 
 .js .pine.pine-vertical ul ul {
@@ -348,29 +307,29 @@
 }
 
 .pine.pine-vertical ul > li > ul {
-  left: 100%;
   z-index: 50001;
+  visibility: visible;
+  left: 100%;
   max-width: 313px;
   margin-left: 1px;
-  visibility: visible;
 }
 
 .pine.pine-vertical ul ul > li > ul {
   z-index: 50002;
-  margin-left: 1px;
   visibility: visible;
+  margin-left: 1px;
 }
 
 .pine.pine-vertical ul > li.is-open > ul {
-  left: 100%;
   z-index: 50001;
+  visibility: visible;
+  left: 100%;
   max-width: 313px;
   margin-left: 1px;
-  visibility: visible;
 }
 
 .pine.pine-vertical ul ul > li.is-open > ul {
   z-index: 50002;
-  margin-left: 1px;
   visibility: visible;
+  margin-left: 1px;
 }

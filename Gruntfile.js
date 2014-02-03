@@ -120,53 +120,41 @@ module.exports = function(grunt) {
       }
     },
 
-    recess: {
-      options: {
-        compile: true
-      },
-      main: {
-        files: [
-          {
-            src: ['src/stylesheets/pine.less'],
-            dest: 'dist/stylesheets/pine.css'
-          },
-          {
-            src: ['examples/bootstrap-fixed/css/bootstrap-fixed.less'],
-            dest: 'examples/bootstrap-fixed/css/bootstrap-fixed.css'
-          },
-          {
-            src: ['examples/bootstrap-horizontal/css/bootstrap-horizontal.less'],
-            dest: 'examples/bootstrap-horizontal/css/bootstrap-horizontal.css'
-          },
-          {
-            src: ['examples/bootstrap-vertical/css/bootstrap-vertical.less'],
-            dest: 'examples/bootstrap-vertical/css/bootstrap-vertical.css'
-          },
-          {
-            src: ['examples/horizontal/css/horizontal.less'],
-            dest: 'examples/horizontal/css/horizontal.css'
-          },
-          {
-            src: ['examples/vertical/css/vertical.less'],
-            dest: 'examples/vertical/css/vertical.css'
-          }
-        ]
-      },
-      min: {
-        options: {
-          compress: true
-        },
-        src: ['src/stylesheets/pine.less'],
-        dest: 'dist/stylesheets/pine.min.css'
+    less: {
+      pine: {
+        // options: {
+        //   strictMath: true,
+        //   sourceMap: true,
+        //   outputSourceFiles: true,
+        //   sourceMapURL: '<%= pkg.name %>.css.map',
+        //   sourceMapFilename: 'dist/stylesheets/<%= pkg.name %>.css.map'
+        // },
+        files: {
+          'dist/stylesheets/<%= pkg.name %>.css': 'src/stylesheets/pine.less',
+          'examples/bootstrap-fixed/css/bootstrap-fixed.css': 'examples/bootstrap-fixed/css/bootstrap-fixed.less',
+          'examples/bootstrap-horizontal/css/bootstrap-horizontal.css': 'examples/bootstrap-horizontal/css/bootstrap-horizontal.less',
+          'examples/bootstrap-vertical/css/bootstrap-vertical.css': 'examples/bootstrap-vertical/css/bootstrap-vertical.less',
+          'examples/horizontal/css/horizontal.css': 'examples/horizontal/css/horizontal.less',
+          'examples/vertical/css/vertical.css': 'examples/vertical/css/vertical.less'
+        }
       }
+      // minify: {
+      //   options: {
+      //     cleancss: true,
+      //     report: 'min'
+      //   },
+      //   files: {
+      //     'dist/stylesheets/<%= pkg.name %>.min.css': 'dist/css/<%= pkg.name %>.css'
+      //   }
+      // }
     },
 
     watch: {
-      recess: {
+      css: {
         files: ['src/stylesheets/**/*.less', 'examples/**/*.less'],
-        tasks: ['recess']
+        tasks: ['less']
       },
-      uglify: {
+      js: {
         files: 'src/javascripts/**/*.js',
         tasks: ['concat', 'uglify']
       }
@@ -195,7 +183,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-compress');
-  grunt.loadNpmTasks('grunt-recess');
+  grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-legacssy');
 
   // JS distribution task.
@@ -206,10 +194,10 @@ module.exports = function(grunt) {
   grunt.registerTask('dist-copy', ['copy']);
 
   // CSS distribution task.
-  grunt.registerTask('dist-css', ['recess']);
+  grunt.registerTask('dist-css', ['less', 'legacssy']);
 
   // Full distribution task.
-  grunt.registerTask('dist', ['clean', 'copy', 'dist-css', 'dist-js', 'legacssy']);
+  grunt.registerTask('dist', ['clean', 'copy', 'dist-css', 'dist-js']);
 
   // Default task.
   grunt.registerTask('default', ['dist-css', 'dist-js']);
