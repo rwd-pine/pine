@@ -373,6 +373,114 @@
   border-color: transparent #ffffff transparent transparent;
 }
 @media (min-width: 600px) {
+  .pine.pine-horizontal {
+    /* Pine: Large displays */
+    background: transparent;
+    border: none;
+  }
+  .pine.pine-horizontal li {
+    position: relative;
+  }
+  .pine.pine-horizontal a,
+  .pine.pine-horizontal strong {
+    display: block;
+    border-bottom: 0;
+    text-indent: 0;
+  }
+  .pine.pine-horizontal > ul > li > a,
+  .pine.pine-horizontal > ul > li > strong {
+    padding: 12px 16px;
+    font-size: 16px;
+    border-bottom: 0;
+    border-right: 0;
+  }
+  .pine.pine-horizontal > ul > li:last-child > a,
+  .pine.pine-horizontal > ul > li:last-child > strong {
+    border-bottom: 0;
+    border-right: 0;
+  }
+  .pine.pine-horizontal > ul > li > a {
+    background: transparent;
+    color: #000000;
+  }
+  .pine.pine-horizontal > ul > li > a:hover,
+  .pine.pine-horizontal > ul > li > a:focus,
+  .pine.pine-horizontal > ul > li > a:active {
+    background: transparent;
+    color: #0000ff;
+  }
+  .pine.pine-horizontal > ul > li > strong,
+  .pine.pine-horizontal > ul > li.is-open > a {
+    background: #cccccc;
+    color: #000000;
+  }
+  .pine.pine-horizontal > ul > li > ul {
+    color: #000000;
+    background: transparent;
+    border: none;
+    border-radius: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-clip: padding-box;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+  .pine.pine-horizontal > ul > li > ul > li > a,
+  .pine.pine-horizontal > ul > li > ul > li > strong {
+    background: transparent;
+    padding: 12px 16px;
+    font-size: 16px;
+    color: #000000;
+    border-bottom: 0;
+  }
+  .pine.pine-horizontal > ul > li > ul > li:last-child > a,
+  .pine.pine-horizontal > ul > li > ul > li:last-child > strong {
+    border-bottom: 0;
+  }
+  .pine.pine-horizontal > ul > li > ul > li > a:hover,
+  .pine.pine-horizontal > ul > li > ul > li > a:focus,
+  .pine.pine-horizontal > ul > li > ul > li > a:active {
+    background: transparent;
+    color: #0000ff;
+  }
+  .pine.pine-horizontal > ul > li > ul > li.is-open > a {
+    background: #cccccc;
+    color: #000000;
+  }
+  .pine.pine-horizontal > ul > li > ul > li > ul {
+    color: #000000;
+    background: transparent;
+    border: none;
+    border-radius: none;
+    background-clip: padding-box;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    overflow: hidden;
+  }
+  .pine.pine-horizontal > ul > li > ul > li > ul > li > a,
+  .pine.pine-horizontal > ul > li > ul > li > ul > li > strong {
+    background: transparent;
+    padding: 12px 16px;
+    font-size: 16px;
+    color: #000000;
+    border-bottom: 0;
+  }
+  .pine.pine-horizontal > ul > li > ul > li > ul > li:last-child > a,
+  .pine.pine-horizontal > ul > li > ul > li > ul > li:last-child > strong {
+    border-bottom: 0;
+  }
+  .pine.pine-horizontal > ul > li > ul > li > ul > li > a:hover,
+  .pine.pine-horizontal > ul > li > ul > li > ul > li > a:focus,
+  .pine.pine-horizontal > ul > li > ul > li > ul > li > a:active {
+    background: transparent;
+    color: #0000ff;
+  }
+  .pine.pine-horizontal > ul > li > ul > li > ul > li.is-open > a {
+    background: #cccccc;
+    color: #000000;
+  }
   .pine.pine-horizontal ul > li {
     display: inline-block;
     position: relative;
@@ -432,114 +540,6 @@
   }
 }
 @media (min-width: 600px) {
-  .pine.pine-vertical {
-    /* Pine: Large displays */
-    background: transparent;
-    border: none;
-  }
-  .pine.pine-vertical li {
-    position: relative;
-  }
-  .pine.pine-vertical a,
-  .pine.pine-vertical strong {
-    display: block;
-    border-bottom: 0;
-    text-indent: 0;
-  }
-  .pine.pine-vertical > ul > li > a,
-  .pine.pine-vertical > ul > li > strong {
-    padding: 12px 16px;
-    font-size: 16px;
-    border-bottom: 0;
-    border-right: 0;
-  }
-  .pine.pine-vertical > ul > li:last-child > a,
-  .pine.pine-vertical > ul > li:last-child > strong {
-    border-bottom: 0;
-    border-right: 0;
-  }
-  .pine.pine-vertical > ul > li > a {
-    background: transparent;
-    color: #000000;
-  }
-  .pine.pine-vertical > ul > li > a:hover,
-  .pine.pine-vertical > ul > li > a:focus,
-  .pine.pine-vertical > ul > li > a:active {
-    background: transparent;
-    color: #0000ff;
-  }
-  .pine.pine-vertical > ul > li > strong,
-  .pine.pine-vertical > ul > li.is-open > a {
-    background: #cccccc;
-    color: #000000;
-  }
-  .pine.pine-vertical > ul > li > ul {
-    color: #000000;
-    background: transparent;
-    border: none;
-    border-radius: none;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    background-clip: padding-box;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-  }
-  .pine.pine-vertical > ul > li > ul > li > a,
-  .pine.pine-vertical > ul > li > ul > li > strong {
-    background: transparent;
-    padding: 12px 16px;
-    font-size: 16px;
-    color: #000000;
-    border-bottom: 0;
-  }
-  .pine.pine-vertical > ul > li > ul > li:last-child > a,
-  .pine.pine-vertical > ul > li > ul > li:last-child > strong {
-    border-bottom: 0;
-  }
-  .pine.pine-vertical > ul > li > ul > li > a:hover,
-  .pine.pine-vertical > ul > li > ul > li > a:focus,
-  .pine.pine-vertical > ul > li > ul > li > a:active {
-    background: transparent;
-    color: #0000ff;
-  }
-  .pine.pine-vertical > ul > li > ul > li.is-open > a {
-    background: #cccccc;
-    color: #000000;
-  }
-  .pine.pine-vertical > ul > li > ul > li > ul {
-    color: #000000;
-    background: transparent;
-    border: none;
-    border-radius: none;
-    background-clip: padding-box;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    overflow: hidden;
-  }
-  .pine.pine-vertical > ul > li > ul > li > ul > li > a,
-  .pine.pine-vertical > ul > li > ul > li > ul > li > strong {
-    background: transparent;
-    padding: 12px 16px;
-    font-size: 16px;
-    color: #000000;
-    border-bottom: 0;
-  }
-  .pine.pine-vertical > ul > li > ul > li > ul > li:last-child > a,
-  .pine.pine-vertical > ul > li > ul > li > ul > li:last-child > strong {
-    border-bottom: 0;
-  }
-  .pine.pine-vertical > ul > li > ul > li > ul > li > a:hover,
-  .pine.pine-vertical > ul > li > ul > li > ul > li > a:focus,
-  .pine.pine-vertical > ul > li > ul > li > ul > li > a:active {
-    background: transparent;
-    color: #0000ff;
-  }
-  .pine.pine-vertical > ul > li > ul > li > ul > li.is-open > a {
-    background: #cccccc;
-    color: #000000;
-  }
   .pine.pine-vertical ul ul {
     top: 0;
     position: absolute;

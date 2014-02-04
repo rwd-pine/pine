@@ -24,8 +24,14 @@ body {
   padding-top: 80px;
 }
 
-// Logo inside the navigation with custom styling
-.pine .logo a {
-  font-weight: bold;
-  text-transform: uppercase;
+// Logo inside the navigation
+// Styling from Bootstrap's .navbar-brand
+.pine-brand {
+  font-size: @font-size-large;
+  line-height: @line-height-computed;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
 }
