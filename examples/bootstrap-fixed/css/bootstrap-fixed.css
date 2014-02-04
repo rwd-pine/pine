@@ -6058,6 +6058,7 @@ td.visible-print {
 }
 .pine ul,
 .pine li {
+  position: relative;
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -6518,8 +6519,6 @@ td.visible-print {
   }
   .pine.pine-horizontal ul ul {
     position: absolute;
-    padding-top: 8px;
-    padding-bottom: 8px;
   }
   .pine.pine-horizontal ul ul li {
     display: block;
@@ -6581,24 +6580,24 @@ td.visible-print {
     visibility: visible;
     left: 100%;
     max-width: 313px;
-    margin-left: 1px;
+    border-left: 1px solid transparent;
   }
   .pine.pine-vertical ul ul > li > ul {
     z-index: 50002;
     visibility: visible;
-    margin-left: 1px;
+    border-left: 1px solid transparent;
   }
   .pine.pine-vertical ul > li.is-open > ul {
     z-index: 50001;
     visibility: visible;
     left: 100%;
     max-width: 313px;
-    margin-left: 1px;
+    border-left: 1px solid transparent;
   }
   .pine.pine-vertical ul ul > li.is-open > ul {
     z-index: 50002;
     visibility: visible;
-    margin-left: 1px;
+    border-left: 1px solid transparent;
   }
 }
 @media (min-width: 600px) {

@@ -1,6 +1,7 @@
 // TODO
 // - english
 // - more accurate selectors
+// - mixins create more code, we need to extend
 
 
 // Vychozi stav druhe a treti urovne
@@ -51,12 +52,12 @@ ul ul > li.is-open > ul {
 	visibility: visible;
 	left: 100%;
 	max-width: 313px; // Max. sirka polozky v plne sirce layoutu
-  margin-left: 1px;
+  border-left: 1px solid transparent;
 }
 
 // Mixin: styl pro otevrenou treti uroven zanoreni
 .nav-large-display-horizontal-3rd-level() {
 	z-index: 50002;
 	visibility: visible;
-  margin-left: 1px;
+  border-left: 1px solid transparent;
 }
