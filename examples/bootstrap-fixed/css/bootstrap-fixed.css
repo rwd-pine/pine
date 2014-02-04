@@ -6611,6 +6611,8 @@ body {
 .pine li .pine-brand {
   font-size: 18px;
   line-height: 20px;
+  text-align: left;
+  padding-left: 0;
 }
 .pine li .pine-brand:hover,
 .pine li .pine-brand:focus {
