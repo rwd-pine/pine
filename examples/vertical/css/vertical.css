@@ -6,19 +6,23 @@ body {
   margin: 1em;
 }
 
-@media (min-width: 600px) {
+.nav-box {
+  width: 15em;
+  float: left;
+  margin-right: 2em;
+}
 
-  .nav-box {
-    width: 15em;
-    float: left;
-    margin-right: 2em;
-  }
+.content-box {
+  width: 40em;
+  float: left;
+}
 
+@media (max-width: 599px) {
+  .nav-box,
   .content-box {
-    width: 50em;
-    float: left;
+    width: auto;
+    float: none;
   }
-
 }
 
 /*  Pine navigation styling  */
