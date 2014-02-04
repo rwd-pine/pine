@@ -2,222 +2,11 @@
   border-radius: 0;
 }
 
-.js .pine {
-  max-height: 0;
-  position: absolute;
-  top: 42px;
-  left: 0;
-  overflow: hidden;
-  width: 100%;
-  -webkit-transition: max-height .1s ease-in-out;
-  -moz-transition: max-height .1s ease-in-out;
-  -o-transition: max-height .1s ease-in-out;
-  transition: max-height .1s ease-in-out;
-}
-
-.js .pine.is-visible {
-  max-height: 2000px;
-  overflow: visible;
-}
-
-.pine ul > li.has-submenu > a:before {
-  right: 16px;
-}
-
-.pine ul > li.has-submenu > a:before {
-  border-color: transparent transparent transparent #000000;
-}
-
-.pine.pine-horizontal ul > li.has-submenu > a:before {
-  border-color: #000000 transparent transparent transparent;
-}
-
-.pine.pine-horizontal ul > li.has-submenu > a:before {
-  border-width: 5px 0 5px 5px;
-  margin-top: -5px;
-  border-color: transparent transparent transparent #000000;
-}
-
-.pine.pine-horizontal ul > li.has-submenu > a:before {
-  border-color: transparent transparent transparent #000000;
-}
-
-.pine ul li.is-open ul > li.has-submenu > a:before {
-  right: 16px;
-}
-
-.pine ul li.is-open ul > li.has-submenu > a:before {
-  border-color: transparent transparent transparent #000000;
-}
-
-.pine ul ul li.is-open ul > li.has-submenu > a:before {
-  right: 16px;
-}
-
-.pine ul ul li.is-open ul > li.has-submenu > a:before {
-  border-color: transparent transparent transparent #000000;
-}
-
-.pine.fx-toggle ul > li.has-submenu > a:before,
-.pine.fx-toggle ul li.is-open ul > li.has-submenu > a:before,
-.pine.fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
-  border-width: 5px 5px 0 5px;
-  margin-top: -2.5px;
-  border-color: #000000 transparent transparent transparent;
-}
-
-.pine.fx-toggle ul > li.has-submenu > a:before,
-.pine.fx-toggle ul li.is-open ul > li.has-submenu > a:before,
-.pine.fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
-  border-color: #000000 transparent transparent transparent;
-}
-
-.js .nav-trigger {
-  display: inline-block;
-}
-
-.js .pine-fixed {
-  top: 42px;
-}
-
-.js .pine-fixed-small {
-  top: 42px;
-  left: 0;
-  position: fixed;
-  width: 100%;
-}
-
 .js .pine-fixed-large {
   top: 0;
   left: 0;
   position: fixed;
   width: 100%;
-}
-
-.pine.pine-horizontal {
-  /* Pine: Large displays */
-  background: transparent;
-  border: none;
-}
-
-.pine.pine-horizontal li {
-  position: relative;
-}
-
-.pine.pine-horizontal a,
-.pine.pine-horizontal strong {
-  display: block;
-  border-bottom: 0;
-  text-indent: 0;
-}
-
-.pine.pine-horizontal > ul > li > a,
-.pine.pine-horizontal > ul > li > strong {
-  padding: 12px 16px;
-  font-size: 16px;
-  border-bottom: 0;
-  border-right: 0;
-}
-
-.pine.pine-horizontal > ul > li:last-child > a,
-.pine.pine-horizontal > ul > li:last-child > strong {
-  border-bottom: 0;
-  border-right: 0;
-}
-
-.pine.pine-horizontal > ul > li > a {
-  background: transparent;
-  color: #000000;
-}
-
-.pine.pine-horizontal > ul > li > a:hover,
-.pine.pine-horizontal > ul > li > a:focus,
-.pine.pine-horizontal > ul > li > a:active {
-  background: transparent;
-  color: #0000ff;
-}
-
-.pine.pine-horizontal > ul > li > strong,
-.pine.pine-horizontal > ul > li.is-open > a {
-  background: #cccccc;
-  color: #000000;
-}
-
-.pine.pine-horizontal > ul > li > ul {
-  color: #000000;
-  background: transparent;
-  border: none;
-  border-radius: none;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  background-clip: padding-box;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-
-.pine.pine-horizontal > ul > li > ul > li > a,
-.pine.pine-horizontal > ul > li > ul > li > strong {
-  background: transparent;
-  padding: 12px 16px;
-  font-size: 16px;
-  color: #000000;
-  border-bottom: 0;
-}
-
-.pine.pine-horizontal > ul > li > ul > li:last-child > a,
-.pine.pine-horizontal > ul > li > ul > li:last-child > strong {
-  border-bottom: 0;
-}
-
-.pine.pine-horizontal > ul > li > ul > li > a:hover,
-.pine.pine-horizontal > ul > li > ul > li > a:focus,
-.pine.pine-horizontal > ul > li > ul > li > a:active {
-  background: transparent;
-  color: #0000ff;
-}
-
-.pine.pine-horizontal > ul > li > ul > li.is-open > a {
-  background: #cccccc;
-  color: #000000;
-}
-
-.pine.pine-horizontal > ul > li > ul > li > ul {
-  color: #000000;
-  background: transparent;
-  border: none;
-  border-radius: none;
-  background-clip: padding-box;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  overflow: hidden;
-}
-
-.pine.pine-horizontal > ul > li > ul > li > ul > li > a,
-.pine.pine-horizontal > ul > li > ul > li > ul > li > strong {
-  background: transparent;
-  padding: 12px 16px;
-  font-size: 16px;
-  color: #000000;
-  border-bottom: 0;
-}
-
-.pine.pine-horizontal > ul > li > ul > li > ul > li:last-child > a,
-.pine.pine-horizontal > ul > li > ul > li > ul > li:last-child > strong {
-  border-bottom: 0;
-}
-
-.pine.pine-horizontal > ul > li > ul > li > ul > li > a:hover,
-.pine.pine-horizontal > ul > li > ul > li > ul > li > a:focus,
-.pine.pine-horizontal > ul > li > ul > li > ul > li > a:active {
-  background: transparent;
-  color: #0000ff;
-}
-
-.pine.pine-horizontal > ul > li > ul > li > ul > li.is-open > a {
-  background: #cccccc;
-  color: #000000;
 }
 
 .pine.pine-horizontal ul > li {
@@ -238,8 +27,6 @@
 
 .pine.pine-horizontal ul ul {
   position: absolute;
-  padding-top: 8px;
-  padding-bottom: 8px;
 }
 
 .pine.pine-horizontal ul ul li {
@@ -291,6 +78,132 @@
   top: 0;
 }
 
+.pine.pine-vertical {
+  /* Pine: Large displays */
+  background: transparent;
+  border: none;
+}
+
+.pine.pine-vertical li {
+  position: relative;
+}
+
+.pine.pine-vertical a,
+.pine.pine-vertical strong {
+  display: block;
+  border-bottom: 0;
+  text-indent: 0;
+}
+
+.pine.pine-vertical > ul > li > a,
+.pine.pine-vertical > ul > li > strong {
+  padding: 12px 16px;
+  font-size: 16px;
+  border-bottom: 0;
+  border-right: 0;
+}
+
+.pine.pine-vertical > ul > li:last-child > a,
+.pine.pine-vertical > ul > li:last-child > strong {
+  border-bottom: 0;
+  border-right: 0;
+}
+
+.pine.pine-vertical > ul > li > a {
+  background: transparent;
+  color: #000000;
+}
+
+.pine.pine-vertical > ul > li > a:hover,
+.pine.pine-vertical > ul > li > a:focus,
+.pine.pine-vertical > ul > li > a:active {
+  background: transparent;
+  color: #0000ff;
+}
+
+.pine.pine-vertical > ul > li > strong,
+.pine.pine-vertical > ul > li.is-open > a {
+  background: #cccccc;
+  color: #000000;
+}
+
+.pine.pine-vertical > ul > li > ul {
+  color: #000000;
+  background: transparent;
+  border: none;
+  border-radius: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  background-clip: padding-box;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.pine.pine-vertical > ul > li > ul > li > a,
+.pine.pine-vertical > ul > li > ul > li > strong {
+  background: transparent;
+  padding: 12px 16px;
+  font-size: 16px;
+  color: #000000;
+  border-bottom: 0;
+}
+
+.pine.pine-vertical > ul > li > ul > li:last-child > a,
+.pine.pine-vertical > ul > li > ul > li:last-child > strong {
+  border-bottom: 0;
+}
+
+.pine.pine-vertical > ul > li > ul > li > a:hover,
+.pine.pine-vertical > ul > li > ul > li > a:focus,
+.pine.pine-vertical > ul > li > ul > li > a:active {
+  background: transparent;
+  color: #0000ff;
+}
+
+.pine.pine-vertical > ul > li > ul > li.is-open > a {
+  background: #cccccc;
+  color: #000000;
+}
+
+.pine.pine-vertical > ul > li > ul > li > ul {
+  color: #000000;
+  background: transparent;
+  border: none;
+  border-radius: none;
+  background-clip: padding-box;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.pine.pine-vertical > ul > li > ul > li > ul > li > a,
+.pine.pine-vertical > ul > li > ul > li > ul > li > strong {
+  background: transparent;
+  padding: 12px 16px;
+  font-size: 16px;
+  color: #000000;
+  border-bottom: 0;
+}
+
+.pine.pine-vertical > ul > li > ul > li > ul > li:last-child > a,
+.pine.pine-vertical > ul > li > ul > li > ul > li:last-child > strong {
+  border-bottom: 0;
+}
+
+.pine.pine-vertical > ul > li > ul > li > ul > li > a:hover,
+.pine.pine-vertical > ul > li > ul > li > ul > li > a:focus,
+.pine.pine-vertical > ul > li > ul > li > ul > li > a:active {
+  background: transparent;
+  color: #0000ff;
+}
+
+.pine.pine-vertical > ul > li > ul > li > ul > li.is-open > a {
+  background: #cccccc;
+  color: #000000;
+}
+
 .pine.pine-vertical ul ul {
   top: 0;
   position: absolute;
@@ -311,13 +224,13 @@
   visibility: visible;
   left: 100%;
   max-width: 313px;
-  margin-left: 1px;
+  border-left: 1px solid transparent;
 }
 
 .pine.pine-vertical ul ul > li > ul {
   z-index: 50002;
   visibility: visible;
-  margin-left: 1px;
+  border-left: 1px solid transparent;
 }
 
 .pine.pine-vertical ul > li.is-open > ul {
@@ -325,11 +238,11 @@
   visibility: visible;
   left: 100%;
   max-width: 313px;
-  margin-left: 1px;
+  border-left: 1px solid transparent;
 }
 
 .pine.pine-vertical ul ul > li.is-open > ul {
   z-index: 50002;
   visibility: visible;
-  margin-left: 1px;
+  border-left: 1px solid transparent;
 }
