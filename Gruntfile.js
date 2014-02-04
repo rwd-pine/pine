@@ -40,8 +40,7 @@ module.exports = function(grunt) {
           { expand: true, cwd: 'bower_components/jquery', src: ['jquery.min.js'], dest: 'dist/javascripts', filter: 'isFile' },
           { expand: true, cwd: 'bower_components/jquery-legacy', src: ['jquery.min.js'], dest: 'dist/javascripts/jquery-legacy', filter: 'isFile' },
           { expand: true, cwd: 'bower_components/zepto', src: ['zepto.js'], dest: 'src/javascripts/lib', filter: 'isFile' },
-          { expand: true, cwd: 'bower_components/matchmedia/', src: ['matchmedia.js'], dest: 'src/javascripts/lib', filter: 'isFile' },
-          { expand: true, cwd: 'bower_components/hoover/lib', src: ['hoover.js'], dest: 'src/javascripts/lib', filter: 'isFile' }
+          { expand: true, cwd: 'bower_components/matchmedia/', src: ['matchmedia.js'], dest: 'src/javascripts/lib', filter: 'isFile' }
         ]
       },
       assets: {
@@ -53,6 +52,11 @@ module.exports = function(grunt) {
         files: [
           { expand: true, cwd: 'bower_components/lesshat/build', src: ['lesshat.less'], dest: 'src/stylesheets/lib' }
           // { expand: true, cwd: 'bower_components/bootstrap/less', src: ['*.less'], dest: 'src/stylesheets/bootstrap' }
+        ]
+      },
+      docs: {
+        files: [
+          { expand: true, cwd: './dist', src: ['{stylesheets,javascripts}/*.min.*'], dest: 'docs/dist' }
         ]
       }
     },
@@ -148,9 +152,9 @@ module.exports = function(grunt) {
 
       examples: {
         files: {
-          'examples/bootstrap-fixed/css/bootstrap-fixed.css': 'examples/bootstrap-fixed/css/bootstrap-fixed.less',
-          'examples/bootstrap-horizontal/css/bootstrap-horizontal.css': 'examples/bootstrap-horizontal/css/bootstrap-horizontal.less',
-          'examples/bootstrap-vertical/css/bootstrap-vertical.css': 'examples/bootstrap-vertical/css/bootstrap-vertical.less'
+          'docs/examples/bootstrap-fixed/css/bootstrap-fixed.css': 'docs/examples/bootstrap-fixed/css/bootstrap-fixed.less',
+          'docs/examples/bootstrap-horizontal/css/bootstrap-horizontal.css': 'docs/examples/bootstrap-horizontal/css/bootstrap-horizontal.less',
+          'docs/examples/bootstrap-vertical/css/bootstrap-vertical.css': 'docs/examples/bootstrap-vertical/css/bootstrap-vertical.less'
         }
       }
     },
@@ -162,7 +166,7 @@ module.exports = function(grunt) {
       src: [
         'dist/stylesheets/<%= pkg.name %>.css',
         'dist/stylesheets/<%= pkg.name %>-ie8.css',
-        'examples/**/*.css'
+        'docs/examples/**/*.css'
       ]
     },
 
@@ -177,6 +181,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // Flatten media queries and generate special CSS for IE8
     legacssy: {
       default: {
         options: {

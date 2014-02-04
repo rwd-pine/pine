@@ -8,17 +8,17 @@
 
 // 1st level: Default - vertical
 .pine ul > li.has-submenu > a {
-	padding-right: 2*@pineLevel1PaddingHorizontal; 
+	padding-right: 2*@pineLevel1PaddingHorizontal;
 
-	&:before {		
+	&:before {
 		.triangle-indicator-base(@pineLevel1PaddingHorizontal);
 		.triangle-indicator-right(@pineLevel1SubIndColor, 5px);
-	}	
+	}
 }
 
 // 1st level: Horizontal variant
 .pine.pine-horizontal ul > li.has-submenu > a {
-	padding-right: 2*@pineLevel1PaddingHorizontal; 
+	padding-right: 2*@pineLevel1PaddingHorizontal;
 
 	&:before {
 		.triangle-indicator-bottom(@pineLevel1SubIndColor, 5px);
@@ -32,7 +32,7 @@
 .pine ul li.is-open ul > li.has-submenu > a {
 	padding-right: 2*@pineLevel2PaddingHorizontal;
 
-	&:before {	
+	&:before {
 		.triangle-indicator-base(@pineLevel2PaddingHorizontal);
 		.triangle-indicator-right(@pineLevel2SubIndColor, 5px);
 	}
@@ -42,19 +42,19 @@
 .pine ul ul li.is-open ul > li.has-submenu > a {
 	padding-right: 2*@pineLevel3PaddingHorizontal;
 
-	&:before {		
-		.triangle-indicator-base(@pineLevel3PaddingHorizontal);	
+	&:before {
+		.triangle-indicator-base(@pineLevel3PaddingHorizontal);
 		.triangle-indicator-right(@pineLevel3SubIndColor, 5px);
-	}	
+	}
 }
 
 // --- Toggle FX: triangle to bottom everywhere ---
 
 // 1st level: Horizontal variant
 .pine.fx-toggle {
-	ul > li.has-submenu > a, // 1st level 
-	ul li.is-open ul > li.has-submenu > a, // 2nd level 
-	ul ul li.is-open ul > li.has-submenu > a { // 3rd level 
+	ul > li.has-submenu > a, // 1st level
+	ul li.is-open ul > li.has-submenu > a, // 2nd level
+	ul ul li.is-open ul > li.has-submenu > a { // 3rd level
 		&:before {
 			@media (max-width: @pineSmallDisplayEnd) {
 				.triangle-indicator-bottom(@pineLevel1SubIndColor, 5px);
@@ -65,7 +65,7 @@
 
 // -- Mixin: Triangle indicator base ---
 
-.triangle-indicator-base(@paddingRight) {	
+.triangle-indicator-base(@paddingRight) {
 	z-index: 100;
 	content: "";
 	position: absolute;
@@ -77,30 +77,30 @@
 	border-style: solid;
 	// Small screen version has only first level look
 	@media (max-width: @pineSmallDisplayEnd) {
-		right: @pineSmallScreenPaddingHorizontal; 
+		right: @pineSmallScreenPaddingHorizontal;
 	}
 }
 
 // Mixin: Triangle indicator marker turned down
 
 .triangle-indicator-bottom(@color, @indicatorSize) {
-	border-width: @indicatorSize @indicatorSize 0 @indicatorSize; 
+	border-width: @indicatorSize @indicatorSize 0 @indicatorSize;
 	margin-top: -1*@indicatorSize/2;
-	border-color: @color transparent transparent transparent;	
-	// Small screen version has only first level look 
+	border-color: @color transparent transparent transparent;
+	// Small screen version has only first level look
 	@media (max-width: @pineSmallDisplayEnd) {
-		border-color: @pineLevel1SubIndColor  transparent transparent transparent; 
+		border-color: @pineLevel1SubIndColor  transparent transparent transparent;
 	}
 }
 
 // Mixin: Triangle indicator marker facing left
 
 .triangle-indicator-right(@color, @indicatorSize) {
-	border-width: @indicatorSize 0 @indicatorSize @indicatorSize; 
+	border-width: @indicatorSize 0 @indicatorSize @indicatorSize;
 	margin-top: -1*@indicatorSize;
 	border-color: transparent transparent transparent @color;
-	// Small screen version has only first level look 
+	// Small screen version has only first level look
 	@media (max-width: @pineSmallDisplayEnd) {
-		border-color: transparent transparent transparent  @pineLevel1SubIndColor; 
+		border-color: transparent transparent transparent  @pineLevel1SubIndColor;
 	}
 }
