@@ -2,63 +2,55 @@
   border-radius: 0;
 }
 
-.js .pine-fixed-large {
-  top: 0;
-  left: 0;
-  position: fixed;
-  width: 100%;
-}
-
-.pine.pine-horizontal {
-  /* Pine: Large displays */
+.pine {
   background: transparent;
   border: none;
 }
 
-.pine.pine-horizontal li {
+.pine li {
   position: relative;
 }
 
-.pine.pine-horizontal a,
-.pine.pine-horizontal strong {
+.pine a,
+.pine strong {
   display: block;
   border-bottom: 0;
   text-indent: 0;
 }
 
-.pine.pine-horizontal > ul > li > a,
-.pine.pine-horizontal > ul > li > strong {
+.pine > ul > li > a,
+.pine > ul > li > strong {
   padding: 12px 16px;
   font-size: 16px;
   border-bottom: 0;
   border-right: 0;
 }
 
-.pine.pine-horizontal > ul > li:last-child > a,
-.pine.pine-horizontal > ul > li:last-child > strong {
+.pine > ul > li:last-child > a,
+.pine > ul > li:last-child > strong {
   border-bottom: 0;
   border-right: 0;
 }
 
-.pine.pine-horizontal > ul > li > a {
+.pine > ul > li > a {
   background: transparent;
   color: #000000;
 }
 
-.pine.pine-horizontal > ul > li > a:hover,
-.pine.pine-horizontal > ul > li > a:focus,
-.pine.pine-horizontal > ul > li > a:active {
+.pine > ul > li > a:hover,
+.pine > ul > li > a:focus,
+.pine > ul > li > a:active {
   background: transparent;
   color: #0000ff;
 }
 
-.pine.pine-horizontal > ul > li > strong,
-.pine.pine-horizontal > ul > li.is-open > a {
+.pine > ul > li > strong,
+.pine > ul > li.is-open > a {
   background: #cccccc;
   color: #000000;
 }
 
-.pine.pine-horizontal > ul > li > ul {
+.pine > ul > li > ul {
   color: #000000;
   background: transparent;
   border: none;
@@ -71,8 +63,8 @@
   box-shadow: none;
 }
 
-.pine.pine-horizontal > ul > li > ul > li > a,
-.pine.pine-horizontal > ul > li > ul > li > strong {
+.pine > ul > li > ul > li > a,
+.pine > ul > li > ul > li > strong {
   background: transparent;
   padding: 12px 16px;
   font-size: 16px;
@@ -80,24 +72,24 @@
   border-bottom: 0;
 }
 
-.pine.pine-horizontal > ul > li > ul > li:last-child > a,
-.pine.pine-horizontal > ul > li > ul > li:last-child > strong {
+.pine > ul > li > ul > li:last-child > a,
+.pine > ul > li > ul > li:last-child > strong {
   border-bottom: 0;
 }
 
-.pine.pine-horizontal > ul > li > ul > li > a:hover,
-.pine.pine-horizontal > ul > li > ul > li > a:focus,
-.pine.pine-horizontal > ul > li > ul > li > a:active {
+.pine > ul > li > ul > li > a:hover,
+.pine > ul > li > ul > li > a:focus,
+.pine > ul > li > ul > li > a:active {
   background: transparent;
   color: #0000ff;
 }
 
-.pine.pine-horizontal > ul > li > ul > li.is-open > a {
+.pine > ul > li > ul > li.is-open > a {
   background: #cccccc;
   color: #000000;
 }
 
-.pine.pine-horizontal > ul > li > ul > li > ul {
+.pine > ul > li > ul > li > ul {
   color: #000000;
   background: transparent;
   border: none;
@@ -109,8 +101,8 @@
   overflow: hidden;
 }
 
-.pine.pine-horizontal > ul > li > ul > li > ul > li > a,
-.pine.pine-horizontal > ul > li > ul > li > ul > li > strong {
+.pine > ul > li > ul > li > ul > li > a,
+.pine > ul > li > ul > li > ul > li > strong {
   background: transparent;
   padding: 12px 16px;
   font-size: 16px;
@@ -118,19 +110,19 @@
   border-bottom: 0;
 }
 
-.pine.pine-horizontal > ul > li > ul > li > ul > li:last-child > a,
-.pine.pine-horizontal > ul > li > ul > li > ul > li:last-child > strong {
+.pine > ul > li > ul > li > ul > li:last-child > a,
+.pine > ul > li > ul > li > ul > li:last-child > strong {
   border-bottom: 0;
 }
 
-.pine.pine-horizontal > ul > li > ul > li > ul > li > a:hover,
-.pine.pine-horizontal > ul > li > ul > li > ul > li > a:focus,
-.pine.pine-horizontal > ul > li > ul > li > ul > li > a:active {
+.pine > ul > li > ul > li > ul > li > a:hover,
+.pine > ul > li > ul > li > ul > li > a:focus,
+.pine > ul > li > ul > li > ul > li > a:active {
   background: transparent;
   color: #0000ff;
 }
 
-.pine.pine-horizontal > ul > li > ul > li > ul > li.is-open > a {
+.pine > ul > li > ul > li > ul > li.is-open > a {
   background: #cccccc;
   color: #000000;
 }
@@ -189,7 +181,7 @@
   top: 0;
 }
 
-.pine.pine-horizontal ul > li.is-open > ul {
+.pine.pine-horizontal > ul > li.is-open > ul {
   z-index: 50001;
   visibility: visible;
   left: 0;
@@ -224,13 +216,11 @@
   visibility: visible;
   left: 100%;
   max-width: 313px;
-  border-left: 1px solid transparent;
 }
 
 .pine.pine-vertical ul ul > li > ul {
   z-index: 50002;
   visibility: visible;
-  border-left: 1px solid transparent;
 }
 
 .pine.pine-vertical ul > li.is-open > ul {
@@ -238,11 +228,16 @@
   visibility: visible;
   left: 100%;
   max-width: 313px;
-  border-left: 1px solid transparent;
 }
 
 .pine.pine-vertical ul ul > li.is-open > ul {
   z-index: 50002;
   visibility: visible;
-  border-left: 1px solid transparent;
+}
+
+.js .pine-fixed-large {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
 }
