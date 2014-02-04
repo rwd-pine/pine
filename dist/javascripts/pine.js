@@ -551,7 +551,7 @@ Pine.Navbar.registerTransition('fx-right-to-left', {
     // Pan left or right depending on isActive and target level
     // $parentLists.last().css('left', (-100 * level) + '%')
     $parentLists.last().animate({
-      transform: 'translate(' + (-100 * level) + '%)'
+      left: (-100 * level) + '%'
     }, 300) //'ease-out' TODO: add jQuery plugin for easing
 
   }

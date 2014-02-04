@@ -1,32 +1,33 @@
-// Pine navigation
+//
+// PINE.JS: Flexible and robust navigation module
+// ---------------------------
 
+// - CORE -
+
+// Variables and Mixins
 @import 'lib/lesshat';
-
-@import 'core/variables';
 @import 'core/mixins';
+@import 'core/variables';
+
+// Pine core styles
 @import 'core/base';
+@import 'core/base-large-display';
+
+// Pine variants
+@import 'core/base-horizontal';
+@import 'core/base-vertical';
+@import 'core/base-fixed';
+
+// - MODULES -
 
 @import 'modules/submenu-indicator';
 @import 'modules/menu-trigger';
 
-@import 'variants/fixed';
+// Effects
+@import 'modules/fx/toggle';
+@import 'modules/fx/hover-fade';
+@import 'modules/fx/right-to-left';
 
-@import 'fx/toggle';
-@import 'fx/hover-fade';
-@import 'fx/right-to-left';
+// - 3rd party LIBRARIES -
+// reserved for special styles like retina.css etc.
 
-// - Variants: horizontal and vertical for large screen -
-
-.pine.pine-horizontal {
-	@media (min-width: @pineLargeDisplayStart) {
-		@import 'core/large-display';
-		@import 'core/horizontal';
-	}
-}
-
-.pine.pine-vertical {
-	@media (min-width: @pineLargeDisplayStart) {
-		@import 'core/large-display';
-		@import 'core/vertical';
-	}
-}

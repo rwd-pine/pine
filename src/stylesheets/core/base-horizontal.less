@@ -1,0 +1,100 @@
+//
+// BASE: Horizontal variant
+// ----------------------------
+
+// Mixin: styl pro otevrenou druhou uroven zanoreni
+.nav-large-display-horizontal-2nd-level() {
+  z-index: 50001;
+  visibility: visible;
+  left: 0;
+  top: 100%;
+  max-width: 313px; // Max. sirka polozky v plne sirce layoutu
+  // border-top: 1px solid transparent;
+}
+
+// Mixin: styl pro otevrenou treti uroven zanoreni
+.nav-large-display-horizontal-3rd-level() {
+  z-index: 50002;
+  visibility: visible;
+  left: 100%;
+  top: 0;
+  // border-left: 1px solid transparent;
+}
+
+.pine.pine-horizontal {
+  @media (min-width: @pineLargeDisplayStart) {
+
+    // - First level -
+
+    ul > li {
+      display: inline-block;
+      position: relative;
+      float: left; // Because of side and bottom spaces
+    }
+
+    ul > li > a,
+    ul > li > strong {
+      text-align: center;
+      display: block;
+    }
+
+    ul a {
+      position: relative; // TODO why?
+    }
+
+    // - 2nd + 3rd level -
+
+    ul ul {
+      position: absolute;
+      // padding-top: 8px;
+      // padding-bottom: 8px;
+
+      li {
+        display: block;
+        float: none;
+      }
+
+      > li > a,
+      > li > strong {
+        text-align: left;
+      }
+    }
+
+    // Hidden when JS is activated
+    .js & ul ul {
+      visibility: hidden;
+    }
+
+    // 3rd level top and bottom
+    ul ul ul {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    // - Rozbaleny stav: bez JS -
+    // Vsechno je otevrene
+
+    // Otevrena druha uroven
+    ul > li > ul {
+      .nav-large-display-horizontal-2nd-level;
+    }
+
+    // Otevrena treti uroven
+    ul ul > li > ul {
+      .nav-large-display-horizontal-3rd-level;
+    }
+
+    // - Rozbaleny stav: s JS -
+
+    // Otevrena druha uroven
+    > ul > li.is-open > ul {
+      .nav-large-display-horizontal-2nd-level;
+    }
+
+    // Otevrena treti uroven
+    ul ul > li.is-open > ul {
+      .nav-large-display-horizontal-3rd-level;
+    }
+
+  }
+}

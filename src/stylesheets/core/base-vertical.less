@@ -1,0 +1,73 @@
+//
+// BASE: Vertical variant
+// ----------------------------
+
+// TODO
+// - english
+// - more accurate selectors
+// - mixins create more code, we need to extend
+
+// Mixin: styl pro otevrenou druhou uroven zanoreni
+.nav-large-display-vertical-2nd-level() {
+  z-index: 50001;
+  visibility: visible;
+  left: 100%;
+  max-width: 313px; // Max. sirka polozky v plne sirce layoutu
+  // border-left: 1px solid transparent;
+}
+
+// Mixin: styl pro otevrenou treti uroven zanoreni
+.nav-large-display-vertical-3rd-level() {
+  z-index: 50002;
+  visibility: visible;
+  // border-left: 1px solid transparent;
+}
+
+.pine.pine-vertical {
+  @media (min-width: @pineLargeDisplayStart) {
+
+    // Vychozi stav druhe a treti urovne
+    ul ul {
+    	top: 0;
+    	position: absolute;
+    }
+
+    // Zabaleny stav druhe a treti urovne (pri nacteni JS)
+    .js & ul ul {
+    	visibility: hidden;
+    }
+
+    // Prvni uroven zanoreni
+    a,
+    strong {
+    	padding-top: 8px;
+    	padding-bottom: 8px;
+    }
+
+    // - Rozbaleny stav: bez JS -
+
+    // Otevrena druha uroven
+    ul > li > ul {
+    	.nav-large-display-vertical-2nd-level;
+    }
+
+    // Otevrena treti uroven
+    ul ul > li > ul {
+    	.nav-large-display-vertical-3rd-level;
+    }
+
+    // - Rozbaleny stav: s JS -
+
+    // Otevrena druha uroven
+    ul > li.is-open > ul {
+    	.nav-large-display-vertical-2nd-level;
+    }
+
+    // Otevrena treti uroven
+    ul ul > li.is-open > ul {
+    	.nav-large-display-vertical-3rd-level;
+    }
+
+  }
+}
+
