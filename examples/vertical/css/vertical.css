@@ -43,3 +43,11 @@ body {
   color: #333;
   background-color: #ccc;
 }
+
+/* Top position of opened navigation on small screens */
+
+@media (max-width: 599px) {
+  .js .pine {
+    top: 71px;
+  }
+}
