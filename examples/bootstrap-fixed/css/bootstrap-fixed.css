@@ -598,7 +598,7 @@ dt {
 dd {
   margin-left: 0;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .dl-horizontal dt {
     float: left;
     width: 160px;
@@ -3154,7 +3154,7 @@ input[type="button"].btn-block {
   bottom: 100%;
   margin-bottom: 1px;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .navbar-right .dropdown-menu {
     left: auto;
     right: 0;
@@ -3701,12 +3701,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .navbar {
     border-radius: 4px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .navbar-header {
     float: left;
   }
@@ -3723,7 +3723,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-collapse.in {
   overflow-y: auto;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .navbar-collapse {
     width: auto;
     border-top: 0;
@@ -3752,7 +3752,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-right: -15px;
   margin-left: -15px;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .container > .navbar-header,
   .container-fluid > .navbar-header,
   .container > .navbar-collapse,
@@ -3765,7 +3765,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   z-index: 1000;
   border-width: 0 0 1px;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .navbar-static-top {
     border-radius: 0;
   }
@@ -3777,7 +3777,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   left: 0;
   z-index: 1030;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .navbar-fixed-top,
   .navbar-fixed-bottom {
     border-radius: 0;
@@ -3803,7 +3803,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-brand:focus {
   text-decoration: none;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
     margin-left: -15px;
@@ -3833,7 +3833,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-toggle .icon-bar + .icon-bar {
   margin-top: 4px;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .navbar-toggle {
     display: none;
   }
@@ -3846,7 +3846,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding-bottom: 10px;
   line-height: 20px;
 }
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
   .navbar-nav .open .dropdown-menu {
     position: static;
     float: none;
@@ -3868,7 +3868,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     background-image: none;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .navbar-nav {
     float: left;
     margin: 0;
@@ -3884,7 +3884,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     margin-right: -15px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .navbar-left {
     float: left !important;
   }
@@ -3938,12 +3938,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     top: 0;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
   .navbar-form .form-group {
     margin-bottom: 5px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .navbar-form {
     width: auto;
     border: 0;
@@ -3984,7 +3984,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-top: 15px;
   margin-bottom: 15px;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .navbar-text {
     float: left;
     margin-left: 15px;
@@ -4049,7 +4049,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-color: #e7e7e7;
   color: #555555;
 }
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #777777;
   }
@@ -4132,7 +4132,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-color: #080808;
   color: #ffffff;
 }
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
   .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header {
     border-color: #080808;
   }
@@ -6028,12 +6028,12 @@ td.visible-print {
 .pine:after {
   clear: both;
 }
-@media (min-width: 600px) {
+@media (min-width: 1200px) {
   .pine {
     border-radius: 0;
   }
 }
-@media (max-width: 599px) {
+@media (max-width: 1199px) {
   .js .pine {
     max-height: 0;
     position: absolute;
@@ -6111,12 +6111,12 @@ td.visible-print {
   margin-top: -5px;
   border-color: transparent transparent transparent #999999;
 }
-@media (max-width: 599px) {
+@media (max-width: 1199px) {
   .pine ul > li.has-submenu > a:before {
     right: 15px;
   }
 }
-@media (max-width: 599px) {
+@media (max-width: 1199px) {
   .pine ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #999999;
   }
@@ -6129,19 +6129,19 @@ td.visible-print {
   margin-top: -2.5px;
   border-color: #999999 transparent transparent transparent;
 }
-@media (max-width: 599px) {
+@media (max-width: 1199px) {
   .pine.pine-horizontal ul > li.has-submenu > a:before {
     border-color: #999999 transparent transparent transparent;
   }
 }
-@media (max-width: 599px) {
+@media (max-width: 1199px) {
   .pine.pine-horizontal ul > li.has-submenu > a:before {
     border-width: 5px 0 5px 5px;
     margin-top: -5px;
     border-color: transparent transparent transparent #999999;
   }
 }
-@media (max-width: 599px) and (max-width: 599px) {
+@media (max-width: 1199px) and (max-width: 1199px) {
   .pine.pine-horizontal ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #999999;
   }
@@ -6163,12 +6163,12 @@ td.visible-print {
   margin-top: -5px;
   border-color: transparent transparent transparent #999999;
 }
-@media (max-width: 599px) {
+@media (max-width: 1199px) {
   .pine ul li.is-open ul > li.has-submenu > a:before {
     right: 15px;
   }
 }
-@media (max-width: 599px) {
+@media (max-width: 1199px) {
   .pine ul li.is-open ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #999999;
   }
@@ -6190,17 +6190,17 @@ td.visible-print {
   margin-top: -5px;
   border-color: transparent transparent transparent #999999;
 }
-@media (max-width: 599px) {
+@media (max-width: 1199px) {
   .pine ul ul li.is-open ul > li.has-submenu > a:before {
     right: 15px;
   }
 }
-@media (max-width: 599px) {
+@media (max-width: 1199px) {
   .pine ul ul li.is-open ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #999999;
   }
 }
-@media (max-width: 599px) {
+@media (max-width: 1199px) {
   .pine.fx-toggle ul > li.has-submenu > a:before,
   .pine.fx-toggle ul li.is-open ul > li.has-submenu > a:before,
   .pine.fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
@@ -6209,7 +6209,7 @@ td.visible-print {
     border-color: #999999 transparent transparent transparent;
   }
 }
-@media (max-width: 599px) and (max-width: 599px) {
+@media (max-width: 1199px) and (max-width: 1199px) {
   .pine.fx-toggle ul > li.has-submenu > a:before,
   .pine.fx-toggle ul li.is-open ul > li.has-submenu > a:before,
   .pine.fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
@@ -6227,7 +6227,7 @@ td.visible-print {
   background: #222222;
   text-decoration: none;
 }
-@media (max-width: 599px) {
+@media (max-width: 1199px) {
   .js .nav-trigger {
     display: inline-block;
   }
@@ -6274,12 +6274,12 @@ td.visible-print {
   position: fixed;
   width: 100%;
 }
-@media (max-width: 599px) {
+@media (max-width: 1199px) {
   .js .pine-fixed {
     top: 51px;
   }
 }
-@media (max-width: 599px) {
+@media (max-width: 1199px) {
   .js .pine-fixed-small {
     top: 51px;
     left: 0;
@@ -6287,7 +6287,7 @@ td.visible-print {
     width: 100%;
   }
 }
-@media (min-width: 600px) {
+@media (min-width: 1200px) {
   .js .pine-fixed-large {
     top: 0;
     left: 0;
@@ -6391,7 +6391,7 @@ td.visible-print {
   margin-top: -2.5px;
   border-color: transparent #999999 transparent transparent;
 }
-@media (min-width: 600px) {
+@media (min-width: 1200px) {
   .pine.pine-horizontal {
     /* Pine: Large displays */
     background: #222222;
@@ -6562,7 +6562,7 @@ td.visible-print {
     top: 0;
   }
 }
-@media (min-width: 600px) {
+@media (min-width: 1200px) {
   .pine.pine-vertical ul ul {
     top: 0;
     position: absolute;
@@ -6600,7 +6600,7 @@ td.visible-print {
     border-left: 1px solid transparent;
   }
 }
-@media (min-width: 600px) {
+@media (min-width: 1200px) {
   .mobile-header {
     display: none;
   }
@@ -6608,11 +6608,16 @@ td.visible-print {
 body {
   padding-top: 80px;
 }
-.pine-brand {
+.pine li .pine-brand {
   font-size: 18px;
   line-height: 20px;
 }
-.pine-brand:hover,
-.pine-brand:focus {
+.pine li .pine-brand:hover,
+.pine li .pine-brand:focus {
   text-decoration: none;
+}
+@media (max-width: 1199px) {
+  .pine li .pine-brand {
+    display: none;
+  }
 }

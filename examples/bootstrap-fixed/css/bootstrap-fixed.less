@@ -9,8 +9,9 @@
 // --- Pine variables ---
 
 @pineBorderRadius: 0;
+@pineLargeDisplayStart: 1200px;
 
-// --- CSS rules ---
+// --- Example CSS rules ---
 
 // Remove mobile header on large displays
 .mobile-header {
@@ -19,19 +20,23 @@
 	}
 }
 
-// Content top padding because of Pine fixed position
+// Content top padding because of nav fixed position
 body {
   padding-top: 80px;
 }
 
 // Logo inside the navigation
 // Styling from Bootstrap's .navbar-brand
-.pine-brand {
+.pine li .pine-brand {
   font-size: @font-size-large;
   line-height: @line-height-computed;
 
   &:hover,
   &:focus {
     text-decoration: none;
+  }
+
+  @media (max-width: @pineSmallDisplayEnd) {
+    display: none;
   }
 }

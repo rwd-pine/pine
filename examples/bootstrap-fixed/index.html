@@ -247,6 +247,7 @@
         <li>Top fixed navigation build inside Bootstrap layout</li>
         <li>Bootstrap inverted skin</li>
         <li>right-to-left effect on small screens</li>
+        <li>Custom small/large breakpoint set to 1200px</li>
         <li>Implemented via LESS</li>
         <li>IE8 support by Respond.js</li>
       </ul>
@@ -327,7 +328,8 @@
 
       $('.pine').pine({
         transitionSmallDisplay: 'fx-right-to-left',
-        transitionLargeDisplay: 'fx-hover-fade'
+        transitionLargeDisplay: 'fx-hover-fade',
+        jsBreakpoint: '1200px'   // Custom small/large breakpoint
       });
     });
 
