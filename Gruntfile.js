@@ -123,6 +123,7 @@ module.exports = function(grunt) {
 
     less: {
       pine: {
+        // SOURCE MAPS: improvement for debugging, prepared for later
         // options: {
         //   strictMath: true,
         //   sourceMap: true,
@@ -131,21 +132,38 @@ module.exports = function(grunt) {
         //   sourceMapFilename: 'dist/stylesheets/<%= pkg.name %>.css.map'
         // },
         files: {
-          'dist/stylesheets/<%= pkg.name %>.css': 'src/stylesheets/pine.less',
+          'dist/stylesheets/<%= pkg.name %>.css': 'src/stylesheets/pine.less'
+        }
+      },
+
+      pineMinify: {
+        options: {
+          cleancss: true,
+          report: 'min'
+        },
+        files: {
+          'dist/stylesheets/<%= pkg.name %>.min.css': 'dist/stylesheets/<%= pkg.name %>.css'
+        }
+      },
+
+      examples: {
+        files: {
           'examples/bootstrap-fixed/css/bootstrap-fixed.css': 'examples/bootstrap-fixed/css/bootstrap-fixed.less',
           'examples/bootstrap-horizontal/css/bootstrap-horizontal.css': 'examples/bootstrap-horizontal/css/bootstrap-horizontal.less',
           'examples/bootstrap-vertical/css/bootstrap-vertical.css': 'examples/bootstrap-vertical/css/bootstrap-vertical.less'
         }
       }
-      // minify: {
-      //   options: {
-      //     cleancss: true,
-      //     report: 'min'
-      //   },
-      //   files: {
-      //     'dist/stylesheets/<%= pkg.name %>.min.css': 'dist/css/<%= pkg.name %>.css'
-      //   }
-      // }
+    },
+
+    csslint: {
+      options: {
+        csslintrc: 'src/stylesheets/.csslintrc'
+      },
+      src: [
+        'dist/stylesheets/<%= pkg.name %>.css',
+        'dist/stylesheets/<%= pkg.name %>-ie8.css',
+        'examples/**/*.css'
+      ]
     },
 
     watch: {
@@ -184,6 +202,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-legacssy');
+  grunt.loadNpmTasks('grunt-contrib-csslint');
 
   // JS distribution task.
   // TODO: Compress later grunt.registerTask('dist-js', ['concat', 'uglify', 'compress']);
@@ -193,7 +212,7 @@ module.exports = function(grunt) {
   grunt.registerTask('dist-copy', ['copy']);
 
   // CSS distribution task.
-  grunt.registerTask('dist-css', ['less', 'legacssy']);
+  grunt.registerTask('dist-css', ['less', 'csslint', 'legacssy']);
 
   // Full distribution task.
   grunt.registerTask('dist', ['clean', 'copy', 'dist-css', 'dist-js']);
