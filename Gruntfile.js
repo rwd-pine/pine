@@ -56,7 +56,8 @@ module.exports = function(grunt) {
       },
       docs: {
         files: [
-          { expand: true, cwd: './dist', src: ['{stylesheets,javascripts}/*.min.*'], dest: 'docs/dist' }
+          { expand: true, cwd: './dist', src: ['{stylesheets,javascripts}/*.min.*'], dest: 'docs/dist' },
+          { expand: true, cwd: 'bower_components/bootstrap/dist/css', src: ['bootstrap.min.css'], dest: 'docs/dist/stylesheets' }
         ]
       }
     },

@@ -120,7 +120,7 @@ body {
 
 .bs-docs-nav {
   margin-bottom: 0;
-  background-color: #fff;
+  background-color: #f5f5f5;
   border-bottom: 0;
 }
 .bs-home-nav .bs-nav-b {
@@ -128,7 +128,7 @@ body {
 }
 .bs-docs-nav .navbar-brand,
 .bs-docs-nav .navbar-nav > li > a {
-  color: #563d7c;
+  color: #0a4a26;
   font-weight: 500;
 }
 .bs-docs-nav .navbar-nav > li > a:hover,
@@ -138,7 +138,7 @@ body {
   background-color: #f9f9f9;
 }
 .bs-docs-nav .navbar-toggle .icon-bar {
-  background-color: #563d7c;
+  background-color: #0a4a26;
 }
 .bs-docs-nav .navbar-header .navbar-toggle {
   border-color: #fff;
@@ -229,14 +229,10 @@ body {
 .bs-header {
   position: relative;
   padding: 30px 15px;
-  color: #cdbfe3;
-  text-align: center;
+  color: #999999;
+  /*text-align: center;*/
   text-shadow: 0 1px 0 rgba(0,0,0,.1);
-  background-color: #6f5499;
-  background-image: -webkit-linear-gradient(top, #563d7c 0%, #6f5499 100%);
-  background-image: linear-gradient(to bottom, #563d7c 0%, #6f5499 100%);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#563d7c', endColorstr='#6F5499', GradientType=0);
+  background-color: #fff;
 }
 
  /* Masthead (headings and download button) */
@@ -244,22 +240,41 @@ body {
   margin: 0 auto 30px;
 }
 .bs-masthead h1 {
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1;
-  color: #fff;
+  color: #212121;
+  font-family: 'Bree Serif';
+  font-size: 108px;
+  margin-bottom: 40px;
+}
+.bs-masthead h1 span {
+  color: #cccccc;
+}
+
+.bs-masthead img {
+  margin: 40px 20px 0 0;
 }
 .bs-masthead .lead {
   margin: 0 auto 30px;
-  font-size: 20px;
-  color: #fff;
+  font-size: 24px;
+  color: #999;
+  font-weight: 400;
+  font-family: 'Bree Serif';
 }
 .bs-masthead .btn {
-  width: 100%;
+  /*width: 100%;*/
+  color: #5b5b5b;
+  background: #dcdcdc;
   padding: 15px 30px;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+  border: 0;
+  border-radius: 2px;
+  border-bottom: 2px solid #c6c6c6;
 }
 
-@media (min-width: 480px) {
+/*@media (min-width: 480px) {
   .bs-masthead .btn {
     width: auto;
   }
@@ -284,7 +299,7 @@ body {
     font-size: 30px;
   }
 }
-
+*/
 
 /*
  * Page headers
