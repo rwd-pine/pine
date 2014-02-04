@@ -1,19 +1,21 @@
 # PineJS
 
-### Tiny but powerfull responsive multilevel navigation.
+### Tiny but powerfull responsive multilevel navigation component.
 
 ## Features
 
-* Bootstrap 3 compatible, but standalone too
+* Compatible with Bootstrap 3, but may be implemented independently
+* Ready for both vertical and horizontal navigations
 * Customizable with effects and skins
 * Accessible Mobile First architecture
 * jQuery/Zepto versions
-* Using the best of LESS variables power
+* Using the power of LESS variables
 * Internet Explorer 8+ compatible
 
-# Usage instructions
+# Usage 
 
 Installation of Pine is quite easy, just follow steps below and you will be able to get the plugin up and running.
+
 <!---If you notice any bugs, please post them to [GitHub issues](github_url).-->
 
 1. Link JS plugin:
@@ -56,25 +58,54 @@ Installation of Pine is quite easy, just follow steps below and you will be able
 ```
 ## Advanced Usage
 
-
-
 * bower?
 * git?
 * [Download](#TODO)
 * zepto/jquery
 * let's rename <script src="../dist/javascripts/app.js"></script> to pine.js?
 
-## Usage
+## Customization
 
-TODO MM
+TODO MS/MM
 
-* Simplest CSS usage
-* Bootstrap usage – 3 variants
-* LESS usage
+* JS variables (MS)
+* LESS variables (MM)
 
-# Tested on the following platforms
 
-<!-- TODO -->
+## IE8 support
+
+Pine.JS code is Mobile First and therefore a large part of the code is unavailable for Explorer 8 and older. You can choose from two solutions: 
+
+1) [Respond.js](https://github.com/scottjehl/Respond) - (preferred solution)javascript that can arrange for support Media Queries in these older browsers. It is a standard way which uses Bootstrap itself. Just add Respond.js in the HTML `<head>` just after CSS files: 
+
+
+```html
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+```
+
+2) `pine-ie8.css` - if Respond.js does not fit your needs, add this CSS file in your HTML `<head>`. It contains all of the code hidden in the Media Queries:
+
+```html
+<link href="css/pine-ie8.css" rel="stylesheet">
+```
+
+## Examples
+
+<!-- TODO MM -->
+
+Simple CSS implementation:
+
+* [Vertical multi-level navigation](#/vertical/)
+* [Horizontal multi-level navigation](#/horizontal/)
+
+LESS implementation:
+
+* [Bootstrap vertical multi-level navigation](#/bootstrap-vertical/)
+* [Bootstrap horizontal multi-level navigation](#/bootstrap-horizontal/)
+* [Bootstrap fixed horizontal multi-level navigation, inverted color scheme](#/bootstrap-fixed/)
 
 # Working on the repository
 
@@ -97,15 +128,9 @@ grunt watch
 Next time you change the file, Grunt will perform all build tasks.
 
 
-## Customization
-
-TODO MS/MM
-
-* JS variables (MS)
-* LESS variables (MM)
-
-
 ## Authors
+
+Martin Staněk ([@koucik](https://twitter.com/koucik)) & Martin Michálek ([@machal](https://twitter.com/machal))
 
 
 ## Licence
