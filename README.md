@@ -11,65 +11,77 @@
 * jQuery/Zepto versions
 * Using the power of LESS variables
 * Internet Explorer 8+ compatible
+* … all in 7kB JS and 10kB CSS file
 
 # Usage 
 
-Installation of Pine is quite easy, just follow steps below and you will be able to get the plugin up and running.
+Pine.JS installation is quite easy, just follow steps below and you will be able to get the plugin up and running.
 
-<!---If you notice any bugs, please post them to [GitHub issues](github_url).-->
-
-1. Link JS plugin:
+1. Link CSS from your HTML `<head>`:
 ```html
-  <!-- Put this right before the </body> closing tag -->
-  <script src="pine/javascripts/pine.js"></script>
+<link rel="stylesheet" href="stylesheets/pine.css">
 ```
 
-2. Link CSS:
+2. Markup your small screen header with button for navigation toggling:
+
 ```html
-  <!-- Put this in the <head> -->
-  <link rel="stylesheet" href="dist/stylesheets/pine.css">
+<a class="nav-trigger" data-pine="toggle" href="#nav">
+  <span class="trigger-title">Menu</span>
+  <span class="icon-bar"></span>
+</a>
 ```
 
-2. Add markup:
+… or use your way to toggle navigation – just use `data-pine="toggle"` attribute.
+
+3. Write navigation markup. It is simple unordered list in container.
+
 ```html
-  TODO: code
-  <div id="nav" role="navigation" class="pine pine-horizontal">
-    <ul>
-      ...
-    </ul>
-  </div>
+<div id="nav" role="navigation" class="pine pine-horizontal">
+  <ul>
+    <li>…</li>
+  </ul>
+</div>
+```
+
+Alternatively, you can use a class .pine-horizontal for [horizontally](#TODOexample) aligned navigation.
+
+4. Add jQuery (or Zepto) and Pine.JS just before `</body>` tag:
+
+```html
+  <script src="pine/javascripts/jquery.js"></script>
+  <script src="pine/javascripts/pine.js"></script>    
 ```
 
 3. Hook up the plugin:
 ```html
-  <!-- Put this right before the </body> closing tag -->
   <script>
     $('.pine').pine()
   </script>
 ```
 
 4. Customizable options:
-```javascript
-  $('.pine').pine({ // Selector
-    jsBreakpoint:       '600px', // Custom JS Breakpoint
-    transitionMobile:   'fx-toggle', // Effect for 'Mobile' View
-    transitionDesktop:  'fx-hover-fade' // Effect for 'Desktop' View
-  })
-```
-## Advanced Usage
 
-* bower?
-* git?
-* [Download](#TODO)
-* zepto/jquery
-* let's rename <script src="../dist/javascripts/app.js"></script> to pine.js?
 
 ## Customization
 
-TODO MS/MM
+### Horizontal/vertical
 
-* JS variables (MS)
-* LESS variables (MM)
+Just use `.pine-horizontal` or `.pine-vertical` on the `.pine` element in your markup.
+
+
+### Javascript
+
+```javascript
+  $('.pine').pine({ 
+    largeDisplayStart:  	'600px', 			// Custom JS breakpoint
+    fxSmallDisplay:   	'fx-right-to-left',  // Effect for small display navigation, alternatively 'fx-collapse'
+  })
+```
+
+### LESS
+
+You can style basic navigation look with a rich variety of [LESS variables](https://github.com/rwd-pine/pine/blob/master/src/stylesheets/core/variables.less).
+
 
 
 ## IE8 support
