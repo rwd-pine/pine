@@ -100,8 +100,6 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     /* Mark all submenus */
     this.element.find('li').has('ul').addClass('has-submenu')
     this.element.find('a').on('focus', this.focus) /* focus.pine */
-    /* TODO refactor: Add master class */
-    this.isLargeDisplay ? this.element.addClass('pine-large') : this.element.addClass('pine-small')
 
     /* CLICK: Default behavior, submenu is triggered on click */
     // var eventType = ('ontouchstart' in document.documentElement) ? 'touchstart' : 'click'
@@ -236,13 +234,6 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   **/
   Navbar.getTransitionName = function (isLargeDisplay) {
     return isLargeDisplay ? this.options.fxLargeDisplay : this.options.fxSmallDisplay
-  };
-
-  /**
-    Getter for classname.
-  **/
-  Navbar.getNavbarClass = function (isLargeDisplay) {
-    return isLargeDisplay ? 'pine-large' : 'pine-small'
   };
 
   /**
