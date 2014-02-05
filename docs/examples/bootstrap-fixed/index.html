@@ -17,24 +17,29 @@
 
 <body>
 
+  <!-- Because our navigation is large UL/LI list, screen readers need this:
+  -->
+  <p class="sr-only">
+    <a href="#content">Skip to content</a>
+  </p>
 
-      <!--
-        Bootstrap's navbar as small screen header hidden on large screens.
-        Watch data-pine="toggle" attribute.
-      -->
-      <div class="navbar navbar-inverse navbar-fixed-top mobile-header">
-        <div class="container">
-          <div class="navbar-header">
-            <a class="navbar-toggle" data-pine="toggle" type="button" href="#nav">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </a>
-            <a href="../" class="navbar-brand">Pine.JS</a>
-          </div>
-        </div>
+  <!--
+    Bootstrap's navbar as small screen header hidden on large screens.
+    Watch data-pine="toggle" attribute.
+  -->
+  <div class="navbar navbar-inverse navbar-fixed-top mobile-header">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-toggle" data-pine="toggle" type="button" href="#nav">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a href="../" class="navbar-brand">Pine.JS</a>
       </div>
+    </div>
+  </div>
 
 
       <div id="nav" role="navigation" class="pine pine-horizontal pine-fixed">
@@ -235,7 +240,7 @@
       </div><!-- [role=navigation] -->
 
 
-    <div class="container">
+    <div class="container"  role="main" id="content">
 
       <div class="row">
         <div class="col-md-12">

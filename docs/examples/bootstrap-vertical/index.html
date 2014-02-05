@@ -18,23 +18,30 @@
 <body>
 
 
-      <!--
-        Bootstrap's navbar as small screen header hidden on large screens.
-        Watch data-pine="toggle" attribute.
-      -->
-      <div class="navbar navbar-inverse navbar-fixed-top mobile-header">
-        <div class="container">
-          <div class="navbar-header">
-            <a class="navbar-toggle" data-pine="toggle" type="button" href="#nav">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </a>
-            <a href="../" class="navbar-brand">Bootstrap vertical</a>
-          </div>
-        </div>
+  <!-- Because our navigation is large UL/LI list, screen readers need this:
+  -->
+  <p class="sr-only">
+    <a href="#content">Skip to content</a>
+  </p>
+
+
+  <!--
+    Bootstrap's navbar as small screen header hidden on large screens.
+    Watch data-pine="toggle" attribute.
+  -->
+  <div class="navbar navbar-inverse navbar-fixed-top mobile-header">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-toggle" data-pine="toggle" type="button" href="#nav">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a href="../" class="navbar-brand">Bootstrap vertical</a>
       </div>
+    </div>
+  </div>
 
 
 <!-- Layout container -->
@@ -239,7 +246,7 @@
 
 
 <!-- Layout column for content -->
-          <div class="col-md-10">
+          <div class="col-md-10"  role="main" id="content">
 
             <div class="page-header">
               <h1>Pine.JS example: Bootstrap vertical</h1>

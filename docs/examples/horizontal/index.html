@@ -24,6 +24,13 @@
 <body>
 
 
+  <!-- Because our navigation is large UL/LI list, screen readers need this:
+  -->
+  <p class="sr-only">
+    <a href="#content">Skip to content</a>
+  </p>
+
+
   <!-- Toggle on small screens:
        Watch data-pine="toggle"
   -->
@@ -532,7 +539,7 @@
 
   </div><!-- .nav-container -->
 
-  <div class="content-box">
+  <div class="content-box"  role="main" id="content">
       <h1>Pine.JS example: simple horizontal</h1>
 
       <p>In this test-case:</p>

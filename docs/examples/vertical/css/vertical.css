@@ -1,6 +1,6 @@
 /*  Pine.JS vertical example */
 
-/*  Layout  */
+/*  --- Layout ---  */
 
 body {
   margin: 1em;
@@ -25,7 +25,24 @@ body {
   }
 }
 
-/*  Pine navigation styling  */
+/* --- Helpers --- */
+
+/* Only display content to screen readers
+http://a11yproject.com/posts/how-to-hide-content/
+*/
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+/*  --- Pine navigation styling ---  */
 
 /*  Navigation item
     We need high selector specificity, so we
@@ -55,3 +72,4 @@ body {
     top: 71px;
   }
 }
+
