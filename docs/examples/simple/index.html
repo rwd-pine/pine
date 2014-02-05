@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pine.JS — simple example</title>
+
+  <!-- Normalize.CSS http://necolas.github.io/normalize.css/ -->
+  <link rel="stylesheet" href="../../../bower_components/normalize-css/normalize.css">
+
+  <!-- Pine.JS styles -->
+  <link rel="stylesheet" href="../../../dist/stylesheets/pine.css">
+
+  <!-- Pine.JS IE8 styles -->
+  <!--[if IE 8]><script src="../../../dist/stylesheets/pine-ie8.css"></script><![endif]-->
+
+  <!-- This example styles -->
+  <link rel="stylesheet" href="css/simple.css">
+
+</head>
+
+<body>
+
+  <!-- Because our navigation is large UL/LI list, screen readers need this:
+  -->
+  <p class="sr-only">
+    <a href="#content">Skip to content</a>
+  </p>
+
+  <!-- Toggle on small screens:
+       Style it or use your own small screen toggle button. Just add data-pine="toggle".
+  -->
+  <a class="nav-trigger" data-pine="toggle" href="#nav">
+    <span class="trigger-title">Menu</span>
+    <span class="icon-bar"></span>
+  </a>
+
+  <!-- Pine.JS navigation:
+       Horizontal variant.
+       Don't forget add accessibility attribute role="navigation" and #nav anchor linked from .nav-trigger
+  -->
+  <div id="nav" role="navigation" class="pine pine-horizontal">
+    <ul>
+      <li><a href="#products-solutions">Products &amp; Solutions</a></li>
+      <li><a href="#download">Download</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#support">Support</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div><!-- [role=navigation] -->
+
+
+  <div role="main" id="content">
+      <h1>Pine.JS example: simplest possible implementation</h1>
+
+      <p>In this test-case:</p>
+
+      <ul>
+        <li>Horizontal navigation</li>
+        <li>No skin</li>
+        <li>IE8 support via <code>pine-ie8.css</code></li>
+      </ul>
+
+      <p>
+        Follow comments in <code>css/simple.css</code>
+        and this HTML file.
+      </p>
+
+      <p>
+        <a href="#TODO">Pine.JS documentation</a>
+      </p>
+  </div>
+
+  <!-- Javascripts
+  ========================== -->
+
+  <!-- TODO: load conditionally -->
+  <script src="../../../dist/javascripts/jquery.min.js"></script>
+  <script src="../../../dist/javascripts/pine.js"></script>
+  <script>
+
+    // Pine.JS init
+
+    $(function() {      
+      $('.pine').pine();
+    });
+
+  </script>
+
+</body>
+</html>
