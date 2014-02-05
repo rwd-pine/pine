@@ -1,7 +1,7 @@
 //
-// MOBILE TRANSITION: TOGGLE
+// MOBILE TRANSITION: COLLAPSE
 // -------------------------
-Pine.Navbar.registerTransition('fx-toggle', {
+Pine.Navbar.registerTransition('fx-collapse', {
 
   // Method: onSwitch is executed when change of view on navbar occurs
   // -------------

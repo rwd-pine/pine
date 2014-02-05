@@ -320,8 +320,8 @@
   width: 0px;
   height: 0px;
   border-style: solid;
-  border-width: 5px 0 5px 5px;
-  margin-top: -5px;
+  border-width: 4px 0 4px 6px;
+  margin-top: -4px;
   border-color: transparent transparent transparent #000000;
 }
 @media (max-width: 599px) {
@@ -338,8 +338,8 @@
   padding-right: 32px;
 }
 .pine.pine-horizontal ul > li.has-submenu > a:before {
-  border-width: 5px 5px 0 5px;
-  margin-top: -2.5px;
+  border-width: 6px 4px 0 4px;
+  margin-top: -2px;
   border-color: #000000 transparent transparent transparent;
 }
 @media (max-width: 599px) {
@@ -349,8 +349,8 @@
 }
 @media (max-width: 599px) {
   .pine.pine-horizontal ul > li.has-submenu > a:before {
-    border-width: 5px 0 5px 5px;
-    margin-top: -5px;
+    border-width: 4px 0 4px 6px;
+    margin-top: -4px;
     border-color: transparent transparent transparent #000000;
   }
 }
@@ -372,8 +372,8 @@
   width: 0px;
   height: 0px;
   border-style: solid;
-  border-width: 5px 0 5px 5px;
-  margin-top: -5px;
+  border-width: 4px 0 4px 6px;
+  margin-top: -4px;
   border-color: transparent transparent transparent #000000;
 }
 @media (max-width: 599px) {
@@ -399,8 +399,8 @@
   width: 0px;
   height: 0px;
   border-style: solid;
-  border-width: 5px 0 5px 5px;
-  margin-top: -5px;
+  border-width: 4px 0 4px 6px;
+  margin-top: -4px;
   border-color: transparent transparent transparent #000000;
 }
 @media (max-width: 599px) {
@@ -411,22 +411,6 @@
 @media (max-width: 599px) {
   .pine ul ul li.is-open ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #000000;
-  }
-}
-@media (max-width: 599px) {
-  .pine.fx-toggle ul > li.has-submenu > a:before,
-  .pine.fx-toggle ul li.is-open ul > li.has-submenu > a:before,
-  .pine.fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
-    border-width: 5px 5px 0 5px;
-    margin-top: -2.5px;
-    border-color: #000000 transparent transparent transparent;
-  }
-}
-@media (max-width: 599px) and (max-width: 599px) {
-  .pine.fx-toggle ul > li.has-submenu > a:before,
-  .pine.fx-toggle ul li.is-open ul > li.has-submenu > a:before,
-  .pine.fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
-    border-color: #000000 transparent transparent transparent;
   }
 }
 .nav-trigger {
@@ -482,6 +466,22 @@
 .fx-toggle ul ul {
   overflow: hidden;
   max-height: 0;
+}
+@media (max-width: 599px) {
+  .fx-toggle ul > li.has-submenu > a:before,
+  .fx-toggle ul li.is-open ul > li.has-submenu > a:before,
+  .fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
+    border-width: 6px 4px 0 4px;
+    margin-top: -2px;
+    border-color: #000000 transparent transparent transparent;
+  }
+}
+@media (max-width: 599px) and (max-width: 599px) {
+  .fx-toggle ul > li.has-submenu > a:before,
+  .fx-toggle ul li.is-open ul > li.has-submenu > a:before,
+  .fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
+    border-color: #000000 transparent transparent transparent;
+  }
 }
 .fx-hover-fade ul ul {
   -webkit-opacity: 0;
@@ -566,10 +566,10 @@
   top: 50%;
   left: 16px;
   display: inline-block;
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
   border-style: solid;
-  border-width: 5px 5px 5px 0;
-  margin-top: -2.5px;
+  border-width: 4px 6px 4px 0;
+  margin-top: -4px;
   border-color: transparent #ffffff transparent transparent;
 }

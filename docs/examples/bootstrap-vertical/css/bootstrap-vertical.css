@@ -6289,8 +6289,8 @@ td.visible-print {
   width: 0px;
   height: 0px;
   border-style: solid;
-  border-width: 5px 0 5px 5px;
-  margin-top: -5px;
+  border-width: 4px 0 4px 6px;
+  margin-top: -4px;
   border-color: transparent transparent transparent #777777;
 }
 @media (max-width: 991px) {
@@ -6307,8 +6307,8 @@ td.visible-print {
   padding-right: 30px;
 }
 .pine.pine-horizontal ul > li.has-submenu > a:before {
-  border-width: 5px 5px 0 5px;
-  margin-top: -2.5px;
+  border-width: 6px 4px 0 4px;
+  margin-top: -2px;
   border-color: #777777 transparent transparent transparent;
 }
 @media (max-width: 991px) {
@@ -6318,8 +6318,8 @@ td.visible-print {
 }
 @media (max-width: 991px) {
   .pine.pine-horizontal ul > li.has-submenu > a:before {
-    border-width: 5px 0 5px 5px;
-    margin-top: -5px;
+    border-width: 4px 0 4px 6px;
+    margin-top: -4px;
     border-color: transparent transparent transparent #777777;
   }
 }
@@ -6341,8 +6341,8 @@ td.visible-print {
   width: 0px;
   height: 0px;
   border-style: solid;
-  border-width: 5px 0 5px 5px;
-  margin-top: -5px;
+  border-width: 4px 0 4px 6px;
+  margin-top: -4px;
   border-color: transparent transparent transparent #777777;
 }
 @media (max-width: 991px) {
@@ -6368,8 +6368,8 @@ td.visible-print {
   width: 0px;
   height: 0px;
   border-style: solid;
-  border-width: 5px 0 5px 5px;
-  margin-top: -5px;
+  border-width: 4px 0 4px 6px;
+  margin-top: -4px;
   border-color: transparent transparent transparent #777777;
 }
 @media (max-width: 991px) {
@@ -6380,22 +6380,6 @@ td.visible-print {
 @media (max-width: 991px) {
   .pine ul ul li.is-open ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #777777;
-  }
-}
-@media (max-width: 991px) {
-  .pine.fx-toggle ul > li.has-submenu > a:before,
-  .pine.fx-toggle ul li.is-open ul > li.has-submenu > a:before,
-  .pine.fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
-    border-width: 5px 5px 0 5px;
-    margin-top: -2.5px;
-    border-color: #777777 transparent transparent transparent;
-  }
-}
-@media (max-width: 991px) and (max-width: 991px) {
-  .pine.fx-toggle ul > li.has-submenu > a:before,
-  .pine.fx-toggle ul li.is-open ul > li.has-submenu > a:before,
-  .pine.fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
-    border-color: #777777 transparent transparent transparent;
   }
 }
 .nav-trigger {
@@ -6451,6 +6435,22 @@ td.visible-print {
 .fx-toggle ul ul {
   overflow: hidden;
   max-height: 0;
+}
+@media (max-width: 991px) {
+  .fx-toggle ul > li.has-submenu > a:before,
+  .fx-toggle ul li.is-open ul > li.has-submenu > a:before,
+  .fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
+    border-width: 6px 4px 0 4px;
+    margin-top: -2px;
+    border-color: #777777 transparent transparent transparent;
+  }
+}
+@media (max-width: 991px) and (max-width: 991px) {
+  .fx-toggle ul > li.has-submenu > a:before,
+  .fx-toggle ul li.is-open ul > li.has-submenu > a:before,
+  .fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
+    border-color: #777777 transparent transparent transparent;
+  }
 }
 .fx-hover-fade ul ul {
   filter: alpha(opacity=0);
@@ -6537,11 +6537,11 @@ td.visible-print {
   top: 50%;
   left: 15px;
   display: inline-block;
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
   border-style: solid;
-  border-width: 5px 5px 5px 0;
-  margin-top: -2.5px;
+  border-width: 4px 6px 4px 0;
+  margin-top: -4px;
   border-color: transparent #999999 transparent transparent;
 }
 body {

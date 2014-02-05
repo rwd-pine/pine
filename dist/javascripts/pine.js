@@ -174,33 +174,32 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
 // ## BASIC USAGE
 
 // ```javascript
-//   $('[role=navigation]').pine()
+//   $('.pine').pine()
 // ```
 //
 // ## CONFIGURATION
 // ```javascript
-//   $('[role=navigation]').pine({
-//     transitionMobile:   'fx-toggle',
-//     transitionDesktop:  'fx-hover-fade'
+//   $('.pine').pine({
+//     fxSmallDisplay:   'fx-collapse',
+//     fxLargeDisplay:   'fx-hover-fade'
 //   })```
 //
 // ### Defaults
 // ```javascript
 //   Navbar.defaults = {
-//     jsBreakpoint:       '600px',
-//     transitionMobile:   'fx-toggle',
-//     transitionDesktop:  'fx-hover-fade'
+//     largeDisplayStart:  '600px',
+//     fxSmallDisplay:     'fx-right-to-left',
+//     fxLargeDisplay:     'fx-hover-fade'
 //   }```
 //
-// Available transitions out of the box:
+// Available effects out of the box:
 // 1. Mobile
-//   - **Toggle** - simple show and hide of the child list
+//   - **Collapse** - simple show and hide of the child list (with animation)
 //   - **Right to Left** - each level of navigation slides in from the right
-//   - **Left to Right** - inverted direction, for Arabic and other languages
 // 2. Desktop
-//   - **Toggle** - menus are toggled by click
+//   - **Toggle** - menus are toggled on click
 //   - **Hover** - menus are toggled on hover
-//   - **Hover with fade in/out** - extension to 'hover' transition, animation is added
+//   - **Hover with fade in/out** - extension to 'hover' effect, animation is added
 
 /**
   Global Pine object
@@ -230,9 +229,9 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     Default configuration for the module.
   **/
   Navbar.DEFAULTS = {
-    jsBreakpoint:       '600px',
-    transitionSmallDisplay: 'fx-right-to-left',
-    transitionLargeDisplay: 'fx-hover-fade'
+    largeDisplayStart:       '600px',
+    fxSmallDisplay: 'fx-right-to-left',
+    fxLargeDisplay: 'fx-hover-fade'
   };
 
   Navbar.NAVBAR_TOGGLE =  '[data-pine=toggle]';
@@ -261,8 +260,8 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     this.element = $(element)
 
     /* Initialize view and set active transtition */
-    this.isLargeDisplay = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
-    this.isLargeDisplay ? this.setActiveTransition(this.options.transitionLargeDisplay) : this.setActiveTransition(this.options.transitionSmallDisplay)
+    this.isLargeDisplay = window.matchMedia('(min-width: ' + this.options.largeDisplayStart + ')').matches
+    this.isLargeDisplay ? this.setActiveTransition(this.options.fxLargeDisplay) : this.setActiveTransition(this.options.fxSmallDisplay)
 
     /* Mark all submenus */
     this.element.find('li').has('ul').addClass('has-submenu')
@@ -311,7 +310,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     Checks current view if it satisfies switch condition. If no switch occurs, it returns null.
   **/
   Navbar.checkMedia = function (e) {
-    var condition = window.matchMedia('(min-width: ' + this.options.jsBreakpoint + ')').matches
+    var condition = window.matchMedia('(min-width: ' + this.options.largeDisplayStart + ')').matches
     var isLoad = e.type && (e.type == 'load')
 
     /* Check first load or switch beetween views (mobile XOR desktop), it sets isLargeDisplay value only when it is needed */
@@ -402,7 +401,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     Getter for transition.
   **/
   Navbar.getTransitionName = function (isLargeDisplay) {
-    return isLargeDisplay ? this.options.transitionLargeDisplay : this.options.transitionSmallDisplay
+    return isLargeDisplay ? this.options.fxLargeDisplay : this.options.fxSmallDisplay
   };
 
   /**
@@ -513,45 +512,6 @@ Pine.Navbar.registerTransition('fx-right-to-left', {
     }, 300) //'ease-out' TODO: add jQuery plugin for easing
 
   }
-});
-
-
-
-//
-// MOBILE TRANSITION: TOGGLE
-// -------------------------
-Pine.Navbar.registerTransition('fx-toggle', {
-
-  // Method: onSwitch is executed when change of view on navbar occurs
-  // -------------
-  onSwitch: function(condition){
-  },
-
-  // Method: beforeToggle handles effects and any manipulation before 'toogle'
-  // -------------
-  beforeToggle: function(isActive){
-    var $this = $(this),
-        $submenu = $this.siblings('ul'),
-        submenuHeight = '0px';
-
-    if(!isActive) {
-      // If it is not active, calculate the right height
-      $submenuItems = $submenu.find('> li')
-      submenuHeight = $submenuItems.length * $submenuItems.first().height()
-    }
-    else {
-      // If it is active, set max-height to actual height
-      $submenu.css({ 'max-height' : $submenu.height() })
-    }
-
-    $submenu.animate({
-      'max-height': submenuHeight
-    }, 300, 'linear', function(){
-      $submenu.css({ 'max-height' : submenuHeight * 100})
-    }) //'ease-in-out' can be added later (needs to be compatible with jQuery)
-
-  }
-
 });
 
 

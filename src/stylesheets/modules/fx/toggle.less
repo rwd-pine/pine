@@ -9,4 +9,17 @@
     overflow: hidden;
     max-height: 0;
   }
+
+  // --- Toggle FX: triangle to bottom everywhere ---
+
+// 1st level: Horizontal variant
+  ul > li.has-submenu > a, // 1st level
+  ul li.is-open ul > li.has-submenu > a, // 2nd level
+  ul ul li.is-open ul > li.has-submenu > a { // 3rd level
+    &:before {
+      @media (max-width: @pineSmallDisplayEnd) {
+        .triangle-indicator-bottom(@pineLevel1SubIndColor, 4px);
+      }
+    }
+  }
 }

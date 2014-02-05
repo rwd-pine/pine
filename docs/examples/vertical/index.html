@@ -10,24 +10,17 @@
   <title>Pine.JS — vertical example</title>
 
   <!-- Normalize.CSS http://necolas.github.io/normalize.css/ -->
-  <link rel="stylesheet" href="../../../bower_components/normalize-css/normalize.css">
+  <link rel="stylesheet" href="../../bower_components/normalize-css/normalize.css">
   <!-- Pine.JS styles -->
-  <link rel="stylesheet" href="../../../dist/stylesheets/pine.css">
+  <link rel="stylesheet" href="../../dist/stylesheets/pine.css">
   <!-- Pine.JS IE8 styles -->
-  <!--[if IE 8]><script src="../../../dist/stylesheets/pine-ie8.css"></script><![endif]-->
+  <!--[if IE 8]><script src="../../dist/stylesheets/pine-ie8.css"></script><![endif]-->
   <!-- This example styles -->
   <link rel="stylesheet" href="css/vertical.css">
 
 </head>
 
 <body>
-
-  <!-- Because our navigation is large UL/LI list, screen readers need this:
-  -->
-  <p class="sr-only">
-    <a href="#content">Skip to content</a>
-  </p>
-
 
   <!-- Toggle on small screens:
        Watch data-pine="toggle"
@@ -539,7 +532,7 @@
 
   </div><!-- .nav-box -->
 
-  <div class="content-box" role="main" id="content">
+  <div class="content-box">
       <h1>Pine.JS example: simple vertical</h1>
 
       <p>In this test-case:</p>
@@ -572,8 +565,8 @@
 
     $(function() {
       $('.pine').pine({
-        transitionSmallDisplay: 'fx-toggle',
-        transitionLargeDisplay: 'fx-hover-fade'
+        fxSmallDisplay: 'fx-toggle',
+        fxLargeDisplay: 'fx-hover-fade'
       });
     });
 
