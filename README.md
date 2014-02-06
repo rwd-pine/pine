@@ -154,5 +154,5 @@ Made in Prague by Martin Staněk ([@koucik](https://twitter.com/koucik)) & Marti
 
 ## Licence
 
-
+Copyright 2011-2014 Martin Staněk & Martin Michálek. Released under the [MIT license](https://github.com/rwd-pine/pine/blob/master/LICENCE).
 
