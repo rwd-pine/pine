@@ -6,15 +6,15 @@
 .nav-trigger {
   display: none;
 
-  padding: @pineSmallScreenPaddingVertical @pineSmallScreenPaddingHorizontal;
-  color: @pineSmallScreenColor;
+  padding: @p-small-screen-padding-vertical @p-small-screen-padding-horizontal;
+  color: @p-small-screen-color;
   font-weight: normal;
   .text-overflow();
-  background: @pineSmallScreenBg;
+  background: @p-small-screen-background;
   text-decoration: none;
 
   // Show the trigger only for small displays
-  @media (max-width: @pineSmallDisplayEnd) {
+  @media (max-width: @p-small-display-end) {
     .js & {
       display: inline-block;
     }

@@ -16,21 +16,21 @@
 .js .pine-fixed {
   .pine-fixed-base(0);
 
-  @media (max-width: @pineSmallDisplayEnd) {
-    top: @pineSmallScreenTop;
+  @media (max-width: @p-small-display-end) {
+    top: @p-small-screen-top;
   }
 }
 
 // Small screen
 .js .pine-fixed-small {
-  @media (max-width: @pineSmallDisplayEnd) {
-    .pine-fixed-base(@pineSmallScreenTop);
+  @media (max-width: @p-small-display-end) {
+    .pine-fixed-base(@p-small-screen-top);
   }
 }
 
 // Large screen
 .js .pine-fixed-large {
-  @media (min-width: @pineLargeDisplayStart) {
+  @media (min-width: @p-large-display-start) {
     .pine-fixed-base(0);
   }
 }

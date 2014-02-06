@@ -6147,7 +6147,7 @@ td.visible-print {
   .pine .pine-navbar > li > ul > li > ul > li > a:focus,
   .pine .pine-navbar > li > ul > li > ul > li > a:active {
     background: #f5f5f5;
-    color: #262626;
+    color: #777777;
   }
   .pine .pine-navbar > li > ul > li > ul > li.is-open > a {
     background: #428bca;

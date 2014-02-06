@@ -5,22 +5,22 @@
 // Defaults TODO refactor
 
 .pine {
-	z-index: @pineZIndex;
-	margin-bottom: @pineMarginBottom;
-	background: @pineBg;
+	z-index: @p-z-index;
+	margin-bottom: @p-margin-bottom;
+	background: @p-background;
 	.clearfix();
 
-	@media (min-width: @pineLargeDisplayStart) {
-		border-radius: @pineBorderRadius;
+	@media (min-width: @p-large-display-start) {
+		border-radius: @p-border-radius;
 	}
 
 	// Small screens with JS opening
 
-	@media (max-width: @pineSmallDisplayEnd) {
+	@media (max-width: @p-small-display-end) {
 		.js & {
 			max-height: 0;
       position: absolute;
-      top: @pineSmallScreenTop;
+      top: @p-small-screen-top;
       left: 0;
 			overflow: hidden;
 			width: 100%;
@@ -52,12 +52,12 @@
 	li > a,
 	li > strong {
 		display: block;
-		padding: @pineSmallScreenPaddingVertical @pineSmallScreenPaddingHorizontal;
-		color: @pineSmallScreenColor;
+		padding: @p-small-screen-padding-vertical @p-small-screen-padding-horizontal;
+		color: @p-small-screen-color;
 		font-weight: normal;
 		.text-overflow();
 		text-decoration: none;
-		background: @pineSmallScreenBg;
+		background: @p-small-screen-background;
 	}
 
 	// Active
@@ -65,8 +65,8 @@
 	li a:focus,
 	li a:active,
 	li strong {
-		background: @pineSmallScreenActiveBg;
-		color: @pineSmallScreenActiveColor;
+		background: @p-small-screen-active-background;
+		color: @p-small-screen-active-color;
 	}
 
 	// Second level

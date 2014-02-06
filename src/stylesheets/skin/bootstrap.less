@@ -6,80 +6,80 @@
 
 // --- Look, feel and typography ---
 
-@pineBaseFontSize                : @font-size-base;
-@pineBaseLineHeight              : @line-height-base;
-@pineMarginBottom                : @navbar-margin-bottom;
-@pineZIndex                      : @zindex-navbar;
-@pineBorderRadius                : @navbar-border-radius;
-@pineColor                       : @navbar-default-color;
-@pineBg                          : @navbar-default-bg;
-@pineBorder                      : 1px solid @navbar-default-border;
+@p-base-font-size                 : @font-size-base;
+@p-base-line-height               : @line-height-base;
+@p-margin-bottom                  : @navbar-margin-bottom;
+@p-z-index                        : @zindex-navbar;
+@p-border-radius                  : @navbar-border-radius;
+@p-color                          : @navbar-default-color;
+@p-background                     : @navbar-default-bg;
+@p-border                         : 1px solid @navbar-default-border;
 
 // --- Small screens ---
 
-@pineSmallScreenColor            : @navbar-default-color;
-@pineSmallScreenBg               : @navbar-default-bg;
-@pineSmallScreenHoverColor       : @navbar-default-color;
-@pineSmallScreenHoverBg          : @navbar-default-link-hover-bg;
-@pineSmallScreenActiveColor      : @navbar-default-link-active-color;
-@pineSmallScreenActiveBg         : @navbar-default-link-active-bg;
-@pineSmallScreenFontSize         : @pineBaseFontSize;
-@pineSmallScreenPaddingVertical  : @pineSmallScreenFontSize*.75;
-@pineSmallScreenPaddingHorizontal: @grid-gutter-width/2;
-@pineSmallScreenTop              : @navbar-height+1;
+@p-small-screen-color             : @navbar-default-color;
+@p-small-screen-background        : @navbar-default-bg;
+@p-small-screen-hover-color       : @navbar-default-color;
+@p-small-screen-hover-background  : @navbar-default-link-hover-bg;
+@p-small-screen-active-color      : @navbar-default-link-active-color;
+@p-small-screen-active-background : @navbar-default-link-active-bg;
+@p-small-screen-font-size         : @p-base-font-size;
+@p-small-screen-padding-vertical  : @p-small-screen-font-size*.75;
+@p-small-screen-padding-horizontal: @grid-gutter-width/2;
+@p-small-screen-top               : @navbar-height+1;
 
 
 // --- Medium and large screens ---
 
 // Level 1
-@pineLevel1Color                 : @navbar-default-link-color;
-@pineLevel1Bg                    : transparent;
-@pineLevel1HoverColor            : @navbar-default-link-hover-color;
-@pineLevel1HoverBg               : @navbar-default-link-hover-bg;
-@pineLevel1ActiveColor           : @navbar-default-link-active-color;
-@pineLevel1ActiveBg              : @navbar-default-link-active-bg;
-@pineLevel1SubIndColor           : @navbar-default-link-color;
-@pineLevel1FontSize              : @pineBaseFontSize;
-@pineLevel1PaddingVertical       : @navbar-padding-vertical;
-@pineLevel1PaddingHorizontal     : @navbar-padding-horizontal;
-@pineLevel1BorderBottom          : 0;
-@pineLevel1BorderRight           : 0;
+@p-level-1-color                  : @navbar-default-link-color;
+@p-level-1-background             : transparent;
+@p-level-1-hover-color            : @navbar-default-link-hover-color;
+@p-level-1-hover-background       : @navbar-default-link-hover-bg;
+@p-level-1-active-color           : @navbar-default-link-active-color;
+@p-level-1-active-background      : @navbar-default-link-active-bg;
+@p-level-1-caret-color            : @navbar-default-link-color;
+@p-level-1-font-size              : @p-base-font-size;
+@p-level-1-padding-y              : @navbar-padding-vertical;
+@p-level-1-padding-x              : @navbar-padding-horizontal;
+@p-level-1-border-bottom          : 0;
+@p-level-1-border-right           : 0;
 
 // Level 2
-@pineLevel2Color                 : @pineLevel1Color;
-@pineLevel2Bg                    : @dropdown-bg;
-@pineLevel2HoverColor            : @dropdown-link-hover-color;
-@pineLevel2HoverBg               : @dropdown-link-hover-bg;
-@pineLevel2ActiveColor           : @dropdown-link-active-color;
-@pineLevel2ActiveBg              : @dropdown-link-active-bg;
-@pineLevel2SubIndColor           : @pineLevel1SubIndColor;
-@pineLevel2FontSize              : @pineLevel1FontSize;
-@pineLevel2PaddingVertical       : @pineLevel1PaddingVertical/2;
-@pineLevel2PaddingHorizontal     : @pineLevel1PaddingHorizontal;
-@pineLevel2BorderFallback        : 1px solid @dropdown-fallback-border;
-@pineLevel2Border                : 1px solid @dropdown-border;
-@pineLevel2BorderRadius          : @border-radius-base;
-@pineLevel2BorderBottom          : 0;
-@pineLevel2Shadow                : 0 6px 12px rgba(0,0,0,.175);
+@p-level-2-color                  : @p-level-1-color;
+@p-level-2-background             : @dropdown-bg;
+@p-level-2-hover-color            : @dropdown-link-hover-color;
+@p-level-2-hover-background       : @dropdown-link-hover-bg;
+@p-level-2-active-color           : @dropdown-link-active-color;
+@p-level-2-active-background      : @dropdown-link-active-bg;
+@p-level-2-caret-color            : @p-level-1-caret-color;
+@p-level-2-font-size              : @p-level-1-font-size;
+@p-level-2-padding-y              : @p-level-1-padding-y/2;
+@p-level-2-padding-x              : @p-level-1-padding-x;
+@p-level-2-border-fallback        : 1px solid @dropdown-fallback-border;
+@p-level-2-border                 : 1px solid @dropdown-border;
+@p-level-2-border-radius          : @border-radius-base;
+@p-level-2-border-bottom          : 0;
+@p-level-2-shadow                 : 0 6px 12px rgba(0,0,0,.175);
 
 // Level 3
-@pineLevel3Color                 : @pineLevel2Color;
-@pineLevel3Bg                    : @pineLevel2Bg;
-@pineLevel3HoverColor            : @pineLevel2HoverColor;
-@pineLevel3HoverBg               : @pineLevel2HoverBg;
-@pineLevel3ActiveColor           : @pineLevel2ActiveColor;
-@pineLevel3ActiveBg              : @pineLevel2ActiveBg;
-@pineLevel3SubIndColor           : @pineLevel2SubIndColor;
-@pineLevel3FontSize              : @pineLevel2FontSize;
-@pineLevel3PaddingVertical       : @pineLevel2PaddingVertical;
-@pineLevel3PaddingHorizontal     : @pineLevel2PaddingHorizontal;
-@pineLevel3BorderFallback        : @pineLevel2BorderFallback;
-@pineLevel3Border                : @pineLevel2Border;
-@pineLevel3BorderRadius          : 0 0 @border-radius-base @border-radius-base;
-@pineLevel3BorderBottom          : 0;
-@pineLevel3Shadow                : @pineLevel2Shadow;
+@p-level-3-color                  : @p-level-2-color;
+@p-level-3-background             : @p-level-2-background;
+@p-level-3-hover-color            : @p-level-2-hover-color;
+@p-level-3-hover-background       : @p-level-2-hover-background;
+@p-level-3-active-color           : @p-level-2-active-color;
+@p-level-3-active-background      : @p-level-2-active-background;
+@p-level-3-caret-color            : @p-level-2-caret-color;
+@p-level-3-font-size              : @p-level-2-font-size;
+@p-level-3-padding-y              : @p-level-2-padding-y;
+@p-level-3-padding-x              : @p-level-2-padding-x;
+@p-level-3-border-fallback        : @p-level-2-border-fallback;
+@p-level-3-border                 : @p-level-2-border;
+@p-level-3-border-radius          : 0 0 @border-radius-base @border-radius-base;
+@p-level-3-border-bottom          : 0;
+@p-level-3-shadow                 : @p-level-2-shadow;
 
 // --- RWD breakpoints ---
 
-@pineLargeDisplayStart           : 600px;
-@pineSmallDisplayEnd             : ((@pineLargeDisplayStart - 1px));
+@p-large-display-start            : 600px;
+@p-small-display-end              : ((@p-large-display-start - 1px));

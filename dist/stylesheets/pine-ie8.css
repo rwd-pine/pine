@@ -119,7 +119,7 @@
 .pine .pine-navbar > li > ul > li > ul > li > a:focus,
 .pine .pine-navbar > li > ul > li > ul > li > a:active {
   background: transparent;
-  color: #0000ff;
+  color: #000000;
 }
 
 .pine .pine-navbar > li > ul > li > ul > li.is-open > a {

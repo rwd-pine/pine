@@ -7,9 +7,9 @@
 // - colours are sometimes on <a>/<strong>, sometimes on <li>
 
 .pine {
-  @media (min-width: @pineLargeDisplayStart) {
-    background: @pineBg;
-    border: @pineBorder;
+  @media (min-width: @p-large-display-start) {
+    background: @p-background;
+    border: @p-border;
 
     // Relative because of submenu positions od large screens
     li {
@@ -30,10 +30,10 @@
     // First level item dimensions
     .pine-navbar > li > a,
     .pine-navbar > li > strong {
-    	padding: @pineLevel1PaddingVertical @pineLevel1PaddingHorizontal;
-    	font-size: @pineLevel1FontSize;
-      border-bottom: @pineLevel1BorderBottom;
-      border-right: @pineLevel1BorderRight;
+    	padding: @p-level-1-padding-y @p-level-1-padding-x;
+    	font-size: @p-level-1-font-size;
+      border-bottom: @p-level-1-border-bottom;
+      border-right: @p-level-1-border-right;
     }
 
     .pine-navbar > li:last-child > a,
@@ -44,47 +44,47 @@
 
     // First level item colors
     .pine-navbar > li > a {
-      background: @pineLevel1Bg;
-      color: @pineLevel1Color;
+      background: @p-level-1-background;
+      color: @p-level-1-color;
     }
 
     // First level item hover colors
     .pine-navbar > li > a:hover,
     .pine-navbar > li > a:focus,
     .pine-navbar > li > a:active {
-    	background: @pineLevel1HoverBg;
-    	color: @pineLevel1HoverColor;
+    	background: @p-level-1-hover-background;
+    	color: @p-level-1-hover-color;
     }
 
     // First level item active colors
     .pine-navbar > li > strong,
     .pine-navbar > li.is-open > a {
-    	background: @pineLevel1ActiveBg;
-    	color: @pineLevel1ActiveColor;
+    	background: @p-level-1-active-background;
+    	color: @p-level-1-active-color;
     }
 
     // - Second level -
 
     .pine-navbar > li > ul {
-    	color: @pineLevel2Color;
-    	background: @pineLevel2Bg;
-    	border: @pineLevel2BorderFallback;
-    	border: @pineLevel2Border;
-    	border-radius: @pineLevel2BorderRadius;
+    	color: @p-level-2-color;
+    	background: @p-level-2-background;
+    	border: @p-level-2-border-fallback;
+    	border: @p-level-2-border;
+    	border-radius: @p-level-2-border-radius;
     	border-top-left-radius: 0;
     	border-top-right-radius: 0;
     	background-clip: padding-box;
-    	.box-shadow(@pineLevel2Shadow);
+    	.box-shadow(@p-level-2-shadow);
     }
 
     // Second level item dimensions and colors
     .pine-navbar > li > ul > li > a,
     .pine-navbar > li > ul > li > strong {
-    	background: @pineLevel2Bg;
-    	padding: @pineLevel2PaddingVertical @pineLevel2PaddingHorizontal;
-    	font-size: @pineLevel2FontSize;
-    	color: @pineLevel2Color;
-      border-bottom: @pineLevel2BorderBottom;
+    	background: @p-level-2-background;
+    	padding: @p-level-2-padding-y @p-level-2-padding-x;
+    	font-size: @p-level-2-font-size;
+    	color: @p-level-2-color;
+      border-bottom: @p-level-2-border-bottom;
     }
 
     .pine-navbar > li > ul > li:last-child > a,
@@ -96,37 +96,37 @@
     .pine-navbar > li > ul > li > a:hover,
     .pine-navbar > li > ul > li > a:focus,
     .pine-navbar > li > ul > li > a:active {
-    	background: @pineLevel3HoverBg;
-    	color: @pineLevel2HoverColor;
+    	background: @p-level-3-hover-background;
+    	color: @p-level-2-hover-color;
     }
 
     // Second level item active colors
     .pine-navbar > li > ul > li.is-open > a {
-    	background: @pineLevel2ActiveBg;
-    	color: @pineLevel2ActiveColor;
+    	background: @p-level-2-active-background;
+    	color: @p-level-2-active-color;
     }
 
     // - Third level -
 
     .pine-navbar > li > ul > li > ul {
-    	color: @pineLevel3Color;
-    	background: @pineLevel3Bg;
-    	border: @pineLevel3BorderFallback;
-    	border: @pineLevel3Border;
-    	border-radius: @pineLevel3BorderRadius;
+    	color: @p-level-3-color;
+    	background: @p-level-3-background;
+    	border: @p-level-3-border-fallback;
+    	border: @p-level-3-border;
+    	border-radius: @p-level-3-border-radius;
     	background-clip: padding-box;
-    	.box-shadow(@pineLevel3Shadow);
+    	.box-shadow(@p-level-3-shadow);
     	overflow: hidden; // Because of border-radius
     }
 
     // Third level item
     .pine-navbar > li > ul > li > ul > li > a,
     .pine-navbar > li > ul > li > ul > li > strong {
-    	background: @pineLevel3Bg;
-    	padding: @pineLevel3PaddingVertical @pineLevel3PaddingHorizontal;
-    	font-size: @pineLevel3FontSize;
-    	color: @pineLevel3Color;
-      border-bottom: @pineLevel3BorderBottom;
+    	background: @p-level-3-background;
+    	padding: @p-level-3-padding-y @p-level-3-padding-x;
+    	font-size: @p-level-3-font-size;
+    	color: @p-level-3-color;
+      border-bottom: @p-level-3-border-bottom;
     }
 
     .pine-navbar > li > ul > li > ul > li:last-child > a,
@@ -138,14 +138,14 @@
     .pine-navbar > li > ul > li > ul > li > a:hover,
     .pine-navbar > li > ul > li > ul > li > a:focus,
     .pine-navbar > li > ul > li > ul > li > a:active {
-    	background: @pineLevel3HoverBg;
-    	color: @pineLevel3HoverColor;
+    	background: @p-level-3-hover-background;
+    	color: @p-level-3-color;
     }
 
     // Third level item active colors
     .pine-navbar > li > ul > li > ul> li.is-open > a {
-    	background: @pineLevel3ActiveBg;
-    	color: @pineLevel3ActiveColor;
+    	background: @p-level-3-active-background;
+    	color: @p-level-3-active-color;
     }
   }
 }

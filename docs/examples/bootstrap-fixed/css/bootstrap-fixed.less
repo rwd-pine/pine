@@ -8,14 +8,14 @@
 
 // --- Pine variables ---
 
-@pineBorderRadius: 0;
-@pineLargeDisplayStart: 1200px;
+@p-border-radius      : 0;
+@p-large-display-start: 1200px;
 
 // --- Example CSS rules ---
 
 // Remove mobile header on large displays
 .mobile-header {
-	@media (min-width: @pineLargeDisplayStart) {
+	@media (min-width: @p-large-display-start) {
 		display: none;
 	}
 }
@@ -38,7 +38,7 @@ body {
     text-decoration: none;
   }
 
-  @media (max-width: @pineSmallDisplayEnd) {
+  @media (max-width: @p-small-display-end) {
     display: none;
   }
 }

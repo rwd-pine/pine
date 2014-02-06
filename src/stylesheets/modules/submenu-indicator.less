@@ -8,43 +8,43 @@
 
 // 1st level: Default - vertical
 .pine ul > li.has-submenu > a {
-	padding-right: 2*@pineLevel1PaddingHorizontal;
+	padding-right: 2*@p-level-1-padding-x;
 
 	&:before {
-		.triangle-indicator-base(@pineLevel1PaddingHorizontal);
-		.triangle-indicator-right(@pineLevel1SubIndColor, 4px);
+		.triangle-indicator-base(@p-level-1-padding-x);
+		.triangle-indicator-right(@p-level-1-caret-color, 4px);
 	}
 }
 
 // 1st level: Horizontal variant
 .pine.pine-horizontal ul > li.has-submenu > a {
-	padding-right: 2*@pineLevel1PaddingHorizontal;
+	padding-right: 2*@p-level-1-padding-x;
 
 	&:before {
-		.triangle-indicator-bottom(@pineLevel1SubIndColor, 4px);
-		@media (max-width: @pineSmallDisplayEnd) {
-			.triangle-indicator-right(@pineLevel1SubIndColor, 4px);
+		.triangle-indicator-bottom(@p-level-1-caret-color, 4px);
+		@media (max-width: @p-small-display-end) {
+			.triangle-indicator-right(@p-level-1-caret-color, 4px);
 		}
 	}
 }
 
 // 2nd level
 .pine ul li.is-open ul > li.has-submenu > a {
-	padding-right: 2*@pineLevel2PaddingHorizontal;
+	padding-right: 2*@p-level-2-padding-x;
 
 	&:before {
-		.triangle-indicator-base(@pineLevel2PaddingHorizontal);
-		.triangle-indicator-right(@pineLevel2SubIndColor, 4px);
+		.triangle-indicator-base(@p-level-2-padding-x);
+		.triangle-indicator-right(@p-level-2-caret-color, 4px);
 	}
 }
 
 // 3rd level
 .pine ul ul li.is-open ul > li.has-submenu > a {
-	padding-right: 2*@pineLevel3PaddingHorizontal;
+	padding-right: 2*@p-level-3-padding-x;
 
 	&:before {
-		.triangle-indicator-base(@pineLevel3PaddingHorizontal);
-		.triangle-indicator-right(@pineLevel3SubIndColor, 4px);
+		.triangle-indicator-base(@p-level-3-padding-x);
+		.triangle-indicator-right(@p-level-3-caret-color, 4px);
 	}
 }
 
@@ -61,8 +61,8 @@
 	height: 0px;
 	border-style: solid;
 	// Small screen version has only first level look
-	@media (max-width: @pineSmallDisplayEnd) {
-		right: @pineSmallScreenPaddingHorizontal;
+	@media (max-width: @p-small-display-end) {
+		right: @p-small-screen-padding-horizontal;
 	}
 }
 
@@ -73,8 +73,8 @@
 	margin-top: -1*@indicatorSize/2;
 	border-color: @color transparent transparent transparent;
 	// Small screen version has only first level look
-	@media (max-width: @pineSmallDisplayEnd) {
-		border-color: @pineLevel1SubIndColor  transparent transparent transparent;
+	@media (max-width: @p-small-display-end) {
+		border-color: @p-level-1-caret-color  transparent transparent transparent;
 	}
 }
 
@@ -85,7 +85,7 @@
 	margin-top: -1*@indicatorSize;
 	border-color: transparent transparent transparent @color;
 	// Small screen version has only first level look
-	@media (max-width: @pineSmallDisplayEnd) {
-		border-color: transparent transparent transparent  @pineLevel1SubIndColor;
+	@media (max-width: @p-small-display-end) {
+		border-color: transparent transparent transparent  @p-level-1-caret-color;
 	}
 }
