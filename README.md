@@ -117,15 +117,15 @@ PineJS code is [Mobile First](http://bradfrostweb.com/blog/web/mobile-first-resp
 
 Simple CSS implementation:
 
-* [Simple responsive navigation](http://rwd-pine.github.io/pine/examples/simple/)
-* [Vertical multi-level navigation](http://rwd-pine.github.io/pine/examples/vertical/)
-* [Horizontal multi-level navigation](http://rwd-pine.github.io/pine/examples/horizontal/)
+* [Simple responsive navigation](http://rwd-pine.github.io/pine/examples/simple/) ([source](https://github.com/rwd-pine/pine/blob/master/docs/examples/simple/index.html))
+* [Vertical multi-level navigation](http://rwd-pine.github.io/pine/examples/vertical/) ([source](https://github.com/rwd-pine/pine/blob/master/docs/examples/vertical/index.html))
+* [Horizontal multi-level navigation](http://rwd-pine.github.io/pine/examples/horizontal/) ([source](https://github.com/rwd-pine/pine/blob/master/docs/examples/horizontal/index.html))
 
 LESS implementation:
 
-* [Bootstrap vertical multi-level navigation](http://rwd-pine.github.io/pine/examples/bootstrap-vertical/)
-* [Bootstrap horizontal multi-level navigation](http://rwd-pine.github.io/pine/examples/bootstrap-horizontal/)
-* [Bootstrap fixed horizontal multi-level navigation, inverted color scheme](http://rwd-pine.github.io/pine/examples/bootstrap-fixed/)
+* [Bootstrap vertical multi-level navigation](http://rwd-pine.github.io/pine/examples/bootstrap-vertical/) ([source](https://github.com/rwd-pine/pine/blob/master/docs/examples/bootstrap-vertical/index.html))
+* [Bootstrap horizontal multi-level navigation](http://rwd-pine.github.io/pine/examples/bootstrap-horizontal/) ([source](https://github.com/rwd-pine/pine/blob/master/docs/examples/bootstrap-horizontal/index.html))
+* [Bootstrap fixed horizontal multi-level navigation, inverted color scheme](http://rwd-pine.github.io/pine/examples/bootstrap-fixed/) ([source](https://github.com/rwd-pine/pine/blob/master/docs/examples/bootstrap-fixed/index.html))
 
 # Working on the repository
 
