@@ -1,4 +1,4 @@
-// --- Pine: Has submenu triangle indicator ---
+// --- Pine: caret - triangle indicator ---
 
 // Context where we are positioning the indicator
 .pine li.has-submenu > a,
@@ -11,8 +11,8 @@
 	padding-right: 2*@p-level-1-padding-x;
 
 	&:before {
-		.triangle-indicator-base(@p-level-1-padding-x);
-		.triangle-indicator-right(@p-level-1-caret-color, 4px);
+		.caret-base(@p-level-1-padding-x);
+		.caret-right(@p-level-1-caret-color, 4px);
 	}
 }
 
@@ -21,9 +21,9 @@
 	padding-right: 2*@p-level-1-padding-x;
 
 	&:before {
-		.triangle-indicator-bottom(@p-level-1-caret-color, 4px);
+		.caret-bottom(@p-level-1-caret-color, 4px);
 		@media (max-width: @p-small-display-end) {
-			.triangle-indicator-right(@p-level-1-caret-color, 4px);
+			.caret-right(@p-level-1-caret-color, 4px);
 		}
 	}
 }
@@ -33,8 +33,8 @@
 	padding-right: 2*@p-level-2-padding-x;
 
 	&:before {
-		.triangle-indicator-base(@p-level-2-padding-x);
-		.triangle-indicator-right(@p-level-2-caret-color, 4px);
+		.caret-base(@p-level-2-padding-x);
+		.caret-right(@p-level-2-caret-color, 4px);
 	}
 }
 
@@ -43,18 +43,18 @@
 	padding-right: 2*@p-level-3-padding-x;
 
 	&:before {
-		.triangle-indicator-base(@p-level-3-padding-x);
-		.triangle-indicator-right(@p-level-3-caret-color, 4px);
+		.caret-base(@p-level-3-padding-x);
+		.caret-right(@p-level-3-caret-color, 4px);
 	}
 }
 
-// -- Mixin: Triangle indicator base ---
+// -- Mixin: Caret base ---
 
-.triangle-indicator-base(@paddingRight) {
+.caret-base(@padding-right) {
 	z-index: 100;
 	content: "";
 	position: absolute;
-	right: @paddingRight;
+	right: @padding-right;
 	top: 50%;
 	display: inline-block;
 	width: 0px;
@@ -66,11 +66,11 @@
 	}
 }
 
-// Mixin: Triangle indicator marker turned down
+// Mixin: Caret turned down
 
-.triangle-indicator-bottom(@color, @indicatorSize) {
-	border-width: (@indicatorSize * 1.5) @indicatorSize 0 @indicatorSize;
-	margin-top: -1*@indicatorSize/2;
+.caret-bottom(@color, @caret-size) {
+	border-width: (@caret-size * 1.5) @caret-size 0 @caret-size;
+	margin-top: -1*@caret-size/2;
 	border-color: @color transparent transparent transparent;
 	// Small screen version has only first level look
 	@media (max-width: @p-small-display-end) {
@@ -78,11 +78,11 @@
 	}
 }
 
-// Mixin: Triangle indicator marker facing left
+// Mixin: Caret facing left
 
-.triangle-indicator-right(@color, @indicatorSize) {
-	border-width: @indicatorSize 0 @indicatorSize (@indicatorSize * 1.5);
-	margin-top: -1*@indicatorSize;
+.caret-right(@color, @caret-size) {
+	border-width: @caret-size 0 @caret-size (@caret-size * 1.5);
+	margin-top: -1*@caret-size;
 	border-color: transparent transparent transparent @color;
 	// Small screen version has only first level look
 	@media (max-width: @p-small-display-end) {
