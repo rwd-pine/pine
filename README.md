@@ -13,7 +13,18 @@
 * Internet Explorer 8+ compatible
 * … all in 7kB JS and 10kB CSS file
 
-# Usage
+
+## Table of Contents
+
+* [Usage](#usage)
+* [Customization](#customization)
+* [IE8 support](#ie8-support)
+* [Examples](#examples)
+* [Working on the repository](#working-on-the-repository)
+* [Authors](#authors)
+
+
+## Usage
 
 PineJS installation is quite easy, just follow steps below.
 
@@ -127,11 +138,11 @@ LESS implementation:
 * [Bootstrap horizontal multi-level navigation](http://rwd-pine.github.io/pine/examples/bootstrap-horizontal/) ([source](https://github.com/rwd-pine/pine/blob/master/docs/examples/bootstrap-horizontal/index.html))
 * [Bootstrap fixed horizontal multi-level navigation, inverted color scheme](http://rwd-pine.github.io/pine/examples/bootstrap-fixed/) ([source](https://github.com/rwd-pine/pine/blob/master/docs/examples/bootstrap-fixed/index.html))
 
-# Working on the repository
+## Working on the repository
 
 PineJS comes with common tools, which help you to easily customize it and make you own builds. [GruntJS](http://gruntjs.com/) is used for the build process. If you already have it, you are ready to go. Otherwise you need node and npm on your machine. Installation of Grunt is described in [Getting Started Tutorial](http://gruntjs.com/getting-started).
 
-## Dependencies
+### Dependencies
 
 After you've set up the environment, use ```npm install``` to get all dependencies. To build the project, enter the following at the terminal:
 
