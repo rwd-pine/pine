@@ -37,8 +37,8 @@ PineJS installation is quite easy, just follow steps below.
 **2) Markup small screen header** with button for navigation toggling:
 
 ```html
-<a class="nav-trigger" data-pine="toggle" href="#nav">
-  <span class="trigger-title">Menu</span>
+<a class="pine-trigger" data-pine="toggle" href="#nav">
+  <span class="pine-trigger-title">Menu</span>
   <span class="icon-bar"></span>
 </a>
 ```

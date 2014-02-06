@@ -6384,7 +6384,7 @@ td.visible-print {
     border-color: transparent transparent transparent #777777;
   }
 }
-.nav-trigger {
+.pine-trigger {
   display: none;
   padding: 10.5px 15px;
   color: #777777;
@@ -6396,18 +6396,18 @@ td.visible-print {
   text-decoration: none;
 }
 @media (max-width: 599px) {
-  .js .nav-trigger {
+  .js .pine-trigger {
     display: inline-block;
   }
 }
-.nav-trigger .icon-bar {
+.pine-trigger .icon-bar {
   position: relative;
   vertical-align: middle;
   margin-top: -2px;
 }
-.nav-trigger .icon-bar,
-.nav-trigger .icon-bar:before,
-.nav-trigger .icon-bar:after {
+.pine-trigger .icon-bar,
+.pine-trigger .icon-bar:before,
+.pine-trigger .icon-bar:after {
   display: inline-block;
   width: 18px;
   height: 2px;
@@ -6422,16 +6422,16 @@ td.visible-print {
   -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 }
-.nav-trigger .icon-bar:before,
-.nav-trigger .icon-bar:after {
+.pine-trigger .icon-bar:before,
+.pine-trigger .icon-bar:after {
   position: absolute;
   top: -4px;
   content: '';
 }
-.nav-trigger .icon-bar:after {
+.pine-trigger .icon-bar:after {
   top: 4px;
 }
-.trigger-title {
+.pine-trigger-title {
   display: inline-block;
 }
 .fx-toggle ul ul {
