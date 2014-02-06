@@ -43,7 +43,7 @@ PineJS installation is quite easy, just follow steps below.
 </a>
 ```
 
-… or use your way to toggle navigation – just use `data-pine="toggle"` attribute.
+… or create your way to toggle navigation – just use `data-pine="toggle"` attribute.
 
 **3) Write navigation markup.** It is simple unordered list in `.pine` container.
 
@@ -97,7 +97,6 @@ Optionally you can style basic navigation look with a rich variety of namespaced
 @p-small-screen-color    : #fff;
 …
 @p-large-display-start   : 600px;
-
 ```
 
 [All LESS variables](https://github.com/rwd-pine/pine/blob/master/src/stylesheets/core/variables.less).
@@ -121,7 +120,7 @@ PineJS code is [Mobile First](http://bradfrostweb.com/blog/web/mobile-first-resp
 **2) `pine-ie8.css`** - if Respond.js doesn't fit your needs, add this CSS file in your HTML `<head>`. It contains all of the code hidden in the Media Queries:
 
 ```html
-<link href="css/pine-ie8.css" rel="stylesheet">
+<link href="stylesheets/pine-ie8.css" rel="stylesheet">
 ```
 
 ## Examples
