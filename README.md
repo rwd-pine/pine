@@ -15,7 +15,7 @@
 
 # Usage
 
-Pine.JS installation is quite easy, just follow steps below.
+PineJS installation is quite easy, just follow steps below.
 
 **1) Link CSS** from your HTML `<head>`:
 
@@ -44,7 +44,7 @@ Pine.JS installation is quite easy, just follow steps below.
 </div>
 ```
 
-**4) Add jQuery (or Zepto) and Pine.JS**  just before `</body>` tag:
+**4) Add jQuery (or Zepto) and PineJS**  just before `</body>` tag:
 
 ```html
 <script src="pine/javascripts/jquery.js"></script>
@@ -72,21 +72,32 @@ Just use `.pine-horizontal` or `.pine-vertical` on the `.pine` element in your m
 ```javascript
 $('.pine').pine({
   largeDisplayStart:   '600px', // Custom JS breakpoint
-  fxSmallDisplay:   	'fx-right-to-left',  // Effect for small display navigation, alternatively 'fx-collapse'
+  fxSmallDisplay:   'fx-right-to-left',  // Small display behavior, alt. 'fx-collapse'
 })
 ```
 
 ### LESS
 
-You can style basic navigation look with a rich variety of [LESS variables](https://github.com/rwd-pine/pine/blob/master/src/stylesheets/core/variables.less).
+Optionally you can style basic navigation look with a rich variety of namespaced [LESS](http://lesscss.org/) variables including these:
 
+```less
+@p-base-font-size        : 16px;
+…
+@p-small-screen-color    : #fff;
+…
+@p-large-display-start   : 600px;
 
+```
+
+[All LESS variables](https://github.com/rwd-pine/pine/blob/master/src/stylesheets/core/variables.less).
+
+If you prefer pure CSS, just overwrite Pine styling.
 
 ## IE8 support
 
-Pine.JS code is Mobile First and therefore a large part of the code is unavailable for Explorer 8 and older. You can choose from two solutions:
+PineJS code is [Mobile First](http://bradfrostweb.com/blog/web/mobile-first-responsive-web-design/) and therefore a large part of the code is unavailable for Explorer 8 and older. You can choose from two solutions:
 
-1) [Respond.js](https://github.com/scottjehl/Respond) - (preferred solution)javascript that can arrange for support Media Queries in these older browsers. It is a standard way which uses Bootstrap itself. Just add Respond.js in the HTML `<head>` just after CSS files:
+**1) [Respond.js](https://github.com/scottjehl/Respond)** - (preferred solution)javascript that can arrange for support Media Queries in these older browsers. It is a standard way which uses Bootstrap itself. Just add Respond.js in the HTML `<head>` just after CSS files:
 
 
 ```html
@@ -96,7 +107,7 @@ Pine.JS code is Mobile First and therefore a large part of the code is unavailab
 <![endif]-->
 ```
 
-2) `pine-ie8.css` - if Respond.js does not fit your needs, add this CSS file in your HTML `<head>`. It contains all of the code hidden in the Media Queries:
+**2) `pine-ie8.css`** - if Respond.js doesn't fit your needs, add this CSS file in your HTML `<head>`. It contains all of the code hidden in the Media Queries:
 
 ```html
 <link href="css/pine-ie8.css" rel="stylesheet">
@@ -104,18 +115,17 @@ Pine.JS code is Mobile First and therefore a large part of the code is unavailab
 
 ## Examples
 
-<!-- TODO MM -->
-
 Simple CSS implementation:
 
-* [Vertical multi-level navigation](#/vertical/)
-* [Horizontal multi-level navigation](#/horizontal/)
+* [Simple responsive navigation](http://rwd-pine.github.io/pine/examples/simple/)
+* [Vertical multi-level navigation](http://rwd-pine.github.io/pine/examples/vertical/)
+* [Horizontal multi-level navigation](http://rwd-pine.github.io/pine/examples/horizontal/)
 
 LESS implementation:
 
-* [Bootstrap vertical multi-level navigation](#/bootstrap-vertical/)
-* [Bootstrap horizontal multi-level navigation](#/bootstrap-horizontal/)
-* [Bootstrap fixed horizontal multi-level navigation, inverted color scheme](#/bootstrap-fixed/)
+* [Bootstrap vertical multi-level navigation](http://rwd-pine.github.io/pine/examples/bootstrap-vertical/)
+* [Bootstrap horizontal multi-level navigation](http://rwd-pine.github.io/pine/examples/bootstrap-horizontal/)
+* [Bootstrap fixed horizontal multi-level navigation, inverted color scheme](http://rwd-pine.github.io/pine/examples/bootstrap-fixed/)
 
 # Working on the repository
 
@@ -140,8 +150,7 @@ Next time you change the file, Grunt will perform all build tasks.
 
 ## Authors
 
-Martin Staněk ([@koucik](https://twitter.com/koucik)) & Martin Michálek ([@machal](https://twitter.com/machal))
-
+Made in Prague by Martin Staněk ([@koucik](https://twitter.com/koucik)) & Martin Michálek ([@machal](https://twitter.com/machal)).
 
 ## Licence
 
