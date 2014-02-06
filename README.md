@@ -7,7 +7,7 @@
 * Compatible with Bootstrap 3, but may be implemented independently
 * Ready for both vertical and horizontal navigations
 * Customizable with effects and skins
-* Accessible Mobile First architecture
+* Accessible, Mobile First architecture
 * jQuery/Zepto versions
 * Using the power of LESS variables
 * Internet Explorer 8+ compatible
@@ -15,14 +15,15 @@
 
 # Usage
 
-Pine.JS installation is quite easy, just follow steps below and you will be able to get the plugin up and running.
+Pine.JS installation is quite easy, just follow steps below.
 
-1. Link CSS from your HTML `<head>`:
+**1) Link CSS** from your HTML `<head>`:
+
 ```html
 <link rel="stylesheet" href="stylesheets/pine.css">
 ```
 
-2. Markup your small screen header with button for navigation toggling:
+**2) Markup small screen header** with button for navigation toggling:
 
 ```html
 <a class="nav-trigger" data-pine="toggle" href="#nav">
@@ -33,7 +34,7 @@ Pine.JS installation is quite easy, just follow steps below and you will be able
 
 … or use your way to toggle navigation – just use `data-pine="toggle"` attribute.
 
-3. Write navigation markup. It is simple unordered list in container.
+**3) Write navigation markup.** It is simple unordered list in `.pine` container.
 
 ```html
 <div id="nav" role="navigation" class="pine pine-horizontal">
@@ -43,23 +44,20 @@ Pine.JS installation is quite easy, just follow steps below and you will be able
 </div>
 ```
 
-Alternatively, you can use a class .pine-horizontal for [horizontally](#TODOexample) aligned navigation.
-
-4. Add jQuery (or Zepto) and Pine.JS just before `</body>` tag:
+**4) Add jQuery (or Zepto) and Pine.JS**  just before `</body>` tag:
 
 ```html
-  <script src="pine/javascripts/jquery.js"></script>
-  <script src="pine/javascripts/pine.js"></script>
+<script src="pine/javascripts/jquery.js"></script>
+<script src="pine/javascripts/pine.js"></script>
 ```
 
-3. Hook up the plugin:
-```html
-  <script>
-    $('.pine').pine()
-  </script>
+**5) Hook up the plugin** in your Javascript file:
+
+```javascript
+$('.pine').pine()
 ```
 
-4. Customizable options:
+Want to see everything at once? Look at the minimum possible implementation [example](http://rwd-pine.github.io/pine/examples/simple/) ([source](https://github.com/rwd-pine/pine/blob/master/docs/examples/simple/index.html)).
 
 
 ## Customization
@@ -72,10 +70,10 @@ Just use `.pine-horizontal` or `.pine-vertical` on the `.pine` element in your m
 ### Javascript
 
 ```javascript
-  $('.pine').pine({
-    largeDisplayStart:  	'600px', 			// Custom JS breakpoint
-    fxSmallDisplay:   	'fx-right-to-left',  // Effect for small display navigation, alternatively 'fx-collapse'
-  })
+$('.pine').pine({
+  largeDisplayStart:   '600px', // Custom JS breakpoint
+  fxSmallDisplay:   	'fx-right-to-left',  // Effect for small display navigation, alternatively 'fx-collapse'
+})
 ```
 
 ### LESS
