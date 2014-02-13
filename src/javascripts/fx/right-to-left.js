@@ -22,7 +22,7 @@ Pine.Navbar.registerTransition('fx-right-to-left', {
       })
 
       // Attach listeners to the back buttons
-      $(document).on('click', '.pine-back', $.proxy(Pine.Submenu.toggle, this))
+      $(document).on('click.pine', '.pine-back', $.proxy(Pine.Submenu.toggle, this))
 
       // Set correct width for all lists (width of the viewport)
       $element.find('ul').css('width', $(window).width())

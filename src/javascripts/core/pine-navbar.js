@@ -103,10 +103,10 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
 
     /* CLICK: Default behavior, submenu is triggered on click */
     // var eventType = ('ontouchstart' in document.documentElement) ? 'touchstart' : 'click'
-    $(document).on('click', this.SUBMENU + ' > a', $.proxy(Pine.Submenu.toggle, Pine.Navbar))
+    $(document).on('click.pine', this.SUBMENU + ' > a', $.proxy(Pine.Submenu.toggle, Pine.Navbar))
 
     // Navbar toggle button
-    $(this.NAVBAR_TOGGLE).on('click', Pine.Navbar.toggle)
+    $(this.NAVBAR_TOGGLE).on('click.pine', Pine.Navbar.toggle)
 
     /* Setup API with all listeners */
     $(window).on({
@@ -160,23 +160,13 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   Navbar.switchView = function (isLargeDisplay) {
     var newTransition = this.getTransitionName(isLargeDisplay)
     var origTransition = this.getTransitionName(!isLargeDisplay)
-    var newClass = this.getNavbarClass(isLargeDisplay)
-    var origClass = this.getNavbarClass(!isLargeDisplay)
 
     this.element
       .removeClass(origTransition)
       .addClass(newTransition)
 
-    $.log('Transition: '+ newTransition)
-
-    // TODO refactor
-    this.element
-      .removeClass(origClass)
-      .addClass(newClass)
-
     this.setActiveTransition(newTransition)
-
-    $.log('View: ' + newClass)
+    $.log('Transition: '+ newTransition)
 
     this.resetNav()
   };

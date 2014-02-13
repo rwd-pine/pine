@@ -269,10 +269,10 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
 
     /* CLICK: Default behavior, submenu is triggered on click */
     // var eventType = ('ontouchstart' in document.documentElement) ? 'touchstart' : 'click'
-    $(document).on('click', this.SUBMENU + ' > a', $.proxy(Pine.Submenu.toggle, Pine.Navbar))
+    $(document).on('click.pine', this.SUBMENU + ' > a', $.proxy(Pine.Submenu.toggle, Pine.Navbar))
 
     // Navbar toggle button
-    $(this.NAVBAR_TOGGLE).on('click', Pine.Navbar.toggle)
+    $(this.NAVBAR_TOGGLE).on('click.pine', Pine.Navbar.toggle)
 
     /* Setup API with all listeners */
     $(window).on({
@@ -326,23 +326,13 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   Navbar.switchView = function (isLargeDisplay) {
     var newTransition = this.getTransitionName(isLargeDisplay)
     var origTransition = this.getTransitionName(!isLargeDisplay)
-    var newClass = this.getNavbarClass(isLargeDisplay)
-    var origClass = this.getNavbarClass(!isLargeDisplay)
 
     this.element
       .removeClass(origTransition)
       .addClass(newTransition)
 
-    $.log('Transition: '+ newTransition)
-
-    // TODO refactor
-    this.element
-      .removeClass(origClass)
-      .addClass(newClass)
-
     this.setActiveTransition(newTransition)
-
-    $.log('View: ' + newClass)
+    $.log('Transition: '+ newTransition)
 
     this.resetNav()
   };
@@ -421,16 +411,15 @@ var pine_fx_hover = {
     if (switchCondition) {
       // Add 'mouse' listeners and disable 'click.submenu'
       $(document)
-        .on({'mouseenter': $.proxy(Pine.Submenu.toggle, this), 'mouseleave': $.proxy(Pine.Submenu.toggle, this)}, this.SUBMENU)
-        .off('click')
-        // .off('click.pine.submenu')
+        .on({'mouseenter.pine': $.proxy(Pine.Submenu.toggle, this), 'mouseleave.pine': $.proxy(Pine.Submenu.toggle, this)}, this.SUBMENU)
+        .off('click.pine')
     }
     else {
       // Add 'click.submenu' listeners and disable 'mouse'"
       $(document)
-        .off('mouseenter')
-        .off('mouseleave')
-        .on('click', this.SUBMENU + ' > a', $.proxy(Pine.Submenu.toggle, this))
+        .off('mouseenter.pine')
+        .off('mouseleave.pine')
+        .on('click.pine', this.SUBMENU + ' > a', $.proxy(Pine.Submenu.toggle, this))
     }
   },
   onToggle: function(isActive){}
@@ -467,7 +456,7 @@ Pine.Navbar.registerTransition('fx-right-to-left', {
       })
 
       // Attach listeners to the back buttons
-      $(document).on('click', '.pine-back', $.proxy(Pine.Submenu.toggle, this))
+      $(document).on('click.pine', '.pine-back', $.proxy(Pine.Submenu.toggle, this))
 
       // Set correct width for all lists (width of the viewport)
       $element.find('ul').css('width', $(window).width())
