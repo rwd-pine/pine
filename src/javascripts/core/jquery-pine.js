@@ -27,4 +27,4 @@ window.jQuery && (function ($, Pine, undefined) { "use strict";
     return this
   }
 
-}(jQuery, Pine));
+}(window.jQuery, Pine));

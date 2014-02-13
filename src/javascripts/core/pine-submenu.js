@@ -56,5 +56,5 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
 
   return Submenu;
 
-}(window.Zepto || window.jQuery, window));
+}(window.jQuery, window));
 

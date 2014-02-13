@@ -235,4 +235,4 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
 
   return Navbar;
 
-}(window.Zepto || window.jQuery, window));
+}(window.jQuery, window));

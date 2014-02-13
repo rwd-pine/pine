@@ -39,7 +39,6 @@ module.exports = function(grunt) {
         files: [
           { expand: true, cwd: 'bower_components/jquery', src: ['jquery.min.js'], dest: 'dist/javascripts', filter: 'isFile' },
           { expand: true, cwd: 'bower_components/jquery-legacy', src: ['jquery.min.js'], dest: 'dist/javascripts/jquery-legacy', filter: 'isFile' },
-          { expand: true, cwd: 'bower_components/zepto', src: ['zepto.js'], dest: 'src/javascripts/lib', filter: 'isFile' },
           { expand: true, cwd: 'bower_components/matchmedia/', src: ['matchmedia.js'], dest: 'src/javascripts/lib', filter: 'isFile' }
         ]
       },
@@ -67,13 +66,6 @@ module.exports = function(grunt) {
         banner: '<%= banner %>',
         stripBanners: false
       },
-      zepto: {
-        src: [
-          'src/javascripts/lib/zepto.js',
-          'src/javascripts/lib/zepto-touch.js'
-        ],
-        dest: 'dist/javascripts/zepto.js'
-      },
       pine: {
         src: [
           'src/javascripts/lib/jsnojs.js',
@@ -86,7 +78,6 @@ module.exports = function(grunt) {
           'src/javascripts/fx/right-to-left.js',
           'src/javascripts/fx/toggle.js',
           'src/javascripts/core/jquery-pine.js',
-          'src/javascripts/core/zepto-pine.js',
           'src/javascripts/app.js',
         ],
         dest: 'dist/javascripts/pine.js'
@@ -102,14 +93,6 @@ module.exports = function(grunt) {
           {
             src: ['<%= concat.pine.dest %>'],
             dest: 'dist/javascripts/<%= pkg.name %>.min.js'
-          }
-        ]
-      },
-      zepto: {
-        files: [
-          {
-            src: ['<%= concat.zepto.dest %>'],
-            dest: 'dist/javascripts/zepto.min.js'
           }
         ]
       }

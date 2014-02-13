@@ -161,7 +161,7 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
 
   return Submenu;
 
-}(window.Zepto || window.jQuery, window));
+}(window.jQuery, window));
 
 
 //
@@ -401,7 +401,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
 
   return Navbar;
 
-}(window.Zepto || window.jQuery, window));
+}(window.jQuery, window));
 
 //
 // DESKTOP TRANSITION: HOVER
@@ -525,24 +525,7 @@ window.jQuery && (function ($, Pine, undefined) { "use strict";
     return this
   }
 
-}(jQuery, Pine));
-
-// NAVBAR PLUGIN DEFINITION
-// --------------------------
-
-// Execute only if Zepto is present
-window.Zepto && (function ($, Pine, undefined) { "use strict";
-
-  $.fn.pine = function (option) {
-    $.each(this, function(index, item){
-      var $this   = $(this)
-      var options = $.extend({}, typeof option == 'object' && option)
-
-      Pine.Navbar.init(this, options)
-    })
-  }
-
-}(Zepto, Pine));
+}(window.jQuery, Pine));
 
 (function ($, undefined) { "use strict";
 
