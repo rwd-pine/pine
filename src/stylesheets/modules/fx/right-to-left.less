@@ -4,32 +4,43 @@
 // ----------------------------
 
 
+// - First level is container for animation -
+
 .fx-right-to-left {
 
-	// First level is container for animation
 	.pine-level-1 {
 		position: absolute;
 		left: 0;
 	}
+}
 
-	// Second and succeeding levels
+// - Second and succeeding levels are stacked on the side and animated -
+
+.fx-right-to-left {
+
 	ul ul {
 		position: absolute;
 		top: 0;
 		left: 100%;
 	}
 
-	> ul > ul > ul {
+  .js & ul ul {
+    visibility: hidden;
+    .transition(~"visibility 0s .2s");
+  }
+
+  // No 2nd, 3rd level indentation
+  ul li > a,
+  ul li > strong {
+    text-indent: 0 !important;
+  }
+
+	.pine-level-2 > ul {
 		left: 200%;
 	}
 
-	> ul > ul > ul > ul {
+	.pine-level-3 > ul {
 		left: 300%;
-	}
-
-	.js & ul ul {
-		visibility: hidden;
-		.transition(~"visibility 0s .2s");
 	}
 
 	ul .pine-level-open > ul {
@@ -39,15 +50,9 @@
 	.pine-level-1 > .pine-level-open > ul {
 		.transition(~"visibility 0s 0s");
 	}
-
-	// No 2nd, 3rd level indentation
-	ul li > a,
-	ul li > strong {
-		text-indent: 0 !important;
-	}
 }
 
-// Back button for return to highest level
+// - Back button for return to highest level -
 
 .fx-right-to-left .pine-back > a {
   position: relative;
@@ -55,17 +60,17 @@
   text-align: center;
 
   &:before {
-	z-index: 100;
-	content: "";
-	position: absolute;
-	top: 50%;
-	left: @p-small-screen-padding-horizontal;
-	display: inline-block;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 4px 6px 4px 0;
-	margin-top: -4px;
-	border-color: transparent @p-small-screen-color transparent transparent;
+  	z-index: 100;
+  	content: "";
+  	position: absolute;
+  	top: 50%;
+  	left: @p-small-screen-padding-horizontal;
+  	display: inline-block;
+  	width: 0;
+  	height: 0;
+  	border-style: solid;
+  	border-width: 4px 6px 4px 0;
+  	margin-top: -4px;
+  	border-color: transparent @p-small-screen-color transparent transparent;
   }
 }

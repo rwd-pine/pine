@@ -6523,18 +6523,22 @@ td.visible-print {
   top: 0;
   left: 100%;
 }
-.fx-right-to-left > ul > ul > ul {
-  left: 200%;
-}
-.fx-right-to-left > ul > ul > ul > ul {
-  left: 300%;
-}
 .js .fx-right-to-left ul ul {
   visibility: hidden;
   -webkit-transition: visibility 0s .2s;
   -moz-transition: visibility 0s .2s;
   -o-transition: visibility 0s .2s;
   transition: visibility 0s .2s;
+}
+.fx-right-to-left ul li > a,
+.fx-right-to-left ul li > strong {
+  text-indent: 0 !important;
+}
+.fx-right-to-left .pine-level-2 > ul {
+  left: 200%;
+}
+.fx-right-to-left .pine-level-3 > ul {
+  left: 300%;
 }
 .fx-right-to-left ul .pine-level-open > ul {
   visibility: visible;
@@ -6544,10 +6548,6 @@ td.visible-print {
   -moz-transition: visibility 0s 0s;
   -o-transition: visibility 0s 0s;
   transition: visibility 0s 0s;
-}
-.fx-right-to-left ul li > a,
-.fx-right-to-left ul li > strong {
-  text-indent: 0 !important;
 }
 .fx-right-to-left .pine-back > a {
   position: relative;
