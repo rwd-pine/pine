@@ -6434,23 +6434,23 @@ td.visible-print {
 .pine-trigger-title {
   display: inline-block;
 }
-.fx-toggle ul ul {
+.fx-collapse ul ul {
   overflow: hidden;
   max-height: 0;
 }
 @media (max-width: 599px) {
-  .fx-toggle ul > li.has-submenu > a:before,
-  .fx-toggle ul li.is-open ul > li.has-submenu > a:before,
-  .fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
+  .fx-collapse ul > li.has-submenu > a:before,
+  .fx-collapse ul li.is-open ul > li.has-submenu > a:before,
+  .fx-collapse ul ul li.is-open ul > li.has-submenu > a:before {
     border-width: 6px 4px 0 4px;
     margin-top: -2px;
     border-color: #777777 transparent transparent transparent;
   }
 }
 @media (max-width: 599px) and (max-width: 599px) {
-  .fx-toggle ul > li.has-submenu > a:before,
-  .fx-toggle ul li.is-open ul > li.has-submenu > a:before,
-  .fx-toggle ul ul li.is-open ul > li.has-submenu > a:before {
+  .fx-collapse ul > li.has-submenu > a:before,
+  .fx-collapse ul li.is-open ul > li.has-submenu > a:before,
+  .fx-collapse ul ul li.is-open ul > li.has-submenu > a:before {
     border-color: #777777 transparent transparent transparent;
   }
 }
