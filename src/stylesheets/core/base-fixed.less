@@ -3,18 +3,12 @@
 // We need ability to change it only for small/large screens
 // For example: static position for vertical navigation on large screen, fixed on small screen
 // We apply fixed position only when javascript is running, don't want hide content under navigation.
+// TODO: use .pine-fixed-small/.pine-fixed-large
 
-// Mixin
-.pine-fixed-base(@top) {
-  top: @top;
-  left: 0;
-  position: fixed;
-  width: 100%;
-}
 
 // Both small and large screen
 .js .pine-fixed {
-  .pine-fixed-base(0);
+  .mixin-pine-fixed-base(0);
 
   @media (max-width: @p-small-display-end) {
     top: @p-small-screen-top;
@@ -24,13 +18,21 @@
 // Small screen
 .js .pine-fixed-small {
   @media (max-width: @p-small-display-end) {
-    .pine-fixed-base(@p-small-screen-top);
+    .mixin-pine-fixed-base(@p-small-screen-top);
   }
 }
 
 // Large screen
 .js .pine-fixed-large {
   @media (min-width: @p-large-display-start) {
-    .pine-fixed-base(0);
+    .mixin-pine-fixed-base(0);
   }
+}
+
+// Mixin
+.mixin-pine-fixed-base(@top) {
+  top: @top;
+  left: 0;
+  position: fixed;
+  width: 100%;
 }

@@ -6293,14 +6293,14 @@ td.visible-print {
     width: 100%;
   }
 }
-.pine li.has-submenu > a,
-[role='navigation'] li.has-submenu > strong {
+.has-submenu > a,
+.has-submenu > strong {
   position: relative;
 }
-.pine ul > li.has-submenu > a {
+.pine-level-1 > .has-submenu > a {
   padding-right: 30px;
 }
-.pine ul > li.has-submenu > a:before {
+.pine-level-1 > .has-submenu > a:before {
   z-index: 100;
   content: "";
   position: absolute;
@@ -6315,44 +6315,44 @@ td.visible-print {
   border-color: transparent transparent transparent #777777;
 }
 @media (max-width: 599px) {
-  .pine ul > li.has-submenu > a:before {
+  .pine-level-1 > .has-submenu > a:before {
     right: 15px;
   }
 }
 @media (max-width: 599px) {
-  .pine ul > li.has-submenu > a:before {
+  .pine-level-1 > .has-submenu > a:before {
     border-color: transparent transparent transparent #777777;
   }
 }
-.pine.pine-horizontal ul > li.has-submenu > a {
+.pine-horizontal .pine-level-1 > .has-submenu > a {
   padding-right: 30px;
 }
-.pine.pine-horizontal ul > li.has-submenu > a:before {
+.pine-horizontal .pine-level-1 > .has-submenu > a:before {
   border-width: 6px 4px 0 4px;
   margin-top: -2px;
   border-color: #777777 transparent transparent transparent;
 }
 @media (max-width: 599px) {
-  .pine.pine-horizontal ul > li.has-submenu > a:before {
+  .pine-horizontal .pine-level-1 > .has-submenu > a:before {
     border-color: #777777 transparent transparent transparent;
   }
 }
 @media (max-width: 599px) {
-  .pine.pine-horizontal ul > li.has-submenu > a:before {
+  .pine-horizontal .pine-level-1 > .has-submenu > a:before {
     border-width: 4px 0 4px 6px;
     margin-top: -4px;
     border-color: transparent transparent transparent #777777;
   }
 }
 @media (max-width: 599px) and (max-width: 599px) {
-  .pine.pine-horizontal ul > li.has-submenu > a:before {
+  .pine-horizontal .pine-level-1 > .has-submenu > a:before {
     border-color: transparent transparent transparent #777777;
   }
 }
-.pine ul li.pine-level-open ul > li.has-submenu > a {
+.pine-level-open > .pine-level-2 > .has-submenu > a {
   padding-right: 30px;
 }
-.pine ul li.pine-level-open ul > li.has-submenu > a:before {
+.pine-level-open > .pine-level-2 > .has-submenu > a:before {
   z-index: 100;
   content: "";
   position: absolute;
@@ -6367,19 +6367,19 @@ td.visible-print {
   border-color: transparent transparent transparent #777777;
 }
 @media (max-width: 599px) {
-  .pine ul li.pine-level-open ul > li.has-submenu > a:before {
+  .pine-level-open > .pine-level-2 > .has-submenu > a:before {
     right: 15px;
   }
 }
 @media (max-width: 599px) {
-  .pine ul li.pine-level-open ul > li.has-submenu > a:before {
+  .pine-level-open > .pine-level-2 > .has-submenu > a:before {
     border-color: transparent transparent transparent #777777;
   }
 }
-.pine ul ul li.pine-level-open ul > li.has-submenu > a {
+.pine-level-open > .pine-level-3 > .has-submenu > a {
   padding-right: 30px;
 }
-.pine ul ul li.pine-level-open ul > li.has-submenu > a:before {
+.pine-level-open > .pine-level-3 > .has-submenu > a:before {
   z-index: 100;
   content: "";
   position: absolute;
@@ -6394,12 +6394,12 @@ td.visible-print {
   border-color: transparent transparent transparent #777777;
 }
 @media (max-width: 599px) {
-  .pine ul ul li.pine-level-open ul > li.has-submenu > a:before {
+  .pine-level-open > .pine-level-3 > .has-submenu > a:before {
     right: 15px;
   }
 }
 @media (max-width: 599px) {
-  .pine ul ul li.pine-level-open ul > li.has-submenu > a:before {
+  .pine-level-open > .pine-level-3 > .has-submenu > a:before {
     border-color: transparent transparent transparent #777777;
   }
 }
