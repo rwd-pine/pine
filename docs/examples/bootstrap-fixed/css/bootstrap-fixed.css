@@ -6456,22 +6456,23 @@ td.visible-print {
   max-height: 0;
 }
 @media (max-width: 1199px) {
-  .fx-collapse ul > li.has-submenu > a:before,
-  .fx-collapse ul li.pine-level-open ul > li.has-submenu > a:before,
-  .fx-collapse ul ul li.pine-level-open ul > li.has-submenu > a:before {
+  .fx-collapse .pine-level-1 > .has-submenu > a:before,
+  .fx-collapse .pine-level-2 > .has-submenu > a:before,
+  .fx-collapse .pine-level-3 > .has-submenu > a:before {
     border-width: 6px 4px 0 4px;
     margin-top: -2px;
     border-color: #999999 transparent transparent transparent;
   }
 }
 @media (max-width: 1199px) and (max-width: 1199px) {
-  .fx-collapse ul > li.has-submenu > a:before,
-  .fx-collapse ul li.pine-level-open ul > li.has-submenu > a:before,
-  .fx-collapse ul ul li.pine-level-open ul > li.has-submenu > a:before {
+  .fx-collapse .pine-level-1 > .has-submenu > a:before,
+  .fx-collapse .pine-level-2 > .has-submenu > a:before,
+  .fx-collapse .pine-level-3 > .has-submenu > a:before {
     border-color: #999999 transparent transparent transparent;
   }
 }
-.fx-hover-fade ul ul {
+.fx-hover-fade .pine-level-2,
+.fx-hover-fade .pine-level-3 {
   filter: alpha(opacity=0);
   -webkit-opacity: 0;
   -moz-opacity: 0;
@@ -6480,6 +6481,19 @@ td.visible-print {
   -moz-transition: visibility 0s .1s, opacity .1s ease-in-out;
   -o-transition: visibility 0s .1s, opacity .1s ease-in-out;
   transition: visibility 0s .1s, opacity .1s ease-in-out;
+}
+.fx-hover-fade .pine-level-2 > li > a,
+.fx-hover-fade .pine-level-3 > li > a,
+.fx-hover-fade .pine-level-2 > li > strong,
+.fx-hover-fade .pine-level-3 > li > strong {
+  text-indent: 0;
+}
+.fx-hover-fade .pine-level-1 > li > a,
+.fx-hover-fade .pine-level-1 > li > strong {
+  -webkit-transition: background .1s;
+  -moz-transition: background .1s;
+  -o-transition: background .1s;
+  transition: background .1s;
 }
 .fx-hover-fade .pine-level-open > .pine-level-2,
 .fx-hover-fade .pine-level-open > .pine-level-3 {
@@ -6491,17 +6505,6 @@ td.visible-print {
   -moz-transition: opacity 0.1s ease-in-out;
   -o-transition: opacity 0.1s ease-in-out;
   transition: opacity 0.1s ease-in-out;
-}
-.fx-hover-fade ul li > a,
-.fx-hover-fade ul li > strong {
-  text-indent: 0 !important;
-}
-.fx-hover-fade .pine-level-1 > li > a,
-.fx-hover-fade .pine-level-1 > li > strong {
-  -webkit-transition: background .1s;
-  -moz-transition: background .1s;
-  -o-transition: background .1s;
-  transition: background .1s;
 }
 .fx-hover-fade .noanim {
   -webkit-transition: none !important;

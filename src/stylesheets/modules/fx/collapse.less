@@ -4,6 +4,7 @@
 // ----------------------------
 
 .fx-collapse {
+
   // Closed
   ul ul {
     overflow: hidden;
@@ -12,10 +13,10 @@
 
   // --- Toggle FX: triangle to bottom everywhere ---
 
-// 1st level: Horizontal variant
-  ul > li.has-submenu > a, // 1st level
-  ul li.pine-level-open ul > li.has-submenu > a, // 2nd level
-  ul ul li.pine-level-open ul > li.has-submenu > a { // 3rd level
+  // 1st level: Horizontal variant
+  .pine-level-1 > .has-submenu > a,
+  .pine-level-2 > .has-submenu > a,
+  .pine-level-3 > .has-submenu > a {
     &:before {
       @media (max-width: @p-small-display-end) {
         .caret-bottom(@p-level-1-caret-color, 4px);
