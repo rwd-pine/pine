@@ -39,7 +39,7 @@ http://a11yproject.com/posts/how-to-hide-content/
 
 /* Opened or hovered navigation item */
 
-#nav.pine li.is-open > a,
+#nav.pine li.pine-level-open > a,
 #nav.pine a:hover,
 #nav.pine a:active,
 #nav.pine a:focus {
