@@ -6149,58 +6149,69 @@ td.visible-print {
   }
 }
 @media (min-width: 992px) {
-  .pine.pine-horizontal ul > li {
+  .pine-horizontal ul > li {
     display: inline-block;
     position: relative;
     float: left;
   }
-  .pine.pine-horizontal ul > li > a,
-  .pine.pine-horizontal ul > li > strong {
+  .pine-horizontal ul > li > a,
+  .pine-horizontal ul > li > strong {
     text-align: center;
     display: block;
   }
-  .pine.pine-horizontal ul a {
+  .pine-horizontal ul a {
     position: relative;
   }
-  .pine.pine-horizontal ul ul {
+}
+@media (min-width: 992px) {
+  .pine-horizontal .pine-level-2,
+  .pine-horizontal .pine-level-3 {
     position: absolute;
   }
-  .pine.pine-horizontal ul ul li {
+  .pine-horizontal .pine-level-2 li,
+  .pine-horizontal .pine-level-3 li {
     display: block;
     float: none;
   }
-  .pine.pine-horizontal ul ul > li > a,
-  .pine.pine-horizontal ul ul > li > strong {
+  .pine-horizontal .pine-level-2 > li > a,
+  .pine-horizontal .pine-level-3 > li > a,
+  .pine-horizontal .pine-level-2 > li > strong,
+  .pine-horizontal .pine-level-3 > li > strong {
     text-align: left;
   }
-  .js .pine.pine-horizontal ul ul {
+  .js .pine-horizontal .pine-level-2,
+  .js .pine-horizontal .pine-level-3 {
     visibility: hidden;
   }
-  .pine.pine-horizontal ul ul ul {
+  .pine-horizontal .pine-level-3 {
     padding-top: 0;
     padding-bottom: 0;
   }
-  .pine.pine-horizontal ul > li > ul {
+}
+@media (min-width: 992px) {
+  .pine-horizontal .pine-level-2 {
     z-index: 50001;
     visibility: visible;
     left: 0;
     top: 100%;
     max-width: 313px;
   }
-  .pine.pine-horizontal ul ul > li > ul {
+  .pine-horizontal .pine-level-3 {
     z-index: 50002;
     visibility: visible;
     left: 100%;
     top: 0;
   }
-  .pine.pine-horizontal ul > li.pine-level-open > ul {
+}
+@media (min-width: 992px) {
+  .pine-horizontal .pine-level-open > .pine-level-2 {
     z-index: 50001;
     visibility: visible;
     left: 0;
     top: 100%;
     max-width: 313px;
   }
-  .pine.pine-horizontal ul ul > li.pine-level-open > ul {
+  .pine-horizontal .pine-level-open > .pine-level-3 {
     z-index: 50002;
     visibility: visible;
     left: 100%;

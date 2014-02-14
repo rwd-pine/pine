@@ -2,29 +2,14 @@
 // BASE: Horizontal variant
 // ----------------------------
 
-// Mixin: styl pro otevrenou druhou uroven zanoreni
-.nav-large-display-horizontal-2nd-level() {
-  z-index: 50001;
-  visibility: visible;
-  left: 0;
-  top: 100%;
-  max-width: 313px; // Max. sirka polozky v plne sirce layoutu
-  // border-top: 1px solid transparent;
-}
+// TODO
+// - mixins create more code, we need to extend
 
-// Mixin: styl pro otevrenou treti uroven zanoreni
-.nav-large-display-horizontal-3rd-level() {
-  z-index: 50002;
-  visibility: visible;
-  left: 100%;
-  top: 0;
-  // border-left: 1px solid transparent;
-}
 
-.pine.pine-horizontal {
+// - All levels styling is different from vertical & small screen base -
+
+.pine-horizontal {
   @media (min-width: @p-large-display-start) {
-
-    // - First level -
 
     ul > li {
       display: inline-block;
@@ -39,15 +24,20 @@
     }
 
     ul a {
-      position: relative; // TODO why?
+      position: relative;
     }
 
-    // - 2nd + 3rd level -
+  }
+}
 
-    ul ul {
+// - 2nd + 3rd level horizontal base -
+
+.pine-horizontal {
+  @media (min-width: @p-large-display-start) {
+
+    .pine-level-2,
+    .pine-level-3 {
       position: absolute;
-      // padding-top: 8px;
-      // padding-bottom: 8px;
 
       li {
         display: block;
@@ -61,40 +51,70 @@
     }
 
     // Hidden when JS is activated
-    .js & ul ul {
+    .js & .pine-level-2,
+    .js & .pine-level-3 {
       visibility: hidden;
     }
 
     // 3rd level top and bottom
-    ul ul ul {
+    .pine-level-3 {
       padding-top: 0;
       padding-bottom: 0;
     }
 
-    // - Rozbaleny stav: bez JS -
-    // Vsechno je otevrene
+  }
+}
 
-    // Otevrena druha uroven
-    ul > li > ul {
-      .nav-large-display-horizontal-2nd-level;
+
+// - 2nd, 3rd levels styling without JS -
+// (All levels are open)
+
+.pine-horizontal {
+  @media (min-width: @p-large-display-start) {
+
+    .pine-level-2 {
+      .mixin-large-display-horizontal-2nd-level;
     }
 
-    // Otevrena treti uroven
-    ul ul > li > ul {
-      .nav-large-display-horizontal-3rd-level;
-    }
-
-    // - Rozbaleny stav: s JS -
-
-    // Otevrena druha uroven
-    ul > li.pine-level-open > ul {
-      .nav-large-display-horizontal-2nd-level;
-    }
-
-    // Otevrena treti uroven
-    ul ul > li.pine-level-open > ul {
-      .nav-large-display-horizontal-3rd-level;
+    .pine-level-3 {
+      .mixin-large-display-horizontal-3rd-level;
     }
 
   }
+}
+
+// - 2nd, 3rd levels styling when opened with JS -
+
+.pine-horizontal {
+  @media (min-width: @p-large-display-start) {
+
+    .pine-level-open > .pine-level-2 {
+      .mixin-large-display-horizontal-2nd-level;
+    }
+
+    .pine-level-open > .pine-level-3 {
+      .mixin-large-display-horizontal-3rd-level;
+    }
+
+  }
+}
+
+
+// - Mixins -
+
+// Opened second level
+.mixin-large-display-horizontal-2nd-level() {
+  z-index: 50001;
+  visibility: visible;
+  left: 0;
+  top: 100%;
+  max-width: 313px;
+}
+
+// Opened third level
+.mixin-large-display-horizontal-3rd-level() {
+  z-index: 50002;
+  visibility: visible;
+  left: 100%;
+  top: 0;
 }
