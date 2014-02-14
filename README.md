@@ -8,7 +8,7 @@
 * Ready for both vertical and horizontal navigations
 * Customizable with effects and skins
 * Accessible, Mobile First architecture
-* jQuery/Zepto versions
+* jQuery compatible
 * Using the power of LESS variables
 * Internet Explorer 8+ compatible
 * … all in 7kB JS and 10kB CSS file
@@ -64,7 +64,7 @@ PineJS installation is quite easy, just follow steps below.
 
 Don't forget the classes `pine-level-…`, which indicates the level of nesting.
 
-**4) Add jQuery (or Zepto) and PineJS**  just before `</body>` tag:
+**4) Add jQuery and PineJS**  just before `</body>` tag:
 
 ```html
 <script src="pine/javascripts/jquery.js"></script>

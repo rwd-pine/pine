@@ -5,7 +5,7 @@
 * Ready for both vertical and horizontal navigations
 * Customizable with effects and skins
 * Accessible Mobile First architecture
-* jQuery/Zepto versions
+* jQuery compatible
 * Using the power of LESS variables
 * Internet Explorer 8+ compatible
 
