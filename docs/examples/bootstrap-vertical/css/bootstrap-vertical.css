@@ -6042,45 +6042,47 @@ td.visible-print {
     background: #f8f8f8;
     border: 0;
   }
-  .pine li {
+  li {
     position: relative;
   }
-  .pine a,
-  .pine strong {
+  a,
+  strong {
     display: block;
     border-bottom: 0;
     text-indent: 0;
   }
-  .pine .pine-level-1 > li > a,
-  .pine .pine-level-1 > li > strong {
-    padding: 15px 15px;
+}
+@media (min-width: 992px) {
+  .pine-level-1 > li > a,
+  .pine-level-1 > li > strong {
+    padding: 20px 20px;
     font-size: 14px;
     border-bottom: 1px solid #ffffff;
     border-right: 0;
   }
-  .pine .pine-level-1 > li:last-child > a,
-  .pine .pine-level-1 > li:last-child > strong {
+  .pine-level-1 > li:last-child > a,
+  .pine-level-1 > li:last-child > strong {
     border-bottom: 0;
     border-right: 0;
   }
-  .pine .pine-level-1 > li > a {
+  .pine-level-1 > li > a {
     background: linear-gradient(180deg, #efefef, #cfcfcf 98%, #afafaf 99%);
-    color: #777777;
+    color: #666666;
   }
-  .pine .pine-level-1 > li > a:hover,
-  .pine .pine-level-1 > li > a:focus,
-  .pine .pine-level-1 > li > a:active {
+  .pine-level-1 > li > a:hover,
+  .pine-level-1 > li > a:focus,
+  .pine-level-1 > li > a:active {
     background: linear-gradient(180deg, #e0e0e0, #c0c0c0 98%, #afafaf 99%);
-    color: #333333;
+    color: #666666;
   }
-  .pine .pine-level-1 > li > strong,
-  .pine .pine-level-1 > li.is-open > a {
+  .pine-level-1 > li > strong,
+  .pine-level-1 > li.is-open > a {
     background: linear-gradient(180deg, #e0e0e0, #c0c0c0 98%, #afafaf 99%);
     color: #555555;
   }
-  .pine .pine-level-1 > li > ul {
-    color: #777777;
-    background: linear-gradient(180deg, #efefef, #cfcfcf 98%, #afafaf 99%);
+}
+@media (min-width: 992px) {
+  .pine-level-2 {
     border: 0;
     border-radius: 0;
     border-top-left-radius: 0;
@@ -6090,31 +6092,31 @@ td.visible-print {
     -moz-box-shadow: none;
     box-shadow: none;
   }
-  .pine .pine-level-1 > li > ul > li > a,
-  .pine .pine-level-1 > li > ul > li > strong {
+  .pine-level-2 > li > a,
+  .pine-level-2 > li > strong {
     background: linear-gradient(180deg, #efefef, #cfcfcf 98%, #afafaf 99%);
-    padding: 15px 15px;
+    padding: 20px 20px;
     font-size: 14px;
-    color: #777777;
+    color: #666666;
     border-bottom: 1px solid #ffffff;
   }
-  .pine .pine-level-1 > li > ul > li:last-child > a,
-  .pine .pine-level-1 > li > ul > li:last-child > strong {
+  .pine-level-2 > li:last-child > a,
+  .pine-level-2 > li:last-child > strong {
     border-bottom: 0;
   }
-  .pine .pine-level-1 > li > ul > li > a:hover,
-  .pine .pine-level-1 > li > ul > li > a:focus,
-  .pine .pine-level-1 > li > ul > li > a:active {
+  .pine-level-2 > li > a:hover,
+  .pine-level-2 > li > a:focus,
+  .pine-level-2 > li > a:active {
     background: linear-gradient(180deg, #e0e0e0, #c0c0c0 98%, #afafaf 99%);
-    color: #777777;
+    color: #666666;
   }
-  .pine .pine-level-1 > li > ul > li.is-open > a {
+  .pine-level-2 > li.is-open > a {
     background: linear-gradient(180deg, #e0e0e0, #c0c0c0 98%, #afafaf 99%);
-    color: #777777;
+    color: #666666;
   }
-  .pine .pine-level-1 > li > ul > li > ul {
-    color: #777777;
-    background: linear-gradient(180deg, #efefef, #cfcfcf 98%, #afafaf 99%);
+}
+@media (min-width: 992px) {
+  .pine-level-3 {
     border: 0;
     border-radius: 0;
     background-clip: padding-box;
@@ -6123,27 +6125,27 @@ td.visible-print {
     box-shadow: none;
     overflow: hidden;
   }
-  .pine .pine-level-1 > li > ul > li > ul > li > a,
-  .pine .pine-level-1 > li > ul > li > ul > li > strong {
+  .pine-level-3 > li > a,
+  .pine-level-3 > li > strong {
     background: linear-gradient(180deg, #efefef, #cfcfcf 98%, #afafaf 99%);
-    padding: 15px 15px;
+    padding: 20px 20px;
     font-size: 14px;
-    color: #777777;
+    color: #666666;
     border-bottom: 1px solid #ffffff;
   }
-  .pine .pine-level-1 > li > ul > li > ul > li:last-child > a,
-  .pine .pine-level-1 > li > ul > li > ul > li:last-child > strong {
+  .pine-level-3 > li:last-child > a,
+  .pine-level-3 > li:last-child > strong {
     border-bottom: 0;
   }
-  .pine .pine-level-1 > li > ul > li > ul > li > a:hover,
-  .pine .pine-level-1 > li > ul > li > ul > li > a:focus,
-  .pine .pine-level-1 > li > ul > li > ul > li > a:active {
+  .pine-level-3 > li > a:hover,
+  .pine-level-3 > li > a:focus,
+  .pine-level-3 > li > a:active {
     background: linear-gradient(180deg, #e0e0e0, #c0c0c0 98%, #afafaf 99%);
-    color: #777777;
+    color: #666666;
   }
-  .pine .pine-level-1 > li > ul > li > ul > li.is-open > a {
+  .pine-level-3 > li.is-open > a {
     background: linear-gradient(180deg, #e0e0e0, #c0c0c0 98%, #afafaf 99%);
-    color: #777777;
+    color: #666666;
   }
 }
 @media (min-width: 992px) {
@@ -6271,13 +6273,13 @@ td.visible-print {
   position: relative;
 }
 .pine ul > li.has-submenu > a {
-  padding-right: 30px;
+  padding-right: 40px;
 }
 .pine ul > li.has-submenu > a:before {
   z-index: 100;
   content: "";
   position: absolute;
-  right: 15px;
+  right: 20px;
   top: 50%;
   display: inline-block;
   width: 0px;
@@ -6298,7 +6300,7 @@ td.visible-print {
   }
 }
 .pine.pine-horizontal ul > li.has-submenu > a {
-  padding-right: 30px;
+  padding-right: 40px;
 }
 .pine.pine-horizontal ul > li.has-submenu > a:before {
   border-width: 6px 4px 0 4px;
@@ -6323,13 +6325,13 @@ td.visible-print {
   }
 }
 .pine ul li.is-open ul > li.has-submenu > a {
-  padding-right: 30px;
+  padding-right: 40px;
 }
 .pine ul li.is-open ul > li.has-submenu > a:before {
   z-index: 100;
   content: "";
   position: absolute;
-  right: 15px;
+  right: 20px;
   top: 50%;
   display: inline-block;
   width: 0px;
@@ -6350,13 +6352,13 @@ td.visible-print {
   }
 }
 .pine ul ul li.is-open ul > li.has-submenu > a {
-  padding-right: 30px;
+  padding-right: 40px;
 }
 .pine ul ul li.is-open ul > li.has-submenu > a:before {
   z-index: 100;
   content: "";
   position: absolute;
-  right: 15px;
+  right: 20px;
   top: 50%;
   display: inline-block;
   width: 0px;

@@ -6042,45 +6042,47 @@ td.visible-print {
     background: #f8f8f8;
     border: 1px solid #e7e7e7;
   }
-  .pine li {
+  li {
     position: relative;
   }
-  .pine a,
-  .pine strong {
+  a,
+  strong {
     display: block;
     border-bottom: 0;
     text-indent: 0;
   }
-  .pine .pine-level-1 > li > a,
-  .pine .pine-level-1 > li > strong {
+}
+@media (min-width: 600px) {
+  .pine-level-1 > li > a,
+  .pine-level-1 > li > strong {
     padding: 15px 15px;
     font-size: 14px;
     border-bottom: 0;
     border-right: 0;
   }
-  .pine .pine-level-1 > li:last-child > a,
-  .pine .pine-level-1 > li:last-child > strong {
+  .pine-level-1 > li:last-child > a,
+  .pine-level-1 > li:last-child > strong {
     border-bottom: 0;
     border-right: 0;
   }
-  .pine .pine-level-1 > li > a {
+  .pine-level-1 > li > a {
     background: transparent;
     color: #777777;
   }
-  .pine .pine-level-1 > li > a:hover,
-  .pine .pine-level-1 > li > a:focus,
-  .pine .pine-level-1 > li > a:active {
+  .pine-level-1 > li > a:hover,
+  .pine-level-1 > li > a:focus,
+  .pine-level-1 > li > a:active {
     background: transparent;
     color: #333333;
   }
-  .pine .pine-level-1 > li > strong,
-  .pine .pine-level-1 > li.is-open > a {
+  .pine-level-1 > li > strong,
+  .pine-level-1 > li.is-open > a {
     background: #e7e7e7;
     color: #555555;
   }
-  .pine .pine-level-1 > li > ul {
-    color: #777777;
-    background: #ffffff;
+}
+@media (min-width: 600px) {
+  .pine-level-2 {
     border: 1px solid #cccccc;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 4px;
@@ -6091,31 +6093,31 @@ td.visible-print {
     -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   }
-  .pine .pine-level-1 > li > ul > li > a,
-  .pine .pine-level-1 > li > ul > li > strong {
+  .pine-level-2 > li > a,
+  .pine-level-2 > li > strong {
     background: #ffffff;
     padding: 7.5px 15px;
     font-size: 14px;
     color: #777777;
     border-bottom: 0;
   }
-  .pine .pine-level-1 > li > ul > li:last-child > a,
-  .pine .pine-level-1 > li > ul > li:last-child > strong {
+  .pine-level-2 > li:last-child > a,
+  .pine-level-2 > li:last-child > strong {
     border-bottom: 0;
   }
-  .pine .pine-level-1 > li > ul > li > a:hover,
-  .pine .pine-level-1 > li > ul > li > a:focus,
-  .pine .pine-level-1 > li > ul > li > a:active {
+  .pine-level-2 > li > a:hover,
+  .pine-level-2 > li > a:focus,
+  .pine-level-2 > li > a:active {
     background: #f5f5f5;
     color: #262626;
   }
-  .pine .pine-level-1 > li > ul > li.is-open > a {
+  .pine-level-2 > li.is-open > a {
     background: #428bca;
     color: #ffffff;
   }
-  .pine .pine-level-1 > li > ul > li > ul {
-    color: #777777;
-    background: #ffffff;
+}
+@media (min-width: 600px) {
+  .pine-level-3 {
     border: 1px solid #cccccc;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 0 0 4px 4px;
@@ -6125,25 +6127,25 @@ td.visible-print {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     overflow: hidden;
   }
-  .pine .pine-level-1 > li > ul > li > ul > li > a,
-  .pine .pine-level-1 > li > ul > li > ul > li > strong {
+  .pine-level-3 > li > a,
+  .pine-level-3 > li > strong {
     background: #ffffff;
     padding: 7.5px 15px;
     font-size: 14px;
     color: #777777;
     border-bottom: 0;
   }
-  .pine .pine-level-1 > li > ul > li > ul > li:last-child > a,
-  .pine .pine-level-1 > li > ul > li > ul > li:last-child > strong {
+  .pine-level-3 > li:last-child > a,
+  .pine-level-3 > li:last-child > strong {
     border-bottom: 0;
   }
-  .pine .pine-level-1 > li > ul > li > ul > li > a:hover,
-  .pine .pine-level-1 > li > ul > li > ul > li > a:focus,
-  .pine .pine-level-1 > li > ul > li > ul > li > a:active {
+  .pine-level-3 > li > a:hover,
+  .pine-level-3 > li > a:focus,
+  .pine-level-3 > li > a:active {
     background: #f5f5f5;
     color: #777777;
   }
-  .pine .pine-level-1 > li > ul > li > ul > li.is-open > a {
+  .pine-level-3 > li.is-open > a {
     background: #428bca;
     color: #ffffff;
   }
