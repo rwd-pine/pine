@@ -49,11 +49,20 @@ PineJS installation is quite easy, just follow steps below.
 
 ```html
 <div id="nav" role="navigation" class="pine pine-horizontal">
-  <ul>
-    <li>…</li>
+  <ul class="pine-level-1">
+    <li>
+       <a href="#url">Level 1 item</a>
+      <ul class="pine-level-2">
+        <li><a href="#url">Level 2 item</a></li>
+        <!-- More level 2 items … -->
+      </ul>
+    </li>
+    <!-- More level 1 items … -->
   </ul>
 </div>
 ```
+
+Don't forget the classes `pine-level-…`, which indicates the level of nesting.
 
 **4) Add jQuery (or Zepto) and PineJS**  just before `</body>` tag:
 
@@ -165,4 +174,3 @@ Made in Prague by Martin Staněk ([@koucik](https://twitter.com/koucik)) & Marti
 ## Licence
 
 Copyright 2011-2014 Martin Staněk & Martin Michálek. Released under the [MIT license](https://github.com/rwd-pine/pine/blob/master/LICENCE).
-
