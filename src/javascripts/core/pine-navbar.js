@@ -180,17 +180,17 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     var $this = $(this)
     var $parent  = $this.parent()
 
-    if ($parent.hasClass('has-submenu') && !$parent.hasClass('is-open')) {
+    if ($parent.hasClass('has-submenu') && !$parent.hasClass('pine-level-open')) {
       $this.trigger($.Event('mouseover'))
     }
 
-    var openedMenus = $('.is-open')
+    var openedMenus = $('.pine-level-open')
 
     if(openedMenus.length == 0) return
 
     openedMenus.filter(function(i){
       return $(this).find($this).length === 0
-    }).removeClass('is-open')
+    }).removeClass('pine-level-open')
   };
 
   /**
@@ -209,7 +209,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     Resets navigation to default state.
   **/
   Navbar.resetNav = function () {
-    $(this.SUBMENU).removeClass('is-open')
+    $(this.SUBMENU).removeClass('pine-level-open')
   };
 
   /**

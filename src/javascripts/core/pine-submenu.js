@@ -27,7 +27,7 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
   Submenu.toggle = function (e) {
     var $menu = $(e.currentTarget).closest('.has-submenu'),
         transition = this.activeTransition && this.activeTransition.beforeToggle,
-        isActive = $menu.hasClass('is-open');
+        isActive = $menu.hasClass('pine-level-open');
 
     e.preventDefault()
     // e.stopPropagation()
@@ -42,13 +42,13 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
       // }
 
       $menu.trigger(e = $.Event('show')) /* show.submenu */
-      $menu.addClass('is-open').trigger('shown') /* shown.submenu */
+      $menu.addClass('pine-level-open').trigger('shown') /* shown.submenu */
 
       $.log('Event: show')
     }
     else {
       $menu.trigger(e = $.Event('hide')) /* hide.submenu */
-      $menu.removeClass('is-open').trigger('hidden') /* hidden.submenu */
+      $menu.removeClass('pine-level-open').trigger('hidden') /* hidden.submenu */
 
       $.log('Event: hide')
     }

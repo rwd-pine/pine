@@ -4,14 +4,16 @@
 // ----------------------------
 
 .fx-hover-fade {
+
+  // Default 2nd, 3rd level
   ul ul {
     .opacity(0);
     .transition(~"visibility 0s .1s, opacity .1s ease-in-out");
   }
 
-  // Opened 2nd level
-  ul > li.is-open > ul,
-  ul ul > li.is-open > ul {
+  // Opened 2nd, 3rd level
+  .pine-level-open > .pine-level-2,
+  .pine-level-open > .pine-level-3 {
     .opacity(1);
     .transition(opacity .1s ease-in-out);
   }

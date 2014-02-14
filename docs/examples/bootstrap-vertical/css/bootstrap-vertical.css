@@ -6076,7 +6076,7 @@ td.visible-print {
     color: #666666;
   }
   .pine-level-1 > li > strong,
-  .pine-level-1 > li.is-open > a {
+  .pine-level-1 > li.pine-level-open > a {
     background: linear-gradient(180deg, #e0e0e0, #c0c0c0 98%, #afafaf 99%);
     color: #555555;
   }
@@ -6110,7 +6110,7 @@ td.visible-print {
     background: linear-gradient(180deg, #e0e0e0, #c0c0c0 98%, #afafaf 99%);
     color: #666666;
   }
-  .pine-level-2 > li.is-open > a {
+  .pine-level-2 > li.pine-level-open > a {
     background: linear-gradient(180deg, #e0e0e0, #c0c0c0 98%, #afafaf 99%);
     color: #666666;
   }
@@ -6143,7 +6143,7 @@ td.visible-print {
     background: linear-gradient(180deg, #e0e0e0, #c0c0c0 98%, #afafaf 99%);
     color: #666666;
   }
-  .pine-level-3 > li.is-open > a {
+  .pine-level-3 > li.pine-level-open > a {
     background: linear-gradient(180deg, #e0e0e0, #c0c0c0 98%, #afafaf 99%);
     color: #666666;
   }
@@ -6193,14 +6193,14 @@ td.visible-print {
     left: 100%;
     top: 0;
   }
-  .pine.pine-horizontal ul > li.is-open > ul {
+  .pine.pine-horizontal ul > li.pine-level-open > ul {
     z-index: 50001;
     visibility: visible;
     left: 0;
     top: 100%;
     max-width: 313px;
   }
-  .pine.pine-horizontal ul ul > li.is-open > ul {
+  .pine.pine-horizontal ul ul > li.pine-level-open > ul {
     z-index: 50002;
     visibility: visible;
     left: 100%;
@@ -6240,13 +6240,13 @@ td.visible-print {
   }
 }
 @media (min-width: 992px) {
-  .pine-vertical .is-open > .pine-level-2 {
+  .pine-vertical .pine-level-open > .pine-level-2 {
     z-index: 50001;
     visibility: visible;
     left: 100%;
     max-width: 313px;
   }
-  .pine-vertical .is-open > .pine-level-3 {
+  .pine-vertical .pine-level-open > .pine-level-3 {
     z-index: 50002;
     visibility: visible;
     left: 100%;
@@ -6336,10 +6336,10 @@ td.visible-print {
     border-color: transparent transparent transparent #777777;
   }
 }
-.pine ul li.is-open ul > li.has-submenu > a {
+.pine ul li.pine-level-open ul > li.has-submenu > a {
   padding-right: 40px;
 }
-.pine ul li.is-open ul > li.has-submenu > a:before {
+.pine ul li.pine-level-open ul > li.has-submenu > a:before {
   z-index: 100;
   content: "";
   position: absolute;
@@ -6354,19 +6354,19 @@ td.visible-print {
   border-color: transparent transparent transparent #777777;
 }
 @media (max-width: 991px) {
-  .pine ul li.is-open ul > li.has-submenu > a:before {
+  .pine ul li.pine-level-open ul > li.has-submenu > a:before {
     right: 15px;
   }
 }
 @media (max-width: 991px) {
-  .pine ul li.is-open ul > li.has-submenu > a:before {
+  .pine ul li.pine-level-open ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #777777;
   }
 }
-.pine ul ul li.is-open ul > li.has-submenu > a {
+.pine ul ul li.pine-level-open ul > li.has-submenu > a {
   padding-right: 40px;
 }
-.pine ul ul li.is-open ul > li.has-submenu > a:before {
+.pine ul ul li.pine-level-open ul > li.has-submenu > a:before {
   z-index: 100;
   content: "";
   position: absolute;
@@ -6381,12 +6381,12 @@ td.visible-print {
   border-color: transparent transparent transparent #777777;
 }
 @media (max-width: 991px) {
-  .pine ul ul li.is-open ul > li.has-submenu > a:before {
+  .pine ul ul li.pine-level-open ul > li.has-submenu > a:before {
     right: 15px;
   }
 }
 @media (max-width: 991px) {
-  .pine ul ul li.is-open ul > li.has-submenu > a:before {
+  .pine ul ul li.pine-level-open ul > li.has-submenu > a:before {
     border-color: transparent transparent transparent #777777;
   }
 }
@@ -6446,8 +6446,8 @@ td.visible-print {
 }
 @media (max-width: 991px) {
   .fx-collapse ul > li.has-submenu > a:before,
-  .fx-collapse ul li.is-open ul > li.has-submenu > a:before,
-  .fx-collapse ul ul li.is-open ul > li.has-submenu > a:before {
+  .fx-collapse ul li.pine-level-open ul > li.has-submenu > a:before,
+  .fx-collapse ul ul li.pine-level-open ul > li.has-submenu > a:before {
     border-width: 6px 4px 0 4px;
     margin-top: -2px;
     border-color: #777777 transparent transparent transparent;
@@ -6455,8 +6455,8 @@ td.visible-print {
 }
 @media (max-width: 991px) and (max-width: 991px) {
   .fx-collapse ul > li.has-submenu > a:before,
-  .fx-collapse ul li.is-open ul > li.has-submenu > a:before,
-  .fx-collapse ul ul li.is-open ul > li.has-submenu > a:before {
+  .fx-collapse ul li.pine-level-open ul > li.has-submenu > a:before,
+  .fx-collapse ul ul li.pine-level-open ul > li.has-submenu > a:before {
     border-color: #777777 transparent transparent transparent;
   }
 }
@@ -6470,8 +6470,8 @@ td.visible-print {
   -o-transition: visibility 0s .1s, opacity .1s ease-in-out;
   transition: visibility 0s .1s, opacity .1s ease-in-out;
 }
-.fx-hover-fade .is-open > .pine-level-2,
-.fx-hover-fade .is-open > .pine-level-3 {
+.fx-hover-fade .pine-level-open > .pine-level-2,
+.fx-hover-fade .pine-level-open > .pine-level-3 {
   filter: alpha(opacity=100);
   -webkit-opacity: 1;
   -moz-opacity: 1;
@@ -6520,10 +6520,10 @@ td.visible-print {
   -o-transition: visibility 0s .2s;
   transition: visibility 0s .2s;
 }
-.fx-right-to-left ul .is-open > ul {
+.fx-right-to-left ul .pine-level-open > ul {
   visibility: visible;
 }
-.fx-right-to-left .pine-level-1 > .is-open > ul {
+.fx-right-to-left .pine-level-1 > .pine-level-open > ul {
   -webkit-transition: visibility 0s 0s;
   -moz-transition: visibility 0s 0s;
   -o-transition: visibility 0s 0s;

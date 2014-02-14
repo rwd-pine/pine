@@ -132,7 +132,7 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
   Submenu.toggle = function (e) {
     var $menu = $(e.currentTarget).closest('.has-submenu'),
         transition = this.activeTransition && this.activeTransition.beforeToggle,
-        isActive = $menu.hasClass('is-open');
+        isActive = $menu.hasClass('pine-level-open');
 
     e.preventDefault()
     // e.stopPropagation()
@@ -147,13 +147,13 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
       // }
 
       $menu.trigger(e = $.Event('show')) /* show.submenu */
-      $menu.addClass('is-open').trigger('shown') /* shown.submenu */
+      $menu.addClass('pine-level-open').trigger('shown') /* shown.submenu */
 
       $.log('Event: show')
     }
     else {
       $menu.trigger(e = $.Event('hide')) /* hide.submenu */
-      $menu.removeClass('is-open').trigger('hidden') /* hidden.submenu */
+      $menu.removeClass('pine-level-open').trigger('hidden') /* hidden.submenu */
 
       $.log('Event: hide')
     }
@@ -346,17 +346,17 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     var $this = $(this)
     var $parent  = $this.parent()
 
-    if ($parent.hasClass('has-submenu') && !$parent.hasClass('is-open')) {
+    if ($parent.hasClass('has-submenu') && !$parent.hasClass('pine-level-open')) {
       $this.trigger($.Event('mouseover'))
     }
 
-    var openedMenus = $('.is-open')
+    var openedMenus = $('.pine-level-open')
 
     if(openedMenus.length == 0) return
 
     openedMenus.filter(function(i){
       return $(this).find($this).length === 0
-    }).removeClass('is-open')
+    }).removeClass('pine-level-open')
   };
 
   /**
@@ -375,7 +375,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     Resets navigation to default state.
   **/
   Navbar.resetNav = function () {
-    $(this.SUBMENU).removeClass('is-open')
+    $(this.SUBMENU).removeClass('pine-level-open')
   };
 
   /**

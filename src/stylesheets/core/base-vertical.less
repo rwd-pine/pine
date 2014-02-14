@@ -1,73 +1,89 @@
 //
-// BASE: Vertical variant
+// Vertical variant
 // ----------------------------
 
 // TODO
-// - english
-// - more accurate selectors
 // - mixins create more code, we need to extend
 
-// Mixin: styl pro otevrenou druhou uroven zanoreni
-.nav-large-display-vertical-2nd-level() {
-  z-index: 50001;
-  visibility: visible;
-  left: 100%;
-  max-width: 313px; // Max. sirka polozky v plne sirce layoutu
-  // border-left: 1px solid transparent;
-}
+// - 1st level navigation item styling -
 
-// Mixin: styl pro otevrenou treti uroven zanoreni
-.nav-large-display-vertical-3rd-level() {
-  z-index: 50002;
-  visibility: visible;
-  // border-left: 1px solid transparent;
-}
-
-.pine.pine-vertical {
+.pine-vertical {
   @media (min-width: @p-large-display-start) {
 
-    // Vychozi stav druhe a treti urovne
-    ul ul {
-    	top: 0;
-    	position: absolute;
-    }
-
-    // Zabaleny stav druhe a treti urovne (pri nacteni JS)
-    .js & ul ul {
-    	visibility: hidden;
-    }
-
-    // Prvni uroven zanoreni
     a,
     strong {
-    	padding-top: 8px;
-    	padding-bottom: 8px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+  }
+}
+
+// - 2nd, 3rd levels initial styling -
+
+.pine-vertical {
+  @media (min-width: @p-large-display-start) {
+
+    .pine-level-2,
+    .pine-level-3 {
+      top: 0;
+      position: absolute;
     }
 
-    // - Rozbaleny stav: bez JS -
+    // 2nd, 3rd levels are hidden when JS is active
 
-    // Otevrena druha uroven
-    ul > li > ul {
-    	.nav-large-display-vertical-2nd-level;
+    .js & .pine-level-2,
+    .js & .pine-level-3 {
+      visibility: hidden;
+    }
+  }
+}
+
+// - 2nd, 3rd levels styling without JS -
+
+.pine-vertical {
+  @media (min-width: @p-large-display-start) {
+
+    .pine-level-2 {
+      .mixin-large-display-vertical-2nd-level;
     }
 
-    // Otevrena treti uroven
-    ul ul > li > ul {
-    	.nav-large-display-vertical-3rd-level;
-    }
-
-    // - Rozbaleny stav: s JS -
-
-    // Otevrena druha uroven
-    ul > li.is-open > ul {
-    	.nav-large-display-vertical-2nd-level;
-    }
-
-    // Otevrena treti uroven
-    ul ul > li.is-open > ul {
-    	.nav-large-display-vertical-3rd-level;
+    .pine-level-3 {
+      .mixin-large-display-vertical-3rd-level;
     }
 
   }
 }
 
+// - 2nd, 3rd levels styling when opened with JS -
+
+.pine-vertical {
+  @media (min-width: @p-large-display-start) {
+
+    .pine-level-open > .pine-level-2 {
+      .mixin-large-display-vertical-2nd-level;
+    }
+
+    .pine-level-open > .pine-level-3 {
+      .mixin-large-display-vertical-3rd-level;
+    }
+
+  }
+}
+
+// - Mixins -
+
+// Opened second level
+.mixin-large-display-vertical-2nd-level() {
+  z-index: 50001;
+  visibility: visible;
+  left: 100%;
+  max-width: 313px;
+}
+
+// Opened third level
+.mixin-large-display-vertical-3rd-level() {
+  z-index: 50002;
+  visibility: visible;
+  left: 100%;
+  max-width: 313px;
+}
