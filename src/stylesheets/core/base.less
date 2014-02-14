@@ -1,8 +1,8 @@
-// Pine defaults
+// Pine base
 // (Small screens and vertical variant styling.)
 // ------------------------------------------------------------------
 
-// Defaults TODO refactor
+// Base for .pine container
 
 .pine {
 	z-index: @p-z-index;
@@ -10,36 +10,18 @@
 	background: @p-background;
 	.clearfix();
 
-	@media (min-width: @p-large-display-start) {
-		border-radius: @p-border-radius;
-	}
+  // Border radius on large screens
+  @media (min-width: @p-large-display-start) {
+    border-radius: @p-border-radius;
+  }
 
-	// Small screens with JS opening
-
-	@media (max-width: @p-small-display-end) {
-		.js & {
-			max-height: 0;
-      position: absolute;
-      top: @p-small-screen-top;
-      left: 0;
-			overflow: hidden;
-			width: 100%;
-			.transition(~"max-height .1s ease-in-out");
-		}
-
-		.js &.is-visible {
-			max-height: 2000px;
-			overflow: visible;
-		}
-
-	}
-
+  // Don't print your navigation
 	@media print {
 		display: none;
 	}
 }
 
-// Navigation defaults
+// Base for inner elements
 
 .pine {
 	ul,
@@ -48,7 +30,11 @@
 		padding: 0;
 		list-style-type: none;
 	}
+}
 
+// Base for navigation items on small screens and without JS
+
+.pine {
 	li > a,
 	li > strong {
 		display: block;
@@ -60,7 +46,7 @@
 		background: @p-small-screen-background;
 	}
 
-	// Active
+	// Active state
 	li a:hover,
 	li a:focus,
 	li a:active,
@@ -69,16 +55,43 @@
 		color: @p-small-screen-active-color;
 	}
 
-	// Second level
-	ul ul li > a,
-	ul ul li > strong {
+  // On small screens or vertical variant for large screens
+  // we distinguish levels of nesting using text indentation
+
+	// 2nd level
+	.pine-level-2 > li > a,
+	.pine-level-2 > li > strong {
 		text-indent: 1em;
 	}
 
-	// Third level
-	ul ul ul li > a,
-	ul ul ul li > strong {
+	// 3rd level
+	.pine-level-3 > li > a,
+	.pine-level-3 > li > strong {
 		text-indent: 2em;
 	}
+}
 
+// Navigiton toggling on small screens
+// - Without JS it is visible anyway.
+// - With JS we are hiding it.
+// - Click on trigger button with data-pine="toggle"
+//   will show it again.
+
+.pine {
+  @media (max-width: @p-small-display-end) {
+    .js & {
+      max-height: 0;
+      position: absolute;
+      top: @p-small-screen-top;
+      left: 0;
+      overflow: hidden;
+      width: 100%;
+      .transition(max-height .1s ease-in-out);
+    }
+
+    .js &.is-visible {
+      max-height: 2000px;
+      overflow: visible;
+    }
+  }
 }

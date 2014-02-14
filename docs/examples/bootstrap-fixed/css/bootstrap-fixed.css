@@ -5739,9 +5739,7 @@ button.close {
 .modal-footer:before,
 .modal-footer:after {
   content: " ";
-  /* 1 */
   display: table;
-  /* 2 */
 }
 .clearfix:after,
 .container:after,
@@ -5965,9 +5963,7 @@ td.visible-print {
 .pine:before,
 .pine:after {
   content: " ";
-  /* 1 */
   display: table;
-  /* 2 */
 }
 .pine:after {
   clear: both;
@@ -5975,9 +5971,7 @@ td.visible-print {
 .pine:before,
 .pine:after {
   content: " ";
-  /* 1 */
   display: table;
-  /* 2 */
 }
 .pine:after {
   clear: both;
@@ -5985,24 +5979,6 @@ td.visible-print {
 @media (min-width: 1200px) {
   .pine {
     border-radius: 0;
-  }
-}
-@media (max-width: 1199px) {
-  .js .pine {
-    max-height: 0;
-    position: absolute;
-    top: 51px;
-    left: 0;
-    overflow: hidden;
-    width: 100%;
-    -webkit-transition: max-height .1s ease-in-out;
-    -moz-transition: max-height .1s ease-in-out;
-    -o-transition: max-height .1s ease-in-out;
-    transition: max-height .1s ease-in-out;
-  }
-  .js .pine.is-visible {
-    max-height: 2000px;
-    overflow: visible;
   }
 }
 @media print {
@@ -6035,13 +6011,31 @@ td.visible-print {
   background: #080808;
   color: #ffffff;
 }
-.pine ul ul li > a,
-.pine ul ul li > strong {
+.pine .pine-level-2 > li > a,
+.pine .pine-level-2 > li > strong {
   text-indent: 1em;
 }
-.pine ul ul ul li > a,
-.pine ul ul ul li > strong {
+.pine .pine-level-3 > li > a,
+.pine .pine-level-3 > li > strong {
   text-indent: 2em;
+}
+@media (max-width: 1199px) {
+  .js .pine {
+    max-height: 0;
+    position: absolute;
+    top: 51px;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    -webkit-transition: max-height 0.1s ease-in-out;
+    -moz-transition: max-height 0.1s ease-in-out;
+    -o-transition: max-height 0.1s ease-in-out;
+    transition: max-height 0.1s ease-in-out;
+  }
+  .js .pine.is-visible {
+    max-height: 2000px;
+    overflow: visible;
+  }
 }
 @media (min-width: 1200px) {
   .pine {
