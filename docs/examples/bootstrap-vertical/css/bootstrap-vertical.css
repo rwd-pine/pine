@@ -6055,7 +6055,7 @@ td.visible-print {
 @media (min-width: 992px) {
   .pine-level-1 > li > a,
   .pine-level-1 > li > strong {
-    padding: 20px 20px;
+    padding: 10px 20px;
     font-size: 14px;
     border-bottom: 1px solid #ffffff;
     border-right: 0;
@@ -6095,7 +6095,7 @@ td.visible-print {
   .pine-level-2 > li > a,
   .pine-level-2 > li > strong {
     background: linear-gradient(180deg, #efefef, #cfcfcf 98%, #afafaf 99%);
-    padding: 20px 20px;
+    padding: 10px 20px;
     font-size: 14px;
     color: #666666;
     border-bottom: 1px solid #ffffff;
@@ -6128,7 +6128,7 @@ td.visible-print {
   .pine-level-3 > li > a,
   .pine-level-3 > li > strong {
     background: linear-gradient(180deg, #efefef, #cfcfcf 98%, #afafaf 99%);
-    padding: 20px 20px;
+    padding: 10px 20px;
     font-size: 14px;
     color: #666666;
     border-bottom: 1px solid #ffffff;
@@ -6208,37 +6208,49 @@ td.visible-print {
   }
 }
 @media (min-width: 992px) {
-  .pine.pine-vertical ul ul {
-    top: 0;
-    position: absolute;
-  }
-  .js .pine.pine-vertical ul ul {
-    visibility: hidden;
-  }
-  .pine.pine-vertical a,
-  .pine.pine-vertical strong {
+  .pine-vertical a,
+  .pine-vertical strong {
     padding-top: 8px;
     padding-bottom: 8px;
   }
-  .pine.pine-vertical ul > li > ul {
+}
+@media (min-width: 992px) {
+  .pine-vertical .pine-level-2,
+  .pine-vertical .pine-level-3 {
+    top: 0;
+    position: absolute;
+  }
+  .js .pine-vertical .pine-level-2,
+  .js .pine-vertical .pine-level-3 {
+    visibility: hidden;
+  }
+}
+@media (min-width: 992px) {
+  .pine-vertical .pine-level-2 {
     z-index: 50001;
     visibility: visible;
     left: 100%;
     max-width: 313px;
   }
-  .pine.pine-vertical ul ul > li > ul {
+  .pine-vertical .pine-level-3 {
     z-index: 50002;
     visibility: visible;
+    left: 100%;
+    max-width: 313px;
   }
-  .pine.pine-vertical ul > li.is-open > ul {
+}
+@media (min-width: 992px) {
+  .pine-vertical .is-open > .pine-level-2 {
     z-index: 50001;
     visibility: visible;
     left: 100%;
     max-width: 313px;
   }
-  .pine.pine-vertical ul ul > li.is-open > ul {
+  .pine-vertical .is-open > .pine-level-3 {
     z-index: 50002;
     visibility: visible;
+    left: 100%;
+    max-width: 313px;
   }
 }
 .js .pine-fixed {
@@ -6458,8 +6470,8 @@ td.visible-print {
   -o-transition: visibility 0s .1s, opacity .1s ease-in-out;
   transition: visibility 0s .1s, opacity .1s ease-in-out;
 }
-.fx-hover-fade ul > li.is-open > ul,
-.fx-hover-fade ul ul > li.is-open > ul {
+.fx-hover-fade .is-open > .pine-level-2,
+.fx-hover-fade .is-open > .pine-level-3 {
   filter: alpha(opacity=100);
   -webkit-opacity: 1;
   -moz-opacity: 1;
