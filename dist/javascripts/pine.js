@@ -366,7 +366,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     e.preventDefault();
 
     $(this).toggleClass('is-active')
-    $(document).find($(this).attr('href')).toggleClass('is-visible')
+    $(document).find($(this).attr('href')).toggleClass('pine-visible')
 
     $.log('Event: Toggle Navbar')
   };

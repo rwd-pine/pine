@@ -67,7 +67,7 @@
     -o-transition: max-height 0.1s ease-in-out;
     transition: max-height 0.1s ease-in-out;
   }
-  .js .pine.is-visible {
+  .js .pine.pine-visible {
     max-height: 2000px;
     overflow: visible;
   }
