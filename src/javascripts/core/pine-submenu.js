@@ -25,7 +25,7 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
   // Method: Event handler that shows submenus
   // -------------
   Submenu.toggle = function (e) {
-    var $menu = $(e.currentTarget).closest('.has-submenu'),
+    var $menu = $(e.currentTarget).closest('.pine-has-subnav'),
         transition = this.activeTransition && this.activeTransition.beforeToggle,
         isActive = $menu.hasClass('pine-level-open');
 

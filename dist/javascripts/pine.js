@@ -130,7 +130,7 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
   // Method: Event handler that shows submenus
   // -------------
   Submenu.toggle = function (e) {
-    var $menu = $(e.currentTarget).closest('.has-submenu'),
+    var $menu = $(e.currentTarget).closest('.pine-has-subnav'),
         transition = this.activeTransition && this.activeTransition.beforeToggle,
         isActive = $menu.hasClass('pine-level-open');
 
@@ -235,7 +235,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   };
 
   Navbar.NAVBAR_TOGGLE =  '[data-pine=toggle]';
-  Navbar.SUBMENU =        '.has-submenu';
+  Navbar.SUBMENU =        '.pine-has-subnav';
 
   /**
     Navigation options which override defaults
@@ -264,7 +264,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     this.isLargeDisplay ? this.setActiveTransition(this.options.fxLargeDisplay) : this.setActiveTransition(this.options.fxSmallDisplay)
 
     /* Mark all submenus */
-    this.element.find('li').has('[class*="pine-level-"]').addClass('has-submenu')
+    this.element.find('li').has('[class*="pine-level-"]').addClass('pine-has-subnav')
     this.element.find('a').on('focus', this.focus) /* focus.pine */
 
     /* CLICK: Default behavior, submenu is triggered on click */
@@ -346,7 +346,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     var $this = $(this)
     var $parent  = $this.parent()
 
-    if ($parent.hasClass('has-submenu') && !$parent.hasClass('pine-level-open')) {
+    if ($parent.hasClass('pine-has-subnav') && !$parent.hasClass('pine-level-open')) {
       $this.trigger($.Event('mouseover'))
     }
 
