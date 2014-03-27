@@ -6042,11 +6042,11 @@ td.visible-print {
     background: #f8f8f8;
     border: 0;
   }
-  li {
+  .pine li {
     position: relative;
   }
-  a,
-  strong {
+  .pine a,
+  .pine strong {
     display: block;
     border-bottom: 0;
     text-indent: 0;
