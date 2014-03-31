@@ -25,7 +25,7 @@
 }(window.jQuery || window.Zepto));
 /*! matchMedia() polyfill - Test a CSS media type/query in JS. Authors & copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas. Dual MIT/BSD license */
 
-window.matchMedia = window.matchMedia || (function(doc, undefined){
+window.matchMq = (function(doc, undefined){
 
   var docElem  = doc.documentElement,
       refNode  = docElem.firstElementChild || docElem.firstChild,
@@ -260,7 +260,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     this.element = $(element)
 
     /* Initialize view and set active transtition */
-    this.isLargeDisplay = window.matchMedia('(min-width: ' + this.options.largeDisplayStart + ')').matches
+    this.isLargeDisplay = window.matchMq('(min-width: ' + this.options.largeDisplayStart + ')').matches
     this.isLargeDisplay ? this.setActiveTransition(this.options.fxLargeDisplay) : this.setActiveTransition(this.options.fxSmallDisplay)
 
     /* Mark all submenus */
@@ -309,7 +309,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     Checks current view if it satisfies switch condition. If no switch occurs, it returns null.
   **/
   Navbar.checkMedia = function (e) {
-    var condition = window.matchMedia('(min-width: ' + this.options.largeDisplayStart + ')').matches
+    var condition = window.matchMq('(min-width: ' + this.options.largeDisplayStart + ')').matches
     var isLoad = e.type && (e.type == 'load')
 
     /* Check first load or switch beetween views (mobile XOR desktop), it sets isLargeDisplay value only when it is needed */

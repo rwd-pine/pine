@@ -340,8 +340,8 @@
   right: 16px;
   top: 50%;
   display: inline-block;
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
   border-style: solid;
   border-width: 4px 0 4px 6px;
   margin-top: -4px;
@@ -392,8 +392,8 @@
   right: 16px;
   top: 50%;
   display: inline-block;
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
   border-style: solid;
   border-width: 4px 0 4px 6px;
   margin-top: -4px;
@@ -419,8 +419,8 @@
   right: 16px;
   top: 50%;
   display: inline-block;
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
   border-style: solid;
   border-width: 4px 0 4px 6px;
   margin-top: -4px;

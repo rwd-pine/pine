@@ -167,7 +167,7 @@ module.exports = function(grunt) {
 
     // Flatten media queries and generate special CSS for IE8
     legacssy: {
-      default: {
+      dist: {
         options: {
           legacyWidth: 600,
           matchingOnly: true,
@@ -201,7 +201,7 @@ module.exports = function(grunt) {
   grunt.registerTask('dist-copy', ['copy']);
 
   // CSS distribution task.
-  grunt.registerTask('dist-css', ['less', 'csslint', 'legacssy']);
+  grunt.registerTask('dist-css', ['less', 'legacssy']);
 
   // Full distribution task.
   grunt.registerTask('dist', ['clean', 'copy', 'dist-css', 'dist-js']);

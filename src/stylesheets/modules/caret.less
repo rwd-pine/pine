@@ -3,49 +3,49 @@
 // Context where we are positioning the indicator
 .pine-has-subnav > a,
 .pine-has-subnav > strong {
-	position: relative;
+  position: relative;
 }
 
 // 1st level: Default - vertical
 .pine-level-1 > .pine-has-subnav > a {
-	padding-right: 2*@p-level-1-padding-x;
+  padding-right: 2*@p-level-1-padding-x;
 
-	&:before {
-		.caret-base(@p-level-1-padding-x);
-		.caret-right(@p-level-1-caret-color, 4px);
-	}
+  &:before {
+    .caret-base(@p-level-1-padding-x);
+    .caret-right(@p-level-1-caret-color, 4px);
+  }
 }
 
 // 1st level: Horizontal variant
 .pine-horizontal .pine-level-1 > .pine-has-subnav > a {
-	padding-right: 2*@p-level-1-padding-x;
+  padding-right: 2*@p-level-1-padding-x;
 
-	&:before {
-		.caret-bottom(@p-level-1-caret-color, 4px);
-		@media (max-width: @p-small-display-end) {
-			.caret-right(@p-level-1-caret-color, 4px);
-		}
-	}
+  &:before {
+    .caret-bottom(@p-level-1-caret-color, 4px);
+    @media (max-width: @p-small-display-end) {
+      .caret-right(@p-level-1-caret-color, 4px);
+    }
+  }
 }
 
 // 2nd level
 .pine-level-open > .pine-level-2 > .pine-has-subnav > a {
-	padding-right: 2*@p-level-2-padding-x;
+  padding-right: 2*@p-level-2-padding-x;
 
-	&:before {
-		.caret-base(@p-level-2-padding-x);
-		.caret-right(@p-level-2-caret-color, 4px);
-	}
+  &:before {
+    .caret-base(@p-level-2-padding-x);
+    .caret-right(@p-level-2-caret-color, 4px);
+  }
 }
 
 // 3rd level
 .pine-level-open > .pine-level-3 > .pine-has-subnav > a {
-	padding-right: 2*@p-level-3-padding-x;
+  padding-right: 2*@p-level-3-padding-x;
 
-	&:before {
-		.caret-base(@p-level-3-padding-x);
-		.caret-right(@p-level-3-caret-color, 4px);
-	}
+  &:before {
+    .caret-base(@p-level-3-padding-x);
+    .caret-right(@p-level-3-caret-color, 4px);
+  }
 }
 
 // - Mixins -
@@ -53,41 +53,41 @@
 // Mixin: Caret base
 
 .caret-base(@padding-right) {
-	z-index: 100;
-	content: "";
-	position: absolute;
-	right: @padding-right;
-	top: 50%;
-	display: inline-block;
-	width: 0px;
-	height: 0px;
-	border-style: solid;
-	// Small screen version has only first level look
-	@media (max-width: @p-small-display-end) {
-		right: @p-small-screen-padding-horizontal;
-	}
+  z-index: 100;
+  content: "";
+  position: absolute;
+  right: @padding-right;
+  top: 50%;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  // Small screen version has only first level look
+  @media (max-width: @p-small-display-end) {
+    right: @p-small-screen-padding-horizontal;
+  }
 }
 
 // Mixin: Caret turned down
 
 .caret-bottom(@color, @caret-size) {
-	border-width: (@caret-size * 1.5) @caret-size 0 @caret-size;
-	margin-top: -1*@caret-size/2;
-	border-color: @color transparent transparent transparent;
-	// Small screen version has only first level look
-	@media (max-width: @p-small-display-end) {
-		border-color: @p-level-1-caret-color  transparent transparent transparent;
-	}
+  border-width: (@caret-size * 1.5) @caret-size 0 @caret-size;
+  margin-top: -1*@caret-size/2;
+  border-color: @color transparent transparent transparent;
+  // Small screen version has only first level look
+  @media (max-width: @p-small-display-end) {
+    border-color: @p-level-1-caret-color  transparent transparent transparent;
+  }
 }
 
 // Mixin: Caret facing left
 
 .caret-right(@color, @caret-size) {
-	border-width: @caret-size 0 @caret-size (@caret-size * 1.5);
-	margin-top: -1*@caret-size;
-	border-color: transparent transparent transparent @color;
-	// Small screen version has only first level look
-	@media (max-width: @p-small-display-end) {
-		border-color: transparent transparent transparent  @p-level-1-caret-color;
-	}
+  border-width: @caret-size 0 @caret-size (@caret-size * 1.5);
+  margin-top: -1*@caret-size;
+  border-color: transparent transparent transparent @color;
+  // Small screen version has only first level look
+  @media (max-width: @p-small-display-end) {
+    border-color: transparent transparent transparent  @p-level-1-caret-color;
+  }
 }
