@@ -39,7 +39,8 @@ module.exports = function(grunt) {
         files: [
           { expand: true, cwd: 'bower_components/jquery', src: ['jquery.min.js'], dest: 'dist/javascripts', filter: 'isFile' },
           { expand: true, cwd: 'bower_components/jquery-legacy', src: ['jquery.min.js'], dest: 'dist/javascripts/jquery-legacy', filter: 'isFile' },
-          { expand: true, cwd: 'bower_components/matchmedia/', src: ['matchmedia.js'], dest: 'src/javascripts/lib', filter: 'isFile' }
+          { expand: true, cwd: 'bower_components/matchmedia/', src: ['matchmedia.js'], dest: 'src/javascripts/lib', filter: 'isFile' },
+          { expand: true, cwd: 'src/javascripts/lib/', src: ['matchmedia.js'], dest: 'dist/javascripts/', filter: 'isFile' }
         ]
       },
       assets: {
@@ -70,7 +71,7 @@ module.exports = function(grunt) {
         src: [
           'src/javascripts/lib/jsnojs.js',
           'src/javascripts/lib/log.js',
-          'src/javascripts/lib/matchmedia.js',
+          // 'src/javascripts/lib/matchmedia.js',
           'src/javascripts/core/pine-submenu.js',
           'src/javascripts/core/pine-navbar.js',
           'src/javascripts/fx/hover.js',
