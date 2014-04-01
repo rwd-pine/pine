@@ -1,10 +1,69 @@
----
-layout: home
-title: PineJS
-base_url: "./"
----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Martin Stanek, Martin Michalek">
 
-<main class="bs-masthead" id="content" role="main">
+<title>
+  
+    PineJS &middot; Pine
+  
+</title>
+
+<!-- Bootstrap core CSS -->
+<link href="./dist/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+<!-- Pine core CSS -->
+<link href="./dist/stylesheets/pine.min.css" rel="stylesheet">
+
+<!-- Documentation extras -->
+<link href="./assets/stylesheets/docs.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> -->
+<!-- <link rel="shortcut icon" href="../assets/ico/favicon.ico" -->
+
+
+  </head>
+  <body class="bs-docs-home">
+    <a class="sr-only" href="#content">Skip to main content</a>
+
+    <!-- Docs master nav -->
+    <header class="navbar navbar-static-top bs-docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <!-- <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button> -->
+      <a href="../" class="navbar-brand">Pine.JS</a>
+    </div>
+    <!-- <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="../examples">Examples</a>
+        </li>
+      </ul>
+    </nav> -->
+  </div>
+</header>
+
+
+    <!-- Page content of course! -->
+    <main class="bs-masthead" id="content" role="main">
   <div class="container">
     <div class="row">
       <div class="col-xs-8 col-xs-push-2 col-sm-push-0 col-sm-4 col-md-4">
@@ -27,10 +86,154 @@ base_url: "./"
 
   <div class="container">
 
-  {% capture index %}
-    {% include index.md %}
-  {% endcapture %}
-  {{ index | markdownify }}
+  
+  <h1>Features</h1>
+
+<ul>
+<li>Compatible with Bootstrap 3, but may be implemented independently</li>
+<li>Ready for both vertical and horizontal navigations</li>
+<li>Customizable with effects and skins</li>
+<li>Accessible Mobile First architecture</li>
+<li>jQuery compatible</li>
+<li>Using the power of LESS variables</li>
+<li>Internet Explorer 8+ compatible</li>
+</ul>
+
+
+<h1>Usage</h1>
+
+<p>Installation of Pine is quite easy, just follow steps below and you will be able to get the plugin up and running.</p>
+
+<!---If you notice any bugs, please post them to [GitHub issues](github_url).-->
+
+
+<ol>
+<li><p>Link JS plugin:
+<code>html
+&lt;!-- Put this right before the &lt;/body&gt; closing tag --&gt;
+&lt;script src="pine/javascripts/pine.js"&gt;&lt;/script&gt;
+</code></p></li>
+<li><p>Link CSS:
+<code>html
+&lt;!-- Put this in the &lt;head&gt; --&gt;
+&lt;link rel="stylesheet" href="dist/stylesheets/pine.css"&gt;
+</code></p></li>
+<li><p>Add markup:
+<code>html
+TODO: code
+&lt;div id="nav" role="navigation" class="pine pine-horizontal"&gt;
+ &lt;ul&gt;
+   ...
+ &lt;/ul&gt;
+&lt;/div&gt;
+</code></p></li>
+<li><p>Hook up the plugin:
+<code>html
+&lt;!-- Put this right before the &lt;/body&gt; closing tag --&gt;
+&lt;script&gt;
+ $('.pine').pine()
+&lt;/script&gt;
+</code></p></li>
+<li><p>Customizable options:
+<code>javascript
+$('.pine').pine({ // Selector
+ largeDisplayStart:       '600px', // Custom JS Breakpoint
+ transitionMobile:   'fx-toggle', // Effect for 'Mobile' View
+ transitionDesktop:  'fx-hover-fade' // Effect for 'Desktop' View
+})
+</code></p>
+
+<h2>Advanced Usage</h2></li>
+<li><p>bower?</p></li>
+<li>git?</li>
+<li><a href="#TODO">Download</a></li>
+<li>zepto/jquery</li>
+<li>let's rename <script src="../dist/javascripts/app.js"></script> to pine.js?</li>
+</ol>
+
+
+<h2>Customization</h2>
+
+<p>TODO MS/MM</p>
+
+<ul>
+<li>JS variables (MS)</li>
+<li>LESS variables (MM)</li>
+</ul>
+
+
+<h2>IE8 support</h2>
+
+<p>Pine.JS code is Mobile First and therefore a large part of the code is unavailable for Explorer 8 and older. You can choose from two solutions:</p>
+
+<p>1) <a href="https://github.com/scottjehl/Respond">Respond.js</a> - (preferred solution)javascript that can arrange for support Media Queries in these older browsers. It is a standard way which uses Bootstrap itself. Just add Respond.js in the HTML <code>&lt;head&gt;</code> just after CSS files:</p>
+
+<p>```html</p>
+
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+<p>```</p>
+
+<p>2) <code>pine-ie8.css</code> - if Respond.js does not fit your needs, add this CSS file in your HTML <code>&lt;head&gt;</code>. It contains all of the code hidden in the Media Queries:</p>
+
+<p><code>html
+&lt;link href="css/pine-ie8.css" rel="stylesheet"&gt;
+</code></p>
+
+<h2>Examples</h2>
+
+<!-- TODO MM -->
+
+
+<p>Simple CSS implementation:</p>
+
+<ul>
+<li><a href="#/vertical/">Vertical multi-level navigation</a></li>
+<li><a href="#/horizontal/">Horizontal multi-level navigation</a></li>
+</ul>
+
+
+<p>LESS implementation:</p>
+
+<ul>
+<li><a href="#/bootstrap-vertical/">Bootstrap vertical multi-level navigation</a></li>
+<li><a href="#/bootstrap-horizontal/">Bootstrap horizontal multi-level navigation</a></li>
+<li><a href="#/bootstrap-fixed/">Bootstrap fixed horizontal multi-level navigation, inverted color scheme</a></li>
+</ul>
+
+
+<h1>Working on the repository</h1>
+
+<p>PineJS comes with common tools, which help you to easily customize it and make you own builds. <a href="http://gruntjs.com/">GruntJS</a> is used for the build process. If you already have it, you are ready to go. Otherwise you need node and npm on your machine. Installation of Grunt is described in <a href="http://gruntjs.com/getting-started">Getting Started Tutorial</a>.</p>
+
+<h2>Dependencies</h2>
+
+<p>After you've set up the environment, use <code>npm install</code> to get all dependencies. To build the project, enter the following at the terminal:</p>
+
+<p><code>sh
+grunt
+</code></p>
+
+<p>Grunt can also be used to monitor files and re-build the project on each change. For this we use Grunt's watch task:</p>
+
+<p><code>sh
+grunt watch
+</code></p>
+
+<p>Next time you change the file, Grunt will perform all build tasks.</p>
+
+<h2>Authors</h2>
+
+<p>Martin Staněk (<a href="https://twitter.com/koucik">@koucik</a>) &amp; Martin Michálek (<a href="https://twitter.com/machal">@machal</a>)</p>
+
+<h2>Licence</h2>
+
 
   </div>
 
@@ -38,3 +241,55 @@ base_url: "./"
 
 
 
+
+
+    <!-- Footer
+================================================== -->
+<footer class="bs-footer" role="contentinfo">
+  <div class="container">
+    <div class="bs-social">
+  <ul class="bs-social-buttons">
+    <li>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=rwd-pine&amp;repo=pine&amp;type=watch&amp;count=true" width="100" height="20" title="Star on GitHub"></iframe>
+    </li>
+    <li>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=rwd-pine&amp;repo=pine&amp;type=fork&amp;count=true" width="102" height="20" title="Fork on GitHub"></iframe>
+    </li>
+    <li class="tweet-btn">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://github.com/rwd-pine/pine" data-count="horizontal">Tweet</a>
+    </li>
+  </ul>
+</div>
+
+
+    <p>Designed, coded and maintained by Martin Michálek (<a href="http://twitter.com/machal" target="_blank">@machal</a>) and Martin Staněk (<a href="http://twitter.com/koucik" target="_blank">@koucik</a>).</p>
+
+    <!-- <p>Code licensed under <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p> -->
+    <ul class="footer-links muted">
+      <li>Currently v0.0.1</li>
+      <li>&middot;</li>
+      <li><a href="https://github.com/rwd-pine/pine.git">GitHub</a></li>
+      <li>&middot;</li>
+      <li><a href="https://github.com/rwd-pine/pine.git/issues?state=open">Issues</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="./dist/javascripts/pine.min.js"></script>
+
+
+<script>
+  window.twttr = (function (d,s,id) {
+    var t, js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return; js=d.createElement(s); js.id=id; js.async=1;
+    js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+    return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+  }(document, "script", "twitter-wjs"));
+</script>
+
+  </body>
+</html>

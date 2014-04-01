@@ -56,8 +56,9 @@ module.exports = function(grunt) {
       },
       docs: {
         files: [
-          { expand: true, cwd: './dist', src: ['{stylesheets,javascripts}/*.min.*'], dest: 'docs/dist' },
-          { expand: true, cwd: 'bower_components/bootstrap/dist/css', src: ['bootstrap.min.css'], dest: 'docs/dist/stylesheets' }
+          { expand: true, cwd: 'dist', src: ['{stylesheets,javascripts}/*.*'], dest: 'src/docs/dist' },
+          { expand: true, cwd: 'bower_components/bootstrap/dist/css', src: ['bootstrap.min.css'], dest: 'src/docs/dist/stylesheets' },
+          { expand: true, cwd: 'bower_components/normalize-css/', src: ['normalize.css'], dest: 'src/docs/dist/stylesheets' }
         ]
       }
     },
@@ -178,6 +179,10 @@ module.exports = function(grunt) {
           'dist/stylesheets/pine-ie8.css': 'dist/stylesheets/pine.css'
         }
       }
+    },
+
+    jekyll: {
+      docs: {}
     }
 
   });
@@ -193,6 +198,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-legacssy');
   grunt.loadNpmTasks('grunt-contrib-csslint');
+  grunt.loadNpmTasks('grunt-jekyll');
+
+  // Build Docs - copy dist to
+  grunt.registerTask('build-docs', ['copy:docs', 'jekyll']);
 
   // JS distribution task.
   // TODO: Compress later grunt.registerTask('dist-js', ['concat', 'uglify', 'compress']);

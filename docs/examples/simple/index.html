@@ -1,37 +1,46 @@
 <!DOCTYPE html>
-
 <html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Martin Stanek, Martin Michalek">
 
-<head>
-  <meta charset="UTF-8">
+<title>
+  
+    PineJS - Simple Navigation Example &middot; Pine
+  
+</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Pine.JS — simple example</title>
 
   <!-- Normalize.CSS http://necolas.github.io/normalize.css/ -->
-  <link rel="stylesheet" href="../../../bower_components/normalize-css/normalize.css">
+  <link rel="stylesheet" href="../../dist/stylesheets/normalize.css">
 
-  <!-- Pine.JS styles -->
-  <link rel="stylesheet" href="../../../dist/stylesheets/pine.css">
+  <!-- Pine.JS core styles -->
+  <link rel="stylesheet" href="../../dist/stylesheets/pine.min.css">
+
+  <!-- Documentation extras -->
+  <link href="../../assets/stylesheets/docs.css" rel="stylesheet">
 
   <!-- Pine.JS IE8 styles -->
-  <!--[if IE 8]><script src="../../../dist/stylesheets/pine-ie8.css"></script><![endif]-->
+  <!--[if IE 8]>
+    <script src="../../dist/stylesheets/pine-ie8.css"></script>
+  <![endif]-->
 
-  <!-- This example styles -->
-  <link rel="stylesheet" href="css/simple.css">
 
-</head>
+<!-- Favicons -->
+<!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> -->
+<!-- <link rel="shortcut icon" href="../assets/ico/favicon.ico" -->
 
-<body>
+  </head>
 
-  <!-- Because our navigation is large UL/LI list, screen readers need this:
-  -->
-  <p class="sr-only">
-    <a href="#content">Skip to content</a>
-  </p>
+  <body class="pdocs-simple">
 
-  <!-- Toggle on small screens:
+    <a class="sr-only" href="#content">Skip to main content</a>
+
+      <!-- Toggle on small screens:
        Style it or use your own small screen toggle button. Just add data-pine="toggle".
   -->
   <a class="pine-trigger" data-pine="toggle" href="#nav">
@@ -55,41 +64,48 @@
 
 
   <div role="main" id="content">
-      <h1>Pine.JS example: simplest possible implementation</h1>
+    <h1>Pine.JS example: simplest possible implementation</h1>
 
-      <p>In this test-case:</p>
+    <p>In this test-case:</p>
 
-      <ul>
-        <li>Horizontal navigation</li>
-        <li>No skin</li>
-        <li>IE8 support via <code>pine-ie8.css</code></li>
-      </ul>
+    <ul>
+      <li>Horizontal navigation</li>
+      <li>No skin</li>
+      <li>IE8 support via <code>pine-ie8.css</code></li>
+    </ul>
 
-      <p>
-        Follow comments in <code>css/simple.css</code>
-        and this HTML file.
-      </p>
+    <p>
+      Follow comments in <code>css/simple.css</code>
+      and this HTML file.
+    </p>
 
-      <p>
-        <a href="#TODO">Pine.JS documentation</a>
-      </p>
+    <p>
+      <a href="#TODO">Pine.JS documentation</a>
+    </p>
   </div>
 
-  <!-- Javascripts
-  ========================== -->
 
-  <!-- TODO: load conditionally -->
-  <script src="../../../dist/javascripts/jquery.min.js"></script>
-  <script src="../../../dist/javascripts/pine.js"></script>
-  <script>
+<!-- JavaScripts
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-    // Pine.JS init
 
-    $(function() {
-      $('.pine').pine();
+
+<script src="../../dist/javascripts/pine.min.js"></script>
+
+
+<script>
+
+  $(function() {
+    $('.pine').pine({
+      fxSmallDisplay: 'fx-collapse',
+      fxLargeDisplay: 'fx-hover-fade'
     });
+  });
 
-  </script>
+</script>
 
-</body>
+
+  </body>
 </html>

@@ -1,0 +1,39 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Martin Stanek, Martin Michalek">
+
+<title>
+  {% if page.title == "Pine" %}
+    {{ page.title }}
+  {% else %}
+    {{ page.title }} &middot; Pine
+  {% endif %}
+</title>
+
+{% if page.bootstrap_theme %}
+  <link rel="stylesheet" href="css/{{ page.bootstrap_theme }}.css">
+
+  <script src="{{ page.base_url }}dist/javascripts/matchmedia.js"></script>
+  <!--[if IE 8]><script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script><![endif]-->
+
+{% else %}
+
+  <!-- Normalize.CSS http://necolas.github.io/normalize.css/ -->
+  <link rel="stylesheet" href="{{ page.base_url }}dist/stylesheets/normalize.css">
+
+  <!-- Pine.JS core styles -->
+  <link rel="stylesheet" href="{{ page.base_url }}dist/stylesheets/pine.min.css">
+
+  <!-- Documentation extras -->
+  <link href="{{ page.base_url }}assets/stylesheets/docs.css" rel="stylesheet">
+
+  <!-- Pine.JS IE8 styles -->
+  <!--[if IE 8]>
+    <script src="{{ page.base_url }}dist/stylesheets/pine-ie8.css"></script>
+  <![endif]-->
+
+{% endif %}
+<!-- Favicons -->
+<!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> -->
+<!-- <link rel="shortcut icon" href="../assets/ico/favicon.ico" -->
