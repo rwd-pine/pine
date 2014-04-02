@@ -72,7 +72,7 @@ module.exports = function(grunt) {
         src: [
           'src/javascripts/lib/jsnojs.js',
           'src/javascripts/lib/log.js',
-          // 'src/javascripts/lib/matchmedia.js',
+          'src/javascripts/lib/matchmedia.js',
           'src/javascripts/core/pine-submenu.js',
           'src/javascripts/core/pine-navbar.js',
           'src/javascripts/fx/hover.js',
