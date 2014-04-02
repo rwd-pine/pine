@@ -1,6 +1,6 @@
 # PineJS
 
-<img align="right" height="286" width="391" src="http://martinstanek.cz/external/pine/logo-pine.png">
+<img align="right" height="183" width="250" src="http://martinstanek.cz/external/pine/logo-pine.png">
 
 ### Tiny but powerfull responsive multilevel navigation component.
 
