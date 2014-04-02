@@ -241,10 +241,3 @@
   left: 100%;
   max-width: 313px;
 }
-
-.js .pine-fixed-large {
-  top: 0;
-  left: 0;
-  position: fixed;
-  width: 100%;
-}

@@ -56,6 +56,7 @@ module.exports = function(grunt) {
       },
       docs: {
         files: [
+          { expand: true, cwd: 'bower_components/bootstrap/dist/js', src: ['bootstrap.min.js'], dest: 'src/docs/dist/javascripts', filter: 'isFile' },
           { expand: true, cwd: 'dist', src: ['{stylesheets,javascripts}/*.*'], dest: 'src/docs/dist' },
           { expand: true, cwd: 'bower_components/bootstrap/dist/css', src: ['bootstrap.min.css'], dest: 'src/docs/dist/stylesheets' },
           { expand: true, cwd: 'bower_components/normalize-css/', src: ['normalize.css'], dest: 'src/docs/dist/stylesheets' }
@@ -138,9 +139,9 @@ module.exports = function(grunt) {
 
       examples: {
         files: {
-          'docs/examples/bootstrap-fixed/css/bootstrap-fixed.css': 'docs/examples/bootstrap-fixed/css/bootstrap-fixed.less',
-          'docs/examples/bootstrap-horizontal/css/bootstrap-horizontal.css': 'docs/examples/bootstrap-horizontal/css/bootstrap-horizontal.less',
-          'docs/examples/bootstrap-vertical/css/bootstrap-vertical.css': 'docs/examples/bootstrap-vertical/css/bootstrap-vertical.less'
+          'src/docs/examples/bootstrap-fixed/css/bootstrap-fixed.css': 'src/docs/examples/bootstrap-fixed/css/bootstrap-fixed.less',
+          'src/docs/examples/bootstrap-horizontal/css/bootstrap-horizontal.css': 'src/docs/examples/bootstrap-horizontal/css/bootstrap-horizontal.less',
+          'src/docs/examples/bootstrap-vertical/css/bootstrap-vertical.css': 'src/docs/examples/bootstrap-vertical/css/bootstrap-vertical.less'
         }
       }
     },
@@ -152,13 +153,13 @@ module.exports = function(grunt) {
       src: [
         'dist/stylesheets/<%= pkg.name %>.css',
         'dist/stylesheets/<%= pkg.name %>-ie8.css',
-        'docs/examples/**/*.css'
+        'src/docs/examples/**/*.css'
       ]
     },
 
     watch: {
       css: {
-        files: ['src/stylesheets/**/*.less', 'examples/**/*.less'],
+        files: ['src/stylesheets/**/*.less', 'src/docs/**/*.less'],
         tasks: ['less', 'legacssy']
       },
       js: {

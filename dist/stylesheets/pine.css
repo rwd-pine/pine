@@ -62,14 +62,15 @@
     left: 0;
     overflow: hidden;
     width: 100%;
+    border-top: 1px solid transparent;
     -webkit-transition: max-height 0.1s ease-in-out;
     -moz-transition: max-height 0.1s ease-in-out;
     -o-transition: max-height 0.1s ease-in-out;
     transition: max-height 0.1s ease-in-out;
   }
   .js .pine.pine-visible {
-    max-height: 2000px;
-    overflow: visible;
+    max-height: 340px;
+    overflow-y: auto;
   }
 }
 @media (min-width: 600px) {
@@ -299,33 +300,6 @@
     max-width: 313px;
   }
 }
-.js .pine-fixed {
-  top: 0;
-  left: 0;
-  position: fixed;
-  width: 100%;
-}
-@media (max-width: 599px) {
-  .js .pine-fixed {
-    top: 42px;
-  }
-}
-@media (max-width: 599px) {
-  .js .pine-fixed-small {
-    top: 42px;
-    left: 0;
-    position: fixed;
-    width: 100%;
-  }
-}
-@media (min-width: 600px) {
-  .js .pine-fixed-large {
-    top: 0;
-    left: 0;
-    position: fixed;
-    width: 100%;
-  }
-}
 .pine-has-subnav > a,
 .pine-has-subnav > strong {
   position: relative;
@@ -489,6 +463,11 @@
 .fx-collapse ul ul {
   overflow: hidden;
   max-height: 0;
+}
+.fx-collapse .pine-level-open > .pine-level-2,
+.fx-collapse .pine-level-open > .pine-level-3 {
+  overflow: visible;
+  max-height: none;
 }
 @media (max-width: 599px) {
   .fx-collapse .pine-level-1 > .pine-has-subnav > a:before,

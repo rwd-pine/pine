@@ -87,12 +87,13 @@
       left: 0;
       overflow: hidden;
       width: 100%;
+      border-top: 1px solid @p-small-screen-border-color;
       .transition(max-height .1s ease-in-out);
     }
 
     .js &.pine-visible {
-      max-height: 2000px;
-      overflow: visible;
+      max-height: 340px; // same as bootstrap, but will be dynamically set by JS
+      overflow-y: auto;
     }
   }
 }

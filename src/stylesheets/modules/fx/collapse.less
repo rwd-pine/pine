@@ -11,9 +11,14 @@
     max-height: 0;
   }
 
-  // --- Toggle FX: triangle to bottom everywhere ---
+  .pine-level-open > .pine-level-2,
+  .pine-level-open > .pine-level-3 {
+    overflow: visible;
+    max-height: none;
+  }
 
-  // 1st level: Horizontal variant
+  // --- Toggle FX: triangle to bottom everywhere ---
+  // TODO: Is it really correct design? (MS: 2.4.2014)
   .pine-level-1 > .pine-has-subnav > a,
   .pine-level-2 > .pine-has-subnav > a,
   .pine-level-3 > .pine-has-subnav > a {
@@ -24,3 +29,5 @@
     }
   }
 }
+
+

@@ -20,13 +20,9 @@ bootstrap_theme: bootstrap-fixed
         </a>
         <a href="../" class="navbar-brand">Pine.JS</a>
       </div>
-    </div>
-  </div>
 
+      <div id="nav" role="navigation" class="pine pine-horizontal">
 
-      <div id="nav" role="navigation" class="pine pine-horizontal pine-fixed">
-        <!--  Bootstrap's container is needed here -->
-        <div class="container">
           <!--
              Navigation content
              Data source:
@@ -218,9 +214,10 @@ bootstrap_theme: bootstrap-fixed
                 <a href="#">Shipping Info</a>
               </li>
             </ul>
-        </div><!-- .container -->
       </div><!-- [role=navigation] -->
 
+    </div><!-- /container -->
+  </div><!-- /navbar -->
 
     <div class="container"  role="main" id="content">
 
@@ -299,15 +296,13 @@ bootstrap_theme: bootstrap-fixed
     </div> <!-- /container -->
 
 
-
-
  {% include footer-examples.html %}
 
   <script>
 
     $(function() {
       $('.pine').pine({
-        fxSmallDisplay: 'fx-right-to-left',
+        fxSmallDisplay: 'fx-collapse',
         fxLargeDisplay: 'fx-hover-fade',
         largeDisplayStart: '1200px'   // Custom small/large breakpoint
       });
