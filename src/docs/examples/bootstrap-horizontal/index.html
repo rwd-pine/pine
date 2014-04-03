@@ -6,30 +6,28 @@ body_class: pdocs-bs-horizontal
 bootstrap_theme: bootstrap-horizontal
 ---
 
-      <!--
-        Bootstrap's navbar as small screen header hidden on large screens.
-        Watch data-pine="toggle" attribute.
-      -->
-      <div class="navbar navbar-default mobile-header">
-        <div class="container">
-          <div class="navbar-header">
-            <a class="navbar-toggle" data-pine="toggle" type="button" href="#nav">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </a>
-            <a href="../" class="navbar-brand">Bootstrap</a>
-          </div>
-        </div>
-      </div>
+<!--
+   Data source: sony.com navigation
+-->
 
+    <div class="navbar navbar-default navbar-static-top">
       <div class="container">
-        <div id="nav" role="navigation" class="pine pine-horizontal">
-          <!--
-             Data source: sony.com navigation
-          -->
 
+        <!--
+          Bootstrap's navbar as small screen header hidden on large screens.
+          Watch data-pine="toggle" attribute.
+        -->
+        <div class="navbar-header">
+          <a class="navbar-toggle" data-pine="toggle" type="button" href="#nav">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a href="../" class="navbar-brand">Pine</a>
+        </div><!-- /navbar-header -->
+
+        <div id="nav" role="navigation" class="pine pine-horizontal">
           <ul class="pine-level-1">
             <li>
               <a href="http://www.sony.com/#">Electronics</a>
@@ -518,9 +516,10 @@ bootstrap_theme: bootstrap-horizontal
               </ul>
             </li>
           </ul>
-
         </div><!-- [role=navigation] -->
-      </div>
+
+      </div><!-- /container -->
+    </div><!-- /navbar -->
 
 
     <div class="container">

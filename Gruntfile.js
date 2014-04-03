@@ -165,6 +165,10 @@ module.exports = function(grunt) {
       js: {
         files: 'src/javascripts/**/*.js',
         tasks: ['concat', 'uglify']
+      },
+      docs: {
+        files: 'src/docs/**/*.html',
+        tasks: ['jekyll']
       }
     },
 

@@ -7,14 +7,22 @@
 // --- CSS rules ---
 
 // Remove mobile header on large displays.
-.mobile-header {
+// .mobile-header {
+// 	@media (min-width: @p-large-display-start) {
+// 		display: none;
+// 	}
+// }
+
+.navbar-static-top .pine {
 	@media (min-width: @p-large-display-start) {
-		display: none;
+		margin: 0;
+    border: 0;
 	}
 }
 
-.pine {
-	@media (min-width: @p-large-display-start) {
-		margin-top: 2*@font-size-base;
-	}
-}
+// .js .pine.pine-visible {
+//   height: 340px;
+//   overflow-y: auto;
+//   overflow-x: hidden;
+// }
+

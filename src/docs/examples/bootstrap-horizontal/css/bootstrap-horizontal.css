@@ -6448,7 +6448,7 @@ button.close {
   transition: none !important;
 }
 .fx-right-to-left .pine-level-1 {
-  position: absolute;
+  position: relative;
   left: 0;
 }
 .fx-right-to-left ul ul {
@@ -6502,12 +6502,8 @@ button.close {
   border-color: transparent #777777 transparent transparent;
 }
 @media (min-width: 600px) {
-  .mobile-header {
-    display: none;
-  }
-}
-@media (min-width: 600px) {
-  .pine {
-    margin-top: 28px;
+  .navbar-static-top .pine {
+    margin: 0;
+    border: 0;
   }
 }

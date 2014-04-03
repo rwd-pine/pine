@@ -6446,7 +6446,7 @@ button.close {
   transition: none !important;
 }
 .fx-right-to-left .pine-level-1 {
-  position: absolute;
+  position: relative;
   left: 0;
 }
 .fx-right-to-left ul ul {
@@ -6505,5 +6505,10 @@ body {
 @media (min-width: 992px) {
   .mobile-header {
     display: none;
+  }
+}
+@media (max-width: 991px) {
+  .js .pine {
+    position: fixed;
   }
 }

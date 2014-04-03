@@ -6446,7 +6446,7 @@ button.close {
   transition: none !important;
 }
 .fx-right-to-left .pine-level-1 {
-  position: absolute;
+  position: relative;
   left: 0;
 }
 .fx-right-to-left ul ul {
