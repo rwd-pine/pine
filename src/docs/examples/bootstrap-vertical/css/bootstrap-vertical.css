@@ -5950,20 +5950,20 @@ button.close {
 .pine li > strong {
   display: block;
   padding: 10.5px 15px;
-  color: #999999;
+  color: #777777;
   font-weight: normal;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   text-decoration: none;
-  background: #222222;
+  background: #f8f8f8;
 }
 .pine li a:hover,
 .pine li a:focus,
 .pine li a:active,
 .pine li strong {
-  background: #080808;
-  color: #ffffff;
+  background: #e7e7e7;
+  color: #555555;
 }
 .pine .pine-level-2 > li > a,
 .pine .pine-level-2 > li > strong {
@@ -6332,12 +6332,12 @@ button.close {
 .pine-trigger {
   display: none;
   padding: 10.5px 15px;
-  color: #999999;
+  color: #777777;
   font-weight: normal;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: #222222;
+  background: #f8f8f8;
   text-decoration: none;
 }
 @media (max-width: 991px) {
@@ -6482,7 +6482,7 @@ button.close {
 }
 .fx-right-to-left .pine-back > a {
   position: relative;
-  background: #080808;
+  background: #e7e7e7;
   text-align: center;
 }
 .fx-right-to-left .pine-back > a:before {
@@ -6497,7 +6497,14 @@ button.close {
   border-style: solid;
   border-width: 4px 6px 4px 0;
   margin-top: -4px;
-  border-color: transparent #999999 transparent transparent;
+  border-color: transparent #777777 transparent transparent;
+}
+@media (min-width: 992px) {
+  .navbar-static-top .pine,
+  .navbar-fixed-top .pine {
+    margin: 0;
+    border: 0;
+  }
 }
 body {
   margin-top: 60px;

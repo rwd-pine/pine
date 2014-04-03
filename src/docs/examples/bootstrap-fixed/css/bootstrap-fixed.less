@@ -1,13 +1,24 @@
-// Pine.JS example – Bootstrap inverted colors and fixed position
+// Pine.JS
+// Name: Bootstrap Fixed Navbar
+// Description: Bootstrap inverted colors and fixed position to the top
+// -----------------------------------
 
+// Imports
+// ----------------------------------
 @import "../../../../../bower_components/bootstrap/less/bootstrap";
 @import "../../../../../src/stylesheets/pine";
 @import "../../../../../src/stylesheets/skin/bootstrap-inverted";
 
-// --- Pine variables ---
+// Pine Variables Overrides
+// ----------------------------------
+@p-border-radius          : 0;
+@p-large-display-start    : 1200px;
 
-@p-border-radius      : 0;
-@p-large-display-start: 1200px;
+// Bootstrap Variable Overrides
+// ----------------------------------
+
+// --- Breakpoints override ---
+@grid-float-breakpoint: @p-large-display-start;
 
 // --- Example CSS rules ---
 

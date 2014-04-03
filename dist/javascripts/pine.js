@@ -275,6 +275,9 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     // Navbar toggle button
     $(this.NAVBAR_TOGGLE).on('click.pine', Pine.Navbar.toggle)
 
+    // Reset menus on initialization
+    $(this.SUBMENU).removeClass('pine-level-open')
+
     /* Setup API with all listeners */
     $(window).on({
       'load': $.proxy(this.api, this),

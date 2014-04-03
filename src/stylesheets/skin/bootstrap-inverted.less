@@ -1,5 +1,8 @@
 //
-// BOOTSTRAP PINE                 : Pine Bootstrap 3 skin for inverted navigation
+// BOOTSTRAP PINE: Pine.JS Bootstrap 3 skin - inverted colors
+// ----------------------------------------
+
+// PINE VARIABLES OVERRIDE
 // ----------------------------------------
 
 // Navigation variables
@@ -77,6 +80,24 @@
 @p-level-3-shadow                 : @p-level-2-shadow;
 
 // --- RWD breakpoints ---
+@p-large-display-start           : 992px;
+// @p-large-display-start            : 600px;
+@p-small-display-end             : ((@p-large-display-start - 1px));
 
-@p-large-display-start            : 600px;
-@p-small-display-end              : ((@p-large-display-start - 1px));
+// BOOTSTRAP VARIABLES OVERRIDE
+// ----------------------------------------
+
+// --- Breakpoints override ---
+@grid-float-breakpoint           : @p-large-display-start;
+
+// SKIN STYLES
+// ----------------------------------------
+
+// Pine in static of fixed navbar has no margin and border
+.navbar-static-top .pine,
+.navbar-fixed-top .pine {
+  @media (min-width: @p-large-display-start) {
+    margin: 0;
+    border: 0;
+  }
+}

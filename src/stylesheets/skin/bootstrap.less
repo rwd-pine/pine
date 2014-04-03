@@ -2,6 +2,9 @@
 // BOOTSTRAP PINE: Pine.JS Bootstrap 3 skin
 // ----------------------------------------
 
+// PINE VARIABLES OVERRIDE
+// ----------------------------------------
+
 // Navigation variables
 
 // --- Look, feel and typography ---
@@ -84,3 +87,22 @@
 
 @p-large-display-start            : 600px;
 @p-small-display-end              : ((@p-large-display-start - 1px));
+
+// BOOSTRAP VARIABLES OVERRIDE
+// ----------------------------------------
+
+// Bootstrap's point at which the navbar becomes uncollapsed value from Pine breakpoint
+@grid-float-breakpoint            : @p-large-display-start;
+
+// SKIN STYLES
+// ----------------------------------------
+
+// Pine in static of fixed navbar has no margin and border
+.navbar-static-top .pine,
+.navbar-fixed-top .pine {
+  @media (min-width: @p-large-display-start) {
+    margin: 0;
+    border: 0;
+  }
+}
+
