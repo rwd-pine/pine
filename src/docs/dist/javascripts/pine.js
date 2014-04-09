@@ -296,6 +296,7 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
 
     /* Perform transition when leaving view */
     if(this.activeTransition && typeof this.activeTransition.onSwitch === 'function') {
+      debugger
       this.activeTransition.onSwitch.call(this, false)
     }
 

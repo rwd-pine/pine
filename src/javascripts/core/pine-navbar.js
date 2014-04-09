@@ -203,8 +203,20 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   Navbar.toggle = function (e) {
     e.preventDefault();
 
+    var targetElement = $(document).find($(this).attr('href'));
+    var viewportHeight = $(window).height();
+
     $(this).toggleClass('is-active')
-    $(document).find($(this).attr('href')).toggleClass('pine-visible')
+    targetElement.toggleClass('pine-visible')
+
+    if(targetElement.hasClass('pine-visible')) {
+      targetElement.css({ 'max-height' : viewportHeight })
+      $('body').css({ 'overflow' : 'hidden' })
+    }
+    else {
+      targetElement.css({ 'max-height' : 0 })
+      $('body').removeAttr('style')
+    }
 
     $.log('Event: Toggle Navbar')
   };

@@ -40,7 +40,8 @@ module.exports = function(grunt) {
           { expand: true, cwd: 'bower_components/jquery', src: ['jquery.min.js'], dest: 'dist/javascripts', filter: 'isFile' },
           { expand: true, cwd: 'bower_components/jquery-legacy', src: ['jquery.min.js'], dest: 'dist/javascripts/jquery-legacy', filter: 'isFile' },
           { expand: true, cwd: 'bower_components/matchmedia/', src: ['matchmedia.js'], dest: 'src/javascripts/lib', filter: 'isFile' },
-          { expand: true, cwd: 'src/javascripts/lib/', src: ['matchmedia.js'], dest: 'dist/javascripts/', filter: 'isFile' }
+          { expand: true, cwd: 'src/javascripts/lib/', src: ['matchmedia.js'], dest: 'dist/javascripts/', filter: 'isFile' },
+          { expand: true, cwd: 'bower_components/bootstrap/dist/js', src: ['bootstrap.min.js'], dest: 'dist/javascripts', filter: 'isFile' }
         ]
       },
       assets: {
@@ -56,7 +57,6 @@ module.exports = function(grunt) {
       },
       docs: {
         files: [
-          { expand: true, cwd: 'bower_components/bootstrap/dist/js', src: ['bootstrap.min.js'], dest: 'src/docs/dist/javascripts', filter: 'isFile' },
           { expand: true, cwd: 'dist', src: ['{stylesheets,javascripts,assets}/*.*'], dest: 'src/docs/dist' },
           { expand: true, cwd: 'src/docs/_assets', src: ['*.*'], dest: 'src/docs/dist' },
 
@@ -131,7 +131,10 @@ module.exports = function(grunt) {
 
       pineDocs: {
         files: {
-          'dist/stylesheets/docs.css': 'src/stylesheets/docs.less'
+          'dist/stylesheets/docs.css': 'src/stylesheets/docs.less',
+          'src/docs/examples/bootstrap-fixed/css/bootstrap-fixed.css': 'src/docs/examples/bootstrap-fixed/css/bootstrap-fixed.less',
+          'src/docs/examples/bootstrap-horizontal/css/bootstrap-horizontal.css': 'src/docs/examples/bootstrap-horizontal/css/bootstrap-horizontal.less',
+          'src/docs/examples/bootstrap-vertical/css/bootstrap-vertical.css': 'src/docs/examples/bootstrap-vertical/css/bootstrap-vertical.less'
         }
       },
 
@@ -142,14 +145,6 @@ module.exports = function(grunt) {
         },
         files: {
           'dist/stylesheets/<%= pkg.name %>.min.css': 'dist/stylesheets/<%= pkg.name %>.css'
-        }
-      },
-
-      examples: {
-        files: {
-          'src/docs/examples/bootstrap-fixed/css/bootstrap-fixed.css': 'src/docs/examples/bootstrap-fixed/css/bootstrap-fixed.less',
-          'src/docs/examples/bootstrap-horizontal/css/bootstrap-horizontal.css': 'src/docs/examples/bootstrap-horizontal/css/bootstrap-horizontal.less',
-          'src/docs/examples/bootstrap-vertical/css/bootstrap-vertical.css': 'src/docs/examples/bootstrap-vertical/css/bootstrap-vertical.less'
         }
       }
     },
@@ -167,7 +162,7 @@ module.exports = function(grunt) {
 
     watch: {
       css: {
-        files: ['src/stylesheets/**/*.less', 'src/docs/**/*.less'],
+        files: ['src/stylesheets/**/*.less'],
         tasks: ['less', 'legacssy']
       },
       js: {
@@ -175,8 +170,8 @@ module.exports = function(grunt) {
         tasks: ['concat', 'uglify']
       },
       docs: {
-        files: 'src/docs/**/*.html',
-        tasks: ['jekyll']
+        files: ['src/docs/**/*.html', 'src/docs/**/*.less', 'src/stylesheets/**/*.less'],
+        tasks: ['jekyll:docs']
       }
     },
 
