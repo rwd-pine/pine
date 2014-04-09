@@ -1,3 +1,5 @@
+{% capture root %}{% if page.baseurl %}{{ page.baseurl }}{% else %}{{ site.baseurl }}{% endif %}{% endcapture %}
+
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,17 +21,17 @@
 {% else %}
 
   <!-- Normalize.CSS http://necolas.github.io/normalize.css/ -->
-  <link rel="stylesheet" href="{{ page.base_url }}dist/stylesheets/normalize.css">
+  <link rel="stylesheet" href="{{ root }}dist/stylesheets/normalize.css">
 
   <!-- Pine.JS core styles -->
-  <link rel="stylesheet" href="{{ page.base_url }}dist/stylesheets/pine.min.css">
+  <link rel="stylesheet" href="{{ root }}dist/stylesheets/pine.min.css">
 
   <!-- Documentation extras -->
-  <link href="{{ page.base_url }}assets/stylesheets/docs.css" rel="stylesheet">
+  <link href="{{ root }}dist/stylesheets/docs.css" rel="stylesheet">
 
   <!-- Pine.JS IE8 styles -->
   <!--[if IE 8]>
-    <script src="{{ page.base_url }}dist/stylesheets/pine-ie8.css"></script>
+    <script src="{{ root }}dist/stylesheets/pine-ie8.css"></script>
   <![endif]-->
 
 {% endif %}

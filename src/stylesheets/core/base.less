@@ -92,8 +92,10 @@
     }
 
     .js &.pine-visible {
-      max-height: 340px; // same as bootstrap, but will be dynamically set by JS
+      // Other menus use some fixed max-height, however, it is not correct in principle
+      max-height: none;
       overflow-y: auto;
+      // bottom: 0;
     }
   }
 }

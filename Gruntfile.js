@@ -57,7 +57,9 @@ module.exports = function(grunt) {
       docs: {
         files: [
           { expand: true, cwd: 'bower_components/bootstrap/dist/js', src: ['bootstrap.min.js'], dest: 'src/docs/dist/javascripts', filter: 'isFile' },
-          { expand: true, cwd: 'dist', src: ['{stylesheets,javascripts}/*.*'], dest: 'src/docs/dist' },
+          { expand: true, cwd: 'dist', src: ['{stylesheets,javascripts,assets}/*.*'], dest: 'src/docs/dist' },
+          { expand: true, cwd: 'src/docs/_assets', src: ['*.*'], dest: 'src/docs/dist' },
+
           { expand: true, cwd: 'bower_components/bootstrap/dist/css', src: ['bootstrap.min.css'], dest: 'src/docs/dist/stylesheets' },
           { expand: true, cwd: 'bower_components/normalize-css/', src: ['normalize.css'], dest: 'src/docs/dist/stylesheets' }
         ]
@@ -127,6 +129,12 @@ module.exports = function(grunt) {
         }
       },
 
+      pineDocs: {
+        files: {
+          'dist/stylesheets/docs.css': 'src/stylesheets/docs.less'
+        }
+      },
+
       pineMinify: {
         options: {
           cleancss: true,
@@ -187,7 +195,12 @@ module.exports = function(grunt) {
     },
 
     jekyll: {
-      docs: {}
+      github: {},
+      docs: {
+        options: {
+          config: '_config.docs.yml'
+        }
+      }
     }
 
   });
@@ -205,8 +218,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-csslint');
   grunt.loadNpmTasks('grunt-jekyll');
 
-  // Build Docs - copy dist to
-  grunt.registerTask('build-docs', ['copy:docs', 'jekyll']);
+  // Build Docs - Github pages
+  grunt.registerTask('build-github-pages', ['copy:docs', 'jekyll:github']);
+  grunt.registerTask('build-docs', ['jekyll:docs']);
 
   // JS distribution task.
   // TODO: Compress later grunt.registerTask('dist-js', ['concat', 'uglify', 'compress']);

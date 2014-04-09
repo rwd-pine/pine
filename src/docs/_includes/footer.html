@@ -1,3 +1,4 @@
+{% capture root %}{% if page.baseurl %}{{ page.baseurl }}{% else %}{{ site.baseurl }}{% endif %}{% endcapture %}
 <!-- Footer
 ================================================== -->
 <footer class="bs-footer" role="contentinfo">
@@ -21,7 +22,7 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="{{ page.base_url }}dist/javascripts/pine.min.js"></script>
+<script src="{{ root }}dist/javascripts/pine.min.js"></script>
 
 {% comment %}
   Inject Twitter widgets asynchronously. Snippet snipped from Twitter's

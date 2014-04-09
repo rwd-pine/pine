@@ -6,6 +6,10 @@ Pine.Navbar.registerTransition('fx-collapse', {
   // Method: onSwitch is executed when change of view on navbar occurs
   // -------------
   onSwitch: function(condition){
+    var $this = $(this),
+        viewportHeight = $(window).height();;
+    debugger
+    $this.css({ 'max-height' : viewportHeight })
   },
 
   // Method: beforeToggle handles effects and any manipulation before 'toogle'

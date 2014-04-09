@@ -69,7 +69,7 @@
     transition: max-height 0.1s ease-in-out;
   }
   .js .pine.pine-visible {
-    max-height: 340px;
+    max-height: none;
     overflow-y: auto;
   }
 }
@@ -469,6 +469,22 @@
   overflow: visible;
   max-height: none;
 }
+@media (max-width: 599px) {
+  .fx-collapse .pine-level-1 > .pine-has-subnav > a:before,
+  .fx-collapse .pine-level-2 > .pine-has-subnav > a:before,
+  .fx-collapse .pine-level-3 > .pine-has-subnav > a:before {
+    border-width: 6px 4px 0 4px;
+    margin-top: -2px;
+    border-color: #000000 transparent transparent transparent;
+  }
+}
+@media (max-width: 599px) and (max-width: 599px) {
+  .fx-collapse .pine-level-1 > .pine-has-subnav > a:before,
+  .fx-collapse .pine-level-2 > .pine-has-subnav > a:before,
+  .fx-collapse .pine-level-3 > .pine-has-subnav > a:before {
+    border-color: #000000 transparent transparent transparent;
+  }
+}
 .fx-hover-fade .pine-level-2,
 .fx-hover-fade .pine-level-3 {
   -webkit-opacity: 0;
@@ -509,7 +525,7 @@
   transition: none !important;
 }
 .fx-right-to-left .pine-level-1 {
-  position: absolute;
+  position: relative;
   left: 0;
 }
 .fx-right-to-left ul ul {
