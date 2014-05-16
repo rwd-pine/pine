@@ -124,9 +124,9 @@ module.exports = function(grunt) {
       pineDocs: {
         files: {
           'dist/stylesheets/docs.css': 'src/stylesheets/docs.less',
-          'src/docs/examples/bootstrap-fixed/css/bootstrap-fixed.css': 'src/docs/examples/bootstrap-fixed/css/bootstrap-fixed.less',
-          'src/docs/examples/bootstrap-horizontal/css/bootstrap-horizontal.css': 'src/docs/examples/bootstrap-horizontal/css/bootstrap-horizontal.less',
-          'src/docs/examples/bootstrap-vertical/css/bootstrap-vertical.css': 'src/docs/examples/bootstrap-vertical/css/bootstrap-vertical.less'
+          'docs/examples/bootstrap-fixed/css/bootstrap-fixed.css': 'docs/examples/bootstrap-fixed/css/bootstrap-fixed.less',
+          'docs/examples/bootstrap-horizontal/css/bootstrap-horizontal.css': 'docs/examples/bootstrap-horizontal/css/bootstrap-horizontal.less',
+          'docs/examples/bootstrap-vertical/css/bootstrap-vertical.css': 'docs/examples/bootstrap-vertical/css/bootstrap-vertical.less'
         }
       },
 
