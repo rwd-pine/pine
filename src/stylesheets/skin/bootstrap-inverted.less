@@ -33,8 +33,29 @@
 @p-small-screen-top               : @navbar-height+1;
 
 
+// --- Custom styling for medium and large screens ---
+
+@media (min-width: @p-large-display-start) {
+
+  .pine li > a,
+  .pine li > strong {
+      padding: @navbar-padding-vertical @navbar-padding-horizontal;
+  }
+
+  // Because of .navbar border-bottom, we need push 2nd level down
+  .pine-horizontal .pine-level-1 {
+    margin-top: 1px;
+  }
+
+  .pine-level-2,
+  .pine-level-3 {
+    .border-radius(@border-radius-base;
+    .box-shadow(0 6px 12px rgba(0,0,0,.175));
+  }
+
+}
+
 /*
-// --- Medium and large screens ---
 
 // Level 1
 @p-level-1-color                  : @navbar-inverse-link-color;
@@ -85,7 +106,6 @@
 // @p-large-display-start            : 600px;
 @p-small-display-end             : ((@p-large-display-start - 1px));
 
-*/
 
 // BOOTSTRAP VARIABLES OVERRIDE
 // ----------------------------------------
@@ -104,3 +124,4 @@
     border: 0;
   }
 }
+*/
