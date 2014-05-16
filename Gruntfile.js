@@ -51,17 +51,9 @@ module.exports = function(grunt) {
       },
       styles: {
         files: [
-          { expand: true, cwd: 'bower_components/lesshat/build', src: ['lesshat.less'], dest: 'src/stylesheets/lib' }
+          { expand: true, cwd: 'bower_components/lesshat/build', src: ['lesshat.less'], dest: 'src/stylesheets/lib' },
+          { expand: true, cwd: 'bower_components/normalize-css/', src: ['normalize.css'], dest: 'dist/stylesheets' }
           // { expand: true, cwd: 'bower_components/bootstrap/less', src: ['*.less'], dest: 'src/stylesheets/bootstrap' }
-        ]
-      },
-      docs: {
-        files: [
-          { expand: true, cwd: 'dist', src: ['{stylesheets,javascripts,assets}/*.*'], dest: 'src/docs/dist' },
-          { expand: true, cwd: 'src/docs/_assets', src: ['*.*'], dest: 'src/docs/dist' },
-
-          { expand: true, cwd: 'bower_components/bootstrap/dist/css', src: ['bootstrap.min.css'], dest: 'src/docs/dist/stylesheets' },
-          { expand: true, cwd: 'bower_components/normalize-css/', src: ['normalize.css'], dest: 'src/docs/dist/stylesheets' }
         ]
       }
     },
@@ -162,17 +154,18 @@ module.exports = function(grunt) {
 
     watch: {
       css: {
-        files: ['src/stylesheets/**/*.less'],
+        files: ['src/stylesheets/**/*.less', 'docs/**/*.less'],
         tasks: ['less', 'legacssy']
       },
       js: {
         files: 'src/javascripts/**/*.js',
         tasks: ['concat', 'uglify']
-      },
-      docs: {
-        files: ['src/docs/**/*.html', 'src/docs/**/*.less', 'src/stylesheets/**/*.less'],
-        tasks: ['jekyll:docs']
       }
+      // ,
+      // docs: {
+      //   files: ['src/docs/**/*.html'],
+      //   tasks: ['jekyll:docs']
+      // }
     },
 
     // Flatten media queries and generate special CSS for IE8
@@ -214,7 +207,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-jekyll');
 
   // Build Docs - Github pages
-  grunt.registerTask('build-github-pages', ['copy:docs', 'jekyll:github']);
+  // grunt.registerTask('build-github-pages', ['copy:docs', 'jekyll:github']);
   grunt.registerTask('build-docs', ['jekyll:docs']);
 
   // JS distribution task.
