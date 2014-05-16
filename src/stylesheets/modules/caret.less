@@ -6,47 +6,30 @@
   position: relative;
 }
 
-// 1st level: Default - vertical
-.pine-level-1 > .pine-has-subnav > a {
-  padding-right: 2*@p-level-1-padding-x;
+// Default: Caret pointing to the right
+// Second selector needs higher specificity to overide following horizontal variant
+.pine-has-subnav > a,
+.pine .pine-level-open .pine-has-subnav > a {
+  padding-right: 30px;
 
   &:before {
-    .caret-base(@p-level-1-padding-x);
-    .caret-right(@p-level-1-caret-color, 4px);
+    .caret-base(15px);
+    .caret-right(@p-color, 4px);
   }
 }
 
-// 1st level: Horizontal variant
-.pine-horizontal .pine-level-1 > .pine-has-subnav > a {
-  padding-right: 2*@p-level-1-padding-x;
+// Horizontal variant: Caret pointing to the right on small screens and bottom on large screens
+.pine-horizontal .pine-has-subnav > a {
+  padding-right: 30px;
 
   &:before {
-    .caret-bottom(@p-level-1-caret-color, 4px);
+    .caret-bottom(@p-color, 4px);
     @media (max-width: @p-small-display-end) {
-      .caret-right(@p-level-1-caret-color, 4px);
+      .caret-right(@p-color, 4px);
     }
   }
 }
 
-// 2nd level
-.pine-level-open > .pine-level-2 > .pine-has-subnav > a {
-  padding-right: 2*@p-level-2-padding-x;
-
-  &:before {
-    .caret-base(@p-level-2-padding-x);
-    .caret-right(@p-level-2-caret-color, 4px);
-  }
-}
-
-// 3rd level
-.pine-level-open > .pine-level-3 > .pine-has-subnav > a {
-  padding-right: 2*@p-level-3-padding-x;
-
-  &:before {
-    .caret-base(@p-level-3-padding-x);
-    .caret-right(@p-level-3-caret-color, 4px);
-  }
-}
 
 // - Mixins -
 
@@ -76,7 +59,7 @@
   border-color: @color transparent transparent transparent;
   // Small screen version has only first level look
   @media (max-width: @p-small-display-end) {
-    border-color: @p-level-1-caret-color  transparent transparent transparent;
+    border-color: @p-color  transparent transparent transparent;
   }
 }
 
@@ -88,6 +71,7 @@
   border-color: transparent transparent transparent @color;
   // Small screen version has only first level look
   @media (max-width: @p-small-display-end) {
-    border-color: transparent transparent transparent  @p-level-1-caret-color;
+    border-color: transparent transparent transparent  @p-color;
   }
 }
+

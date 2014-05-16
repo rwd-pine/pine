@@ -33,10 +33,12 @@
 
   .pine-level-1 > li > a,
   .pine-level-1 > li > strong {
+    /*
     padding: @p-level-1-padding-y @p-level-1-padding-x;
     font-size: @p-level-1-font-size;
     border-bottom: @p-level-1-border-bottom;
     border-right: @p-level-1-border-right;
+    */
   }
 
   .pine-level-1 > li:last-child > a,
@@ -48,8 +50,9 @@
   // Item colors
 
   .pine-level-1 > li > a {
-    background: @p-level-1-background;
-    color: @p-level-1-color;
+    background: @p-background;
+    color: @p-color;
+
   }
 
   // Item hover colors
@@ -57,16 +60,20 @@
   .pine-level-1 > li > a:hover,
   .pine-level-1 > li > a:focus,
   .pine-level-1 > li > a:active {
+    /*
     background: @p-level-1-hover-background;
     color: @p-level-1-hover-color;
+    */
   }
 
   // Item active colors
 
   .pine-level-1 > li > strong,
   .pine-level-1 > li.pine-level-open > a {
+    /*
     background: @p-level-1-active-background;
     color: @p-level-1-active-color;
+    */
   }
 }
 
@@ -74,6 +81,7 @@
 
 @media (min-width: @p-large-display-start) {
 
+/*
  .pine-level-2 {
     border: @p-level-2-border-fallback;
     border: @p-level-2-border;
@@ -116,12 +124,15 @@
     background: @p-level-2-active-background;
     color: @p-level-2-active-color;
   }
+*/
+
 }
 
 // - Third level -
 
 @media (min-width: @p-large-display-start) {
 
+/*
   .pine-level-3 {
     border: @p-level-3-border-fallback;
     border: @p-level-3-border;
@@ -163,4 +174,6 @@
     background: @p-level-3-active-background;
     color: @p-level-3-active-color;
   }
+*/
+
 }
