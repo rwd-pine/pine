@@ -5958,10 +5958,13 @@ button.close {
   text-decoration: none;
   background: #f8f8f8;
 }
+.pine li.pine-level-open > a,
+.pine li strong {
+  background: #e7e7e7;
+}
 .pine li a:hover,
 .pine li a:focus,
-.pine li a:active,
-.pine li strong {
+.pine li a:active {
   background: #e7e7e7;
 }
 .pine .pine-level-2 > li > a,
