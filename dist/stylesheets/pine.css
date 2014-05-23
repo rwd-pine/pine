@@ -134,13 +134,14 @@
     visibility: visible;
     left: 0;
     top: 100%;
-    max-width: 313px;
+    width: 200px;
   }
   .pine-horizontal .pine-level-3 {
     z-index: 50002;
     visibility: visible;
     left: 100%;
     top: 0;
+    width: 200px;
   }
 }
 @media (min-width: 600px) {
@@ -149,13 +150,14 @@
     visibility: visible;
     left: 0;
     top: 100%;
-    max-width: 313px;
+    width: 200px;
   }
   .pine-horizontal .pine-level-open > .pine-level-3 {
     z-index: 50002;
     visibility: visible;
     left: 100%;
     top: 0;
+    width: 200px;
   }
 }
 @media (min-width: 600px) {
@@ -181,13 +183,13 @@
     z-index: 50001;
     visibility: visible;
     left: 100%;
-    max-width: 313px;
+    width: 200px;
   }
   .pine-vertical .pine-level-3 {
     z-index: 50002;
     visibility: visible;
     left: 100%;
-    max-width: 313px;
+    width: 200px;
   }
 }
 @media (min-width: 600px) {
@@ -195,13 +197,13 @@
     z-index: 50001;
     visibility: visible;
     left: 100%;
-    max-width: 313px;
+    width: 200px;
   }
   .pine-vertical .pine-level-open > .pine-level-3 {
     z-index: 50002;
     visibility: visible;
     left: 100%;
-    max-width: 313px;
+    width: 200px;
   }
 }
 .pine-has-subnav > a,
