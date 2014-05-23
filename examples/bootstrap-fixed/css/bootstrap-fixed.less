@@ -7,18 +7,40 @@
 // ----------------------------------
 @import "../../../../bower_components/bootstrap/less/bootstrap";
 @import "../../../../src/stylesheets/pine";
-@import "../../../../src/stylesheets/skin/bootstrap-inverted";
 
-// Pine Variables Overrides
+// Bootstrap inverse colors
+// ----------------------------------
+
+// Look, feel and typography
+
+@p-base-font-size                 :  @font-size-base;
+@p-base-line-height               :  @line-height-base;
+@p-margin-bottom                  :  @navbar-margin-bottom;
+@p-z-index                        :  @zindex-navbar;
+@p-border-radius                  :  @navbar-border-radius;
+@p-color                          :  @navbar-inverse-color;
+@p-background                     :  @navbar-inverse-bg;
+@p-border                         :  1px solid @navbar-inverse-border;
+
+// Small screens
+
+@p-small-screen-color             : @navbar-inverse-color;
+@p-small-screen-background        : @navbar-inverse-bg;
+@p-small-screen-border-color      : @navbar-inverse-border;
+@p-small-screen-hover-color       : @navbar-inverse-color;
+@p-small-screen-hover-background  : @navbar-inverse-link-hover-bg;
+@p-small-screen-active-color      : @navbar-inverse-link-active-color;
+@p-small-screen-active-background : @navbar-inverse-link-active-bg;
+@p-small-screen-font-size         : @p-base-font-size;
+@p-small-screen-padding-vertical  : @p-small-screen-font-size*.75;
+@p-small-screen-padding-horizontal: @grid-gutter-width/2;
+@p-small-screen-top               : @navbar-height+1;
+
+// Pine Variables Overrides TODO
 // ----------------------------------
 @p-border-radius          : 0;
 @p-large-display-start    : 1200px;
 
-// Bootstrap Variable Overrides
-// ----------------------------------
-
-// --- Breakpoints override ---
-@grid-float-breakpoint: @p-large-display-start;
 
 // --- Example CSS rules ---
 
