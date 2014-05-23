@@ -39,11 +39,14 @@
   text-decoration: none;
   background: #eeeeee;
 }
-.pine li a:hover,
-.pine li a:focus,
-.pine li a:active,
+.pine li.pine-level-open > a,
 .pine li strong {
   background: #cccccc;
+}
+.pine li a:hover,
+.pine li a:focus,
+.pine li a:active {
+  background: #dfdfdf;
 }
 .pine .pine-level-2 > li > a,
 .pine .pine-level-2 > li > strong {

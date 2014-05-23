@@ -47,12 +47,17 @@
 		background: @p-background;
 	}
 
-	// Active state
+  // Active state
+  li.pine-level-open > a,
+  li strong {
+    background: @p-active-background;
+  }
+
+	// Hover state
 	li a:hover,
 	li a:focus,
-	li a:active,
-	li strong {
-		background: @p-active-background;
+	li a:active {
+		background: @p-hover-background;
 	}
 
   // On small screens or vertical variant for large screens
