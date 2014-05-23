@@ -1,7 +1,7 @@
 .pine {
   z-index: 100;
   margin-bottom: 24px;
-  background: transparent;
+  background: #eeeeee;
 }
 .pine:before,
 .pine:after {
@@ -31,20 +31,19 @@
 .pine li > strong {
   display: block;
   padding: 12px 16px;
-  color: #ffffff;
+  color: #000000;
   font-weight: normal;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   text-decoration: none;
-  background: #555555;
+  background: #eeeeee;
 }
 .pine li a:hover,
 .pine li a:focus,
 .pine li a:active,
 .pine li strong {
-  background: #999999;
-  color: #ffffff;
+  background: #cccccc;
 }
 .pine .pine-level-2 > li > a,
 .pine .pine-level-2 > li > strong {
@@ -75,7 +74,7 @@
 }
 @media (min-width: 600px) {
   .pine {
-    background: transparent;
+    background: #eeeeee;
     border: none;
   }
   .pine li {
@@ -269,12 +268,12 @@
 .pine-trigger {
   display: none;
   padding: 12px 16px;
-  color: #ffffff;
+  color: #000000;
   font-weight: normal;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: #555555;
+  background: #eeeeee;
   text-decoration: none;
 }
 @media (max-width: 599px) {
@@ -417,7 +416,7 @@
 }
 .fx-right-to-left .pine-back > a {
   position: relative;
-  background: #999999;
+  background: #cccccc;
   text-align: center;
 }
 .fx-right-to-left .pine-back > a:before {
@@ -432,5 +431,5 @@
   border-style: solid;
   border-width: 4px 6px 4px 0;
   margin-top: -4px;
-  border-color: transparent #ffffff transparent transparent;
+  border-color: transparent #000000 transparent transparent;
 }

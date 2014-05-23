@@ -5932,7 +5932,7 @@ button.close {
 }
 @media (min-width: 768px) {
   .pine {
-    border-radius: 4px;
+    border-radius: 0;
   }
 }
 @media print {
@@ -5963,7 +5963,6 @@ button.close {
 .pine li a:active,
 .pine li strong {
   background: #080808;
-  color: #ffffff;
 }
 .pine .pine-level-2 > li > a,
 .pine .pine-level-2 > li > strong {
