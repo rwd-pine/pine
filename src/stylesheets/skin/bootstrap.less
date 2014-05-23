@@ -2,23 +2,22 @@
 // BOOTSTRAP PINE: Pine.JS Bootstrap 3 skin
 // ----------------------------------------
 
-// PINE VARIABLES OVERRIDE
+
+// Pine takes styling from Bootstrap through variables
 // ----------------------------------------
 
-// Navigation variables
-
-// --- Look, feel and typography ---
+// Look, feel and typography
 
 @p-base-font-size                 : @font-size-base;
 @p-base-line-height               : @line-height-base;
 @p-margin-bottom                  : @navbar-margin-bottom;
 @p-z-index                        : @zindex-navbar;
-@p-border-radius                  : @navbar-border-radius;
+@p-border-radius                  : 0;
 @p-color                          : @navbar-default-color;
 @p-background                     : @navbar-default-bg;
-@p-border                         : 1px solid @navbar-default-border;
+@p-border                         : none;
 
-// --- Small screens ---
+// Small screens
 
 @p-small-screen-color             : @navbar-default-color;
 @p-small-screen-background        : @navbar-default-bg;
@@ -31,6 +30,10 @@
 @p-small-screen-padding-vertical  : @p-small-screen-font-size*.75;
 @p-small-screen-padding-horizontal: @grid-gutter-width/2;
 @p-small-screen-top               : @navbar-height+1;
+
+// RWD breakpoint
+
+@p-large-display-start            : @grid-float-breakpoint;
 
 
 // --- Custom styling for medium and large screens ---
@@ -47,76 +50,8 @@
     margin-top: 1px;
   }
 
-  .pine-level-2,
-  .pine-level-3 {
-    .border-radius(@border-radius-base;
-    .box-shadow(0 6px 12px rgba(0,0,0,.175));
-  }
-
 }
 
-
-
-
-/*
-@p-level-1-color                  : @navbar-default-link-color;
-@p-level-1-background             : transparent;
-@p-level-1-hover-color            : @navbar-default-link-hover-color;
-@p-level-1-hover-background       : @navbar-default-link-hover-bg;
-@p-level-1-active-color           : @navbar-default-link-active-color;
-@p-level-1-active-background      : @navbar-default-link-active-bg;
-@p-level-1-caret-color            : @navbar-default-link-color;
-@p-level-1-font-size              : @p-base-font-size;
-@p-level-1-padding-y              : @navbar-padding-vertical;
-@p-level-1-padding-x              : @navbar-padding-horizontal;
-@p-level-1-border-bottom          : 0;
-@p-level-1-border-right           : 0;
-
-// Level 2
-@p-level-2-color                  : @p-level-1-color;
-@p-level-2-background             : @dropdown-bg;
-@p-level-2-hover-color            : @dropdown-link-hover-color;
-@p-level-2-hover-background       : @dropdown-link-hover-bg;
-@p-level-2-active-color           : @dropdown-link-active-color;
-@p-level-2-active-background      : @dropdown-link-active-bg;
-@p-level-2-caret-color            : @p-level-1-caret-color;
-@p-level-2-font-size              : @p-level-1-font-size;
-@p-level-2-padding-y              : @p-level-1-padding-y/2;
-@p-level-2-padding-x              : @p-level-1-padding-x;
-@p-level-2-border-fallback        : 1px solid @dropdown-fallback-border;
-@p-level-2-border                 : 1px solid @dropdown-border;
-@p-level-2-border-radius          : @border-radius-base;
-@p-level-2-border-bottom          : 0;
-@p-level-2-shadow                 : 0 6px 12px rgba(0,0,0,.175);
-
-// Level 3
-@p-level-3-color                  : @p-level-2-color;
-@p-level-3-background             : @p-level-2-background;
-@p-level-3-hover-color            : @p-level-2-hover-color;
-@p-level-3-hover-background       : @p-level-2-hover-background;
-@p-level-3-active-color           : @p-level-2-active-color;
-@p-level-3-active-background      : @p-level-2-active-background;
-@p-level-3-caret-color            : @p-level-2-caret-color;
-@p-level-3-font-size              : @p-level-2-font-size;
-@p-level-3-padding-y              : @p-level-2-padding-y;
-@p-level-3-padding-x              : @p-level-2-padding-x;
-@p-level-3-border-fallback        : @p-level-2-border-fallback;
-@p-level-3-border                 : @p-level-2-border;
-@p-level-3-border-radius          : 0 0 @border-radius-base @border-radius-base;
-@p-level-3-border-bottom          : 0;
-@p-level-3-shadow                 : @p-level-2-shadow;
-*/
-
-// --- RWD breakpoints ---
-
-@p-large-display-start            : 600px;
-@p-small-display-end              : ((@p-large-display-start - 1px));
-
-// BOOSTRAP VARIABLES OVERRIDE
-// ----------------------------------------
-
-// Bootstrap's point at which the navbar becomes uncollapsed value from Pine breakpoint
-@grid-float-breakpoint            : @p-large-display-start;
 
 // SKIN STYLES
 // ----------------------------------------
