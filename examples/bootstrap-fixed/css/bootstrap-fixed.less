@@ -19,9 +19,12 @@
 @p-active-background              :  @navbar-inverse-link-active-bg;
 @p-border                         :  1px solid @navbar-inverse-border;
 
+// Changed RWD breakpoint
+@p-large-display-start            : 1200px;
+
 // --- Example CSS rules ---
 
-// Remove mobile header on large displays TODO
+// Remove mobile header on large displays
 .mobile-header {
 	@media (min-width: @p-large-display-start) {
 		display: none;

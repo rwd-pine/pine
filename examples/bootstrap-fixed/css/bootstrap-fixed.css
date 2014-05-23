@@ -5930,7 +5930,7 @@ button.close {
 .pine:after {
   clear: both;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .pine {
     border-radius: 0;
   }
@@ -5975,7 +5975,7 @@ button.close {
 .pine .pine-level-3 > li > strong {
   text-indent: 2em;
 }
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
   .js .pine {
     max-height: 0;
     position: absolute;
@@ -5993,7 +5993,7 @@ button.close {
     overflow-y: auto;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .pine {
     background: #222222;
     border: 1px solid #080808;
@@ -6008,7 +6008,7 @@ button.close {
     text-indent: 0;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .pine-horizontal ul > li {
     display: inline-block;
     position: relative;
@@ -6023,7 +6023,7 @@ button.close {
     position: relative;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .pine-horizontal .pine-level-2,
   .pine-horizontal .pine-level-3 {
     position: absolute;
@@ -6048,7 +6048,7 @@ button.close {
     padding-bottom: 0;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .pine-horizontal .pine-level-2 {
     z-index: 50001;
     visibility: visible;
@@ -6064,7 +6064,7 @@ button.close {
     width: 200px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .pine-horizontal .pine-level-open > .pine-level-2 {
     z-index: 50001;
     visibility: visible;
@@ -6080,14 +6080,14 @@ button.close {
     width: 200px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .pine-vertical a,
   .pine-vertical strong {
     padding-top: 8px;
     padding-bottom: 8px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .pine-vertical .pine-level-2,
   .pine-vertical .pine-level-3 {
     top: 0;
@@ -6098,7 +6098,7 @@ button.close {
     visibility: hidden;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .pine-vertical .pine-level-2 {
     z-index: 50001;
     visibility: visible;
@@ -6112,7 +6112,7 @@ button.close {
     width: 200px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .pine-vertical .pine-level-open > .pine-level-2 {
     z-index: 50001;
     visibility: visible;
@@ -6149,13 +6149,13 @@ button.close {
   margin-top: -4px;
   border-color: transparent transparent transparent #999999;
 }
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
   .pine-has-subnav > a:before,
   .pine .pine-level-open .pine-has-subnav > a:before {
     right: 15px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
   .pine-has-subnav > a:before,
   .pine .pine-level-open .pine-has-subnav > a:before {
     border-color: transparent transparent transparent #999999;
@@ -6169,19 +6169,19 @@ button.close {
   margin-top: -2px;
   border-color: #999999 transparent transparent transparent;
 }
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
   .pine-horizontal .pine-has-subnav > a:before {
     border-color: #999999 transparent transparent transparent;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
   .pine-horizontal .pine-has-subnav > a:before {
     border-width: 4px 0 4px 6px;
     margin-top: -4px;
     border-color: transparent transparent transparent #999999;
   }
 }
-@media (max-width: 767px) and (max-width: 767px) {
+@media (max-width: 1199px) and (max-width: 1199px) {
   .pine-horizontal .pine-has-subnav > a:before {
     border-color: transparent transparent transparent #999999;
   }
@@ -6197,7 +6197,7 @@ button.close {
   background: #222222;
   text-decoration: none;
 }
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
   .js .pine-trigger {
     display: inline-block;
   }
@@ -6245,7 +6245,7 @@ button.close {
   overflow: visible;
   max-height: none;
 }
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
   .fx-collapse .pine-level-1 > .pine-has-subnav > a:before,
   .fx-collapse .pine-level-2 > .pine-has-subnav > a:before,
   .fx-collapse .pine-level-3 > .pine-has-subnav > a:before {
@@ -6254,7 +6254,7 @@ button.close {
     border-color: #999999 transparent transparent transparent;
   }
 }
-@media (max-width: 767px) and (max-width: 767px) {
+@media (max-width: 1199px) and (max-width: 1199px) {
   .fx-collapse .pine-level-1 > .pine-has-subnav > a:before,
   .fx-collapse .pine-level-2 > .pine-has-subnav > a:before,
   .fx-collapse .pine-level-3 > .pine-has-subnav > a:before {
@@ -6356,7 +6356,7 @@ button.close {
   margin-top: -4px;
   border-color: transparent #999999 transparent transparent;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .pine li > a,
   .pine li > strong {
     padding: 15px 15px;
@@ -6365,14 +6365,14 @@ button.close {
     margin-top: 1px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .navbar-static-top .pine,
   .navbar-fixed-top .pine {
     margin: 0;
     border: 0;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .mobile-header {
     display: none;
   }
