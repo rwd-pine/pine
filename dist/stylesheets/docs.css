@@ -1,4 +1,13 @@
-/* PDOCS */
+/* --- Pine.JS Docs styles --- */
+/*  Pine.JS Simple Example */
+.pdocs-simple {
+  margin: 1em;
+}
+@media (max-width: 599px) {
+  .js .pdocs-simple .pine {
+    top: 58px;
+  }
+}
 /*  PineJS - Vertical Example */
 .pdocs-vertical {
   margin: 1em;
@@ -18,14 +27,18 @@
     width: auto;
     float: none;
   }
-}
-/*  Pine.JS Simple Example */
-.pdocs-simple {
-  margin: 1em;
+  .js .pdocs-vertical .pine {
+    top: 58px;
+  }
 }
 /*  Pine.JS Horizontal Example */
 .pdocs-horizontal {
   margin: 1em;
+}
+@media (max-width: 599px) {
+  .js .pdocs-horizontal .pine {
+    top: 70px;
+  }
 }
 /*  Common helpers */
 .sr-only {

@@ -5983,7 +5983,6 @@ button.close {
     left: 0;
     overflow: hidden;
     width: 100%;
-    border-top: 1px solid #e7e7e7;
     -webkit-transition: max-height 0.1s ease-in-out;
     -moz-transition: max-height 0.1s ease-in-out;
     -o-transition: max-height 0.1s ease-in-out;
