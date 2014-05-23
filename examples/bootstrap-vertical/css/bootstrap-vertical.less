@@ -9,84 +9,18 @@
 @import "../../../../src/stylesheets/pine";
 @import "../../../../src/stylesheets/skin/bootstrap";
 
-// Custom Variables
-// ----------------------------------
-@my-color                   : #666;
-@my-item-background         : linear-gradient(180deg, #efefef, #cfcfcf 98%, #afafaf 99%);
-@my-item-active-background  : linear-gradient(180deg, #e0e0e0, #c0c0c0 98%, #afafaf 99%);
-@my-padding-y               : 10px;
-@my-padding-x               : 20px;
-
-// Pine Variables Overrides
-// ----------------------------------
-@p-large-display-start           : 992px;
-
-// Changes in addition to Pine Boostrap skin
-@p-border-radius                 : 0;
-@p-border                        : 0;
-
-// Small screen navigation has Bootstrap inverse colours
-@p-small-screen-color            : @navbar-default-color;
-@p-small-screen-background       : @navbar-default-bg;
-@p-small-screen-hover-color      : @navbar-default-color;
-@p-small-screen-hover-background : @navbar-default-link-hover-bg;
-@p-small-screen-active-color     : @navbar-default-link-active-color;
-@p-small-screen-active-background: @navbar-default-link-active-bg;
-
-// 1st level
-@p-level-1-color                 : @my-color;
-@p-level-1-background            : @my-item-background;
-@p-level-1-hover-color           : @my-color;
-@p-level-1-hover-background      : @my-item-active-background;
-@p-level-1-active-background     : @my-item-active-background;
-@p-level-1-border-bottom         : 1px solid #fff;
-@p-level-1-padding-y             : @my-padding-y;
-@p-level-1-padding-x             : @my-padding-x;
-
-// 2nd level
-@p-level-2-color                 : @my-color;
-@p-level-2-background            : @my-item-background;
-@p-level-2-hover-color           : @my-color;
-@p-level-2-hover-background      : @my-item-active-background;
-@p-level-2-active-color          : @my-color;
-@p-level-2-active-background     : @my-item-active-background;
-@p-level-2-shadow                : none;
-@p-level-2-border                : 0;
-@p-level-2-border-fallback       : 0;
-@p-level-2-border-radius         : 0;
-@p-level-2-border-bottom         : 1px solid #fff;
-@p-level-2-padding-y             : @my-padding-y;
-@p-level-2-padding-x             : @my-padding-x;
-
-// 3rd level
-@p-level-3-border-radius         : 0;
-@p-level-3-border-bottom         : 1px solid #fff;
-
-
-// Bootstrap Variable Overrides
-// ----------------------------------
-
-// --- Breakpoints override ---
-@grid-float-breakpoint           : @p-large-display-start;
-
 
 // Custom CSS rules for this example
 // ----------------------------------
 
+// Pushing content from top for more pretty styling
 body {
   margin-top: 60px;
 }
 
 // Remove mobile header on large displays
-// TODO accessibility
 .mobile-header {
 	@media (min-width: @p-large-display-start) {
 		display: none;
 	}
-}
-
-.js .pine {
-  @media (max-width: @p-small-display-end) {
-    position: fixed;
-  }
 }
