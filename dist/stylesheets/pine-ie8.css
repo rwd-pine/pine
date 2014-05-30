@@ -138,3 +138,10 @@
   left: 100%;
   width: 200px;
 }
+
+.js .pine-fixed-large {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+}
