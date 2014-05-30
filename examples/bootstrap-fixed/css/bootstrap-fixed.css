@@ -6126,6 +6126,33 @@ button.close {
     width: 200px;
   }
 }
+.js .pine-fixed {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+}
+@media (max-width: 1199px) {
+  .js .pine-fixed {
+    top: 51px;
+  }
+}
+@media (max-width: 1199px) {
+  .js .pine-fixed-small {
+    top: 51px;
+    left: 0;
+    position: fixed;
+    width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  .js .pine-fixed-large {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+  }
+}
 .pine-has-subnav > a,
 .pine-has-subnav > strong {
   position: relative;
