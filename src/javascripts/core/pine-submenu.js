@@ -15,7 +15,7 @@ var Pine = window.Pine || {}
 **/
 Pine.Submenu = (function($, window, undefined) { "use strict";
 
-  var version = '0.0.1',
+  var version = '0.5.0',
 
   // Timer delays hiding of the submenu. It improves usability.
   timer = null,
@@ -27,20 +27,14 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
   Submenu.toggle = function (e) {
     var $menu = $(e.currentTarget).closest('.pine-has-subnav'),
         transition = this.activeTransition && this.activeTransition.beforeToggle,
-        isActive = $menu.hasClass('pine-level-open');
+        isActive = e.data && e.data.isActive || $menu.hasClass('pine-level-open');
 
     e.preventDefault()
-    // e.stopPropagation()
 
     // Execute special pre-show hook
     if (transition && typeof transition === 'function') transition.call(e.currentTarget, isActive);
 
     if(!isActive) {
-      // if ('ontouchstart' in document.documentElement && !$menu.closest('.pine').length) {
-      //   // if mobile we use a backdrop because click events don't delegate
-      //   $('<div class="dropdown-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
-      // }
-
       $menu.trigger(e = $.Event('show')) /* show.submenu */
       $menu.addClass('pine-level-open').trigger('shown') /* shown.submenu */
 

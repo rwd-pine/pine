@@ -1,5 +1,5 @@
 /**
-* pine.js v0.0.1
+* pine-navigation.js v0.5.0
 */
 //
 // LOGGER
@@ -109,7 +109,7 @@ var Pine = window.Pine || {}
 **/
 Pine.Submenu = (function($, window, undefined) { "use strict";
 
-  var version = '0.0.1',
+  var version = '0.5.0',
 
   // Timer delays hiding of the submenu. It improves usability.
   timer = null,
@@ -121,20 +121,14 @@ Pine.Submenu = (function($, window, undefined) { "use strict";
   Submenu.toggle = function (e) {
     var $menu = $(e.currentTarget).closest('.pine-has-subnav'),
         transition = this.activeTransition && this.activeTransition.beforeToggle,
-        isActive = $menu.hasClass('pine-level-open');
+        isActive = e.data && e.data.isActive || $menu.hasClass('pine-level-open');
 
     e.preventDefault()
-    // e.stopPropagation()
 
     // Execute special pre-show hook
     if (transition && typeof transition === 'function') transition.call(e.currentTarget, isActive);
 
     if(!isActive) {
-      // if ('ontouchstart' in document.documentElement && !$menu.closest('.pine').length) {
-      //   // if mobile we use a backdrop because click events don't delegate
-      //   $('<div class="dropdown-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
-      // }
-
       $menu.trigger(e = $.Event('show')) /* show.submenu */
       $menu.addClass('pine-level-open').trigger('shown') /* shown.submenu */
 
@@ -200,7 +194,7 @@ var Pine = window.Pine || {}
 **/
 Pine.Navbar = (function ($, window, undefined) { "use strict";
 
-  var version = '0.0.1',
+  var version = '0.5.0',
 
   Navbar = {};
 
@@ -404,6 +398,17 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
     this.transitions[name] = obj
   };
 
+  /**
+    Handles necessary things before toggle.
+  **/
+  Navbar.beforeTransition = function (currentTarget, isActive) {
+    var transition = this.activeTransition && this.activeTransition.beforeToggle;
+
+    // Execute special pre-show/pre-hide hook
+    if (transition && typeof transition === 'function') transition.call(currentTarget, isActive);
+  }
+
+
   return Navbar;
 
 }(window.jQuery, window));
@@ -412,11 +417,15 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
 // DESKTOP TRANSITION: HOVER
 // -------------------------
 var pine_fx_hover = {
+
+  // Method: onSwitch is executed when change of view on navbar occurs
+  // -------------
   onSwitch: function(switchCondition){
     if (switchCondition) {
       // Add 'mouse' listeners and disable 'click.submenu'
       $(document)
-        .on({'mouseenter.pine': $.proxy(Pine.Submenu.toggle, this), 'mouseleave.pine': $.proxy(Pine.Submenu.toggle, this)}, this.SUBMENU)
+        .on('mouseenter.pine', this.SUBMENU, { isActive: false }, $.proxy(Pine.Submenu.toggle, this))
+        .on('mouseleave.pine', this.SUBMENU, { isActive: true }, $.proxy(Pine.Submenu.toggle, this))
         .off('click.pine')
     }
     else {
@@ -427,7 +436,10 @@ var pine_fx_hover = {
         .on('click.pine', this.SUBMENU + ' > a', $.proxy(Pine.Submenu.toggle, this))
     }
   },
-  onToggle: function(isActive){}
+
+  // Method: beforeToggle handles effects and any manipulation before 'toogle'
+  // -------------
+  beforeToggle: function(isActive){}
 };
 
 Pine.Navbar.registerTransition('fx-hover', pine_fx_hover);

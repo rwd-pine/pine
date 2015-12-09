@@ -3,6 +3,9 @@
 module.exports = function(grunt) {
   "use strict";
 
+  // Load the plugins
+  require('load-grunt-tasks')(grunt);
+
   // Project configuration.
   grunt.initConfig({
 
@@ -193,17 +196,8 @@ module.exports = function(grunt) {
   });
 
 
-  // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-compress');
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-legacssy');
-  grunt.loadNpmTasks('grunt-contrib-csslint');
-  grunt.loadNpmTasks('grunt-jekyll');
+  // TASKS
+  // -------------------------
 
   // Build Docs - Github pages
   // grunt.registerTask('build-github-pages', ['copy:docs', 'jekyll:github']);

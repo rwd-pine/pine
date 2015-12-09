@@ -45,7 +45,7 @@ var Pine = window.Pine || {}
 **/
 Pine.Navbar = (function ($, window, undefined) { "use strict";
 
-  var version = '0.0.1',
+  var version = '0.5.0',
 
   Navbar = {};
 
@@ -248,6 +248,17 @@ Pine.Navbar = (function ($, window, undefined) { "use strict";
   Navbar.registerTransition = function (name, obj) {
     this.transitions[name] = obj
   };
+
+  /**
+    Handles necessary things before toggle.
+  **/
+  Navbar.beforeTransition = function (currentTarget, isActive) {
+    var transition = this.activeTransition && this.activeTransition.beforeToggle;
+
+    // Execute special pre-show/pre-hide hook
+    if (transition && typeof transition === 'function') transition.call(currentTarget, isActive);
+  }
+
 
   return Navbar;
 
