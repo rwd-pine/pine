@@ -8,7 +8,7 @@ permalink:        pretty
 # Server
 source:           ./src/docs
 destination:      ./docs
-host:             0.0.0.0
+host:             localhost
 port:             9001
 baseurl:          ../../../../
 url:              http://localhost:9001
@@ -17,5 +17,5 @@ encoding:         UTF-8
 # exclude:          ['*.less']
 
 # Custom variables
-current_version:  0.0.1
+current_version:  0.5.0
 repo:             https://github.com/rwd-pine/pine.git
