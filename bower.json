@@ -1,7 +1,7 @@
 {
   "name": "pine-navigation",
   "description": "Tiny but powerfull responsive multilevel navigation component.",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "license": {
     "type": "MIT",
     "url": "https://github.com/rwd-pine/pine/blob/master/LICENCE"

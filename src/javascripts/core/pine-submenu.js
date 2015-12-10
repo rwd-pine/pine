@@ -15,7 +15,7 @@ var Pine = window.Pine || {}
 **/
 Pine.Submenu = (function($, window, undefined) { "use strict";
 
-  var version = '0.5.0',
+  var version = '0.5.1',
 
   // Timer delays hiding of the submenu. It improves usability.
   timer = null,
