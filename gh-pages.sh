@@ -16,7 +16,7 @@ echo ">> System: Creating local branch gh-pages for docs folder"
 git subtree split --prefix docs -b gh-pages
 
 echo ">> System: force the push of the gh-pages branch to the remote gh-pages branch at origin"
-git push -f origin gh-pages:gh-pages
+git push -f github gh-pages:gh-pages
 
 echo ">> System: delete the local gh-pages" 
 git branch -D gh-pages
