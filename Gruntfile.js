@@ -38,15 +38,6 @@ module.exports = function(grunt) {
     // },
 
     copy: {
-      javascript: {
-        files: [
-          { expand: true, cwd: 'bower_components/jquery', src: ['jquery.min.js'], dest: 'dist/javascripts', filter: 'isFile' },
-          { expand: true, cwd: 'bower_components/jquery-legacy', src: ['jquery.min.js'], dest: 'dist/javascripts/jquery-legacy', filter: 'isFile' },
-          { expand: true, cwd: 'bower_components/matchmedia/', src: ['matchmedia.js'], dest: 'src/javascripts/lib', filter: 'isFile' },
-          { expand: true, cwd: 'src/javascripts/lib/', src: ['matchmedia.js'], dest: 'dist/javascripts/', filter: 'isFile' },
-          { expand: true, cwd: 'bower_components/bootstrap/dist/js', src: ['bootstrap.min.js'], dest: 'dist/javascripts', filter: 'isFile' }
-        ]
-      },
       assets: {
         files: [
           { expand: true, cwd: 'src/assets', src: ['**'], dest: 'dist/assets' }
@@ -54,9 +45,13 @@ module.exports = function(grunt) {
       },
       styles: {
         files: [
-          { expand: true, cwd: 'bower_components/lesshat/build', src: ['lesshat.less'], dest: 'src/stylesheets/lib' },
-          { expand: true, cwd: 'bower_components/normalize-css/', src: ['normalize.css'], dest: 'dist/stylesheets' }
-          // { expand: true, cwd: 'bower_components/bootstrap/less', src: ['*.less'], dest: 'src/stylesheets/bootstrap' }
+          { expand: true, cwd: 'vendor/lesshat/build', src: ['lesshat.less'], dest: 'src/stylesheets/lib' },
+          { expand: true, cwd: 'vendor/normalize-css/', src: ['normalize.css'], dest: 'dist/stylesheets' }
+        ]
+      },
+      docs: {
+        files: [
+          { expand: true, cwd: 'dist/', src: ['**'], dest: 'docs' }
         ]
       }
     },
@@ -79,7 +74,7 @@ module.exports = function(grunt) {
           'src/javascripts/core/jquery-pine.js',
           'src/javascripts/app.js',
         ],
-        dest: 'dist/javascripts/pine.js'
+        dest: 'dist/javascripts/pine-navigation.js'
       }
     },
 
@@ -123,9 +118,9 @@ module.exports = function(grunt) {
         }
       },
 
-      pineDocs: {
+      docs: {
         files: {
-          'dist/stylesheets/docs.css': 'src/stylesheets/docs.less',
+          'docs/stylesheets/docs.css': 'src/stylesheets/docs.less',
           'docs/examples/bootstrap-fixed/css/bootstrap-fixed.css': 'docs/examples/bootstrap-fixed/css/bootstrap-fixed.less',
           'docs/examples/bootstrap-horizontal/css/bootstrap-horizontal.css': 'docs/examples/bootstrap-horizontal/css/bootstrap-horizontal.less',
           'docs/examples/bootstrap-vertical/css/bootstrap-vertical.css': 'docs/examples/bootstrap-vertical/css/bootstrap-vertical.less'
@@ -156,18 +151,13 @@ module.exports = function(grunt) {
 
     watch: {
       css: {
-        files: ['src/stylesheets/**/*.less', 'docs/**/*.less'],
+        files: ['src/stylesheets/**/*.less'],
         tasks: ['less', 'legacssy']
       },
       js: {
         files: 'src/javascripts/**/*.js',
         tasks: ['concat', 'uglify']
       }
-      // ,
-      // docs: {
-      //   files: ['src/docs/**/*.html'],
-      //   tasks: ['jekyll:docs']
-      // }
     },
 
     // Flatten media queries and generate special CSS for IE8
@@ -179,16 +169,7 @@ module.exports = function(grunt) {
           overridesOnly: true
         },
         files: {
-          'dist/stylesheets/pine-ie8.css': 'dist/stylesheets/pine.css'
-        }
-      }
-    },
-
-    jekyll: {
-      github: {},
-      docs: {
-        options: {
-          config: '_config.docs.yml'
+          'dist/stylesheets/<%= pkg.name %>-ie8.css': 'dist/stylesheets/<%= pkg.name %>.css'
         }
       }
     }
@@ -200,8 +181,7 @@ module.exports = function(grunt) {
   // -------------------------
 
   // Build Docs - Github pages
-  // grunt.registerTask('build-github-pages', ['copy:docs', 'jekyll:github']);
-  grunt.registerTask('build-docs', ['jekyll:docs']);
+  grunt.registerTask('build-docs', ['copy:docs', 'less:docs']);
 
   // JS distribution task.
   // TODO: Compress later grunt.registerTask('dist-js', ['concat', 'uglify', 'compress']);

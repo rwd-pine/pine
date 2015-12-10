@@ -33,7 +33,7 @@ PineJS installation is quite easy, just follow steps below.
 **1) Link CSS** from your HTML `<head>`:
 
 ```html
-<link rel="stylesheet" href="stylesheets/pine.css">
+<link rel="stylesheet" href="stylesheets/pine-navigation.css">
 ```
 
 **2) Markup small screen header** with button for navigation toggling:
@@ -70,7 +70,7 @@ Don't forget the classes `pine-level-…`, which indicates the level of nesting.
 
 ```html
 <script src="pine/javascripts/jquery.js"></script>
-<script src="pine/javascripts/pine.js"></script>
+<script src="pine/javascripts/pine-navigation.js"></script>
 ```
 
 **5) Hook up the plugin** in your Javascript file:
@@ -131,7 +131,7 @@ PineJS code is [Mobile First](http://bradfrostweb.com/blog/web/mobile-first-resp
 **2) `pine-ie8.css`** - if Respond.js doesn't fit your needs, add this CSS file in your HTML `<head>`. It contains all of the code hidden in the Media Queries:
 
 ```html
-<link href="stylesheets/pine-ie8.css" rel="stylesheet">
+<link href="stylesheets/pine-navigation-ie8.css" rel="stylesheet">
 ```
 
 ## Examples
